@@ -1,9 +1,9 @@
 # BluePlanet-Project
 
-Team Name: 
-Members: Mark, Dylan, and Kyle.
-Project Manager: Dylan Tucker
-Company: BluePlanet
+Team Name: Infinite Power 2045
+  Members: Mark, Dylan, and Kyle.
+  Project Manager: Dylan Tucker
+  Company: BluePlanet
 
 # Project Challenge
 
