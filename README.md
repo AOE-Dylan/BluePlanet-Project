@@ -35,6 +35,6 @@ Create Design Wireframes and Mockups.
     Create css file for store
     Create css file for map
   Create video demo
-  Create presentation
+  Create presentation 
   Stretch Goals
     Mutliplayer
