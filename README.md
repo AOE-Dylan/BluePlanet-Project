@@ -36,5 +36,5 @@ Style client-side app
     - Create css file for map
   - Create video demo
   - Create presentation 
-Stretch Goals
+- Stretch Goals
     - Mutliplayer
