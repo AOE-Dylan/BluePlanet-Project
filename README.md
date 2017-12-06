@@ -11,7 +11,7 @@ Our task is to create a technological solution that will raise awareness of foss
 
 # Project Proposal
 
-We will be using HTML, CSS, and Javascript to create a browser-based game.
+We will be using HTML, CSS, and Javascript to create a browser-based game that will educate and inspire people to take action to promote renewable energy.
 
 # Project Plan
 
