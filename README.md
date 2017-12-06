@@ -22,15 +22,15 @@ Create Design Wireframes and Mockups.
     - Design Mockup for home
     - Design Mockup for store
     - Design Mockup for map
-Set up project file structure
+- Set up project file structure
   - Determine workflow, who will be project manager and maintainer of repo
   - Determine directory and file naming conventions and locations
-Begin client-side development
+- Begin client-side development
     - Create HTML bases
-Begin server-side development
+- Begin server-side development
     - Create SQL Database
     - Create JS files
-Style client-side app
+- Style client-side app
     - Create css file for home
     - Create css file for store
     - Create css file for map
