@@ -1,6 +1,6 @@
 # BluePlanet-Project
 
-- Team Name: Infinite Power 2045
+- Team Name: Guardians of the Energy
 - Members: Mark, Dylan, and Kyle.
 - Project Manager: Dylan Tucker
 - Company: BluePlanet
