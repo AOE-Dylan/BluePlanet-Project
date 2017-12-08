@@ -21,12 +21,12 @@ Tech:
 MVP:
    - Homepage that displays map with different buildings
    - Store that sells upgrades for each building
-   - 1 hour of upgrades
-
+   - As many upgrades and buildings as possible (50 each?)
 
 Stretch Goals:
    - Special Upgrades
    - Challenges and Missions
+   - Game Modes (Easy, Medium, and Hard, Insane)
    - Mutliplayer
 
 
