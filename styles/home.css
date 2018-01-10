@@ -1,0 +1,9 @@
+body {
+  background-color: #C62B29;
+}
+
+#count, #click {
+  font-size: 25px;
+  display: fixed;
+  margin-left: 25%;
+}
