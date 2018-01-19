@@ -3,12 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/home.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Document</title>
 </head>
-<body>
+<body onload="on()">
+<div id="overlay">
+  <div class="powerPlant"></div>
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  <img id="drag1" src="powerplant.gif" draggable="true" ondragstart="drag(event)" width="336" height="69"></img>
+
+
+
+
+
+
+
+
+<div class="service-container">
+ <div class='service-title'>
+  <button class="service"><span>Open</span></button>
+  <button class="service" style="display:none;"><span>Close</span></button>
+  </div>
+   <div class='content' style='display:none;'>
+     <ul id="menu">
+       <li>
+         <div id="text">Earth</div>
+         <div id="auto"></div>
+       </li>
+       <li>
+         <div id="autoPower">Power Per Second: </div>
+       </li>
+       <li>
+         <div id="gen" onclick="off()">Generator</div>
+       </li>
+       <li><div id="shop">Shop</div></li>
+     </ul>
+   </div>
+</div>
+
+
+</div>
+
+<div class="area51">
   <div id="count"></div>
-  <img src="flashhh.jpg" id="click" onclick="counter()"></img>
+  <img src="clicker.gif" id="click" onclick="counter()"></img>
+  <div id="map" onload="on()" onclick="on()">Map</div>
+</div>
+
 </body>
 <script src="scripts/app.js"></script>
 </html>
