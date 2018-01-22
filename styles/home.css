@@ -1,7 +1,4 @@
 body {
-  background-image: url("room.jpg");
-  background-repeat: no-repeat;
-  background-size: auto;
 }
 
 #overlay {
@@ -23,7 +20,7 @@ body {
 
 #count, #click, #map {
   display: relative;
-  color: white;
+  color: black;
   font-size: 25px;
   margin: 2%;
 }
@@ -31,17 +28,19 @@ body {
 ul {
   list-style-type: none;
   margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
   position: fixed;
   bottom: 0;
-  left: 0;
-  margin-bottom: 100px;
-  background-color: white;
-  overflow: auto;
+  width: 100%;
 }
 
 li {
   color: black;
   display: block;
+  float: left;
+  padding: 20px;
 }
 
 li:hover {
@@ -73,11 +72,4 @@ li:hover {
   margin-top: 20%;
   margin-bottom: 20%;
   margin-left: 220%;
-}
-
-#div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    background-color: green;
 }
