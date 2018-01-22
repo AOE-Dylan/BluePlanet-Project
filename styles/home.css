@@ -43,6 +43,11 @@ li {
   padding: 20px;
 }
 
+li.active {
+    color: white;
+    background-color: #8AE8A1;
+}
+
 li:hover {
   color: white;
   background-color: #8AE8A1;
