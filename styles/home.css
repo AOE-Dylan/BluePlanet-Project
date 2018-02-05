@@ -33,19 +33,24 @@ ul {
   width: 100%;
 }
 
+.test {
+  margin-left: 100px;
+}
+
 li {
   color: black;
   display: block;
   float: left;
-  padding: 20px;
+  padding: 5px;
+  background-color: white;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .menuBlocks {
-  background-color: white;
-  padding: 20px 40px 20px 40px;
-  border-style: inset;
-  border-width: 3px;
-  border-color: black;
+  padding-right: 40px;
 }
 
 li.active {

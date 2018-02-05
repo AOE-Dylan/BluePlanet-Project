@@ -26,10 +26,17 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 
-let powerPlant = () => {
+let auto = () => {
+  return(clickValue + autoPower);
+  console.log(clickValue);
+};
+
+let pps = setInterval(auto, 1000);
+
+let addPower = () => {
   autoPower++
-  document.getElementById('auto').innerHTML = autoPower;
-  document.getElementById('auto').innerHTML = autoPower;
+  document.getElementById('pps').innerHTML = "Power Per Second:" + autoPower;
+  console.log(autoPower);
 };
 
 $(".service-title").on("click", ".service", function(e) {
