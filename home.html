@@ -15,18 +15,27 @@
 
 <ul id="menu">
     <li class="active">
-      <div id="text">Earth</div>
-      <div id="auto"></div>
+      <div class="menuBlocks">Earth</div>
     </li>
     <li>
-      <div id="autoPower">Power Per Second: </div>
+      <div class="menuBlocks" onclick="off()">Generator</div>
     </li>
+    <div class="dropdown">
+      <li>
+        <div class="menuBlocks">Shop</div>
+      </li>
+      <div class="dropcontent">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
     <li>
-      <div id="gen" onclick="off()">Generator</div>
+      <div class="menuBlocks">Help</div>
     </li>
-    <li><div id="shop">Shop</div>
-    </li>
-  </ul>
+</ul>
+
+<div id="pps">Power Per Second: X</div>
 
 
 
