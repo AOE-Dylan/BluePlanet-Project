@@ -17,7 +17,6 @@ let off = () => {
 let auto = () => {
   clickValue = clickValue + autoPower;
   document.getElementsByClassName('count')[0].innerHTML = 'Total Power: ' + clickValue;
-  document.getElementsByClassName('count')[1].innerHTML = 'Total Power: ' + clickValue;
   console.log(clickValue);
 };
 
@@ -26,7 +25,6 @@ setInterval(auto, 1000);
 let addPower = () => {
   autoPower++
   document.getElementsByClassName('pps')[0].innerHTML = "Power Per Second: " + autoPower;
-  document.getElementsByClassName('pps')[1].innerHTML = "Power Per Second: " + autoPower;
   console.log(autoPower);
 };
 

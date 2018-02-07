@@ -56,6 +56,9 @@ li {
   padding-right: 10px;
   font-family: 'Risque', cursive;
   font-size: 25px;
+  -moz-user-select: -moz-none;
+-khtml-user-select: none;
+-webkit-user-select: none;
 }
 
 
