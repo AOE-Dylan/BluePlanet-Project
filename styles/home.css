@@ -16,8 +16,7 @@
     z-index: 1;
 }
 
-.count, #click, #map {
-  display: relative;
+ #click, #map {
   color: black;
   font-size: 25px;
   margin: 2%;
@@ -54,9 +53,9 @@ li {
 }
 
 .menuBlocks {
-  padding-right: 40px;
+  padding-right: 10px;
   font-family: 'Risque', cursive;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 
@@ -69,18 +68,16 @@ li:hover {
 }
 
 .pps {
-  position:absolute;
-  display: fixed;
+  position: absolute;
   padding: 15px 30px 30px 15px;
   bottom: 0;
   right: 0;
 }
 
 .count {
-  position:absolute;
-  display: fixed;
+  position: absolute;
   padding: 15px 30px 30px 15px;
-  bottom: 0;
+  bottom: 20%;
   right: 0;
 }
 
