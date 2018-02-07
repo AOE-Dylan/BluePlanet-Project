@@ -15,7 +15,7 @@
     /*opacity: 0.5;*/
 }
 
-#count, #click, #map {
+.count, #click, #map {
   display: relative;
   color: black;
   font-size: 25px;
@@ -67,6 +67,14 @@ li:hover {
 }
 
 .pps {
+  position:absolute;
+  display: fixed;
+  padding: 15px 30px 30px 15px;
+  bottom: 0;
+  right: 0;
+}
+
+.count {
   position:absolute;
   display: fixed;
   padding: 15px 30px 30px 15px;

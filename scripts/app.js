@@ -3,7 +3,7 @@ let clickValue = 0;
 
 let counter = () => {
   clickValue++
-  document.getElementById('count').innerHTML = clickValue;
+  document.getElementsByClassName('count')[0].innerHTML = clickValue;
 };
 
 let on = () => {
@@ -16,7 +16,8 @@ let off = () => {
 
 let auto = () => {
   clickValue = clickValue + autoPower;
-  document.getElementById('count').innerHTML = clickValue;
+  document.getElementsByClassName('count')[0].innerHTML = clickValue;
+  document.getElementsByClassName('count')[1].innerHTML = clickValue;
   console.log(clickValue);
 };
 
