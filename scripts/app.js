@@ -1,5 +1,6 @@
 let autoPower = 0;
 let clickValue = 0;
+
 let counter = () => {
   clickValue++
   document.getElementById('count').innerHTML = clickValue;
@@ -12,38 +13,31 @@ let on = () => {
 let off = () => {
     document.getElementById("overlay").style.display = "none";
 };
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-}
 
 let auto = () => {
-  return(clickValue + autoPower);
+  clickValue = clickValue + autoPower;
+  document.getElementById('count').innerHTML = clickValue;
   console.log(clickValue);
 };
 
-let pps = setInterval(auto, 1000);
+setInterval(auto, 1000);
 
 let addPower = () => {
   autoPower++
-  document.getElementById('pps').innerHTML = "Power Per Second:" + autoPower;
+  document.getElementsByClassName('pps')[0].innerHTML = "Power Per Second:" + autoPower;
+  document.getElementsByClassName('pps')[1].innerHTML = "Power Per Second:" + autoPower;
   console.log(autoPower);
 };
 
-$(".service-title").on("click", ".service", function(e) {
-    $(".service-container")
-        .has($(".content:visible").add(this))
-        .find(".service").toggle().end()
-        .find(".content").slideToggle();
+let month = 1;
+let year = 2017;
 
-    e.preventDefault();
-});
+setInterval(monthCount, 8000);
+
+let monthCount = () => {
+  month++;
+  if (month === 12) {
+    month = 0;
+  };
+  document.getElementById('month').innerHTML = month;
+};

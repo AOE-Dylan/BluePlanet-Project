@@ -5,74 +5,71 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/home.css">
+  <link href="https://fonts.googleapis.com/css?family=Risque" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Document</title>
 </head>
+
 <body onload="on()">
-<div id="overlay">
-
-
-
-<ul id="menu">
-  <div class="test">
-    <li class="active">
-      <div class="menuBlocks">Earth</div>
-    </li>
-    <li>
-      <div class="menuBlocks" onclick="off()">Generator</div>
-    </li>
-    <div class="dropdown">
-      <li>
-        <div class="menuBlocks">Shop</div>
-      </li>
-      <div class="dropcontent">
-        <a id="shop1" onclick="addPower()">Buy PowerPlant</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+  <div id="overlay">
+    <ul class="menu">
+      <div class="test">
+        <li class="active">
+          <div class="menuBlocks">Earth</div>
+        </li>
+        <li onclick="off()">
+          <div class="menuBlocks">Generator</div>
+        </li>
+        <div class="dropdown">
+          <li>
+            <div class="menuBlocks">Shop</div>
+          </li>
+          <div class="dropcontent">
+            <a class="shop1" onclick="addPower()">Buy PowerPlant</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+        <li>
+          <div class="menuBlocks">Help</div>
+        </li>
       </div>
-    </div>
-    <li>
-      <div class="menuBlocks">Help</div>
-    </li>
+    </ul>
+
+    <div class="pps"></div>
   </div>
-</ul>
 
-<div id="pps">Power Per Second: X</div>
+  <div class="area51">
+    <div id="count"></div>
+    <img src="clicker.gif" id="click" onclick="counter()"></img>
+    <div id="map" onload="on()" onclick="on()">Map</div>
 
-
-
-
-<!-- <div class="service-container">
- <div class='service-title'>
-  <button class="service"><span>Open</span></button>
-  <button class="service" style="display:none;"><span>Close</span></button>
+    <ul class="menu">
+      <div class="test">
+        <li onclick="on()">
+          <div class="menuBlocks">Earth</div>
+        </li>
+        <li class="active">
+          <div class="menuBlocks">Generator</div>
+        </li>
+        <div class="dropdown">
+          <li>
+            <div class="menuBlocks">Shop</div>
+          </li>
+          <div class="dropcontent">
+            <a class="shop1" onclick="addPower()">Buy PowerPlant</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+        <li>
+          <div class="menuBlocks">Help</div>
+        </li>
+      </div>
+    </ul>
+    <div class="pps"></div>
   </div>
-   <div class='content' style='display:none;'>
-     <ul id="menu">
-       <li>
-         <div id="text">Earth</div>
-         <div id="auto"></div>
-       </li>
-       <li>
-         <div id="autoPower">Power Per Second: </div>
-       </li>
-       <li>
-         <div id="gen" onclick="off()">Generator</div>
-       </li>
-       <li><div id="shop">Shop</div></li>
-     </ul>
-   </div>
-</div> -->
-
-
-</div>
-
-<div class="area51">
-  <div id="count"></div>
-  <img src="clicker.gif" id="click" onclick="counter()"></img>
-  <div id="map" onload="on()" onclick="on()">Map</div>
-</div>
-
 </body>
+
 <script src="scripts/app.js"></script>
 </html>

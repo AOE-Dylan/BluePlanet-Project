@@ -25,33 +25,38 @@
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   overflow: hidden;
   background-color:	#CD853F;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
 }
 
 .test {
-  margin-left: 100px;
+  margin: 0 auto;
 }
 
 li {
   color: black;
   display: block;
   float: left;
-  padding: 5px;
+  padding: 15px;
   background-color: white;
   border-right: 1px solid black;
   border-left: 1px solid black;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+  cursor: pointer;
 }
 
 .menuBlocks {
   padding-right: 40px;
+  font-family: 'Risque', cursive;
+  font-size: 20px;
 }
+
 
 li.active {
     color: #3f51b5;
@@ -61,7 +66,7 @@ li:hover {
   color: #3f51b5;
 }
 
-#pps {
+.pps {
   position:absolute;
   display: fixed;
   padding: 15px 30px 30px 15px;
@@ -81,8 +86,8 @@ li:hover {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  bottom: 50px;
-  z-index: 2;
+    bottom: 50px;
+    z-index: 2;
 }
 
 .dropdown:hover .dropcontent {
