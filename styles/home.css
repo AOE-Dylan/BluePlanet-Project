@@ -1,19 +1,38 @@
 #overlay {
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
     right: 0;
     bottom: 0;
     z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
-    background-image: url("geography.png");
-    background-repeat: no-repeat;
-    background-size: 1440px 900px;
-    /*opacity: 0.5;*/
+    background-color: grey;
+    opacity: 0.8;
     z-index: 1;
+}
+
+.bubble {
+  opacity: 0.8;
+}
+
+#pb {
+  position: fixed;
+  display: block;
+  width: 5%;
+  height: 40%;
+  top: 5%;
+  left: 90%;
+  right: 0;
+  bottom: 0;
+  border-right: 4px inset black;
+  border-left: 4px inset black;
+  border-top: 4px inset black;
+  border-bottom: 4px inset black;
+  background-color: lime;
+  background-size:
 }
 
  #click, #map {
@@ -22,7 +41,24 @@
   margin: 2%;
 }
 
-ul {
+#reward {
+  font-family: 'Risque', cursive;
+  font-size: 25px;
+  text-align: center;
+  padding: 20px;
+}
+
+.energy {
+  padding: 30px;
+  color: green;
+}
+
+body {
+  background-image: url("geography.png");
+  background-size: 1440px 920px;
+}
+
+/* ul {
   list-style-type: none;
   margin: 0;
   padding: 10px;
@@ -59,7 +95,7 @@ li {
   -moz-user-select: -moz-none;
 -khtml-user-select: none;
 -webkit-user-select: none;
-}
+} */
 
 
 li.active {
