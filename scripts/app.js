@@ -14,29 +14,52 @@ let off = () => {
     document.getElementById("overlay").style.display = "none";
 };
 
-let auto = () => {
-  clickValue = clickValue + autoPower;
-  document.getElementsByClassName('count')[0].innerHTML = 'Total Power: ' + clickValue;
-  console.log(clickValue);
+let pulse = () => {
+  document.getElementById('bubble').style.opacity = 1;
 };
 
-setInterval(auto, 1000);
+setInterval(pulse, 1000);
 
-let addPower = () => {
-  autoPower++
-  document.getElementsByClassName('pps')[0].innerHTML = "Power Per Second: " + autoPower;
-  console.log(autoPower);
+let pulse1 = () => {
+  document.getElementById('bubble').style.opacity = 0.8;
 };
 
-let month = 1;
-let year = 2017;
+setTimeout(pulse1, 1000);
+setInterval(pulse1, 1000);
 
-setInterval(monthCount, 8000);
+ let appear = () => {
 
-let monthCount = () => {
-  month++;
-  if (month === 12) {
-    month = 0;
-  };
-  document.getElementById('month').innerHTML = month;
+
+
+ };
+
+setInterval(appear, 2000);
+
+let disappear = () => {
+
+
+
 };
+
+setInterval(disappear, 5000);
+
+let amnt = 0;
+
+ let addPower = () => {
+   amnt = amnt + 20;
+   document.getElementById('pb').style.backgroundSize = "50px" + amnt + "px";
+   console.log(amnt);
+ };
+
+// let month = 1;
+// let year = 2017;
+//
+// setInterval(monthCount, 8000);
+//
+// let monthCount = () => {
+//   month++;
+//   if (month === 12) {
+//     month = 0;
+//   };
+//   document.getElementById('month').innerHTML = month;
+// };

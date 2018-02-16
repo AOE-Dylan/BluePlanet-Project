@@ -10,11 +10,23 @@
   <title>Document</title>
 </head>
 
-<body onload="on()">
+<body onload="on()" onclick="off()">
+  <svg id="bubble" height="100" width="100">
+    <defs>
+      <filter id="f1" x="0" y="0">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+      </filter>
+    </defs>
+    <circle cx="50" cy="50" r="30" stroke="green" stroke-width="1" fill="lime" filter="url(#f1)" />
+  </svg>
+  <div id="pb"></div>
   <div id="overlay">
+    <div id="reward">
+      Level Complete!
+      <div class="energy">$$$$$$</div>
+    </div>
   </div>
-
-  <ul class="menu">
+  <!-- <ul class="menu">
     <div class="test">
       <li onclick="on()">
         <div class="menuBlocks">Earth</div>
@@ -36,11 +48,7 @@
     </div>
     <div class="count"></div>
     <div class="pps"></div>
-  </ul>
-
-  <div class="area51">
-    <img src="clicker.gif" id="click" onclick="counter()"></img>
-  </div>
+  </ul> -->
 
 </body>
 
