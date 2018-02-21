@@ -15,8 +15,37 @@
 }
 
 .bubble {
-  opacity: 0.8;
+  top: 20%;
+  left: 30%;
+  height: 5%;
+  width: 5%;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  display: block;
+  position: fixed;
+  background-image: url("lightningBallGood.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
 }
+
+.bubbleB {
+  top: 30%;
+  left: 40%;
+  height: 5%;
+  width: 5%;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  display: block;
+  position: fixed;
+  background-image: url("lightningBallBad.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
 
 #pb {
   position: fixed;
@@ -54,9 +83,44 @@
 }
 
 body {
-  background-image: url("geography.png");
-  background-size: 1440px 920px;
+  background-image: url("hawaii.jpg");
+  background-size: 2440px 1920px;
 }
+
+.test {
+   position: absolute;
+   width: 600px;
+   height: 400px;
+   left: 0px;
+   background-image: url("hawaii.jpg");
+   background-size: 1000px;
+   -webkit-animation: base linear 20s infinite;
+   background-position-x: 0px;
+   background-position-y: 50%;
+}
+
+.test:after {
+    content: "";
+    position: absolute;
+    left: 200px;
+    width: 200px;
+    top: 100px;
+    height: 200px;
+    border-radius: 50%;
+    background: inherit;
+    -webkit-transform: scale(1.1);
+    -webkit-animation: inherit;
+    -webkit-animation-delay: -4s;
+}
+
+
+@-webkit-keyframes base {
+ 0% {     background-position-x: 0px;
+   }
+   100% {    background-position-x: -1000px;
+   }
+}
+
 
 /* ul {
   list-style-type: none;

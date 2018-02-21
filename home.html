@@ -11,46 +11,59 @@
 </head>
 
 <body onload="on()" onclick="off()">
-  <svg id="bubble" height="100" width="100">
-    <defs>
-      <filter id="f1" x="0" y="0">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
-      </filter>
-    </defs>
-    <circle cx="50" cy="50" r="30" stroke="green" stroke-width="1" fill="lime" filter="url(#f1)" />
-  </svg>
+  <div class="test"></div>
+  <div id="bubbleGrid">
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+    <div class="bub"></div>
+  </div>
   <div id="pb"></div>
   <div id="overlay">
-    <div id="reward">
-      Level Complete!
-      <div class="energy">$$$$$$</div>
-    </div>
-  </div>
-  <!-- <ul class="menu">
-    <div class="test">
-      <li onclick="on()">
-        <div class="menuBlocks">Earth</div>
-      </li>
-      <li onclick="off()">
-        <div class="menuBlocks">Generator</div>
-      </li>
-      <div class="dropdown">
-        <li>
-          <div class="menuBlocks">Shop</div>
-        </li>
-        <div class="dropcontent">
-          <a class="shop1" onclick="addPower()">Buy PowerPlant</a>
-        </div>
-      </div>
-      <li>
-        <div class="menuBlocks">Help</div>
-      </li>
-    </div>
-    <div class="count"></div>
-    <div class="pps"></div>
-  </ul> -->
 
 </body>
 
 <script src="scripts/app.js"></script>
 </html>
+
+<!-- <div id="reward">
+  Level Complete!
+  <div class="energy">$$$$$$</div>
+</div>
+</div> -->
+<!-- <ul class="menu">
+<div class="test">
+  <li onclick="on()">
+    <div class="menuBlocks">Earth</div>
+  </li>
+  <li onclick="off()">
+    <div class="menuBlocks">Generator</div>
+  </li>
+  <div class="dropdown">
+    <li>
+      <div class="menuBlocks">Shop</div>
+    </li>
+    <div class="dropcontent">
+      <a class="shop1" onclick="addPower()">Buy PowerPlant</a>
+    </div>
+  </div>
+  <li>
+    <div class="menuBlocks">Help</div>
+  </li>
+</div>
+<div class="count"></div>
+<div class="pps"></div>
+</ul> -->
