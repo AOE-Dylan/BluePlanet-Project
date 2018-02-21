@@ -15,8 +15,6 @@
 }
 
 .bubble {
-  top: 20%;
-  left: 30%;
   height: 5%;
   width: 5%;
   -moz-border-radius: 20px;
@@ -24,15 +22,12 @@
   border-radius: 20px;
   display: block;
   position: fixed;
-  background-image: url("lightningBallGood.gif");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
 }
 
 .bubbleB {
-  top: 30%;
-  left: 40%;
   height: 5%;
   width: 5%;
   -moz-border-radius: 20px;
@@ -40,7 +35,6 @@
   border-radius: 20px;
   display: block;
   position: fixed;
-  background-image: url("lightningBallBad.gif");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
@@ -213,6 +207,12 @@ li:hover {
   margin-left: 220%;
 }
 
-#coordPlane {
-  border: 1px solid black;
+.bubCon {
+  display: inline-flex;
+  position: relative;
+  float: left;
+}
+
+.bubGrid {
+  margin: 20px;
 }
