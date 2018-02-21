@@ -148,3 +148,7 @@ li:hover {
   margin-bottom: 20%;
   margin-left: 220%;
 }
+
+#coordPlane {
+  border: 1px solid black;
+}
