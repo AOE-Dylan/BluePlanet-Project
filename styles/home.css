@@ -60,11 +60,11 @@ body {
    width: 100%;
    height: 100%;
    left: 0px;
-   margin-top: -20px;
    background-image: url("hawaii.jpg");
    background-size: 1340px 920px;
    animation-name: zoom;
    animation-duration: 10s;
+   animation-delay: 4s;
    animation-fill-mode: forwards;
    object-fit: cover;
 }
