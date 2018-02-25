@@ -51,6 +51,15 @@ img {
   padding: 20px;
 }
 
+#date, #timer {
+  font-family: 'Risque', cursive;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+  color: #0066ff;
+  /* background-image: url(); */
+}
+
 body {
   margin: 0;
 }
@@ -61,11 +70,11 @@ body {
    height: 100%;
    left: 0px;
    background-image: url("hawaii.jpg");
-   background-size: 1340px 920px;
+   background-size: 83.750em 57.500em;
    animation-name: zoom;
    animation-duration: 10s;
    animation-delay: 4s;
-   animation-fill-mode: forwards;
+   /* animation-fill-mode: forwards; */
    object-fit: cover;
 }
 
@@ -73,22 +82,12 @@ body {
   0% {
     background-position-x: 0%;
     background-position-y: 0%;
-    background-size: 1340px 920px;
+    background-size: 83.750em 57.500em;
   }
 
   100% {
     background-position-y: 32%;
     background-position-x: 42.2%;
-    background-size: 7340px 4920px;
+    background-size: 458.750em 307.500em;
   }
-}
-
-.bubCon {
-  display: inline-flex;
-  position: relative;
-  float: left;
-}
-
-.bubGrid {
-  margin: 20px;
 }

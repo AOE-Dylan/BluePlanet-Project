@@ -15,27 +15,25 @@ let off = () => {
 };
 
 let disappear = (id) => {
+
   document.getElementById(id).style.display = "none";
 };
 
+let month = 1;
+let year = 2017;
+let timer = 120;
 
-let amnt = 0;
+let monthCount = () => {
+   if (month === 12) {
+      month = 1,
+      year  = year + 1;
+   } else {
+     month = month + 1;
+   }
+   document.getElementById('date').innerHTML = month + " - " + year;
+};
 
- let addPower = () => {
-   amnt = amnt + 20;
-   document.getElementById('pb').style.backgroundSize = "50px" + amnt + "px";
-   console.log(amnt);
- };
+setInterval(monthCount, 1000);
 
-// let month = 1;
-// let year = 2017;
-//
-// setInterval(monthCount, 8000);
-//
-// let monthCount = () => {
-//   month++;
-//   if (month === 12) {
-//     month = 0;
-//   };
-//   document.getElementById('month').innerHTML = month;
-// };
+// timer--,
+// document.getElementById('timer').innerHTML = timer;,
