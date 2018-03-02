@@ -16,10 +16,13 @@ randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
-  console.log( $("#container").availHeight)
   $('#map').append($(`<img class="bubble" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
 }
 
 startGame = () => {
   setInterval(randomButton, 300)
+}
+
+timeCheck = () => {
+
 }
