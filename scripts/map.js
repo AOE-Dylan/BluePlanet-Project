@@ -23,5 +23,3 @@ randomButton = () => {
 startGame = () => {
   setInterval(randomButton, 0000)
 }
-
-startGame();
