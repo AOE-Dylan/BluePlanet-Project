@@ -9,7 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Document</title>
 </head>
-<body onclick="off()" id="container">
+<body onload="on()" onclick="off()" id="container">
   <div class="test">
     <div id="date">1 - 2017</div>
   </div>
@@ -19,7 +19,7 @@
   <div id="overlay">
     <div id="reward">
       Level Complete!
-      <div class="energy">Interesting Facts and Stats</div>
+      <div class="energy" onclick="startGame()">Start Game</div>
     </div>
   </div>
   <div id="timer">120</div>
