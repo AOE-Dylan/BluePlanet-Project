@@ -35,7 +35,7 @@ startButton.addEventListener("click", function() {
 
     settings.addEventListener("click", function() {
       clearInterval(bubbleGenerate);
-      console.log('Settings Menu Opened, Stopped Generating');
+      console.log('Stopped Generating');
     });
 
     $('.menuClose').click(function() {
