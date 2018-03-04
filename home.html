@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles/home.css">
-  <link rel="stylesheet" href="styles/menu.css">
-  <link href="https://fonts.googleapis.com/css?family=Risque" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:900" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>BluePlanet Foundation</title>
 </head>
+
 <body onclick="off()" id="container">
-
-
-<div id="background">
-<body onload="on()" onclick="off()" id="container">
-  <div class="test">
-    <div id="date">1 - 2017</div>
-  </div>
-  <div id="map">
-  </div>
-  <div id="overlay">
-    <div id="reward">
-      Level Complete!
-      <div class="energy" onclick="startGame()">Start Game</div>
+    <div id="background">
+        <body onload="on()" onclick="off()" id="container">
+            <div class="test">
+                <div id="date">1 - 2017</div>
+            </div>
+            <div id="map">
+            </div>
+            <div id="overlay">
+                <div id="reward">
+                    Level Complete!
+                    <div class="energy" onclick="startGame()">Start Game</div>
+                </div>
+            </div>
+            <div id="timer">120</div>
     </div>
-  </div>
 
-  <div id="timer">120</div>
-</div>
+    <div id="roundsBox">
+        <h1>ROUND</h1></div>
 
-<div class="navbar">
-  <li id="settings">Settings</li>
-</div>
+        <div id="myProgress">
+      <div id="myBar"></div>
+    </div>
+    
+    <div class="navbar">
+        <div id="settingsButton">SETTINGS</div>
+        <div id="informationButton">INFORMATION</div>
+        <div id="gameTitle">Infinite Power 2045</div>
+    </div>
 
-<div id="box">
-   <a class="boxclose" id="boxclose"></a>
-   <h1>settings</h1>
-</div>
+    <div id="settingsMenu">
+        <a class="boxClose menuClose"></a>
+        <h1>SETTINGS</h1>
+    </div>
 
-<script src="scripts/app.js"></script>
-<script src="scripts/map.js"></script>
-<script src="scripts/menus.js"></script>
-</body>
+    <div id="informationMenu">
+        <a class="boxClose menuClose"></a>
+        <h1>INFORMATION</h1>
+    </div>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/menus.js"></script>
+    </body>
+
 </html>
