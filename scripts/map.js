@@ -23,6 +23,3 @@ startGame = () => {
   setInterval(randomButton, 300)
 }
 
-timeCheck = () => {
-
-}
