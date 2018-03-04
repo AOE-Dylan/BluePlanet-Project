@@ -20,23 +20,41 @@ randomButton = () => {
 }
 
 var bubbleGenerate;
-startGame = () => {
-  var bubbleGenerate =  setInterval(randomButton, 2000);
-}
-
-startGame();
-
-
+var gameStart = 0;
 var background = document.getElementById('background')
+var startButton = document.getElementById('startButton')
 var settings = document.getElementById('settingsButton');
 var settingsMenu = document.getElementById('settingsMenu');
 var information = document.getElementById('informationButton');
 var informationMenu = document.getElementById('informationMenu');
 
+startButton.addEventListener("click", function() {
+    var bubbleGenerate =  setInterval(randomButton, 1000);
+    console.log('started');
+    var gameStart = 1;
+
+    settings.addEventListener("click", function() {
+      clearInterval(bubbleGenerate);
+      console.log('Stopped Generating'); bn
+    });
+
+    $('.menuClose').click(function() {
+      if(gameStart == 1){
+        var bubbleGenerate = setInterval(randomButton, 1000);
+      };
+
+    });
+
+    information.addEventListener("click", function() {
+      clearInterval(bubbleGenerate);
+      console.log('Stopped Generating');
+    });
+
+    });
+
 settings.addEventListener("click", function() {
     settingsMenu.style.display = "block";
     background.style.filter = "blur(15px)";
-    clearInterval(bubbleGenerate);
 
     if(informationMenu.style.display == "block"){
       informationMenu.style.display = "none";
@@ -47,12 +65,6 @@ settings.addEventListener("click", function() {
         background.style.filter = "blur(0px)";
     });
 
-});
-
-
-$('.menuClose').click(function() {
-    background.style.filter = "blur(0px)";
-    settingsMenu.style.display = "none";
 });
 
 information.addEventListener("click", function() {
@@ -69,6 +81,11 @@ information.addEventListener("click", function() {
     });
 
 });
+
+$('.menuClose').click(function() {
+    background.style.filter = "blur(0px)";
+    settingsMenu.style.display = "none";
+  });
 
 $('.menuClose').click(function() {
     background.style.filter = "blur(0px)";
