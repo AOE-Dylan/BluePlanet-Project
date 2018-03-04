@@ -79,8 +79,8 @@
 
 a.boxClose{
     float:right;
-    margin-top:-30px;
-    margin-right:-30px;
+    margin-top:-40px;
+    margin-right:-60px;
     cursor:pointer;
     color: black;
     border: 1px solid #AEAEAE;
@@ -90,7 +90,7 @@ a.boxClose{
     font-weight: bold;
     display: inline-block;
     line-height: 0px;
-    padding: 11px;
+    padding: 30px;
 }
 
 a.boxClose:hover {
@@ -249,4 +249,5 @@ a.boxClose:hover {
     -webkit-user-select: none;
     -o-user-select: none;
     cursor: pointer;
+    color: red;
 }
