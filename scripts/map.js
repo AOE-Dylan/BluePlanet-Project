@@ -6,7 +6,7 @@ yCoord = () => {
   return Math.floor(Math.random() * $(".test").width() - 20)
 }
 
-let images = ["styles/lightningBallBad.gif", "styles/lightningBallGood.gif"];
+let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
 
 randomImg = () => {
   return (Math.floor(Math.random() * images.length) + 0)
