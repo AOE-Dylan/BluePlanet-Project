@@ -30,24 +30,25 @@ var informationMenu = document.getElementById('informationMenu');
 
 startButton.addEventListener("click", function() {
     var bubbleGenerate =  setInterval(randomButton, 1000);
-    console.log('started');
+    console.log('Game Started');
     var gameStart = 1;
 
     settings.addEventListener("click", function() {
       clearInterval(bubbleGenerate);
-      console.log('Stopped Generating'); bn
+      console.log('Stopped Generating');
     });
 
     $('.menuClose').click(function() {
       if(gameStart == 1){
         var bubbleGenerate = setInterval(randomButton, 1000);
+        console.log('Menu Closed, Starting Generating');
       };
 
     });
 
     information.addEventListener("click", function() {
       clearInterval(bubbleGenerate);
-      console.log('Stopped Generating');
+      console.log('Information Menu Opeened, Stopped Generating');
     });
 
     });
