@@ -14,6 +14,7 @@
 
 <body onclick="off()" id="container">
     <div id="background">
+
         <body onload="on()" onclick="off()" id="container">
             <div class="test">
                 <div id="date">1 - 2017</div>
@@ -29,13 +30,51 @@
             <div id="timer">120</div>
     </div>
 
-    <div id="roundsBox">
-        <h1>ROUND</h1></div>
+    <div id="roundBarsContainer">
+        <div id="roundsBox">
+            <h1>ROUND</h1>
+          <div id="changeatt">CLICK TO TEST FOR PROGRESS BARS</div></div>
 
-        <div id="myProgress">
-      <div id="myBar"></div>
+        <div id="renewableProgressBar">
+            <div class="barBackground">
+                <p class="title">RENEWABLE</p>
+                <div id="renewable-bar">
+                    <div class="attendance-level">
+                        <div class="bar-1"></div>
+                        <div class="bar-2"></div>
+                        <div class="bar-3"></div>
+                        <div class="bar-4"></div>
+                        <div class="bar-5"></div>
+                        <div class="bar-6"></div>
+                        <div class="bar-7"></div>
+                        <div class="bar-8"></div>
+                        <div class="bar-9"></div>
+                    </div>
+                    <div id="renewableProgress"></div>
+                </div>
+            </div>
+        </div>
+        <div id="nonRenewableProgressBar">
+            <div class="barBackground">
+                <p class="title">NON</p>
+                <div id="nonRenewable-bar">
+                    <div class="attendance-level">
+                        <div class="bar-1"></div>
+                        <div class="bar-2"></div>
+                        <div class="bar-3"></div>
+                        <div class="bar-4"></div>
+                        <div class="bar-5"></div>
+                        <div class="bar-6"></div>
+                        <div class="bar-7"></div>
+                        <div class="bar-8"></div>
+                        <div class="bar-9"></div>
+                    </div>
+                    <div id="nonRenewableProgress"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
     <div class="navbar">
         <div id="settingsButton">SETTINGS</div>
         <div id="informationButton">INFORMATION</div>
