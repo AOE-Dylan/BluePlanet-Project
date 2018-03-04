@@ -14,17 +14,13 @@
     z-index: 0;
 }
 
-img {
+.bubble {
   height: 5%;
   width: 5%;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   border-radius: 20px;
-  display: block;
-  position: fixed;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  cursor: pointer;
+  position: absolute;
 }
 
 #pb {
@@ -72,11 +68,11 @@ body {
    height: 100%;
    left: 0px;
    background-image: url("hawaii.jpg");
-   background-size: 83.750em 57.500em;
+   background-size: 100vw 100vh;
    animation-name: zoom;
    animation-duration: 10s;
    animation-delay: 4s;
-   /* animation-fill-mode: forwards; */
+   animation-fill-mode: forwards;
    object-fit: cover;
 }
 

@@ -10,6 +10,8 @@ let on = () => {
     document.getElementById("overlay").style.display = "block";
 };
 
+setTimeout(on, 14000);
+
 let off = () => {
     document.getElementById("overlay").style.display = "none";
 };
