@@ -41,9 +41,12 @@ information.addEventListener("click", function() {
 
 });
 
-
 $('.menuClose').click(function() {
     background.style.filter = "blur(0px)";
     informationMenu.style.display = "none";
-    console.log('buttio')
+});
+
+$('#changeatt').click(function(){
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
+    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
 });

@@ -1,30 +1,3 @@
-#roundsBox{
-  position: fixed; /*it can be fixed too*/
-  top: 0;
-  right: 0;
-  margin: auto;
-  width:10%;
-  height:10%;
-  opacity: 0.8;
-  background-color: #0098a4;
-  color: white;
-  padding:20px;
-  border:2px solid #ccc;
-  -moz-box-shadow: 0 1px 5px #333;
-  -webkit-box-shadow: 0 1px 5px #333;
-}
-
-#myProgress {
-  width: 100%;
-  background-color: white;
-}
-
-#myBar {
-  width: 1%;
-  height: 30px;
-  background-color: black;
-}
-
 .navbar {
   overflow: hidden;
   background-color: #0098a4;
@@ -32,10 +5,12 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  text-align: center;
 }
 
 #gameTitle {
   color: white;
+  display: inline-block;
   text-align: center;
   padding: 14px;
   text-decoration: none;
@@ -46,6 +21,10 @@
   -ms-user-select: none;
   user-select: none;
   font-family: 'Cinzel', serif;
+}
+
+#gameTitle:hover {
+  color: #97ca3d;
 }
 
 #settingsButton, #informationButton {
@@ -95,6 +74,7 @@
 #settingsMenu, #informationMenu h1 {
   text-align: center;
   user-select: none;
+  font-size: 30px;
 }
 
 a.boxClose{
@@ -104,7 +84,7 @@ a.boxClose{
     cursor:pointer;
     color: black;
     border: 1px solid #AEAEAE;
-    border-radius: 30px;
+    border-radius: 50%;
     background: white;
     font-size: 31px;
     font-weight: bold;
@@ -120,4 +100,153 @@ a.boxClose:hover {
 .boxClose:before {
     content: "×";
 
+}
+
+#roundBarsContainer {
+}
+
+#roundsBox{
+  position: fixed; /*it can be fixed too*/
+  top: 0;
+  right: 0;
+  margin: auto;
+  width:10%;
+  height:10%;
+  opacity: 0.8;
+  background-color: #0098a4;
+  color: white;
+  padding:20px;
+  border:2px solid #ccc;
+  -moz-box-shadow: 0 1px 5px #333;
+  -webkit-box-shadow: 0 1px 5px #333;
+}
+
+#renewableProgressBar{
+    width:100px;
+    height:350px;
+    position: fixed;
+    top: 0;
+    right: 100px;
+    margin-top: 135px;
+}
+
+#nonRenewableProgressBar{
+    width:100px;
+    height:350px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 135px;
+}
+
+.barBackground{
+	width:90%;
+    float:left;
+	background-color: #0098a4;
+	margin:7px 5% 5px 5%;
+	padding-bottom:10px;
+	border:2px solid #ccc;
+}
+
+.barBackground .title{
+    font-family:"Arial";
+	color:white;
+	font-size:9pt;
+    font-weight:bold;
+	text-align:center;
+	padding:15px 0px 5px 0px;
+}
+
+#renewable-bar{
+  float:left;
+	width:90%;
+	margin:0px 5% 0px 5%;
+	height:260px;
+	background-color: white;
+}
+
+#nonRenewable-bar{
+  float:left;
+	width:90%;
+	margin:0px 5% 0px 5%;
+	height:260px;
+	background-color: white;
+}
+
+#renewableProgress {
+	  width:81px;
+    float:left;
+    background-color:#6ae719;
+    height:5px;
+    position: absolute;
+    bottom: 23px;
+    z-index: 1;
+}
+
+#nonRenewableProgress {
+	  width:81px;
+    float:left;
+    background-color: red;
+    height:5px;
+    position: absolute;
+    bottom: 23px;
+    z-index: 1;
+}
+
+.bar-2, .bar-3, .bar-4, .bar-5, .bar-6, .bar-7, .bar-8, .bar-9{
+	float:left;
+	width:100%;
+	background-color: black;
+	height: 1px;
+  margin-top: 5px;
+}
+
+.bar-1{
+	margin-bottom:14px;
+}
+
+.bar-2{
+	margin-bottom:15px;
+}
+
+.bar-3{
+	margin-bottom:16px;
+}
+
+.bar-4{
+	margin-bottom:17px;
+}
+
+.bar-5{
+	margin-bottom:18px;
+}
+
+.bar-6{
+	margin-bottom:19px;
+}
+
+.bar-7{
+	margin-bottom:20px;
+}
+
+.bar-8{
+	margin-bottom:24px;
+}
+
+.bar-9{
+	margin-bottom:22px;
+}
+
+.attendance-level{
+	width:80px;
+    z-index: 9999;
+    position: absolute;
+    top:60px;
+}
+#changeatt, #changeatt:hover {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    cursor: pointer;
 }
