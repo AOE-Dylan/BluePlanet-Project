@@ -49,14 +49,8 @@ startButton.addEventListener("click", function() {
 
     information.addEventListener("click", function() {
       clearInterval(bubbleGenerate);
-<<<<<<< HEAD
       console.log('Information Menu Opened, Stopped Generating');
     });
-=======
-      console.log('Information Menu Opeened, Stopped Generating');
-    });
-
->>>>>>> 6f16926af7ffd51824af98b70333da94d12f9bd5
 });
 
 settings.addEventListener("click", function() {
