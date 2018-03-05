@@ -90,7 +90,6 @@
 #settingsMenu, #informationMenu h1 {
   text-align: center;
   user-select: none;
-  font-size: 30px;
 }
 
 a.boxClose{
@@ -194,6 +193,7 @@ a.boxClose:hover {
     float:left;
     background-color:#6ae719;
     height:5px;
+    max-height: 260px;
     position: absolute;
     bottom: 23px;
     z-index: 1;
@@ -204,6 +204,7 @@ a.boxClose:hover {
     float:left;
     background-color: red;
     height:5px;
+    max-height: 260px;
     position: absolute;
     bottom: 23px;
     z-index: 1;
