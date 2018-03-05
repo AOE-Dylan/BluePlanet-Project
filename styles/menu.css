@@ -90,7 +90,6 @@
 #settingsMenu, #informationMenu h1 {
   text-align: center;
   user-select: none;
-  font-size: 30px;
 }
 
 a.boxClose{

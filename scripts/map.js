@@ -84,12 +84,8 @@ information.addEventListener("click", function() {
 
 $('.menuClose').click(function() {
     background.style.filter = "blur(0px)";
-    settingsMenu.style.display = "none";
-  });
-
-$('.menuClose').click(function() {
-    background.style.filter = "blur(0px)";
     informationMenu.style.display = "none";
+    settingsMenu.style.display = "none";
 });
 
 $('#changeatt').click(function(){
