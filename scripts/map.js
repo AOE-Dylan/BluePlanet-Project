@@ -43,7 +43,6 @@ startButton.addEventListener("click", function() {
         var bubbleGenerate = setInterval(randomButton, 1000);
         console.log('Menu Closed, Starting Generating');
       };
-
     });
 
     information.addEventListener("click", function() {
@@ -51,7 +50,7 @@ startButton.addEventListener("click", function() {
       console.log('Information Menu Opeened, Stopped Generating');
     });
 
-    });
+});
 
 settings.addEventListener("click", function() {
     settingsMenu.style.display = "block";
