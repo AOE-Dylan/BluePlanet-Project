@@ -30,11 +30,11 @@ let min = 2;
 let sec = 0;
 
 
-let timer = () =>  {
+let countdown = () =>  {
   if (min === 0 && sec === 0) {
     document.getElementById('timer').innerHTML = 0;
     clearInterval(bubbleGenerate);
-    clearInterval(timer);
+    clearInterval(countdown);
     on();
   } else if (sec === 0) {
     min = min - 1;

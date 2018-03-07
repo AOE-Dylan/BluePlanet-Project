@@ -20,6 +20,7 @@ randomButton = () => {
 }
 
 let bubbleGenerate;
+let timer;
 let gameStart = 0;
 let background = document.getElementById('background')
 let startButton = document.getElementById('startButton')
@@ -30,7 +31,7 @@ let informationMenu = document.getElementById('informationMenu');
 
 startButton.addEventListener("click", function() {
     bubbleGenerate = setInterval(randomButton, 1000);
-    timer = setInterval(timer, 1000);
+    timer = setInterval(countdown, 1000);
     console.log('Game Started');
     gameStart = 1;
 
@@ -43,6 +44,7 @@ startButton.addEventListener("click", function() {
     $('.menuClose').click(function() {
       if(gameStart == 1){
         bubbleGenerate = setInterval(randomButton, 1000);
+        timer = setInterval(countdown, 1000);
         console.log('Menu Closed, Starting Generating');
       };
     });
