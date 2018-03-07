@@ -23,8 +23,10 @@ let bubbleGenerate;
 let timer;
 let gameStart = 0;
 let gameActive = 0;
-let background = document.getElementById('background')
-let startButton = document.getElementById('startButton')
+let background = document.getElementById('background');
+let startButton = document.getElementById('startButton');
+let pauseButton = document.getElementById('pauseButton');
+let resumeButton = document.getElementById('resumeButton');
 let settings = document.getElementById('settingsButton');
 let settingsMenu = document.getElementById('settingsMenu');
 let information = document.getElementById('informationButton');
@@ -37,14 +39,19 @@ startButton.addEventListener("click", function() {
     console.log('Game Started');
     gameStart = 1;
     gameActive = 1;
+    startButton.style.display = "none";
+    pauseButton.style.display = "block";
 
-    settings.addEventListener("click", function() {
+    pauseButton.addEventListener("click", function() {
       clearInterval(bubbleGenerate);
       clearInterval(timer);
       gameActive = 0;
-      console.log('Settings Menu Opened, Stopped Generating');
+      console.log('Pause Button Clicked, Stopped Generating');
+      pauseButton.style.display = "none";
+      resumeButton.style.display = "block";
     });
 
+<<<<<<< HEAD
     $('.menuClose').click(function() {
       if(gameStart == 1){
         bubbleGenerate = setInterval(randomButton, 1000);
@@ -52,10 +59,27 @@ startButton.addEventListener("click", function() {
         console.log('Menu Closed, Starting Generating');
         gameActive = 1;
       };
+=======
+    resumeButton.addEventListener("click", function() {
+      bubbleGenerate = setInterval(randomButton, 1000);
+      gameActive = 1;
+      console.log('Resume Button Clicked, Starting Generating');
+      resumeButton.style.display = "none";
+      pauseButton.style.display = "block";
+    });
+
+
+    settings.addEventListener("click", function() {
+      clearInterval(bubbleGenerate);
+      clearInterval(timer);
+      gameActive = 0;
+      console.log('Settings Menu Opened, Stopped Generating');
+>>>>>>> c5ad39dd767d5f01cc5e17cc8a4e7ca4fc961742
     });
 
     information.addEventListener("click", function() {
       clearInterval(bubbleGenerate);
+      clearInterval(timer);
       gameActive = 0;
       console.log('Information Menu Opened, Stopped Generating');
     });
@@ -65,6 +89,14 @@ startButton.addEventListener("click", function() {
         bubbleGenerate = setInterval(randomButton, 1000);
         console.log('Menu closed upon background click, Starting Generating');
       }
+    });
+
+    $('.menuClose').click(function() {
+      if(gameStart == 1){
+        bubbleGenerate = setInterval(randomButton, 1000);
+        console.log('Menu Closed, Starting Generating');
+        gameActive = 1;
+      };
     });
 });
 
