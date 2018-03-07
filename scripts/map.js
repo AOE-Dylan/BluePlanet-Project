@@ -28,6 +28,7 @@ let startButton = document.getElementById('startButton')
 let settings = document.getElementById('settingsButton');
 let settingsMenu = document.getElementById('settingsMenu');
 let information = document.getElementById('informationButton');
+let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
 
 startButton.addEventListener("click", function() {

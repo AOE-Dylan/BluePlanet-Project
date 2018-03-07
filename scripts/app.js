@@ -6,29 +6,12 @@ let off = () => {
     document.getElementById("overlay").style.display = "none";
 };
 
-let disappear = (id) => {
-
-  document.getElementById(id).style.display = "none";
+let disappear = () => {
+  document.getElementById('map')removeChild();
 };
 
-// let month = 1;
-// let year = 2017;
-//
-//
-// let monthCount = () => {
-//    if (month === 12) {
-//       month = 1,
-//       year  = year + 1;
-//    } else {
-//      month = month + 1;
-//    }
-//    document.getElementById('date').innerHTML = month + " - " + year;
-// };
-//
-// setInterval(monthCount, 1000);
 let min = 2;
 let sec = 0;
-
 
 let countdown = () =>  {
   if (min === 0 && sec === 0) {
@@ -48,3 +31,19 @@ let countdown = () =>  {
     document.getElementById('timer').innerHTML = min + ":" + sec;
   }
 };
+
+// let month = 1;
+// let year = 2017;
+//
+//
+// let monthCount = () => {
+//    if (month === 12) {
+//       month = 1,
+//       year  = year + 1;
+//    } else {
+//      month = month + 1;
+//    }
+//    document.getElementById('date').innerHTML = month + " - " + year;
+// };
+//
+// setInterval(monthCount, 1000);
