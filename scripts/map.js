@@ -12,12 +12,28 @@ let randomImg = () => {
   return (Math.floor(Math.random() * images.length) + 0)
 }
 
+addBarGood = () => {
+  $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
+}
+
+addBarBad = () => {
+  $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
+}
+
+dictateBar = () => {
+  if (this.src === "styles/greenbubble.jpg") {
+    addBarBad()
+  } else {
+    addBarGood()
+  }
+}
+
 let randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
   let id = document.getElementById('map').children;
-  $('#map').append($(`<img class="bubble" id="${id.length}" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+  $('#map').append($(`<img class="bubble" id="${id.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
 }
 
 let bubbleGenerate;
