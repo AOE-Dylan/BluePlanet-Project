@@ -16,7 +16,7 @@ randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
-  $('#map').append($(`<img class="bubble" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+  $('#map').append($(`<img class="bubble" id="{}" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
 }
 
 let bubbleGenerate;
@@ -51,15 +51,6 @@ startButton.addEventListener("click", function() {
       resumeButton.style.display = "block";
     });
 
-<<<<<<< HEAD
-    $('.menuClose').click(function() {
-      if(gameStart == 1){
-        bubbleGenerate = setInterval(randomButton, 1000);
-        timer = setInterval(countdown, 1000);
-        console.log('Menu Closed, Starting Generating');
-        gameActive = 1;
-      };
-=======
     resumeButton.addEventListener("click", function() {
       bubbleGenerate = setInterval(randomButton, 1000);
       gameActive = 1;
@@ -74,7 +65,6 @@ startButton.addEventListener("click", function() {
       clearInterval(timer);
       gameActive = 0;
       console.log('Settings Menu Opened, Stopped Generating');
->>>>>>> c5ad39dd767d5f01cc5e17cc8a4e7ca4fc961742
     });
 
     information.addEventListener("click", function() {
