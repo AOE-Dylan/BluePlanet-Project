@@ -42,6 +42,41 @@
   font-family: 'Cinzel', serif;
 }
 
+#startButton:hover, #pauseButton:hover, #resumeButton:hover {
+  color: #97ca3d;
+  cursor: pointer;
+}
+
+#pauseButton {
+  color: white;
+  float: left;
+  display: none;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 20px;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: 'Cinzel', serif;
+}
+
+#resumeButton {
+  color: white;
+  float: left;
+  display: none;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 20px;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: 'Cinzel', serif;
+}
+
 
 #settingsButton, #informationButton {
   float: right;
