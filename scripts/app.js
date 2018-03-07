@@ -6,10 +6,6 @@ let off = () => {
     document.getElementById("overlay").style.display = "none";
 };
 
-let disappear = () => {
-  document.getElementById('map')removeChild();
-};
-
 let min = 2;
 let sec = 0;
 

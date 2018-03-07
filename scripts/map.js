@@ -8,15 +8,16 @@ yCoord = () => {
 
 let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
 
-randomImg = () => {
+let randomImg = () => {
   return (Math.floor(Math.random() * images.length) + 0)
 }
 
-randomButton = () => {
+let randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
-  $('#map').append($(`<img class="bubble" id="{}" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+  let id = document.getElementById('map').children;
+  $('#map').append($(`<img class="bubble" id="${id.length}" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
 }
 
 let bubbleGenerate;
@@ -32,6 +33,7 @@ let settingsMenu = document.getElementById('settingsMenu');
 let information = document.getElementById('informationButton');
 let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
+
 
 startButton.addEventListener("click", function() {
     bubbleGenerate = setInterval(randomButton, 1000);
