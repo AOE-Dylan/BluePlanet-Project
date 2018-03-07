@@ -21,6 +21,7 @@ randomButton = () => {
 
 let bubbleGenerate;
 let gameStart = 0;
+let gameActive = 0;
 let background = document.getElementById('background')
 let startButton = document.getElementById('startButton')
 let settings = document.getElementById('settingsButton');
@@ -33,23 +34,34 @@ startButton.addEventListener("click", function() {
     timer = setInterval(timer, 1000);
     console.log('Game Started');
     gameStart = 1;
+    gameActive = 1;
 
     settings.addEventListener("click", function() {
       clearInterval(bubbleGenerate);
       clearInterval(timer);
-      console.log('Stopped Generating');
+      gameActive = 0;
+      console.log('Settings Menu Opened, Stopped Generating');
     });
 
     $('.menuClose').click(function() {
       if(gameStart == 1){
         bubbleGenerate = setInterval(randomButton, 1000);
         console.log('Menu Closed, Starting Generating');
+        gameActive = 1;
       };
     });
 
     information.addEventListener("click", function() {
       clearInterval(bubbleGenerate);
+      gameActive = 0;
       console.log('Information Menu Opened, Stopped Generating');
+    });
+
+    background.addEventListener('click', function() {
+      if(gameActive == 0 && gameStart == 1){
+        bubbleGenerate = setInterval(randomButton, 1000);
+        console.log('Menu closed upon background click, Starting Generating');
+      }
     });
 });
 
