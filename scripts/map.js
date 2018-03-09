@@ -37,45 +37,63 @@ startButton.addEventListener("click", function() {
     console.log('Game Started');
     gameStart = 1;
     gameActive = 1;
+    console.log('gameActive is', gameActive)
     startButton.style.display = "none";
     pauseButton.style.display = "block";
 
     pauseButton.addEventListener("click", function() {
-      clearInterval(bubbleGenerate);
-      clearInterval(timer);
-      gameActive = 0;
-      console.log('Pause Button Clicked, Stopped Generating');
-      pauseButton.style.display = "none";
-      resumeButton.style.display = "block";
+      pause()
     });
 
     resumeButton.addEventListener("click", function() {
-      bubbleGenerate = setInterval(randomButton, 1000);
-      gameActive = 1;
-      console.log('Resume Button Clicked, Starting Generating');
-      resumeButton.style.display = "none";
-      pauseButton.style.display = "block";
+      resume()
     });
-
 
     settings.addEventListener("click", function() {
-      clearInterval(bubbleGenerate);
-      clearInterval(timer);
-      gameActive = 0;
-      console.log('Settings Menu Opened, Stopped Generating');
+      pause()
     });
 
-    information.addEventListener("click", function() {
-      clearInterval(bubbleGenerate);
-      clearInterval(timer);
-      gameActive = 0;
-      console.log('Information Menu Opened, Stopped Generating');
+    settings.addEventListener("click", function() {
+        settingsMenu.style.display = "block";
+        background.style.filter = "blur(15px)";
+
+        if(informationMenu.style.display == "block"){
+          informationMenu.style.display = "none";
+        }
+
+        background.addEventListener('click', function() {
+            settingsMenu.style.display = "none";
+            background.style.filter = "blur(0px)";
+        });
     });
+
+
+    information.addEventListener("click", function() {
+      pause()
+    });
+
+  function pause(){
+    clearInterval(bubbleGenerate);
+    clearInterval(timer);
+    gameActive = 0;
+    pauseButton.style.display = "none";
+    resumeButton.style.display = "block";
+  }
+
+  function resume(){
+    bubbleGenerate = setInterval(randomButton, 1000);
+    gameActive = 1;
+    resumeButton.style.display = "none";
+    pauseButton.style.display = "block";
+  }
 
     background.addEventListener('click', function() {
       if(gameActive == 0 && gameStart == 1){
         bubbleGenerate = setInterval(randomButton, 1000);
         console.log('Menu closed upon background click, Starting Generating');
+        pauseButton.style.display = "block";
+        resumeButton.style.display = "none";
+        gameActive = 1;
       }
     });
 
@@ -83,6 +101,8 @@ startButton.addEventListener("click", function() {
       if(gameStart == 1){
         bubbleGenerate = setInterval(randomButton, 1000);
         console.log('Menu Closed, Starting Generating');
+        pauseButton.style.display = "block";
+        resumeButton.style.display = "none";
         gameActive = 1;
       };
     });
