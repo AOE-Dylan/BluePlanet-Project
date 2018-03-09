@@ -69,7 +69,7 @@ startButton.addEventListener("click", function() {
       pauseButton.style.display = "none";
       gamePaused.style.display = "block";
       resumeButton.style.display = "block";
-      background.style.filter = "blur(30px)";
+      background.style.filter = "blur(40px)";
     });
 
     resumeButton.addEventListener("click", function() {
