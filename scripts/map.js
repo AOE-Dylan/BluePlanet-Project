@@ -67,9 +67,7 @@ startButton.addEventListener("click", function() {
       gameActive = 0;
       console.log('Pause Button Clicked, Stopped Generating');
       pauseButton.style.display = "none";
-      gamePaused.style.display = "block";
       resumeButton.style.display = "block";
-      background.style.filter = "blur(40px)";
     });
 
     resumeButton.addEventListener("click", function() {
