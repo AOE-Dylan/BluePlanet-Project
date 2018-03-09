@@ -20,14 +20,13 @@ let addBarBad = () => {
   $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
 };
 
-let dictateBar = () => {
-  event.target.remove();
-  if (this.src === "styles/greenbubble.jpg") {
-    addBarBad()
-  } else {
+dictateBar = () => {
+  if (event.target.getAttribute("src") !== images[0] || images[1]) {
     addBarGood()
+  } else {
+    addBarBad()
   }
-};
+}
 
 let randomButton = () => {
   let randX = xCoord();
