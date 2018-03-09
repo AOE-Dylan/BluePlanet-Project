@@ -115,7 +115,7 @@ startButton.addEventListener("click", function() {
 
 settings.addEventListener("click", function() {
     settingsMenu.style.display = "block";
-    background.style.filter = "blur(10px)";
+    background.style.filter = "blur(40px)";
 
     if(informationMenu.style.display == "block"){
       informationMenu.style.display = "none";
@@ -129,7 +129,7 @@ settings.addEventListener("click", function() {
 
 information.addEventListener("click", function() {
     informationMenu.style.display = "block";
-    background.style.filter = "blur(10px)";
+    background.style.filter = "blur(40px)";
 
     if(settingsMenu.style.display == "block"){
       settingsMenu.style.display = "none";
