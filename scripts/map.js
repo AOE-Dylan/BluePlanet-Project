@@ -50,6 +50,7 @@ let settingsMenu = document.getElementById('settingsMenu');
 let information = document.getElementById('informationButton');
 let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
+let gamePaused = document.getElementById('gamePaused');
 
 
 startButton.addEventListener("click", function() {
@@ -75,7 +76,9 @@ startButton.addEventListener("click", function() {
       gameActive = 1;
       console.log('Resume Button Clicked, Starting Generating');
       resumeButton.style.display = "none";
+      gamePaused.style.display = "none";
       pauseButton.style.display = "block";
+      background.style.filter = "blur(0px)";
     });
 
 
@@ -111,7 +114,7 @@ startButton.addEventListener("click", function() {
 
 settings.addEventListener("click", function() {
     settingsMenu.style.display = "block";
-    background.style.filter = "blur(15px)";
+    background.style.filter = "blur(40px)";
 
     if(informationMenu.style.display == "block"){
       informationMenu.style.display = "none";
@@ -125,7 +128,7 @@ settings.addEventListener("click", function() {
 
 information.addEventListener("click", function() {
     informationMenu.style.display = "block";
-    background.style.filter = "blur(15px)";
+    background.style.filter = "blur(40px)";
 
     if(settingsMenu.style.display == "block"){
       settingsMenu.style.display = "none";
