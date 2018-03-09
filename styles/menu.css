@@ -77,7 +77,6 @@
   font-family: 'Cinzel', serif;
 }
 
-
 #settingsButton, #informationButton {
   float: right;
   display: block;
@@ -147,6 +146,7 @@ a.boxClose:hover {
   background-color: #97ca3d;
   color: white;
 }
+
 .boxClose:before {
     content: "×";
 
@@ -161,17 +161,28 @@ a.boxClose:hover {
   right: 0;
   margin: auto;
   width:10%;
-  height:10%;
   opacity: 0.8;
   background-color: #0098a4;
   color: white;
-  padding:20px;
+  padding:5px;
   border:2px solid #ccc;
   -moz-box-shadow: 0 1px 5px #333;
   -webkit-box-shadow: 0 1px 5px #333;
+  font-family: 'Risque', cursive;
+  font-size: 25px;
+  text-align: center;
+  color: white;
 }
 
-#renewableProgressBar{
+#timer {
+  font-family: 'Risque', cursive;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+#renewableProgressBar, #nonRenewableProgressBar{
     width:100px;
     height:350px;
     position: fixed;
@@ -181,21 +192,19 @@ a.boxClose:hover {
 }
 
 #nonRenewableProgressBar{
-    width:100px;
-    height:350px;
-    position: fixed;
-    top: 0;
     right: 0;
-    margin-top: 135px;
 }
 
 .barBackground{
 	width:90%;
-    float:left;
+  float:left;
 	background-color: #0098a4;
 	margin:7px 5% 5px 5%;
 	padding-bottom:10px;
 	border:2px solid #ccc;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
 }
 
 .barBackground .title{
@@ -207,42 +216,36 @@ a.boxClose:hover {
 	padding:15px 0px 5px 0px;
 }
 
-#renewable-bar{
+#renewable-bar, #nonRenewable-bar{
   float:left;
 	width:90%;
 	margin:0px 5% 0px 5%;
 	height:260px;
 	background-color: white;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
-#nonRenewable-bar{
+#renewableProgress, #nonRenewableProgress {
+  width:81px;
   float:left;
-	width:90%;
-	margin:0px 5% 0px 5%;
-	height:260px;
-	background-color: white;
+  height:5px;
+  max-height: 260px;
+  position: absolute;
+  bottom: 23px;
+  z-index: 1;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #renewableProgress {
-	  width:81px;
-    float:left;
-    background-color:#6ae719;
-    height:5px;
-    max-height: 260px;
-    position: absolute;
-    bottom: 23px;
-    z-index: 1;
+  background-color:#6ae719;
 }
 
 #nonRenewableProgress {
-	  width:81px;
-    float:left;
-    background-color: red;
-    height:5px;
-    max-height: 260px;
-    position: absolute;
-    bottom: 23px;
-    z-index: 1;
+  background-color: red;
 }
 
 .bar-2, .bar-3, .bar-4, .bar-5, .bar-6, .bar-7, .bar-8, .bar-9{
@@ -255,6 +258,8 @@ a.boxClose:hover {
 
 .bar-1{
 	margin-bottom:14px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .bar-2{
@@ -295,6 +300,7 @@ a.boxClose:hover {
     position: absolute;
     top:60px;
 }
+
 #changeatt, #changeatt:hover {
     -moz-user-select: none;
     -khtml-user-select: none;

@@ -10,31 +10,32 @@ let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbub
 
 let randomImg = () => {
   return (Math.floor(Math.random() * images.length) + 0)
-}
+};
 
-addBarGood = () => {
+let addBarGood = () => {
   $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
-}
+};
 
-addBarBad = () => {
+let addBarBad = () => {
   $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
-}
+};
 
-dictateBar = () => {
+let dictateBar = () => {
+  event.target.remove();
   if (this.src === "styles/greenbubble.jpg") {
     addBarBad()
   } else {
     addBarGood()
   }
-}
+};
 
 let randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
-  let id = document.getElementById('map').children;
-  $('#map').append($(`<img class="bubble" id="${id.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
-}
+  let remaining = document.getElementById('map').children;
+  $('#map').append($(`<img class="bubble" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+};
 
 let bubbleGenerate;
 let timer;
