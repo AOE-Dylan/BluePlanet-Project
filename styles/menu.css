@@ -11,6 +11,7 @@
 #gameTitle {
   color: white;
   display: inline-block;
+  position: absolute;
   text-align: center;
   padding: 14px;
   text-decoration: none;
@@ -102,7 +103,7 @@
   color: white;
 }
 
-#settingsMenu, #informationMenu {
+#settingsMenu, #informationMenu, #gamePaused {
     display: none;
     position: fixed; /*it can be fixed too*/
     left:0; right:0;
