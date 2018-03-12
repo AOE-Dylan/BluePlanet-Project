@@ -21,6 +21,7 @@ let addBarBad = () => {
 };
 
 dictateBar = () => {
+  event.target.remove();
   if (event.target.getAttribute("src") !== images[0] || images[1]) {
     addBarGood()
   } else {
