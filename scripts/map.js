@@ -6,20 +6,38 @@ yCoord = () => {
   return Math.floor(Math.random() * $(".test").width() - 20)
 }
 
-let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
+let images = ["styles/redbubble.jpg", "styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
 
-randomImg = () => {
+let randomImg = () => {
   return (Math.floor(Math.random() * images.length) + 0)
+};
+
+let addBarGood = () => {
+  $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
+};
+
+let addBarBad = () => {
+  $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
+};
+
+dictateBar = () => {
+  if (event.target.getAttribute("src") !== images[0] || images[1]) {
+    addBarGood()
+  } else {
+    addBarBad()
+  }
 }
 
-randomButton = () => {
+let randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
-  $('#map').append($(`<img class="bubble" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
-}
+  let remaining = document.getElementById('map').children;
+  $('#map').append($(`<img class="bubble" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+};
 
 let bubbleGenerate;
+let timer;
 let gameStart = 0;
 let gameActive = 0;
 let background = document.getElementById('background');
@@ -29,11 +47,14 @@ let resumeButton = document.getElementById('resumeButton');
 let settings = document.getElementById('settingsButton');
 let settingsMenu = document.getElementById('settingsMenu');
 let information = document.getElementById('informationButton');
+let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
+let gamePaused = document.getElementById('gamePaused');
+
 
 startButton.addEventListener("click", function() {
     bubbleGenerate = setInterval(randomButton, 1000);
-    timer = setInterval(timer, 1000);
+    timer = setInterval(countdown, 1000);
     console.log('Game Started');
     gameStart = 1;
     gameActive = 1;
@@ -110,7 +131,7 @@ startButton.addEventListener("click", function() {
 
 settings.addEventListener("click", function() {
     settingsMenu.style.display = "block";
-    background.style.filter = "blur(15px)";
+    background.style.filter = "blur(40px)";
 
     if(informationMenu.style.display == "block"){
       informationMenu.style.display = "none";
@@ -124,7 +145,7 @@ settings.addEventListener("click", function() {
 
 information.addEventListener("click", function() {
     informationMenu.style.display = "block";
-    background.style.filter = "blur(15px)";
+    background.style.filter = "blur(40px)";
 
     if(settingsMenu.style.display == "block"){
       settingsMenu.style.display = "none";

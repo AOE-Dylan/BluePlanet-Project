@@ -1,14 +1,33 @@
-let on = () => {
+let popUp = () => {
     document.getElementById("overlay").style.display = "block";
 };
 
-let off = () => {
-    document.getElementById("overlay").style.display = "none";
-};
+let min = 2;
+let sec = 0;
 
-let disappear = (id) => {
-
-  document.getElementById(id).style.display = "none";
+let countdown = () =>  {
+  if (min === 0 && sec === 0) {
+    document.getElementById('timer').innerHTML = STOP;
+    clearInterval(bubbleGenerate);
+    clearInterval(countdown);
+    popUp();
+  } else if (sec === 0) {
+    min = min - 1;
+    sec = 59;
+    document.getElementById('timer').innerHTML = min + ":" + sec;
+  } else if (min === 0) {
+    sec = sec - 1;
+    document.getElementById('timer').innerHTML = ":" + sec;
+  } else if (min === 1 && sec < 10) {
+      sec = sec - 1;
+      document.getElementById('timer').innerHTML = min + ":0" + sec;
+  } else if (min === 0 && sec < 10) {
+      sec = sec - 1;
+      document.getElementById('timer').innerHTML = ":0" + sec;
+  } else {
+    sec = sec - 1;
+    document.getElementById('timer').innerHTML = min + ":" + sec;
+  }
 };
 
 // let month = 1;
@@ -26,25 +45,3 @@ let disappear = (id) => {
 // };
 //
 // setInterval(monthCount, 1000);
-let min = 2;
-let sec = 0;
-
-
-let timer = () =>  {
-  if (min === 0 && sec === 0) {
-    document.getElementById('timer').innerHTML = 0;
-    clearInterval(bubbleGenerate);
-    clearInterval(timer);
-    on();
-  } else if (sec === 0) {
-    min = min - 1;
-    sec = 59;
-    document.getElementById('timer').innerHTML = min + ":" + sec;
-  } else if (min === 0) {
-    sec = sec - 1;
-    document.getElementById('timer').innerHTML = ":" + sec;
-  } else {
-    sec = sec - 1;
-    document.getElementById('timer').innerHTML = min + ":" + sec;
-  }
-};

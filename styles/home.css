@@ -24,41 +24,11 @@
   position: absolute;
 }
 
-#pb {
-  position: fixed;
-  display: block;
-  width: 5%;
-  height: 40%;
-  top: 5%;
-  left: 90%;
-  right: 0;
-  bottom: 0;
-  border-right: 4px inset black;
-  border-left: 4px inset black;
-  border-top: 4px inset black;
-  border-bottom: 4px inset black;
-  background-color: lime;
-  background-size:
-}
-
 #reward {
   font-family: 'Risque', cursive;
   font-size: 25px;
   text-align: center;
   padding: 20px;
-}
-
-/* #map {
-  margin: 40px;
-} */
-
-#date, #timer {
-  font-family: 'Risque', cursive;
-  font-size: 30px;
-  text-align: center;
-  padding: 20px;
-  color: #0066ff;
-  /* background-image: url(); */
 }
 
 body {
