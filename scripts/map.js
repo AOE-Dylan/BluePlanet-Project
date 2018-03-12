@@ -77,7 +77,6 @@ startButton.addEventListener("click", function() {
 
     settings.addEventListener("click", function() {
         settingsMenu.style.display = "block";
-        background.style.filter = "blur(15px)";
 
         if(informationMenu.style.display == "block"){
           informationMenu.style.display = "none";
