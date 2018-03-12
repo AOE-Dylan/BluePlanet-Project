@@ -98,6 +98,7 @@ startButton.addEventListener("click", function() {
     clearInterval(bubbleGenerate);
     clearInterval(timer);
     gameActive = 0;
+    background.style.filter = "blur(40px)";
     pauseButton.style.display = "none";
     resumeButton.style.display = "block";
   }
@@ -105,6 +106,7 @@ startButton.addEventListener("click", function() {
   function resume(){
     bubbleGenerate = setInterval(randomButton, 1000);
     gameActive = 1;
+    background.style.filter = "blur(0px)";
     resumeButton.style.display = "none";
     pauseButton.style.display = "block";
   }
