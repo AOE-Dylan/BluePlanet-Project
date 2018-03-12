@@ -6,7 +6,7 @@ yCoord = () => {
   return Math.floor(Math.random() * $(".test").width() - 20)
 }
 
-let images = ["styles/redbubble.jpg", "styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
+let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
 
 let randomImg = () => {
   return (Math.floor(Math.random() * images.length) + 0)
@@ -22,7 +22,7 @@ let addBarBad = () => {
 
 dictateBar = () => {
   event.target.remove();
-  if (event.target.getAttribute("src") !== images[0] || images[1]) {
+  if (event.target.getAttribute("src") !== images[0]) {
     addBarGood()
   } else {
     addBarBad()
