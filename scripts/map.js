@@ -106,6 +106,8 @@ startButton.addEventListener("click", function() {
     bubbleGenerate = setInterval(randomButton, 1000);
     gameActive = 1;
     background.style.filter = "blur(0px)";
+    settingsMenu.style.display = "none";
+    informationMenu.style.display = "none";
     resumeButton.style.display = "none";
     pauseButton.style.display = "block";
   }
