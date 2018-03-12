@@ -64,15 +64,15 @@ startButton.addEventListener("click", function() {
     pauseButton.style.display = "block";
 
     pauseButton.addEventListener("click", function() {
-      pause()
+      pause();
     });
 
     resumeButton.addEventListener("click", function() {
-      resume()
+      resume();
     });
 
     settings.addEventListener("click", function() {
-      pause()
+      pause();
     });
 
     settings.addEventListener("click", function() {
@@ -91,23 +91,24 @@ startButton.addEventListener("click", function() {
 
 
     information.addEventListener("click", function() {
-      pause()
+      pause();
     });
 
-  function pause(){
-    clearInterval(bubbleGenerate);
-    clearInterval(timer);
-    gameActive = 0;
-    pauseButton.style.display = "none";
-    resumeButton.style.display = "block";
-  }
+let pause = () => {
+  clearInterval(bubbleGenerate);
+  clearInterval(timer);
+  gameActive = 0;
+  pauseButton.style.display = "none";
+  resumeButton.style.display = "block";
+}
 
-  function resume(){
-    bubbleGenerate = setInterval(randomButton, 1000);
-    gameActive = 1;
-    resumeButton.style.display = "none";
-    pauseButton.style.display = "block";
-  }
+let resume = () => {
+  bubbleGenerate = setInterval(randomButton, 1000);
+  timer = setInterval(countdown, 1000);  
+  gameActive = 1;
+  resumeButton.style.display = "none";
+  pauseButton.style.display = "block";
+}
 
     background.addEventListener('click', function() {
       if(gameActive == 0 && gameStart == 1){
