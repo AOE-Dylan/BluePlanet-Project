@@ -8,6 +8,9 @@
   text-align: center;
 }
 
+#notMap {
+  display: none;
+}
 #gameTitle {
   color: white;
   display: inline-block;
@@ -32,7 +35,6 @@
 #startButton {
   color: white;
   float: left;
-  display: none;
   padding: 14px;
   text-decoration: none;
   font-size: 20px;

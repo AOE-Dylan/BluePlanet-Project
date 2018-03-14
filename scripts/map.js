@@ -52,12 +52,13 @@ let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
 let gamePaused = document.getElementById('gamePaused');
 let zoomAnimation = document.getElementById('zoomAnimation');
+let notMap = document.getElementById('notMap')
 
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
 function AnimationListener(){
-  startButton.style.display = "inline-block";
+  notMap.style.display = "block";
 }
 
 startButton.addEventListener("click", function() {

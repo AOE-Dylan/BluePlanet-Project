@@ -45,8 +45,8 @@ body {
    background-image: url("map.jpg");
    background-size: 100vw 100vh;
    animation-name: zoom;
-   animation-duration: 5s;
-   animation-delay: 3s;
+   animation-duration: 3s;
+   animation-delay: 2s;
    animation-fill-mode: forwards;
    object-fit: cover;
 }
