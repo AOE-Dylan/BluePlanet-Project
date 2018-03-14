@@ -65,10 +65,12 @@ startButton.addEventListener("click", function() {
 
     pauseButton.addEventListener("click", function() {
       pause()
+      gamePaused.style.display = "block";
     });
 
     resumeButton.addEventListener("click", function() {
       resume()
+      gamePaused.style.display = "none";
     });
 
     settings.addEventListener("click", function() {
@@ -77,20 +79,16 @@ startButton.addEventListener("click", function() {
 
     settings.addEventListener("click", function() {
         settingsMenu.style.display = "block";
-
+        gamePaused.style.display = "none";
         if(informationMenu.style.display == "block"){
           informationMenu.style.display = "none";
         }
-
-        background.addEventListener('click', function() {
-            settingsMenu.style.display = "none";
-            background.style.filter = "blur(0px)";
-        });
     });
 
 
     information.addEventListener("click", function() {
       pause()
+      gamePaused.style.display = "none";
     });
 
   function pause(){
@@ -112,8 +110,8 @@ startButton.addEventListener("click", function() {
     pauseButton.style.display = "block";
   }
 
-    background.addEventListener('click', function() {
-      if(gameActive == 0 && gameStart == 1){
+    /*background.addEventListener('click', function() {
+      if(gameActive == 0 && gameStart == 1 && settingsMenu.style.display == "block" || informationMenu.style.display == "block"){
         bubbleGenerate = setInterval(randomButton, 1000);
         console.log('Menu closed upon background click, Starting Generating');
         pauseButton.style.display = "block";
@@ -121,6 +119,7 @@ startButton.addEventListener("click", function() {
         gameActive = 1;
       }
     });
+    */
 
     $('.menuClose').click(function() {
       if(gameStart == 1){
@@ -139,11 +138,6 @@ settings.addEventListener("click", function() {
     if(informationMenu.style.display == "block"){
       informationMenu.style.display = "none";
     }
-
-    background.addEventListener('click', function() {
-        settingsMenu.style.display = "none";
-        background.style.filter = "blur(0px)";
-    });
 });
 
 information.addEventListener("click", function() {
@@ -152,11 +146,6 @@ information.addEventListener("click", function() {
     if(settingsMenu.style.display == "block"){
       settingsMenu.style.display = "none";
     }
-
-    background.addEventListener('click', function() {
-        informationMenu.style.display = "none";
-        background.style.filter = "blur(0px)";
-    });
 });
 
 $('.menuClose').click(function() {

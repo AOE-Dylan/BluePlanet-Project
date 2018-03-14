@@ -102,8 +102,25 @@
   background: #97ca3d;
   color: white;
 }
-
-#settingsMenu, #informationMenu, #gamePaused {
+#gamePaused {
+  display: none;
+  position: fixed; /*it can be fixed too*/
+  left:0; right:0;
+  top:0; bottom:0;
+  margin: auto;
+  width:50%;
+  height:10%;
+  opacity: 0.8;
+  background-color: #0098a4;
+  color: white;
+  border:2px solid #ccc;
+  -moz-border-radius: 20px;
+  -webkit-border-radius:20px;
+  -khtml-border-radius:20px;
+  -moz-box-shadow: 0 1px 5px #333;
+  -webkit-box-shadow: 0 1px 5px #333;
+}
+#settingsMenu, #informationMenu{
     display: none;
     position: fixed; /*it can be fixed too*/
     left:0; right:0;
@@ -123,9 +140,13 @@
     -webkit-box-shadow: 0 1px 5px #333;
 }
 
-#settingsMenu, #informationMenu h1 {
+#settingsMenu, #informationMenu, #gamePaused h1 {
   text-align: center;
   user-select: none;
+}
+
+#gamePaused h1:hover {
+  color: #97ca3d;
 }
 
 a.boxClose{
