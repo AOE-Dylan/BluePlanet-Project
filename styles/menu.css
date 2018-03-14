@@ -32,7 +32,7 @@
 #startButton {
   color: white;
   float: left;
-  display: inline-block;
+  display: none;
   padding: 14px;
   text-decoration: none;
   font-size: 20px;
@@ -253,7 +253,7 @@ a.boxClose:hover {
 #renewableProgress, #nonRenewableProgress {
   width:81px;
   float:left;
-  height:5px;
+  height: 0px;
   max-height: 260px;
   position: absolute;
   bottom: 23px;

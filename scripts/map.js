@@ -1,9 +1,9 @@
 xCoord = () => {
-  return Math.floor(Math.random() * $(".test").height() - 20)
+  return Math.floor(Math.random() * $("#zoomAnimation").height() - 20)
 }
 
 yCoord = () => {
-  return Math.floor(Math.random() * $(".test").width() - 20)
+  return Math.floor(Math.random() * $("#zoomAnimation").width() - 20)
 }
 
 let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
@@ -17,7 +17,7 @@ let addBarGood = () => {
 };
 
 let addBarBad = () => {
-  $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
+  $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 15);
 };
 
 dictateBar = () => {
@@ -51,7 +51,14 @@ let information = document.getElementById('informationButton');
 let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
 let gamePaused = document.getElementById('gamePaused');
+let zoomAnimation = document.getElementById('zoomAnimation');
 
+
+zoomAnimation.addEventListener("animationend", AnimationListener, false);
+
+function AnimationListener(){
+  startButton.style.display = "inline-block";
+}
 
 startButton.addEventListener("click", function() {
     bubbleGenerate = setInterval(randomButton, 1000);
@@ -77,15 +84,6 @@ startButton.addEventListener("click", function() {
       pause()
     });
 
-    settings.addEventListener("click", function() {
-        settingsMenu.style.display = "block";
-        gamePaused.style.display = "none";
-        if(informationMenu.style.display == "block"){
-          informationMenu.style.display = "none";
-        }
-    });
-
-
     information.addEventListener("click", function() {
       pause()
       gamePaused.style.display = "none";
@@ -109,17 +107,6 @@ startButton.addEventListener("click", function() {
     resumeButton.style.display = "none";
     pauseButton.style.display = "block";
   }
-
-    /*background.addEventListener('click', function() {
-      if(gameActive == 0 && gameStart == 1 && settingsMenu.style.display == "block" || informationMenu.style.display == "block"){
-        bubbleGenerate = setInterval(randomButton, 1000);
-        console.log('Menu closed upon background click, Starting Generating');
-        pauseButton.style.display = "block";
-        resumeButton.style.display = "none";
-        gameActive = 1;
-      }
-    });
-    */
 
     $('.menuClose').click(function() {
       if(gameStart == 1){
@@ -152,9 +139,4 @@ $('.menuClose').click(function() {
     background.style.filter = "blur(0px)";
     informationMenu.style.display = "none";
     settingsMenu.style.display = "none";
-});
-
-$('#changeatt').click(function(){
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
-    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
 });
