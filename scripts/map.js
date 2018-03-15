@@ -107,11 +107,13 @@ startButton.addEventListener("click", function() {
     informationMenu.style.display = "none";
     resumeButton.style.display = "none";
     pauseButton.style.display = "block";
+    timer = setInterval(countdown, 1000);
   }
 
     $('.menuClose').click(function() {
       if(gameStart == 1){
         bubbleGenerate = setInterval(randomButton, 1000);
+        timer = setInterval(countdown, 1000);
         console.log('Menu Closed, Starting Generating');
         pauseButton.style.display = "block";
         resumeButton.style.display = "none";
