@@ -1,12 +1,12 @@
 xCoord = () => {
-  return Math.floor(Math.random() * $(".test").height() - 20)
+  return Math.floor(Math.random() * $("#zoomAnimation").height() - 20)
 }
 
 yCoord = () => {
-  return Math.floor(Math.random() * $(".test").width() - 20)
+  return Math.floor(Math.random() * $("#zoomAnimation").width() - 20)
 }
 
-let images = ["styles/redbubble.jpg", "styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
+let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
 
 let randomImg = () => {
   return (Math.floor(Math.random() * images.length) + 0)
@@ -17,12 +17,12 @@ let addBarGood = () => {
 };
 
 let addBarBad = () => {
-  $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
+  $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 15);
 };
 
 dictateBar = () => {
   event.target.remove();
-  if (event.target.getAttribute("src") !== images[0] || images[1]) {
+  if (event.target.getAttribute("src") !== images[0]) {
     addBarGood()
   } else {
     addBarBad()
@@ -51,7 +51,15 @@ let information = document.getElementById('informationButton');
 let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
 let gamePaused = document.getElementById('gamePaused');
+let zoomAnimation = document.getElementById('zoomAnimation');
+let notMap = document.getElementById('notMap')
 
+
+zoomAnimation.addEventListener("animationend", AnimationListener, false);
+
+function AnimationListener(){
+  notMap.style.display = "block";
+}
 
 startButton.addEventListener("click", function() {
     bubbleGenerate = setInterval(randomButton, 1000);
@@ -65,64 +73,47 @@ startButton.addEventListener("click", function() {
 
     pauseButton.addEventListener("click", function() {
       pause();
+      gamePaused.style.display = "block";
     });
 
     resumeButton.addEventListener("click", function() {
       resume();
+      gamePaused.style.display = "none";
     });
 
     settings.addEventListener("click", function() {
       pause();
     });
-
-    settings.addEventListener("click", function() {
-        settingsMenu.style.display = "block";
-        background.style.filter = "blur(15px)";
-
-        if(informationMenu.style.display == "block"){
-          informationMenu.style.display = "none";
-        }
-
-        background.addEventListener('click', function() {
-            settingsMenu.style.display = "none";
-            background.style.filter = "blur(0px)";
-        });
-    });
-
 
     information.addEventListener("click", function() {
       pause();
+      gamePaused.style.display = "none";
     });
 
-let pause = () => {
-  clearInterval(bubbleGenerate);
-  clearInterval(timer);
-  gameActive = 0;
-  pauseButton.style.display = "none";
-  resumeButton.style.display = "block";
-}
+  let pause = () => {
+    clearInterval(bubbleGenerate);
+    clearInterval(timer);
+    gameActive = 0;
+    background.style.filter = "blur(60px)";
+    pauseButton.style.display = "none";
+    resumeButton.style.display = "block";
+  };
 
-let resume = () => {
-  bubbleGenerate = setInterval(randomButton, 1000);
-  timer = setInterval(countdown, 1000);  
-  gameActive = 1;
-  resumeButton.style.display = "none";
-  pauseButton.style.display = "block";
-}
-
-    background.addEventListener('click', function() {
-      if(gameActive == 0 && gameStart == 1){
-        bubbleGenerate = setInterval(randomButton, 1000);
-        console.log('Menu closed upon background click, Starting Generating');
-        pauseButton.style.display = "block";
-        resumeButton.style.display = "none";
-        gameActive = 1;
-      }
-    });
+  let resume = () => {
+    bubbleGenerate = setInterval(randomButton, 1000);
+    gameActive = 1;
+    background.style.filter = "blur(0px)";
+    settingsMenu.style.display = "none";
+    informationMenu.style.display = "none";
+    resumeButton.style.display = "none";
+    pauseButton.style.display = "block";
+    timer = setInterval(countdown, 1000);
+  };
 
     $('.menuClose').click(function() {
       if(gameStart == 1){
         bubbleGenerate = setInterval(randomButton, 1000);
+        timer = setInterval(countdown, 1000);
         console.log('Menu Closed, Starting Generating');
         pauseButton.style.display = "block";
         resumeButton.style.display = "none";
@@ -133,39 +124,22 @@ let resume = () => {
 
 settings.addEventListener("click", function() {
     settingsMenu.style.display = "block";
-    background.style.filter = "blur(40px)";
 
     if(informationMenu.style.display == "block"){
       informationMenu.style.display = "none";
     }
-
-    background.addEventListener('click', function() {
-        settingsMenu.style.display = "none";
-        background.style.filter = "blur(0px)";
-    });
 });
 
 information.addEventListener("click", function() {
     informationMenu.style.display = "block";
-    background.style.filter = "blur(40px)";
 
     if(settingsMenu.style.display == "block"){
       settingsMenu.style.display = "none";
     }
-
-    background.addEventListener('click', function() {
-        informationMenu.style.display = "none";
-        background.style.filter = "blur(0px)";
-    });
 });
 
 $('.menuClose').click(function() {
     background.style.filter = "blur(0px)";
     informationMenu.style.display = "none";
     settingsMenu.style.display = "none";
-});
-
-$('#changeatt').click(function(){
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
-    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 5);
 });
