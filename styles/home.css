@@ -44,13 +44,13 @@ body {
    left: 0px;
    background-image: url("map.jpg");
    background-size: 100vw 100vh;
-   animation-name: zoom;
    animation-duration: 3s;
    animation-delay: 2s;
    animation-fill-mode: forwards;
    object-fit: cover;
 }
 
+.zoom {
 @-webkit-keyframes zoom {
   0% {
     background-position-x: 0%;
@@ -62,4 +62,5 @@ body {
     background-position-x: 25%;
     background-size: 400vw 400vh;
   }
+}
 }

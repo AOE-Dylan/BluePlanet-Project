@@ -9,7 +9,6 @@ let countdown = () =>  {
   if (min === 0 && sec === 0) {
     document.getElementById('timer').innerHTML = "STOP";
     document.getElementById('map').remove();
-    document.createElement(div#map);
     clearInterval(bubbleGenerate);
     clearInterval(countdown);
     popUp();

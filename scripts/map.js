@@ -53,10 +53,14 @@ let informationMenu = document.getElementById('informationMenu');
 let gamePaused = document.getElementById('gamePaused');
 let zoomAnimation = document.getElementById('zoomAnimation');
 let notMap = document.getElementById('notMap')
+let startZoom = document.getElementById('startZoom')
 
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
+$("#startZoom").click(function() {
+  $('.zoomAnimation').toggleClass('zoom');
+});
 function AnimationListener(){
   notMap.style.display = "block";
 }
