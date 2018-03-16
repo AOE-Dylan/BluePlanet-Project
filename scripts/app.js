@@ -2,12 +2,14 @@ let popUp = () => {
     document.getElementById("overlay").style.display = "block";
 };
 
-let min = 2;
-let sec = 0;
+let min = 0;
+let sec = 15;
 
 let countdown = () =>  {
   if (min === 0 && sec === 0) {
-    document.getElementById('timer').innerHTML = STOP;
+    document.getElementById('timer').innerHTML = "STOP";
+    document.getElementById('map').remove();
+    document.createElement(div#map);
     clearInterval(bubbleGenerate);
     clearInterval(countdown);
     popUp();

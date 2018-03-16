@@ -72,34 +72,34 @@ startButton.addEventListener("click", function() {
     pauseButton.style.display = "block";
 
     pauseButton.addEventListener("click", function() {
-      pause()
+      pause();
       gamePaused.style.display = "block";
     });
 
     resumeButton.addEventListener("click", function() {
-      resume()
+      resume();
       gamePaused.style.display = "none";
     });
 
     settings.addEventListener("click", function() {
-      pause()
+      pause();
     });
 
     information.addEventListener("click", function() {
-      pause()
+      pause();
       gamePaused.style.display = "none";
     });
 
-  function pause(){
+  let pause = () => {
     clearInterval(bubbleGenerate);
     clearInterval(timer);
     gameActive = 0;
     background.style.filter = "blur(60px)";
     pauseButton.style.display = "none";
     resumeButton.style.display = "block";
-  }
+  };
 
-  function resume(){
+  let resume = () => {
     bubbleGenerate = setInterval(randomButton, 1000);
     gameActive = 1;
     background.style.filter = "blur(0px)";
@@ -108,7 +108,7 @@ startButton.addEventListener("click", function() {
     resumeButton.style.display = "none";
     pauseButton.style.display = "block";
     timer = setInterval(countdown, 1000);
-  }
+  };
 
     $('.menuClose').click(function() {
       if(gameStart == 1){
