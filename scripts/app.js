@@ -1,17 +1,17 @@
 let popUp = () => {
     document.getElementById("overlay").style.display = "block";
+    clearInterval(countdown);
 };
 
-let min = 0;
-let sec = 15;
+let min = 2;
+let sec = 0;
 
 let countdown = () =>  {
   if (min === 0 && sec === 0) {
-    document.getElementById('timer').innerHTML = "STOP";
-    document.getElementById('map').remove();
-    document.createElement(div#map);
     clearInterval(bubbleGenerate);
-    clearInterval(countdown);
+    gameActive = 0;
+    document.getElementById('timer').innerHTML = "STOP";
+    $("#map").remove();
     popUp();
   } else if (sec === 0) {
     min = min - 1;

@@ -11,6 +11,15 @@
 #notMap {
   display: none;
 }
+
+#map {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  height: 900px;
+  width: 900px;
+}
+
 #gameTitle {
   color: white;
   display: inline-block;
@@ -104,6 +113,7 @@
   background: #97ca3d;
   color: white;
 }
+
 #gamePaused {
   display: none;
   position: fixed; /*it can be fixed too*/
@@ -122,6 +132,7 @@
   -moz-box-shadow: 0 1px 5px #333;
   -webkit-box-shadow: 0 1px 5px #333;
 }
+
 #settingsMenu, #informationMenu{
     display: none;
     position: fixed; /*it can be fixed too*/

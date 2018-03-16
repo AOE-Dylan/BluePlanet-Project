@@ -1,9 +1,9 @@
 xCoord = () => {
-  return Math.floor(Math.random() * $("#zoomAnimation").height() - 20)
+  return Math.floor(Math.random() * $("#map").height() - 20)
 }
 
 yCoord = () => {
-  return Math.floor(Math.random() * $("#zoomAnimation").width() - 20)
+  return Math.floor(Math.random() * $("#map").width() - 20)
 }
 
 let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
