@@ -34,7 +34,13 @@ let randomButton = () => {
   let randY = yCoord();
   let randNum = randomImg();
   let remaining = document.getElementById('map').children;
-  $('#map').append($(`<img class="bubble" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+  let randomButton = () => {
+  let randX = xCoord();
+  let randY = yCoord();
+  let randNum = randomImg();
+  let remaining = document.getElementById('map').children;
+  $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+  $(`#` + `${remaining.length}`).delay(3000).remove();
 };
 
 let bubbleGenerate;
