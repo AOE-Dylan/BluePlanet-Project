@@ -197,6 +197,9 @@ a.boxClose:hover {
   font-size: 25px;
   text-align: center;
   color: white;
+  -moz-user-select: -moz-none;
+-khtml-user-select: none;
+-webkit-user-select: none;
 }
 
 #timer {
@@ -230,6 +233,9 @@ a.boxClose:hover {
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
   border-radius: 12px;
+  -moz-user-select: -moz-none;
+-khtml-user-select: none;
+-webkit-user-select: none;
 }
 
 .barBackground .title{
