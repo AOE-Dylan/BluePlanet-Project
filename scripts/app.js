@@ -5,13 +5,11 @@ let popUp = () => {
 let min = 0;
 let sec = 15;
 
-let children = document.getElementById('map').children;
-
 let countdown = () =>  {
   if (min === 0 && sec === 0) {
     document.getElementById('timer').innerHTML = "STOP";
-    console.log(children);
-    // document.getElementById('map').removeChild(children);
+    document.getElementById('map').remove();
+    document.createElement(div#map);
     clearInterval(bubbleGenerate);
     clearInterval(countdown);
     popUp();
