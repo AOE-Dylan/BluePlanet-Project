@@ -29,18 +29,23 @@ dictateBar = () => {
   }
 }
 
+var timePassed = [];
+
 let randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
   let remaining = document.getElementById('map').children;
-  let randomButton = () => {
-  let randX = xCoord();
-  let randY = yCoord();
-  let randNum = randomImg();
-  let remaining = document.getElementById('map').children;
+  let currBubble = $(`#` + `${remaining.length - 1}`)[0];
   $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
-  $(`#` + `${remaining.length}`).delay(3000).remove();
+  timePassed.push(parseInt(currBubble.id));
+  console.log(timePassed)
+  for (var i = 0; i < timePassed.length; i++){
+    if(timePassed[i] == timePassed + 5){
+      document.getElementById(timePassed[i] - 5).remove()
+    }
+  timePassed[i]++
+  }
 };
 
 let bubbleGenerate;
@@ -59,7 +64,6 @@ let informationMenu = document.getElementById('informationMenu');
 let gamePaused = document.getElementById('gamePaused');
 let zoomAnimation = document.getElementById('zoomAnimation');
 let notMap = document.getElementById('notMap')
-
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
