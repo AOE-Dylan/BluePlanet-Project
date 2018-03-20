@@ -1,17 +1,21 @@
 #overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 60%;
-    height: 60%;
-    top: 20%;
-    left: 20%;
-    right: 0;
-    bottom: 0;
-    z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
-    background-color: grey;
-    opacity: 0.8;
-    z-index: 0;
+  display: none;
+  position: fixed; /*it can be fixed too*/
+  left:0; right:0;
+  top:0; bottom:0;
+  margin: auto;
+  width:50%;
+  height:50%;
+  opacity: 0.8;
+  background-color: #0099CC;
+  color: white;
+  padding:20px;
+  border:2px solid #ccc;
+  -moz-border-radius: 20px;
+  -webkit-border-radius:20px;
+  -khtml-border-radius:20px;
+  -moz-box-shadow: 0 1px 5px #333;
+  -webkit-box-shadow: 0 1px 5px #333;
 }
 
 .bubble {
@@ -38,19 +42,22 @@ body {
 }
 
 #zoomAnimation {
-   position: absolute;
+   position: fixed;
    width: 100%;
    height: 100%;
    left: 0px;
    background-image: url("map.jpg");
    background-size: 100vw 100vh;
-   animation-duration: 3s;
-   animation-delay: 2s;
-   animation-fill-mode: forwards;
    object-fit: cover;
 }
 
-.zoom {
+.addZoom {
+  animation-name: zoom;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
 @-webkit-keyframes zoom {
   0% {
     background-position-x: 0%;
@@ -63,4 +70,15 @@ body {
     background-size: 400vw 400vh;
   }
 }
+
+#settingsMenu {
+  animation-duration: 0.5s;
+}
+
+#informationMenu {
+  animation-duration: 0.5s;
+}
+
+#beforeStart {
+  animation-duration: 0.5s;
 }

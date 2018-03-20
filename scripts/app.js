@@ -1,6 +1,4 @@
-let popUp = () => {
-    document.getElementById("overlay").style.display = "block";
-};
+
 
 let min = 0;
 let sec = 15;

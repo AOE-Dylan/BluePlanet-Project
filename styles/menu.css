@@ -1,6 +1,6 @@
 .navbar {
   overflow: hidden;
-  background-color: #0098a4;
+  background-color: #0099CC;
   opacity: 0.8;
   position: fixed;
   bottom: 0;
@@ -29,7 +29,7 @@
 }
 
 #gameTitle:hover {
-  color: #97ca3d;
+  color: #003399;
 }
 
 #startButton {
@@ -47,7 +47,7 @@
 }
 
 #startButton:hover, #pauseButton:hover, #resumeButton:hover {
-  color: #97ca3d;
+  color: #003399;
   cursor: pointer;
 }
 
@@ -100,8 +100,8 @@
 }
 
 #settingsButton:hover, #informationButton:hover {
-  border-left: #97ca3d;
-  background: #97ca3d;
+  border-left: #003399;
+  background: #003399;
   color: white;
 }
 #gamePaused {
@@ -113,7 +113,7 @@
   width:50%;
   height:10%;
   opacity: 0.8;
-  background-color: #0098a4;
+  background-color: #0099CC;
   color: white;
   border:2px solid #ccc;
   -moz-border-radius: 20px;
@@ -124,15 +124,14 @@
 }
 
 #beforeStart {
-  display: block;
-  position: fixed; /*it can be fixed too*/
+  position: absolute;; /*it can be fixed too*/
   left:0; right:0;
   top:0; bottom:0;
   margin: auto;
-  width:50%;
-  height:50%;
-  opacity: 0.8;
-  background-color: #0098a4;
+  width: 75%;
+  height: 75%;
+  opacity: 0.95;
+  background-color: #0099CC;
   color: white;
   padding:20px;
   border:2px solid #ccc;
@@ -142,6 +141,49 @@
   -moz-box-shadow: 0 1px 5px #333;
   -webkit-box-shadow: 0 1px 5px #333;
 }
+
+#flexContainer {
+  left:0; right:0;
+  top:0; bottom:0;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 80%;
+}
+.blocks {
+  margin-left: 10px;
+  width: 33%;
+  height: 90%;
+
+}
+
+.vl {
+    border-left: 6px solid green;
+    height: 500px;
+}
+
+#startZoom {
+  float: right;
+  width: 10%;
+  height: 10%;
+  color: white;
+  background-color: #003399;
+  border: 4px solid #003399;
+  border-radius: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+#startZoom:hover {
+  background-color: transparent;
+  color: #003399;
+  cursor: pointer;
+}
+
 #settingsMenu, #informationMenu{
     display: none;
     position: fixed; /*it can be fixed too*/
@@ -151,7 +193,7 @@
     width:50%;
     height:50%;
     opacity: 0.8;
-    background-color: #0098a4;
+    background-color: #0099CC;
     color: white;
     padding:20px;
     border:2px solid #ccc;
@@ -162,13 +204,13 @@
     -webkit-box-shadow: 0 1px 5px #333;
 }
 
-#settingsMenu, #informationMenu, #gamePaused h1 {
+#settingsMenu, #informationMenu, #gamePaused, #beforeStart h1 {
   text-align: center;
   user-select: none;
 }
 
 #gamePaused h1:hover {
-  color: #97ca3d;
+  color: #003399;
 }
 
 a.boxClose{
@@ -188,7 +230,7 @@ a.boxClose{
 }
 
 a.boxClose:hover {
-  background-color: #97ca3d;
+  background-color: #66CCFF;
   color: white;
 }
 
@@ -207,7 +249,7 @@ a.boxClose:hover {
   margin: auto;
   width:10%;
   opacity: 0.8;
-  background-color: #0098a4;
+  background-color: #0099CC;
   color: white;
   padding:5px;
   border:2px solid #ccc;
@@ -246,7 +288,7 @@ a.boxClose:hover {
 .barBackground{
 	width:90%;
   float:left;
-	background-color: #0098a4;
+	background-color: #0099CC;
 	margin:7px 5% 5px 5%;
 	padding-bottom:10px;
 	border:2px solid #ccc;
