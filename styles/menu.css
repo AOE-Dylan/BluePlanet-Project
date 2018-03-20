@@ -11,6 +11,15 @@
 #notMap {
   display: none;
 }
+
+#map {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  height: 900px;
+  width: 900px;
+}
+
 #gameTitle {
   color: white;
   display: inline-block;
@@ -104,6 +113,7 @@
   background: #003399;
   color: white;
 }
+
 #gamePaused {
   display: none;
   position: fixed; /*it can be fixed too*/
@@ -124,7 +134,7 @@
 }
 
 #beforeStart {
-  position: absolute;; /*it can be fixed too*/
+  position: absolute; /*it can be fixed too*/
   left:0; right:0;
   top:0; bottom:0;
   margin: auto;

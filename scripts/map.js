@@ -1,9 +1,9 @@
 xCoord = () => {
-  return Math.floor(Math.random() * $("#zoomAnimation").height() - 20)
+  return Math.floor(Math.random() * $("#map").height() - 20)
 }
 
 yCoord = () => {
-  return Math.floor(Math.random() * $("#zoomAnimation").width() - 20)
+  return Math.floor(Math.random() * $("#map").width() - 20)
 }
 
 let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
@@ -29,12 +29,23 @@ dictateBar = () => {
   }
 }
 
+var timePassed = [];
+
 let randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
   let remaining = document.getElementById('map').children;
-  $('#map').append($(`<img class="bubble" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+  let currBubble = $(`#` + `${remaining.length - 1}`)[0];
+  $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+  timePassed.push(parseInt(currBubble.id));
+  console.log(timePassed)
+  for (var i = 0; i < timePassed.length; i++){
+    if(timePassed[i] == timePassed + 5){
+      document.getElementById(timePassed[i] - 5).remove()
+    }
+  timePassed[i]++
+  }
 };
 
 let bubbleGenerate;
@@ -55,7 +66,6 @@ let zoomAnimation = document.getElementById('zoomAnimation');
 let notMap = document.getElementById('notMap');
 let startZoom = document.getElementById('startZoom');
 let beforeStart = document.getElementById('beforeStart');
-
 
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
