@@ -1,8 +1,3 @@
-let popUp = () => {
-    document.getElementById("overlay").style.display = "block";
-    clearInterval(countdown);
-};
-
 let min = 2;
 let sec = 0;
 

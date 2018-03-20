@@ -63,12 +63,24 @@ let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
 let gamePaused = document.getElementById('gamePaused');
 let zoomAnimation = document.getElementById('zoomAnimation');
-let notMap = document.getElementById('notMap')
+let notMap = document.getElementById('notMap');
+let startZoom = document.getElementById('startZoom');
+let beforeStart = document.getElementById('beforeStart');
+
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
+$("#startZoom").click(function() {
+  console.log('test')
+  $('#beforeStart').addClass('animated zoomOut');
+  $('#zoomAnimation').addClass('addZoom');
+});
+
 function AnimationListener(){
   notMap.style.display = "block";
+  $('#beforeStart').removeClass('animated zoomOut');
+  beforeStart.style.display = "none";
+  $('#startButton').addClass('animated rubberBand');
 }
 
 startButton.addEventListener("click", function() {
@@ -153,3 +165,8 @@ $('.menuClose').click(function() {
     informationMenu.style.display = "none";
     settingsMenu.style.display = "none";
 });
+
+let popUp = () => {
+    document.getElementById("overlay").style.display = "block";
+    background.style.filter = "blur(60px)";
+};

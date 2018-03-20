@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>BluePlanet Foundation</title>
 </head>
@@ -16,11 +18,11 @@
     <div id="background">
         <div id="zoomAnimation"></div>
         <div id="map"></div>
-        <div id="overlay">
-          <div id="reward">
-            Level 1 Complete!
-          </div>
-        </div>
+    </div>
+    <div id="overlay">
+      <div id="reward">
+        Level 1 Complete!
+      </div>
     </div>
     <div id="notMap">
     <div id="roundBarsContainer">
@@ -77,19 +79,35 @@
         <div id="resumeButton">Resume</div>
     </div>
 
-    <div id="settingsMenu">
+    <div id="settingsMenu" class="animated bounceInUp">
         <a class="boxClose menuClose"></a>
         <h1>SETTINGS</h1>
     </div>
 
-    <div id="gamePaused">
+    <div id="gamePaused" class="animated bounceIn">
         <h1>GAME PAUSED</h1>
     </div>
 
-    <div id="informationMenu">
+    <div id="informationMenu" class="animated bounceInUp">
         <a class="boxClose menuClose"></a>
         <h1>INFORMATION</h1>
     </div>
+  </div>
+
+  <div id="beforeStart">
+    <h1>WElCOME TO INFINITE POWER 2045</h1>
+    <div id="flexContainer">
+    <div class="blocks" style="border-right: 4px solid white;">
+      <h1>WHAT IS INFINITE POWER 2045?</h1>
+    </div>
+    <div class="blocks" style="border-right: 4px solid white;">
+      <h1>HOW TO PLAY?</h1>
+    </div>
+    <div class="blocks">
+      <h1>CREDITS</h1>
+    </div>
+  </div>
+    <button id="startZoom">CONTINUE</button>
   </div>
 
     <script src="scripts/app.js"></script>
