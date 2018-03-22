@@ -81,7 +81,6 @@ let timerFail = document.getElementById('timerFail')
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
 $("#startZoom").click(function() {
-  console.log('test')
   $('#beforeStart').addClass('animated zoomOut');
   $('#zoomAnimation').addClass('addZoom');
   $('#beforeStart').removeClass('animated zoomOut');
@@ -96,7 +95,9 @@ function AnimationListener(){
 startButton.addEventListener("click", function() {
     $('#startButton').removeClass('animated infinite rubberBand');
     bubbleGenerate = setInterval(randomButton, 1000);
+    console.log(bubbleGenerate, "bubbleGeneration started");
     timer = setInterval(countdown, 1000);
+    console.log(timer, "Timer countdown started")
     console.log('Game Started');
     gameStart = 1;
     gameActive = 1;
@@ -108,6 +109,10 @@ startButton.addEventListener("click", function() {
 
     restart.addEventListener("click", function() {
       timerFail.style.display = "none";
+      background.style.filter = "blur(0px)";
+      pauseButton.style.display = "none";
+      startButton.style.display = "block";
+      document.getElementById('timer').innerHTML = "2:00";
     });
 
     pauseButton.addEventListener("click", function() {
