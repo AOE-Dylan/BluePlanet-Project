@@ -66,6 +66,8 @@ let zoomAnimation = document.getElementById('zoomAnimation');
 let notMap = document.getElementById('notMap');
 let startZoom = document.getElementById('startZoom');
 let beforeStart = document.getElementById('beforeStart');
+let gameRestart = document.getElementById('restart');
+let timerFail = document.getElementById('timerFail')
 
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
@@ -74,16 +76,17 @@ $("#startZoom").click(function() {
   console.log('test')
   $('#beforeStart').addClass('animated zoomOut');
   $('#zoomAnimation').addClass('addZoom');
+  $('#beforeStart').removeClass('animated zoomOut');
+  beforeStart.style.display = "none";
 });
 
 function AnimationListener(){
   notMap.style.display = "block";
-  $('#beforeStart').removeClass('animated zoomOut');
-  beforeStart.style.display = "none";
-  $('#startButton').addClass('animated rubberBand');
+  $('#startButton').addClass('animated infinite rubberBand');
 }
 
 startButton.addEventListener("click", function() {
+    $('#startButton').removeClass('animated infinite rubberBand');
     bubbleGenerate = setInterval(randomButton, 1000);
     timer = setInterval(countdown, 1000);
     console.log('Game Started');
@@ -92,6 +95,12 @@ startButton.addEventListener("click", function() {
     console.log('gameActive is', gameActive)
     startButton.style.display = "none";
     pauseButton.style.display = "block";
+    settingsMenu.style.display = "none";
+    informationMenu.style.display = "none";
+
+    restart.addEventListener("click", function() {
+      timerFail.style.display = "none";
+    });
 
     pauseButton.addEventListener("click", function() {
       pause();
@@ -165,8 +174,3 @@ $('.menuClose').click(function() {
     informationMenu.style.display = "none";
     settingsMenu.style.display = "none";
 });
-
-let popUp = () => {
-    document.getElementById("overlay").style.display = "block";
-    background.style.filter = "blur(60px)";
-};

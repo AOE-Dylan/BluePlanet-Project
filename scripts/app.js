@@ -1,5 +1,11 @@
-let min = 2;
-let sec = 0;
+let min = 0;
+let sec = 10;
+
+let popUp = () => {
+    document.getElementById("timerFail").style.display = "block";
+    gameActive = 0;
+    background.style.filter = "blur(60px)";
+};
 
 let countdown = () =>  {
   if (min === 0 && sec === 0) {
