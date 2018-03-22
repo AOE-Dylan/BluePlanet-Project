@@ -16,8 +16,8 @@
   position: fixed;
   top: 50px;
   left: 50px;
-  height: 900px;
-  width: 900px;
+  height: 85vh;
+  width: 75vw;
 }
 
 #gameTitle {

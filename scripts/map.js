@@ -3,7 +3,7 @@ xCoord = () => {
 }
 
 yCoord = () => {
-  return Math.floor(Math.random() * $("#map").width() - 20)
+  return Math.floor(Math.random() * $("#map").width() - 120)
 }
 
 let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
@@ -17,16 +17,22 @@ let addBarGood = () => {
 };
 
 let addBarBad = () => {
+  $('#renewableProgress').css('height', $('#renewableProgress').height() + 15)
   $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 15);
 };
 
 dictateBar = () => {
-  event.target.remove();
+  event.target.style.opacity = 0;
+  event.target.onclick = null;
   if (event.target.getAttribute("src") !== images[0]) {
     addBarGood()
   } else {
     addBarBad()
   }
+}
+
+let timeNum = () => {
+  return (Math.floor(Math.random() * 8) + 4)
 }
 
 var timePassed = [];
@@ -35,18 +41,20 @@ let randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
+  let randTime = timeNum();
   let remaining = document.getElementById('map').children;
   let currBubble = $(`#` + `${remaining.length - 1}`)[0];
   $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
   timePassed.push(parseInt(currBubble.id));
-  console.log(timePassed)
+  console.log(timePassed);
   for (var i = 0; i < timePassed.length; i++){
-    if(timePassed[i] == timePassed + 5){
-      document.getElementById(timePassed[i] - 5).remove()
+    timePassed[i]++
+    if (timePassed[i] >= parseInt(remaining[i].id) + randTime){
+      $("#" + i)[0].style.opacity = 0;
+      $("#" + i)[0].onclick = null;
     }
-  timePassed[i]++
   }
-};
+}
 
 let bubbleGenerate;
 let timer;
