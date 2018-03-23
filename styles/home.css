@@ -1,4 +1,4 @@
-#timerFail {
+#timerFail, #levelSuccessPopUp {
   display: none;
   position: fixed; /*it can be fixed too*/
   left:0; right:0;
@@ -69,6 +69,10 @@ body {
     background-position-x: 25%;
     background-size: 400vw 400vh;
   }
+}
+
+#timerFail {
+  animation-duration: 0.5s;
 }
 
 #settingsMenu {
