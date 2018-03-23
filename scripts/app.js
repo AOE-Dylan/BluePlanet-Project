@@ -1,15 +1,19 @@
 let min = 0;
-let sec = 3;
+let sec = 5;
 
 let popUp = () => {
-    document.getElementById("timerFail").style.display = "block";
-    let sec = 3;
-    gameActive = 0;
+
+    renewableProgress.style.height = "0px";
+    nonRenewableProgress.style.height = "0px";
+
+    timerFail.style.display = "block";
+    pauseButton.style.display = "none";
+    notMap.style.display = "none";
     background.style.filter = "blur(60px)";
+
     let div = document.createElement("DIV");
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
-
 };
 
 let countdown = () =>  {

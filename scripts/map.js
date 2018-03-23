@@ -13,7 +13,7 @@ let randomImg = () => {
 };
 
 let addBarGood = () => {
-  $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
+  $('#renewableProgress').css('height', $('#renewableProgress').height() + 50);
 };
 
 let addBarBad = () => {
@@ -45,7 +45,7 @@ let randomButton = () => {
   let remaining = document.getElementById('map').children;
   let currBubble = $(`#` + `${remaining.length - 1}`)[0];
   $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity=100%" >`));
-  timePassed.push(parseInt(currBubble.id));
+  //timePassed.push(parseInt(currBubble.id));
   for (var i = 0; i < timePassed.length; i++){
     timePassed[i]++
     if (timePassed[i] >= parseInt(remaining[i].id) + randTime){
@@ -75,6 +75,8 @@ let startZoom = document.getElementById('startZoom');
 let beforeStart = document.getElementById('beforeStart');
 let gameRestart = document.getElementById('restart');
 let timerFail = document.getElementById('timerFail');
+let renewableProgress = document.getElementById('renewableProgress');
+let nonRenewableProgress = document.getElementById('nonRenewableProgress');
 
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
@@ -93,14 +95,17 @@ function AnimationListener(){
 
 startButton.addEventListener("click", function() {
     $('#startButton').removeClass('animated infinite rubberBand');
+
     bubbleGenerate = setInterval(randomButton, 1000);
-    console.log(bubbleGenerate, "bubbleGeneration started");
     timer = setInterval(countdown, 1000);
+    console.log(bubbleGenerate, "bubbleGeneration started");
     console.log(timer, "Timer countdown started")
-    console.log('Game Started');
+
     gameStart = 1;
     gameActive = 1;
-    console.log('gameActive is', gameActive)
+    console.log('Game Started');
+    console.log('gameActive is', gameActive);
+
     startButton.style.display = "none";
     pauseButton.style.display = "block";
     settingsMenu.style.display = "none";
@@ -112,6 +117,8 @@ startButton.addEventListener("click", function() {
       pauseButton.style.display = "none";
       startButton.style.display = "block";
       document.getElementById('timer').innerHTML = "2:00";
+      notMap.style.display = "block";
+      sec = 5;
     });
 
     pauseButton.addEventListener("click", function() {
@@ -167,7 +174,6 @@ startButton.addEventListener("click", function() {
 
 settings.addEventListener("click", function() {
     settingsMenu.style.display = "block";
-
     if(informationMenu.style.display == "block"){
       informationMenu.style.display = "none";
     }
@@ -175,7 +181,6 @@ settings.addEventListener("click", function() {
 
 information.addEventListener("click", function() {
     informationMenu.style.display = "block";
-
     if(settingsMenu.style.display == "block"){
       settingsMenu.style.display = "none";
     }

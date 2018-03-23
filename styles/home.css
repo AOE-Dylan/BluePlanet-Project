@@ -71,6 +71,10 @@ body {
   }
 }
 
+#timerFail {
+  animation-duration: 0.5s;
+}
+
 #settingsMenu {
   animation-duration: 0.5s;
 }
