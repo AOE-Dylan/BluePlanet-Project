@@ -1,5 +1,5 @@
 let min = 0;
-let sec = 5;
+let sec = 4;
 
 let popUp = () => {
 
@@ -16,11 +16,18 @@ let popUp = () => {
     let newMap = document.getElementById('background').appendChild(div);
 };
 
-let countdown = () =>  {
-  if (min === 0 && sec === 0) {
+  if(renewableProgress.style.height > "250px"){
+    console.log('renewable bar reached')
+    gameActive = 0;
     clearInterval(bubbleGenerate);
     clearInterval(timer);
+  }
+
+let countdown = () =>  {
+  if (min === 0 && sec === 0) {
     gameActive = 0;
+    clearInterval(bubbleGenerate);
+    clearInterval(timer);
     document.getElementById('timer').innerHTML = "TIMES UP!";
     $("#map").remove();
     popUp();

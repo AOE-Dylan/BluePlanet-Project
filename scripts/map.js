@@ -118,7 +118,7 @@ startButton.addEventListener("click", function() {
       startButton.style.display = "block";
       document.getElementById('timer').innerHTML = "2:00";
       notMap.style.display = "block";
-      sec = 5;
+      sec = 10;
     });
 
     pauseButton.addEventListener("click", function() {
