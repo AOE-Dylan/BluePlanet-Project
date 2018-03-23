@@ -1,3 +1,6 @@
+let min = 2;
+let sec = 0;
+
 let xCoord = () => {
   return Math.floor(Math.random() * $("#map").height() - 20)
 }
@@ -22,6 +25,7 @@ let addBarBad = () => {
 };
 
 dictateBar = () => {
+  event.target.style.WebkitAnimation = null;
   event.target.style.opacity = 0;
   event.target.onclick = null;
   if (event.target.getAttribute("src") !== images[0]) {
@@ -44,7 +48,7 @@ let randomButton = () => {
   let randTime = timeNum();
   let remaining = document.getElementById('map').children;
   let currBubble = $(`#` + `${remaining.length - 1}`)[0];
-  $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity=100%" >`));
+  $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
   timePassed.push(parseInt(currBubble.id));
   for (var i = 0; i < timePassed.length; i++){
     timePassed[i]++
@@ -53,7 +57,47 @@ let randomButton = () => {
       $("#" + i)[0].onclick = null;
     }
   }
+  currBubble.style.WebkitAnimation = "fading " + randTime + "s linear";
 }
+
+let popUp = () => {
+    document.getElementById("timerFail").style.display = "block";
+    let sec = 3;
+    gameActive = 0;
+    background.style.filter = "blur(60px)";
+    let div = document.createElement("DIV");
+    div.id = "map";
+    let newMap = document.getElementById('background').appendChild(div);
+
+};
+
+let countdown = () =>  {
+  if (min === 0 && sec === 0) {
+    clearInterval(bubbleGenerate);
+    clearInterval(timer);
+    gameActive = 0;
+    document.getElementById('timer').innerHTML = "TIMES UP!";
+    $("#map").remove();
+    popUp();
+    console.log('Timer Ran out');
+  } else if (sec === 0) {
+    min = min - 1;
+    sec = 59;
+    document.getElementById('timer').innerHTML = min + ":" + sec;
+  } else if (min === 0) {
+    sec = sec - 1;
+    document.getElementById('timer').innerHTML = ":" + sec;
+  } else if (min === 1 && sec < 10) {
+      sec = sec - 1;
+      document.getElementById('timer').innerHTML = min + ":0" + sec;
+  } else if (min === 0 && sec < 10) {
+      sec = sec - 1;
+      document.getElementById('timer').innerHTML = ":0" + sec;
+  } else {
+    sec = sec - 1;
+    document.getElementById('timer').innerHTML = min + ":" + sec;
+  }
+};
 
 let bubbleGenerate;
 let timer;
@@ -111,7 +155,7 @@ startButton.addEventListener("click", function() {
       background.style.filter = "blur(0px)";
       pauseButton.style.display = "none";
       startButton.style.display = "block";
-      document.getElementById('timer').innerHTML = "2:00";
+      document.getElementById('timer').innerHTML = min + ":0" + sec;
     });
 
     pauseButton.addEventListener("click", function() {
@@ -186,3 +230,19 @@ $('.menuClose').click(function() {
     informationMenu.style.display = "none";
     settingsMenu.style.display = "none";
 });
+
+// let month = 1;
+// let year = 2017;
+//
+//
+// let monthCount = () => {
+//    if (month === 12) {
+//       month = 1,
+//       year  = year + 1;
+//    } else {
+//      month = month + 1;
+//    }
+//    document.getElementById('date').innerHTML = month + " - " + year;
+// };
+//
+// setInterval(monthCount, 1000);

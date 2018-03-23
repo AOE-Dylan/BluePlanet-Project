@@ -82,3 +82,8 @@ body {
 #beforeStart {
   animation-duration: 0.5s;
 }
+
+@-webkit-keyframes fading {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
