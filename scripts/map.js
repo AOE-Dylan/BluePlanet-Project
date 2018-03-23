@@ -1,8 +1,8 @@
-xCoord = () => {
+let xCoord = () => {
   return Math.floor(Math.random() * $("#map").height() - 20)
 }
 
-yCoord = () => {
+let yCoord = () => {
   return Math.floor(Math.random() * $("#map").width() - 120)
 }
 
@@ -44,9 +44,8 @@ let randomButton = () => {
   let randTime = timeNum();
   let remaining = document.getElementById('map').children;
   let currBubble = $(`#` + `${remaining.length - 1}`)[0];
-  $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px;" >`));
+  $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity=100%" >`));
   timePassed.push(parseInt(currBubble.id));
-  console.log(timePassed);
   for (var i = 0; i < timePassed.length; i++){
     timePassed[i]++
     if (timePassed[i] >= parseInt(remaining[i].id) + randTime){
@@ -75,7 +74,7 @@ let notMap = document.getElementById('notMap');
 let startZoom = document.getElementById('startZoom');
 let beforeStart = document.getElementById('beforeStart');
 let gameRestart = document.getElementById('restart');
-let timerFail = document.getElementById('timerFail')
+let timerFail = document.getElementById('timerFail');
 
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
