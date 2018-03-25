@@ -24,12 +24,12 @@ let addBarBad = () => {
 dictateBar = () => {
   event.target.style.WebkitAnimation = null;
   event.target.style.opacity = 0;
-  event.target.onclick = null;
   if (event.target.getAttribute("src") !== images[0]) {
     addBarGood()
   } else {
     addBarBad()
   }
+  event.target.onclick = null;
 }
 
 let timeNum = () => {
@@ -49,12 +49,19 @@ let randomButton = () => {
   timePassed.push(parseInt(currBubble.id));
   for (var i = 0; i < timePassed.length; i++){
     timePassed[i]++
-    if (timePassed[i] >= parseInt(remaining[i].id) + randTime){
+    if (remaining[i].src !== images[0] && timePassed[i] >= parseInt(remaining[i].id) + randTime){
+      $("#" + i)[0].style.opacity = 0;
+      $("#" + i)[0].onclick = null;
+    } else if (remaining[i].src == images[0] && timePassed[i] >= parseInt(remaining[i].id) + (randTime * 2)){
       $("#" + i)[0].style.opacity = 0;
       $("#" + i)[0].onclick = null;
     }
   }
-  currBubble.style.WebkitAnimation = "fading " + randTime + "s linear";
+  if(currBubble.src !== images[0]){
+    currBubble.style.WebkitAnimation = "fading " + (randTime) + "s linear";
+  } else {
+    currBubble.style.WebkitAnimation = "fading " + ((randTime) * 2) + "s linear";
+  }
 }
 
 let bubbleGenerate;

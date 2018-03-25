@@ -1,5 +1,5 @@
-let min = 0;
-let sec = 4;
+let min = 2;
+let sec = 0;
 
 let popUp = () => {
 
