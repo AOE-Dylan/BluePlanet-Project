@@ -179,7 +179,7 @@ startButton.addEventListener("click", function() {
   };
 
     $('.menuClose').click(function() {
-      if(gameStart == 1){
+      if(gameStart == 1 & gameActive == 0){
         bubbleGenerate = setInterval(randomButton, 1000);
         timer = setInterval(countdown, 1000);
         console.log('Menu Closed, Starting Generating');
