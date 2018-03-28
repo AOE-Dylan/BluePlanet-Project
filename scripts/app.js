@@ -1,11 +1,9 @@
-let min = 0;
+
 let sec = 5;
 
 let popUp = () => {
-
     renewableProgress.style.height = "0px";
     nonRenewableProgress.style.height = "0px";
-
     timerFail.style.display = "block";
     pauseButton.style.display = "none";
     notMap.style.display = "none";
@@ -13,7 +11,7 @@ let popUp = () => {
 };
 
 let countdown = () =>  {
-  if (min === 0 && sec === 0) {
+  if (sec === 0) {
     gameActive = 0;
     clearInterval(bubbleGenerate);
     clearInterval(timer);
@@ -22,21 +20,17 @@ let countdown = () =>  {
     popUp();
     console.log('Timer Ran out');
   } else if (sec === 0) {
-    min = min - 1;
     sec = 59;
-    document.getElementById('timer').innerHTML = min + ":" + sec;
-  } else if (min === 0) {
-    sec = sec - 1;
-    document.getElementById('timer').innerHTML = ":" + sec;
-  } else if (min === 1 && sec < 10) {
+    document.getElementById('timer').innerHTML = sec;
+  } else if (sec < 10) {
       sec = sec - 1;
-      document.getElementById('timer').innerHTML = min + ":0" + sec;
-  } else if (min === 0 && sec < 10) {
+      document.getElementById('timer').innerHTML = sec;
+  } else if (sec < 10) {
       sec = sec - 1;
-      document.getElementById('timer').innerHTML = ":0" + sec;
+      document.getElementById('timer').innerHTML = sec;
   } else {
     sec = sec - 1;
-    document.getElementById('timer').innerHTML = min + ":" + sec;
+    document.getElementById('timer').innerHTML = sec;
   }
 };
 

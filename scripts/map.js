@@ -111,9 +111,8 @@ restart.addEventListener("click", function() {
   background.style.filter = "blur(0px)";
   startButton.style.display = "block";
   notMap.style.display = "block";
-  min = 1;
-  sec = 0;
-  document.getElementById('timer').innerHTML = min + ":0" + sec;
+  sec = 5;
+  document.getElementById('timer').innerHTML = sec;
   let div = document.createElement("DIV");
   div.id = "map";
   let newMap = document.getElementById('background').appendChild(div);
@@ -157,9 +156,10 @@ startButton.addEventListener("click", function() {
     });
 
   let pause = () => {
-    if(gameActive == 1){
+    if(gameActive == 1 & gameStart == 1){
     clearInterval(bubbleGenerate);
     clearInterval(timer);
+    console.log('game paused')
     gameActive = 0;
     background.style.filter = "blur(60px)";
     pauseButton.style.display = "none";
@@ -168,14 +168,17 @@ startButton.addEventListener("click", function() {
   };
 
   let resume = () => {
+    if(gameStart == 1 & gameActive == 0){
     bubbleGenerate = setInterval(randomButton, 1000);
     gameActive = 1;
+    console.log('game resumed')
     background.style.filter = "blur(0px)";
     settingsMenu.style.display = "none";
     informationMenu.style.display = "none";
     resumeButton.style.display = "none";
     pauseButton.style.display = "block";
     timer = setInterval(countdown, 1000);
+  }
   };
 
     $('.menuClose').click(function() {
