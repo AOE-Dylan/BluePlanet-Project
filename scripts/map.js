@@ -62,6 +62,7 @@ let randomButton = () => {
   } else {
     currBubble.style.WebkitAnimation = "fading " + ((randTime) * 2) + "s linear";
   }
+  currBubble.style.animationFillMode = "forwards";
 }
 
 let bubbleGenerate;
