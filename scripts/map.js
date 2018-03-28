@@ -23,13 +23,14 @@ let addBarBad = () => {
 
 dictateBar = () => {
   event.target.style.WebkitAnimation = null;
-  event.target.style.opacity = 0;
+  event.target.style.display = "none";
   if (event.target.getAttribute("src") !== images[0]) {
     addBarGood()
+    event.target.onclick = null;
   } else {
     addBarBad()
+    event.target.onclick = null;
   }
-  event.target.onclick = null;
 }
 
 let timeNum = () => {
@@ -37,33 +38,36 @@ let timeNum = () => {
 }
 
 var timePassed = [];
+var remaining = document.getElementById('map').children;
+
 
 let randomButton = () => {
   let randX = xCoord();
   let randY = yCoord();
   let randNum = randomImg();
   let randTime = timeNum();
-  let remaining = document.getElementById('map').children;
-  let currBubble = $(`#` + `${remaining.length - 1}`)[0];
   $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
-  timePassed.push(parseInt(currBubble.id));
-  for (var i = 0; i < timePassed.length; i++){
-    timePassed[i]++
-    if (remaining[i].src !== images[0] && timePassed[i] >= parseInt(remaining[i].id) + randTime){
-      $("#" + i)[0].style.opacity = 0;
-      $("#" + i)[0].onclick = null;
-    } else if (remaining[i].src == images[0] && timePassed[i] >= parseInt(remaining[i].id) + (randTime * 2)){
-      $("#" + i)[0].style.opacity = 0;
-      $("#" + i)[0].onclick = null;
-    }
-  }
+  let currBubble = $(`#` + `${remaining.length - 1}`)[0];
+  // timePassed.push(parseInt(currBubble.id));
   if(currBubble.src !== images[0]){
     currBubble.style.WebkitAnimation = "fading " + (randTime) + "s linear";
+    currBubble.style.animationFillMode = "forwards";
   } else {
     currBubble.style.WebkitAnimation = "fading " + ((randTime) * 2) + "s linear";
+    currBubble.style.animationFillMode = "forwards";
   }
-  currBubble.style.animationFillMode = "forwards";
-}
+};
+//   for (var i = 0; i < timePassed.length; i++){
+//     timePassed[i]++
+//     if (remaining[i].src !== images[0] && timePassed[i] >= parseInt(remaining[i].id) + randTime){
+//       $("#" + i)[0].style.opacity = 0;
+//       $("#" + i)[0].onclick = null;
+//     } else if (remaining[i].src == images[0] && timePassed[i] >= parseInt(remaining[i].id) + (randTime * 2)){
+//       $("#" + i)[0].style.opacity = 0;
+//       $("#" + i)[0].onclick = null;
+//     }
+//   }
+// };
 
 let bubbleGenerate;
 let timer;
@@ -121,7 +125,14 @@ startButton.addEventListener("click", function() {
       background.style.filter = "blur(0px)";
       pauseButton.style.display = "none";
       startButton.style.display = "block";
+      notMap.style.display = "block";
+      min = 1;
+      sec = 0;
       document.getElementById('timer').innerHTML = min + ":0" + sec;
+      let div = document.createElement("DIV");
+      div.id = "map";
+      let newMap = document.getElementById('background').appendChild(div);
+      remaining = document.getElementById('map').children;
     });
 
     pauseButton.addEventListener("click", function() {

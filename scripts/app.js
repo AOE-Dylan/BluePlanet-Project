@@ -1,5 +1,5 @@
-let min = 2;
-let sec = 0;
+let min = 0;
+let sec = 5;
 
 let popUp = () => {
 
@@ -10,10 +10,6 @@ let popUp = () => {
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
-
-    let div = document.createElement("DIV");
-    div.id = "map";
-    let newMap = document.getElementById('background').appendChild(div);
 };
 
   if(renewableProgress.style.height > "250px"){
