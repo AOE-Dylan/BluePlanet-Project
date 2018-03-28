@@ -105,6 +105,21 @@ function AnimationListener(){
   $('#beforeStart').removeClass('animated zoomOut');
 }
 
+restart.addEventListener("click", function() {
+  $('#startButton').addClass('animated infinite rubberBand');
+  timerFail.style.display = "none";
+  background.style.filter = "blur(0px)";
+  startButton.style.display = "block";
+  notMap.style.display = "block";
+  min = 1;
+  sec = 0;
+  document.getElementById('timer').innerHTML = min + ":0" + sec;
+  let div = document.createElement("DIV");
+  div.id = "map";
+  let newMap = document.getElementById('background').appendChild(div);
+  remaining = document.getElementById('map').children;
+});
+
 startButton.addEventListener("click", function() {
     $('#startButton').removeClass('animated infinite rubberBand');
     bubbleGenerate = setInterval(randomButton, 1000);
@@ -120,20 +135,7 @@ startButton.addEventListener("click", function() {
     settingsMenu.style.display = "none";
     informationMenu.style.display = "none";
 
-    restart.addEventListener("click", function() {
-      $('#startButton').addClass('animated infinite rubberBand');
-      timerFail.style.display = "none";
-      background.style.filter = "blur(0px)";
-      startButton.style.display = "block";
-      notMap.style.display = "block";
-      min = 1;
-      sec = 0;
-      document.getElementById('timer').innerHTML = min + ":0" + sec;
-      let div = document.createElement("DIV");
-      div.id = "map";
-      let newMap = document.getElementById('background').appendChild(div);
-      remaining = document.getElementById('map').children;
-    });
+
 
     pauseButton.addEventListener("click", function() {
       pause();
