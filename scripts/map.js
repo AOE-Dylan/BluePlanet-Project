@@ -124,6 +124,8 @@ startButton.addEventListener("click", function() {
       sec = 5;
       document.getElementById('timer').innerHTML = sec;
       notMap.style.display = "block";
+      console.log(gameActive, "gameActive");
+      console.log(gameStart, "gameStart");
     });
 
     pauseButton.addEventListener("click", function() {
@@ -146,12 +148,14 @@ startButton.addEventListener("click", function() {
     });
 
   let pause = () => {
+    if(gameActive == 1){
     clearInterval(bubbleGenerate);
     clearInterval(timer);
     gameActive = 0;
     background.style.filter = "blur(60px)";
     pauseButton.style.display = "none";
     resumeButton.style.display = "block";
+  }
   };
 
   let resume = () => {

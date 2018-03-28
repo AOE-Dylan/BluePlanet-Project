@@ -21,6 +21,7 @@ let countdown = () =>  {
     gameActive = 0;
     clearInterval(bubbleGenerate);
     clearInterval(timer);
+    gameStart = 0;
     $("#map").remove();
     popUp();
     console.log('Timer Ran out');
