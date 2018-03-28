@@ -90,15 +90,15 @@ let timerFail = document.getElementById('timerFail');
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
 $("#startZoom").click(function() {
+  startZoom.style.display = "none";
   $('#beforeStart').addClass('animated zoomOut');
   $('#zoomAnimation').addClass('addZoom');
-  $('#beforeStart').removeClass('animated zoomOut');
-  beforeStart.style.display = "none";
 });
 
 function AnimationListener(){
   notMap.style.display = "block";
-  $('#startButton').addClass('animated infinite rubberBand');
+  beforeStart.style.display = "none";
+  $('#beforeStart').removeClass('animated zoomOut');
 }
 
 startButton.addEventListener("click", function() {
@@ -117,11 +117,13 @@ startButton.addEventListener("click", function() {
     informationMenu.style.display = "none";
 
     restart.addEventListener("click", function() {
+      $('#startButton').addClass('animated infinite rubberBand');
       timerFail.style.display = "none";
       background.style.filter = "blur(0px)";
-      pauseButton.style.display = "none";
       startButton.style.display = "block";
-      document.getElementById('timer').innerHTML = min + ":0" + sec;
+      sec = 5;
+      document.getElementById('timer').innerHTML = sec;
+      notMap.style.display = "block";
     });
 
     pauseButton.addEventListener("click", function() {
