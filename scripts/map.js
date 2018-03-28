@@ -94,15 +94,15 @@ let timerFail = document.getElementById('timerFail');
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
 $("#startZoom").click(function() {
+  startZoom.style.display = "none";
   $('#beforeStart').addClass('animated zoomOut');
   $('#zoomAnimation').addClass('addZoom');
-  $('#beforeStart').removeClass('animated zoomOut');
-  beforeStart.style.display = "none";
 });
 
 function AnimationListener(){
   notMap.style.display = "block";
-  $('#startButton').addClass('animated infinite rubberBand');
+  beforeStart.style.display = "none";
+  $('#beforeStart').removeClass('animated zoomOut');
 }
 
 startButton.addEventListener("click", function() {
@@ -121,10 +121,11 @@ startButton.addEventListener("click", function() {
     informationMenu.style.display = "none";
 
     restart.addEventListener("click", function() {
+      $('#startButton').addClass('animated infinite rubberBand');
       timerFail.style.display = "none";
       background.style.filter = "blur(0px)";
-      pauseButton.style.display = "none";
       startButton.style.display = "block";
+<<<<<<< HEAD
       notMap.style.display = "block";
       min = 1;
       sec = 0;
@@ -133,6 +134,13 @@ startButton.addEventListener("click", function() {
       div.id = "map";
       let newMap = document.getElementById('background').appendChild(div);
       remaining = document.getElementById('map').children;
+=======
+      sec = 5;
+      document.getElementById('timer').innerHTML = sec;
+      notMap.style.display = "block";
+      console.log(gameActive, "gameActive");
+      console.log(gameStart, "gameStart");
+>>>>>>> e998e35e9443e499fb4643771160d01bccc33ee9
     });
 
     pauseButton.addEventListener("click", function() {
@@ -155,12 +163,14 @@ startButton.addEventListener("click", function() {
     });
 
   let pause = () => {
+    if(gameActive == 1){
     clearInterval(bubbleGenerate);
     clearInterval(timer);
     gameActive = 0;
     background.style.filter = "blur(60px)";
     pauseButton.style.display = "none";
     resumeButton.style.display = "block";
+  }
   };
 
   let resume = () => {

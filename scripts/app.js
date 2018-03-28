@@ -12,19 +12,12 @@ let popUp = () => {
     background.style.filter = "blur(60px)";
 };
 
-  if(renewableProgress.style.height > "250px"){
-    console.log('renewable bar reached')
-    gameActive = 0;
-    clearInterval(bubbleGenerate);
-    clearInterval(timer);
-  }
-
 let countdown = () =>  {
   if (min === 0 && sec === 0) {
     gameActive = 0;
     clearInterval(bubbleGenerate);
     clearInterval(timer);
-    document.getElementById('timer').innerHTML = "TIMES UP!";
+    gameStart = 0;
     $("#map").remove();
     popUp();
     console.log('Timer Ran out');
