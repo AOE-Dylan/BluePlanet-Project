@@ -125,7 +125,6 @@ startButton.addEventListener("click", function() {
       timerFail.style.display = "none";
       background.style.filter = "blur(0px)";
       startButton.style.display = "block";
-<<<<<<< HEAD
       notMap.style.display = "block";
       min = 1;
       sec = 0;
@@ -134,13 +133,6 @@ startButton.addEventListener("click", function() {
       div.id = "map";
       let newMap = document.getElementById('background').appendChild(div);
       remaining = document.getElementById('map').children;
-=======
-      sec = 5;
-      document.getElementById('timer').innerHTML = sec;
-      notMap.style.display = "block";
-      console.log(gameActive, "gameActive");
-      console.log(gameStart, "gameStart");
->>>>>>> e998e35e9443e499fb4643771160d01bccc33ee9
     });
 
     pauseButton.addEventListener("click", function() {
