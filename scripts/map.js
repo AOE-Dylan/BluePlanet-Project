@@ -162,6 +162,9 @@ let pause = () => {
         background.style.filter = "blur(60px)";
         pauseButton.style.display = "none";
         resumeButton.style.display = "block";
+        for (var i = 0; i < remaining.length; i++) {
+            remaining[i].style.webkitAnimationPlayState = "paused";
+        }
     }
 };
 
@@ -176,6 +179,9 @@ let resume = () => {
         resumeButton.style.display = "none";
         pauseButton.style.display = "block";
         timer = setInterval(countdown, 1000);
+        for (var i = 0; i < remaining.length; i++) {
+            remaining[i].style.webkitAnimationPlayState = "running";
+        }
     }
 };
 
