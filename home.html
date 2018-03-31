@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/menu.css">
-    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,112 +20,145 @@
         <div id="map"></div>
     </div>
     <div id="timerFail" class="animated bounceInUp">
-      <h1>YOU RAN OUT OF TIME</h1>
-      <button id="restart">RESTART</button>
+        <h1>YOU RAN OUT OF TIME</h1>
+        <button id="restart">RESTART</button>
     </div>
     <div id="levelSuccessPopUp"></div>
     <div id="notMap">
-    <div id="roundBarsContainer">
-        <div id="roundsBox">
-            <div id="timer">60</div>
-            <div class="round">Level 1</div>
-        </div>
-        <div id="renewableProgressBar">
-            <div class="barBackground">
-                <p class="title">Energy</p>
-                <div id="renewable-bar">
-                    <div class="attendance-level">
-                        <div class="bar-1"></div>
-                        <div class="bar-2"></div>
-                        <div class="bar-3"></div>
-                        <div class="bar-4"></div>
-                        <div class="bar-5"></div>
-                        <div class="bar-6"></div>
-                        <div class="bar-7"></div>
-                        <div class="bar-8"></div>
-                        <div class="bar-9"></div>
+        <div id="roundBarsContainer">
+            <div id="roundsBox">
+                <div id="timer">60</div>
+                <div class="round">Level 1</div>
+            </div>
+            <div id="renewableProgressBar">
+                <div class="barBackground">
+                    <p class="title">Energy</p>
+                    <div id="renewable-bar">
+                        <div class="attendance-level">
+                            <div class="bar-1"></div>
+                            <div class="bar-2"></div>
+                            <div class="bar-3"></div>
+                            <div class="bar-4"></div>
+                            <div class="bar-5"></div>
+                            <div class="bar-6"></div>
+                            <div class="bar-7"></div>
+                            <div class="bar-8"></div>
+                            <div class="bar-9"></div>
+                        </div>
+                        <div id="renewableProgress"></div>
                     </div>
-                    <div id="renewableProgress"></div>
+                </div>
+            </div>
+            <div id="nonRenewableProgressBar">
+                <div class="barBackground">
+                    <p class="title">Pollution</p>
+                    <div id="nonRenewable-bar">
+                        <div class="attendance-level">
+                            <div class="bar-1"></div>
+                            <div class="bar-2"></div>
+                            <div class="bar-3"></div>
+                            <div class="bar-4"></div>
+                            <div class="bar-5"></div>
+                            <div class="bar-6"></div>
+                            <div class="bar-7"></div>
+                            <div class="bar-8"></div>
+                            <div class="bar-9"></div>
+                        </div>
+                        <div id="nonRenewableProgress"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="nonRenewableProgressBar">
-            <div class="barBackground">
-                <p class="title">Pollution</p>
-                <div id="nonRenewable-bar">
-                    <div class="attendance-level">
-                        <div class="bar-1"></div>
-                        <div class="bar-2"></div>
-                        <div class="bar-3"></div>
-                        <div class="bar-4"></div>
-                        <div class="bar-5"></div>
-                        <div class="bar-6"></div>
-                        <div class="bar-7"></div>
-                        <div class="bar-8"></div>
-                        <div class="bar-9"></div>
-                    </div>
-                    <div id="nonRenewableProgress"></div>
+
+        <div class="navbar">
+            <div id="settingsButton">SETTINGS</div>
+            <div id="informationButton">INFORMATION</div>
+            <div id="gameTitle">Infinite Power 2045</div>
+            <div id="startButton" class="animated infinite rubberBand">Start</div>
+            <div id="pauseButton">Pause</div>
+            <div id="resumeButton">Resume</div>
+        </div>
+
+        <div id="settingsMenu" class="animated bounceIn">
+            <a class="boxClose menuClose"></a>
+            <h1>SETTINGS</h1>
+        </div>
+
+        <div id="gamePaused" class="animated bounceIn">
+            <h1>GAME PAUSED</h1>
+        </div>
+
+        <div id="informationMenu" class="animated bounceIn">
+            <a class="boxClose menuClose"></a>
+            <div class="mySlides2 fade">
+                <div class="numbertext">1 / 3</div>
+                <div class="slideTitle">
+                    <h1>HOW TO PLAY</h1>
                 </div>
+            </div>
+
+            <div class="mySlides2 fade">
+                <div class="numbertext">2 / 3</div>
+                <div class="slideTitle">
+                    <h1>STATISTICS</h1>
+                </div>
+            </div>
+
+            <div class="mySlides2 fade">
+                <div class="numbertext">3 / 3</div>
+                <div class="slideTitle">
+                    <h1>CREDITS</h1>
+                </div>
+            </div>
+
+            <a class="prev" onclick="plusInfoSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusInfoSlides(1)">&#10095;</a>
+            <div class="dotContainer">
+                <span class="dot2" onclick="currentInfoSlide(1)"></span>
+                <span class="dot2" onclick="currentInfoSlide(2)"></span>
+                <span class="dot2" onclick="currentInfoSlide(3)"></span>
             </div>
         </div>
     </div>
 
-    <div class="navbar">
-        <div id="settingsButton">SETTINGS</div>
-        <div id="informationButton">INFORMATION</div>
-        <div id="gameTitle">Infinite Power 2045</div>
-        <div id="startButton" class="animated infinite rubberBand">Start</div>
-        <div id="pauseButton">Pause</div>
-        <div id="resumeButton">Resume</div>
+    <div id="beforeStart">
+        <!--https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+        <div class="mySlides1 fade">
+            <div class="numbertext">1 / 3</div>
+            <div class="slideTitle">
+                <h1>WELCOME TO GAME NAME</h1>
+            </div>
+        </div>
+
+        <div class="mySlides1 fade">
+            <div class="numbertext">2 / 3</div>
+            <div class="slideTitle">
+                <h1>HOW TO PLAY</h1>
+            </div>
+        </div>
+
+        <div class="mySlides1 fade">
+            <div class="numbertext">3 / 3</div>
+            <div class="slideTitle">
+                <h1>CREDITS</h1>
+            </div>
+            <button id="startZoom">CONTINUE</button>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="dotContainer">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
     </div>
-
-    <div id="settingsMenu" class="animated bounceInUp">
-        <a class="boxClose menuClose"></a>
-        <h1>SETTINGS</h1>
-    </div>
-
-    <div id="gamePaused" class="animated bounceIn">
-        <h1>GAME PAUSED</h1>
-    </div>
-
-    <div id="informationMenu" class="animated bounceInUp">
-        <a class="boxClose menuClose"></a>
-        <h1>INFORMATION</h1>
-    </div>
-  </div>
-
-  <div id="beforeStart">
-    <!--https://www.w3schools.com/howto/howto_js_slideshow.asp -->
-     <div class="mySlides fade">
-       <div class="numbertext">1 / 3</div>
-       <div class="slideTitle"><h1>WELCOME TO GAME NAME</h1></div>
-     </div>
-
-     <div class="mySlides fade">
-       <div class="numbertext">2 / 3</div>
-       <div class="slideTitle"><h1>HOW TO PLAY</h1></div>
-     </div>
-
-     <div class="mySlides fade">
-       <div class="numbertext">3 / 3</div>
-       <div class="slideTitle"><h1>CREDITS</h1></div>
-       <button id="startZoom">CONTINUE</button>
-     </div>
-
-     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-     <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-     <div id="dotContainer" style="text-align:center">
-       <span class="dot" onclick="currentSlide(1)"></span>
-       <span class="dot" onclick="currentSlide(2)"></span>
-       <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-   </div>
 
 
 
     <script src="scripts/app.js"></script>
     <script src="scripts/map.js"></script>
-    </body>
+</body>
 
 </html>

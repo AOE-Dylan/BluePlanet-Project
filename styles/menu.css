@@ -167,8 +167,8 @@ h1 {
 
 #startZoom {
   position:absolute;
-  bottom:0;
-  right:0;
+  bottom: 20px;
+  right: 20px;
   width: 10%;
   height: 10%;
   color: white;
@@ -185,7 +185,7 @@ h1 {
   cursor: pointer;
 }
 
-#settingsMenu, #informationMenu{
+#settingsMenu{
     display: none;
     position: fixed; /*it can be fixed too*/
     left:0; right:0;
@@ -424,6 +424,26 @@ a.boxClose:hover {
   -webkit-box-shadow: 0 1px 5px #333;
 }
 
+#informationMenu {
+  position: absolute; /*it can be fixed too*/
+  left:0; right:0;
+  top:0; bottom:0;
+  margin: auto;
+  width: 65%;
+  height: 75%;
+  opacity: 0.95;
+  display: none;
+  background-color: #0099CC;
+  color: white;
+  padding:20px;
+  border:2px solid #ccc;
+  -moz-border-radius: 20px;
+  -webkit-border-radius:20px;
+  -khtml-border-radius:20px;
+  -moz-box-shadow: 0 1px 5px #333;
+  -webkit-box-shadow: 0 1px 5px #333;
+}
+
 .slideTitle {
   font-family: 'Risque', cursive;
   font-size: 30px;
@@ -435,7 +455,7 @@ a.boxClose:hover {
 
 
 /* Hide the images by default */
-.mySlides {
+.mySlides1, .mySlides2 {
     display: none;
 }
 
@@ -471,8 +491,7 @@ a.boxClose:hover {
   background-color: #003399;
 }
 
-#dotContainer {
-  background-color: black;
+.dotContainer {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -484,6 +503,7 @@ a.boxClose:hover {
   font-family: 'Risque', cursive;
   font-size: 30px;
   padding: 20px;
+  text-align: left;
   color: white;
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -497,6 +517,18 @@ a.boxClose:hover {
   height: 15px;
   width: 15px;
   margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot2 {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  bottom: 0;
   background-color: white;
   border-radius: 50%;
   display: inline-block;
