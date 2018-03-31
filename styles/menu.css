@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .navbar {
   overflow: hidden;
   background-color: #0098a4;
@@ -45,6 +49,7 @@ h1 {
 
 #gameTitle:hover {
   color: #97ca3d;
+  animation: pulse infinite 1s;
 }
 
 #startButton {
@@ -111,12 +116,13 @@ h1 {
   -ms-user-select: none;
   user-select: none;
   font-family: 'Cinzel', serif;
-  border-left: 1px solid white;
+  border-left: 3px solid #97ca3d;
 }
 
 #settingsButton:hover, #informationButton:hover {
   border-left: #97ca3d;
   background: #97ca3d;
+  animation: pulse infinite 1s;
   color: white;
 }
 

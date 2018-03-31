@@ -139,6 +139,7 @@ let pauseButton = document.getElementById('pauseButton');
 let resumeButton = document.getElementById('resumeButton');
 let settings = document.getElementById('settingsButton');
 let settingsMenu = document.getElementById('settingsMenu');
+let gameTitle = document.getElementById('gameTitle')
 let information = document.getElementById('informationButton');
 let bubble = document.getElementsByClassName('bubble');
 let informationMenu = document.getElementById('informationMenu');
