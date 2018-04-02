@@ -21,6 +21,7 @@ let gameRestart = document.getElementById('restart');
 let timerFail = document.getElementById('timerFail');
 let renewable = document.getElementById('renewableProgress');
 let nonRenewable = document.getElementById('nonRenewableProgress');
+let credits = document.getElementById('credits')
 
 let xCoord = () => {
     return Math.floor(Math.random() * $("#map").height() - 20)
@@ -197,19 +198,25 @@ resumeButton.addEventListener("click", function() {
 settings.addEventListener("click", function() {
     pause();
     gamePaused.style.display = "none";
+    credits.style.display = "none";
     settingsMenu.style.display = "block";
-    if (informationMenu.style.display == "block") {
-        informationMenu.style.display = "none";
-    }
+    informationMenu.style.display = "none";
+});
+
+gameTitle.addEventListener("click", function() {
+    pause();
+    gamePaused.style.display = "none";
+    settingsMenu.style.display = "none";
+    credits.style.display = "block";
+    informationMenu.style.display = "none";
 });
 
 information.addEventListener("click", function() {
     pause();
     gamePaused.style.display = "none";
+    credits.style.display = "none";
     informationMenu.style.display = "block";
-    if (settingsMenu.style.display == "block") {
-        settingsMenu.style.display = "none";
-    }
+    settingsMenu.style.display = "none";
 });
 
 let pause = () => {
@@ -254,11 +261,13 @@ $('.menuClose').click(function() {
         background.style.filter = "blur(0px)";
         informationMenu.style.display = "none";
         settingsMenu.style.display = "none";
+        credits.style.display = "none";
         gameActive = 1;
     } else {
       background.style.filter = "blur(0px)";
       informationMenu.style.display = "none";
       settingsMenu.style.display = "none";
+      credits.style.display = "none";
     }
 });
 
