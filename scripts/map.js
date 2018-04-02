@@ -1,3 +1,27 @@
+let bubbleGenerate;
+let timer;
+let gameStart = 0;
+let gameActive = 0;
+let background = document.getElementById('background');
+let startButton = document.getElementById('startButton');
+let pauseButton = document.getElementById('pauseButton');
+let resumeButton = document.getElementById('resumeButton');
+let settings = document.getElementById('settingsButton');
+let settingsMenu = document.getElementById('settingsMenu');
+let gameTitle = document.getElementById('gameTitle')
+let information = document.getElementById('informationButton');
+let bubble = document.getElementsByClassName('bubble');
+let informationMenu = document.getElementById('informationMenu');
+let gamePaused = document.getElementById('gamePaused');
+let zoomAnimation = document.getElementById('zoomAnimation');
+let notMap = document.getElementById('notMap');
+let startZoom = document.getElementById('startZoom');
+let beforeStart = document.getElementById('beforeStart');
+let gameRestart = document.getElementById('restart');
+let timerFail = document.getElementById('timerFail');
+let renewable = document.getElementById('renewableProgress');
+let nonRenewable = document.getElementById('nonRenewableProgress');
+
 let xCoord = () => {
     return Math.floor(Math.random() * $("#map").height() - 20)
 }
@@ -14,11 +38,14 @@ let randomImg = () => {
 
 let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
+    console.log(renewableProgress.style.height, 'goodBar height');
 };
 
 let addBarBad = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + 15)
     $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 15);
+    console.log(renewableProgress.style.height, "goodBar height");
+    console.log(nonRenewableProgress.style.height, "badBar height");
 };
 
 dictateBar = () => {
@@ -93,7 +120,6 @@ function showSlides(n) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block";
-  console.log(slides[slideIndex-1], "test")
   dots[slideIndex-1].className += " active";
 }
 
@@ -121,36 +147,8 @@ function showInfoSlides(n) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[infoIndex-1].style.display = "block";
-  console.log(slides[infoIndex-1], "tests")
   dots[infoIndex-1].className += " active";
 }
-
-
-
-
-
-let bubbleGenerate;
-let timer;
-let gameStart = 0;
-let gameActive = 0;
-let background = document.getElementById('background');
-let startButton = document.getElementById('startButton');
-let pauseButton = document.getElementById('pauseButton');
-let resumeButton = document.getElementById('resumeButton');
-let settings = document.getElementById('settingsButton');
-let settingsMenu = document.getElementById('settingsMenu');
-let gameTitle = document.getElementById('gameTitle')
-let information = document.getElementById('informationButton');
-let bubble = document.getElementsByClassName('bubble');
-let informationMenu = document.getElementById('informationMenu');
-let gamePaused = document.getElementById('gamePaused');
-let zoomAnimation = document.getElementById('zoomAnimation');
-let notMap = document.getElementById('notMap');
-let startZoom = document.getElementById('startZoom');
-let beforeStart = document.getElementById('beforeStart');
-let gameRestart = document.getElementById('restart');
-let timerFail = document.getElementById('timerFail');
-
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 

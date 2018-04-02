@@ -1,5 +1,5 @@
 
-let sec = 5;
+let sec = 50;
 
 let popUp = () => {
     renewableProgress.style.height = "0px";
