@@ -17,6 +17,13 @@ h1 {
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
+  font-family: 'Risque', cursive;
+  font-size: 30px;
+  display: inline-block;
+}
+
+h1:hover {
+  animation: pulse infinite 1s;
 }
 #notMap {
   display: none;
@@ -189,6 +196,7 @@ h1 {
   background-color: transparent;
   color: #97ca3d;
   cursor: pointer;
+  animation: pulse infinite 1s;
 }
 
 #settingsMenu{
@@ -237,8 +245,9 @@ a.boxClose{
 }
 
 a.boxClose:hover {
-  background-color: #66CCFF;
+  background-color: #97ca3d;
   color: white;
+  animation: pulse infinite 1s;
 }
 
 .boxClose:before {
@@ -460,12 +469,10 @@ a.boxClose:hover {
 }
 
 
-/* Hide the images by default */
 .mySlides1, .mySlides2 {
     display: none;
 }
 
-/* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -487,14 +494,13 @@ a.boxClose:hover {
   left: 0;
 }
 
-/* Position the "next button" to the right */
 .next {
   right: 0;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color: #97ca3d;
+  animation: pulse infinite 1s;
 }
 
 .dotContainer {
@@ -517,7 +523,7 @@ a.boxClose:hover {
   -o-user-select: none;
 }
 
-/* The dots/bullets/indicators */
+
 .dot {
   cursor: pointer;
   height: 15px;
@@ -543,6 +549,7 @@ a.boxClose:hover {
 
 .active, .dot:hover {
   background-color: #97ca3d;
+  animation: pulse infinite 1s;
 }
 
 /* Fading animation */
