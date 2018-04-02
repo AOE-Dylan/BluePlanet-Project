@@ -154,7 +154,7 @@ zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
 $("#startZoom").click(function() {
     startZoom.style.display = "none";
-    $('#beforeStart').addClass('animated zoomOut');
+    $('#beforeStart').addClass('animated zoomOutDown');
     $('#zoomAnimation').addClass('addZoom');
 });
 

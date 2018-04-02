@@ -184,7 +184,7 @@ h1:hover {
   position:absolute;
   bottom: 20px;
   right: 20px;
-  width: 10%;
+  width: 20%;
   height: 10%;
   color: white;
   background-color: #97ca3d;
@@ -192,13 +192,13 @@ h1:hover {
   border-radius: 20px;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
+  animation: pulse infinite 1s;
 }
 
 #startZoom:hover {
   background-color: transparent;
   color: #97ca3d;
   cursor: pointer;
-  animation: pulse infinite 1s;
 }
 
 #settingsMenu{
