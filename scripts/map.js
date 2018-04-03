@@ -230,6 +230,7 @@ let pause = () => {
         resumeButton.style.display = "block";
         for (var i = 0; i < remaining.length; i++) {
             remaining[i].style.webkitAnimationPlayState = "paused";
+            remaining[i].style.pointerEvents = "none";
         }
     }
 };
@@ -247,6 +248,7 @@ let resume = () => {
         timer = setInterval(countdown, 1000);
         for (var i = 0; i < remaining.length; i++) {
             remaining[i].style.webkitAnimationPlayState = "running";
+            remaining[i].style.pointerEvents = "auto";
         }
     }
 };
