@@ -22,6 +22,8 @@ let timerFail = document.getElementById('timerFail');
 let renewable = document.getElementById('renewableProgress');
 let nonRenewable = document.getElementById('nonRenewableProgress');
 let credits = document.getElementById('credits')
+var pollutionLose = 0;
+var energyWin = 0;
 
 let xCoord = () => {
     return Math.floor(Math.random() * $("#map").height() - 20)
@@ -37,16 +39,47 @@ let randomImg = () => {
     return (Math.floor(Math.random() * images.length) + 0)
 };
 
+let checkGame = () => {
+  if((energyWin * 5) + (pollutionLose * 15) >= 265 || (energyWin * 5) >= 265){
+    gameActive = 0;
+    energyWin = 0;
+    pollutionLose = 0;
+    clearInterval(bubbleGenerate);
+    clearInterval(timer);
+    gameStart = 0;
+    $("#map").remove();
+    popUp();
+    console.log('You acquired enough energy!');
+  } else if ((pollutionLose * 15) >= 265){
+    gameActive = 0;
+    energyWin = 0;
+    pollutionLose = 0;
+    clearInterval(bubbleGenerate);
+    clearInterval(timer);
+    gameStart = 0;
+    $("#map").remove();
+    popUp();
+    console.log('You polluted the world!')
+  }
+}
+
 let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
-    console.log(renewableProgress.style.height, 'goodBar height');
+    energyWin++;
+    // console.log(renewableProgress.style.height, 'goodBar height');
+    console.log(energyWin * 5);
+    checkGame();
 };
 
 let addBarBad = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + 15)
     $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 15);
-    console.log(renewableProgress.style.height, "goodBar height");
-    console.log(nonRenewableProgress.style.height, "badBar height");
+    pollutionLose++;
+    // console.log(renewableProgress.style.height, "goodBar height");
+    // console.log(nonRenewableProgress.style.height, "badBar height");
+    // console.log(energyWin);
+    console.log(pollutionLose * 15);
+    checkGame();
 };
 
 dictateBar = () => {
@@ -76,7 +109,6 @@ let randomButton = () => {
     let randTime = timeNum();
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
-    // timePassed.push(parseInt(currBubble.id));
     if (currBubble.src !== images[0]) {
         currBubble.style.WebkitAnimation = "fading " + (randTime) + "s linear";
         currBubble.style.animationFillMode = "forwards";
@@ -85,17 +117,6 @@ let randomButton = () => {
         currBubble.style.animationFillMode = "forwards";
     }
 };
-//   for (var i = 0; i < timePassed.length; i++){
-//     timePassed[i]++
-//     if (remaining[i].src !== images[0] && timePassed[i] >= parseInt(remaining[i].id) + randTime){
-//       $("#" + i)[0].style.opacity = 0;
-//       $("#" + i)[0].onclick = null;
-//     } else if (remaining[i].src == images[0] && timePassed[i] >= parseInt(remaining[i].id) + (randTime * 2)){
-//       $("#" + i)[0].style.opacity = 0;
-//       $("#" + i)[0].onclick = null;
-//     }
-//   }
-// };
 
 var slideIndex = 1;
 showSlides(slideIndex);

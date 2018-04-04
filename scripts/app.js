@@ -1,5 +1,5 @@
 
-let sec = 50;
+let sec = 90;
 
 let popUp = () => {
     renewableProgress.style.height = "0px";
@@ -32,6 +32,7 @@ let countdown = () =>  {
     sec = sec - 1;
     document.getElementById('timer').innerHTML = sec;
   }
+  checkGame();
 };
 
 // let month = 1;
