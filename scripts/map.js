@@ -28,6 +28,7 @@ let levelDisplay = document.getElementById('round');
 let level = 1;
 var pollutionLose = 0;
 var energyWin = 0;
+let difficultyCorrection = 1100 - (level * 100);
 
 round.innerHTML = "Level " + level;
 
@@ -120,10 +121,10 @@ let randomButton = () => {
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
     if (currBubble.src !== images[0]) {
-        currBubble.style.WebkitAnimation = "fading " + (randTime) + "s linear";
+        currBubble.style.WebkitAnimation = "fading " + (randTime / level) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     } else {
-        currBubble.style.WebkitAnimation = "fading " + ((randTime) * 2) + "s linear";
+        currBubble.style.WebkitAnimation = "fading " + ((randTime / level) * 2) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     }
 };
@@ -199,7 +200,7 @@ function AnimationListener() {
 startButton.addEventListener("click", function() {
     $('#startButton').removeClass('animated infinite rubberBand');
 
-    bubbleGenerate = setInterval(randomButton, 1000);
+    bubbleGenerate = setInterval(randomButton, difficultyCorrection);
     timer = setInterval(countdown, 1000);
 
     gameStart = 1;
@@ -268,7 +269,7 @@ let pause = () => {
 
 let resume = () => {
     if (gameStart == 1 & gameActive == 0) {
-        bubbleGenerate = setInterval(randomButton, 1000);
+        bubbleGenerate = setInterval(randomButton, difficultyCorrection);
         gameActive = 1;
         console.log('game resumed')
         background.style.filter = "blur(0px)";
@@ -286,7 +287,7 @@ let resume = () => {
 
 $('.menuClose').click(function() {
     if (gameStart == 1 & gameActive == 0) {
-        bubbleGenerate = setInterval(randomButton, 1000);
+        bubbleGenerate = setInterval(randomButton, difficultyCorrection);
         timer = setInterval(countdown, 1000);
         console.log('Menu Closed, Starting Generating');
         pauseButton.style.display = "block";
@@ -322,7 +323,7 @@ restart.addEventListener("click", function() {
 });
 
 levelContinue.addEventListener("click", function() {
-    level++
+    level++;
     console.log(level, "level number");
     round.innerHTML = "Level " + level;
     levelSuccess.style.display = "none";
