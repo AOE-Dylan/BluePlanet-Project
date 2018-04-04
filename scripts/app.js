@@ -8,6 +8,10 @@ let gameWin = () => {
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
+    $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
+    level++
+    round.innerHTML = "Level " + level;
+    levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
 };
 
 let gameFail = () => {

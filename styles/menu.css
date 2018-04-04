@@ -181,7 +181,7 @@ h1:hover {
     height: 500px;
 }
 
-#startZoom {
+#startZoom, #restart, #levelContinue {
   position:absolute;
   bottom: 20px;
   right: 20px;
@@ -196,7 +196,7 @@ h1:hover {
   animation: pulse infinite 1s;
 }
 
-#startZoom:hover {
+#startZoom:hover, #restart:hover, #levelContinue:hover {
   background-color: transparent;
   color: #97ca3d;
   cursor: pointer;
@@ -586,22 +586,7 @@ a.boxClose:hover {
   to {opacity: 1}
 }
 
-#restart, #levelContinue {
-  height: 50px;
-  width: 200px;
-  margin: 10px;
-  font-family: 'Risque', cursive;
-  font-size: 30px;
-  text-align: center;
-  background-color: #0098a4;
-  color: white;
-  padding:20px;
-  border:2px solid #ccc;
-  -moz-border-radius: 20px;
-  -webkit-border-radius:20px;
-  -khtml-border-radius:20px;
-  -moz-box-shadow: 0 1px 5px #333;
-  -webkit-box-shadow: 0 1px 5px #333;
-  animation: pulse infinite 1s;
-  cursor: pointer;
+#youPassed {
+  vertical-align: middle;
+  display: block;
 }
