@@ -25,11 +25,13 @@ let credits = document.getElementById('credits');
 let levelSuccess = document.getElementById('levelSuccessPopUp');
 let levelContinue = document.getElementById('levelContinue');
 let levelDisplay = document.getElementById('round');
+let timerDisplay = document.getElementById('timer')
 let level = 1;
 var pollutionLose = 0;
 var energyWin = 0;
 let difficultyCorrection = 1100 - (level * 100);
 
+timerDisplay.innerHTML = sec;
 round.innerHTML = "Level " + level;
 
 let xCoord = () => {
@@ -46,7 +48,7 @@ let randomImg = () => {
     return (Math.floor(Math.random() * images.length) + 0)
 };
 
-let increaseEnergy = 5;
+let increaseEnergy = 100;
 let increaseEnergyP = 10;
 let increasePollution = 15;
 
@@ -323,9 +325,6 @@ restart.addEventListener("click", function() {
 });
 
 levelContinue.addEventListener("click", function() {
-    level++;
-    console.log(level, "level number");
-    round.innerHTML = "Level " + level;
     levelSuccess.style.display = "none";
     background.style.filter = "blur(0px)";
     startButton.style.display = "block";
