@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
 let sec = 15;
-=======
-let sec = 90;
->>>>>>> f3f62014094cd18e62f62f1959554b217dab0fa9
 
 let gameWin = () => {
     renewableProgress.style.height = "0px";
