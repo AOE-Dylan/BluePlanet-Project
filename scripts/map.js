@@ -309,6 +309,8 @@ $('.menuClose').click(function() {
 
 restart.addEventListener("click", function() {
     level = 1;
+    energyWin = 0;
+    pollutionLose = 0;
     round.innerHTML = "Level " + level;
     timerFail.style.display = "none";
     background.style.filter = "blur(0px)";
