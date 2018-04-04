@@ -1,7 +1,24 @@
 
+<<<<<<< HEAD
 let sec = 15;
+=======
+let sec = 90;
+>>>>>>> f3f62014094cd18e62f62f1959554b217dab0fa9
 
-let popUp = () => {
+let gameWin = () => {
+    renewableProgress.style.height = "0px";
+    nonRenewableProgress.style.height = "0px";
+    levelSuccess.style.display = "block";
+    pauseButton.style.display = "none";
+    notMap.style.display = "none";
+    background.style.filter = "blur(60px)";
+    $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
+    level++
+    round.innerHTML = "Level " + level;
+    levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
+};
+
+let gameFail = () => {
     renewableProgress.style.height = "0px";
     nonRenewableProgress.style.height = "0px";
     timerFail.style.display = "block";
@@ -17,7 +34,7 @@ let countdown = () =>  {
     clearInterval(timer);
     gameStart = 0;
     $("#map").remove();
-    popUp();
+    gameFail();
     console.log('Timer Ran out');
   } else if (sec === 0) {
     sec = 59;
@@ -32,6 +49,7 @@ let countdown = () =>  {
     sec = sec - 1;
     document.getElementById('timer').innerHTML = sec;
   }
+  checkGame();
 };
 
 // Note: This example requires that you consent to location sharing when

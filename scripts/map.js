@@ -1,3 +1,39 @@
+let bubbleGenerate;
+let timer;
+let gameStart = 0;
+let gameActive = 0;
+let background = document.getElementById('background');
+let startButton = document.getElementById('startButton');
+let pauseButton = document.getElementById('pauseButton');
+let resumeButton = document.getElementById('resumeButton');
+let settings = document.getElementById('settingsButton');
+let settingsMenu = document.getElementById('settingsMenu');
+let gameTitle = document.getElementById('gameTitle')
+let information = document.getElementById('informationButton');
+let bubble = document.getElementsByClassName('bubble');
+let informationMenu = document.getElementById('informationMenu');
+let gamePaused = document.getElementById('gamePaused');
+let zoomAnimation = document.getElementById('zoomAnimation');
+let notMap = document.getElementById('notMap');
+let startZoom = document.getElementById('startZoom');
+let beforeStart = document.getElementById('beforeStart');
+let gameRestart = document.getElementById('restart');
+let timerFail = document.getElementById('timerFail');
+let renewable = document.getElementById('renewableProgress');
+let nonRenewable = document.getElementById('nonRenewableProgress');
+let credits = document.getElementById('credits');
+let levelSuccess = document.getElementById('levelSuccessPopUp');
+let levelContinue = document.getElementById('levelContinue');
+let levelDisplay = document.getElementById('round');
+let timerDisplay = document.getElementById('timer')
+let level = 1;
+var pollutionLose = 0;
+var energyWin = 0;
+let difficultyCorrection = 1100 - (level * 100);
+
+timerDisplay.innerHTML = sec;
+round.innerHTML = "Level " + level;
+
 let xCoord = () => {
     return Math.floor(Math.random() * $("#map").height() - 20)
 }
@@ -12,13 +48,51 @@ let randomImg = () => {
     return (Math.floor(Math.random() * images.length) + 0)
 };
 
+let increaseEnergy = 100;
+let increaseEnergyP = 10;
+let increasePollution = 15;
+
+let checkGame = () => {
+  if((energyWin * increaseEnergy) + (pollutionLose * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265){
+    gameActive = 0;
+    energyWin = 0;
+    pollutionLose = 0;
+    clearInterval(bubbleGenerate);
+    clearInterval(timer);
+    gameStart = 0;
+    $("#map").remove();
+    gameWin();
+    console.log('You acquired enough energy!');
+  } else if ((pollutionLose * increasePollution) >= 265){
+    gameActive = 0;
+    energyWin = 0;
+    pollutionLose = 0;
+    clearInterval(bubbleGenerate);
+    clearInterval(timer);
+    gameStart = 0;
+    $("#map").remove();
+    gameFail();
+    console.log('You polluted the world!')
+  }
+}
+
 let addBarGood = () => {
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
+    energyWin++;
+    // console.log(renewableProgress.style.height, 'goodBar height');
+    console.log(energyWin * 5);
+    checkGame();
 };
 
 let addBarBad = () => {
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + 15)
-    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 15);
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergyP);
+    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + increasePollution);
+    pollutionLose++;
+    // console.log(renewableProgress.style.height, "goodBar height");
+    // console.log(nonRenewableProgress.style.height, "badBar height");
+    // console.log(energyWin);
+    console.log(pollutionLose * 15);
+    checkGame();
 };
 
 dictateBar = () => {
@@ -48,26 +122,14 @@ let randomButton = () => {
     let randTime = timeNum();
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
-    // timePassed.push(parseInt(currBubble.id));
     if (currBubble.src !== images[0]) {
-        currBubble.style.WebkitAnimation = "fading " + (randTime) + "s linear";
+        currBubble.style.WebkitAnimation = "fading " + (randTime / level) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     } else {
-        currBubble.style.WebkitAnimation = "fading " + ((randTime) * 2) + "s linear";
+        currBubble.style.WebkitAnimation = "fading " + ((randTime / level) * 2) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     }
 };
-//   for (var i = 0; i < timePassed.length; i++){
-//     timePassed[i]++
-//     if (remaining[i].src !== images[0] && timePassed[i] >= parseInt(remaining[i].id) + randTime){
-//       $("#" + i)[0].style.opacity = 0;
-//       $("#" + i)[0].onclick = null;
-//     } else if (remaining[i].src == images[0] && timePassed[i] >= parseInt(remaining[i].id) + (randTime * 2)){
-//       $("#" + i)[0].style.opacity = 0;
-//       $("#" + i)[0].onclick = null;
-//     }
-//   }
-// };
 
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -93,7 +155,6 @@ function showSlides(n) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block";
-  console.log(slides[slideIndex-1], "test")
   dots[slideIndex-1].className += " active";
 }
 
@@ -121,42 +182,14 @@ function showInfoSlides(n) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[infoIndex-1].style.display = "block";
-  console.log(slides[infoIndex-1], "tests")
   dots[infoIndex-1].className += " active";
 }
-
-
-
-
-
-let bubbleGenerate;
-let timer;
-let gameStart = 0;
-let gameActive = 0;
-let background = document.getElementById('background');
-let startButton = document.getElementById('startButton');
-let pauseButton = document.getElementById('pauseButton');
-let resumeButton = document.getElementById('resumeButton');
-let settings = document.getElementById('settingsButton');
-let settingsMenu = document.getElementById('settingsMenu');
-let gameTitle = document.getElementById('gameTitle')
-let information = document.getElementById('informationButton');
-let bubble = document.getElementsByClassName('bubble');
-let informationMenu = document.getElementById('informationMenu');
-let gamePaused = document.getElementById('gamePaused');
-let zoomAnimation = document.getElementById('zoomAnimation');
-let notMap = document.getElementById('notMap');
-let startZoom = document.getElementById('startZoom');
-let beforeStart = document.getElementById('beforeStart');
-let gameRestart = document.getElementById('restart');
-let timerFail = document.getElementById('timerFail');
-
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
 
 $("#startZoom").click(function() {
     startZoom.style.display = "none";
-    $('#beforeStart').addClass('animated zoomOut');
+    $('#beforeStart').addClass('animated zoomOutDown');
     $('#zoomAnimation').addClass('addZoom');
 });
 
@@ -169,7 +202,7 @@ function AnimationListener() {
 startButton.addEventListener("click", function() {
     $('#startButton').removeClass('animated infinite rubberBand');
 
-    bubbleGenerate = setInterval(randomButton, 1000);
+    bubbleGenerate = setInterval(randomButton, difficultyCorrection);
     timer = setInterval(countdown, 1000);
 
     gameStart = 1;
@@ -199,19 +232,25 @@ resumeButton.addEventListener("click", function() {
 settings.addEventListener("click", function() {
     pause();
     gamePaused.style.display = "none";
+    credits.style.display = "none";
     settingsMenu.style.display = "block";
-    if (informationMenu.style.display == "block") {
-        informationMenu.style.display = "none";
-    }
+    informationMenu.style.display = "none";
+});
+
+gameTitle.addEventListener("click", function() {
+    pause();
+    gamePaused.style.display = "none";
+    settingsMenu.style.display = "none";
+    credits.style.display = "block";
+    informationMenu.style.display = "none";
 });
 
 information.addEventListener("click", function() {
     pause();
     gamePaused.style.display = "none";
+    credits.style.display = "none";
     informationMenu.style.display = "block";
-    if (settingsMenu.style.display == "block") {
-        settingsMenu.style.display = "none";
-    }
+    settingsMenu.style.display = "none";
 });
 
 let pause = () => {
@@ -225,13 +264,14 @@ let pause = () => {
         resumeButton.style.display = "block";
         for (var i = 0; i < remaining.length; i++) {
             remaining[i].style.webkitAnimationPlayState = "paused";
+            remaining[i].style.pointerEvents = "none";
         }
     }
 };
 
 let resume = () => {
     if (gameStart == 1 & gameActive == 0) {
-        bubbleGenerate = setInterval(randomButton, 1000);
+        bubbleGenerate = setInterval(randomButton, difficultyCorrection);
         gameActive = 1;
         console.log('game resumed')
         background.style.filter = "blur(0px)";
@@ -242,13 +282,14 @@ let resume = () => {
         timer = setInterval(countdown, 1000);
         for (var i = 0; i < remaining.length; i++) {
             remaining[i].style.webkitAnimationPlayState = "running";
+            remaining[i].style.pointerEvents = "auto";
         }
     }
 };
 
 $('.menuClose').click(function() {
     if (gameStart == 1 & gameActive == 0) {
-        bubbleGenerate = setInterval(randomButton, 1000);
+        bubbleGenerate = setInterval(randomButton, difficultyCorrection);
         timer = setInterval(countdown, 1000);
         console.log('Menu Closed, Starting Generating');
         pauseButton.style.display = "block";
@@ -256,16 +297,37 @@ $('.menuClose').click(function() {
         background.style.filter = "blur(0px)";
         informationMenu.style.display = "none";
         settingsMenu.style.display = "none";
+        credits.style.display = "none";
         gameActive = 1;
     } else {
       background.style.filter = "blur(0px)";
       informationMenu.style.display = "none";
       settingsMenu.style.display = "none";
+      credits.style.display = "none";
     }
 });
 
 restart.addEventListener("click", function() {
+    level = 1;
+    energyWin = 0;
+    pollutionLose = 0;
+    round.innerHTML = "Level " + level;
     timerFail.style.display = "none";
+    background.style.filter = "blur(0px)";
+    startButton.style.display = "block";
+    notMap.style.display = "block";
+
+    let div = document.createElement("DIV");
+    div.id = "map";
+    let newMap = document.getElementById('background').appendChild(div);
+    remaining = document.getElementById('map').children;
+    sec = 5;
+    document.getElementById('timer').innerHTML = sec;
+    $('#startButton').addClass('animated infinite rubberBand');
+});
+
+levelContinue.addEventListener("click", function() {
+    levelSuccess.style.display = "none";
     background.style.filter = "blur(0px)";
     startButton.style.display = "block";
     notMap.style.display = "block";

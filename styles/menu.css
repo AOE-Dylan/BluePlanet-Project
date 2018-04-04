@@ -20,6 +20,7 @@ h1 {
   font-family: 'Risque', cursive;
   font-size: 30px;
   display: inline-block;
+  text-align: center;
 }
 
 h1:hover {
@@ -63,6 +64,7 @@ h1:hover {
 #gameTitle:hover {
   color: #97ca3d;
   animation: pulse infinite 1s;
+  cursor: pointer;
 }
 
 #startButton {
@@ -156,6 +158,7 @@ h1:hover {
   -khtml-border-radius:20px;
   -moz-box-shadow: 0 1px 5px #333;
   -webkit-box-shadow: 0 1px 5px #333;
+  text-align: center;
 }
 
 
@@ -184,11 +187,11 @@ h1:hover {
     height: 500px;
 }
 
-#startZoom {
+#startZoom, #restart, #levelContinue {
   position:absolute;
   bottom: 20px;
   right: 20px;
-  width: 10%;
+  width: 20%;
   height: 10%;
   color: white;
   background-color: #97ca3d;
@@ -196,16 +199,16 @@ h1:hover {
   border-radius: 20px;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-}
-
-#startZoom:hover {
-  background-color: transparent;
-  color: #97ca3d;
-  cursor: pointer;
   animation: pulse infinite 1s;
 }
 
-#settingsMenu{
+#startZoom:hover, #restart:hover, #levelContinue:hover {
+  background-color: transparent;
+  color: #97ca3d;
+  cursor: pointer;
+}
+
+#settingsMenu, #credits{
     display: none;
     position: fixed; /*it can be fixed too*/
     left:0; right:0;
@@ -223,6 +226,7 @@ h1:hover {
     -khtml-border-radius:20px;
     -moz-box-shadow: 0 1px 5px #333;
     -webkit-box-shadow: 0 1px 5px #333;
+    text-align: center;
 }
 
 #settingsMenu, #informationMenu, #gamePaused h1 {
@@ -294,6 +298,10 @@ a.boxClose:hover {
   color: white;
 }
 
+#timer:hover {
+  animation: pulse infinite 1s;
+}
+
 #renewableProgressBar, #nonRenewableProgressBar{
     width:100px;
     height:350px;
@@ -323,19 +331,27 @@ a.boxClose:hover {
 }
 
 .barBackground .title{
-    font-family:"Arial";
+  font-family:"Risque", cursive;
 	color:white;
-	font-size:9pt;
-    font-weight:bold;
+	font-size: 13px;
+  font-weight:bold;
 	text-align:center;
 	padding:15px 0px 5px 0px;
+}
+
+.title:hover {
+  animation: pulse infinite 1s;
+}
+
+#round:hover {
+  animation: pulse infinite 1s;
 }
 
 #renewable-bar, #nonRenewable-bar{
   float:left;
 	width:90%;
 	margin:0px 5% 0px 5%;
-	height:260px;
+	height:253px;
 	background-color: white;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -553,7 +569,7 @@ a.boxClose:hover {
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active, .dot:hover, .dot2:hover {
   background-color: #97ca3d;
   animation: pulse infinite 1s;
 }
@@ -574,4 +590,9 @@ a.boxClose:hover {
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+#youPassed, #youFailed {
+  vertical-align: middle;
+  display: block;
 }
