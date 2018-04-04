@@ -586,7 +586,7 @@ a.boxClose:hover {
   to {opacity: 1}
 }
 
-#youPassed {
+#youPassed, #youFailed {
   vertical-align: middle;
   display: block;
 }
