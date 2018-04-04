@@ -15,6 +15,7 @@
 </head>
 
 <body id="container">
+  <!-- <div id="mapBackground"></div> -->
     <div id="background">
         <div id="zoomAnimation"></div>
         <div id="map"></div>
@@ -154,11 +155,10 @@
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
     </div>
-
-
-
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBbf0CnUSilg_mUnigFFDCkRaachYSUkE&callback=initMap">
+    </script>
     <script src="scripts/app.js"></script>
     <script src="scripts/map.js"></script>
 </body>
-
 </html>
