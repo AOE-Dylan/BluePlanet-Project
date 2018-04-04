@@ -337,7 +337,7 @@ a.boxClose:hover {
   animation: pulse infinite 1s;
 }
 
-.round:hover {
+#round:hover {
   animation: pulse infinite 1s;
 }
 
@@ -586,7 +586,7 @@ a.boxClose:hover {
   to {opacity: 1}
 }
 
-#restart {
+#restart, #levelContinue {
   height: 50px;
   width: 200px;
   margin: 10px;
