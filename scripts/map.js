@@ -39,8 +39,12 @@ let randomImg = () => {
     return (Math.floor(Math.random() * images.length) + 0)
 };
 
+let increaseEnergy = 5;
+let increaseEnergyP = 10;
+let increasePollution = 15;
+
 let checkGame = () => {
-  if((energyWin * 5) + (pollutionLose * 15) >= 265 || (energyWin * 5) >= 265){
+  if((energyWin * increaseEnergy) + (pollutionLose * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265){
     gameActive = 0;
     energyWin = 0;
     pollutionLose = 0;
@@ -50,7 +54,7 @@ let checkGame = () => {
     $("#map").remove();
     popUp();
     console.log('You acquired enough energy!');
-  } else if ((pollutionLose * 15) >= 265){
+  } else if ((pollutionLose * increasePollution) >= 265){
     gameActive = 0;
     energyWin = 0;
     pollutionLose = 0;
@@ -64,7 +68,7 @@ let checkGame = () => {
 }
 
 let addBarGood = () => {
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
     energyWin++;
     // console.log(renewableProgress.style.height, 'goodBar height');
     console.log(energyWin * 5);
@@ -72,8 +76,8 @@ let addBarGood = () => {
 };
 
 let addBarBad = () => {
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + 15)
-    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + 15);
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergyP);
+    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + increasePollution);
     pollutionLose++;
     // console.log(renewableProgress.style.height, "goodBar height");
     // console.log(nonRenewableProgress.style.height, "badBar height");
