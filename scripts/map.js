@@ -212,6 +212,7 @@ startButton.addEventListener("click", function() {
     pauseButton.style.display = "block";
     settingsMenu.style.display = "none";
     informationMenu.style.display = "none";
+    credits.style.display = "none";
 
     console.log('Game Started');
     console.log('gameActive is', gameActive);
