@@ -1,7 +1,16 @@
 
 let sec = 90;
 
-let popUp = () => {
+let gameWin = () => {
+    renewableProgress.style.height = "0px";
+    nonRenewableProgress.style.height = "0px";
+    levelSuccess.style.display = "block";
+    pauseButton.style.display = "none";
+    notMap.style.display = "none";
+    background.style.filter = "blur(60px)";
+};
+
+let gameFail = () => {
     renewableProgress.style.height = "0px";
     nonRenewableProgress.style.height = "0px";
     timerFail.style.display = "block";
@@ -17,7 +26,7 @@ let countdown = () =>  {
     clearInterval(timer);
     gameStart = 0;
     $("#map").remove();
-    popUp();
+    gameFail();
     console.log('Timer Ran out');
   } else if (sec === 0) {
     sec = 59;

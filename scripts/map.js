@@ -21,9 +21,15 @@ let gameRestart = document.getElementById('restart');
 let timerFail = document.getElementById('timerFail');
 let renewable = document.getElementById('renewableProgress');
 let nonRenewable = document.getElementById('nonRenewableProgress');
-let credits = document.getElementById('credits')
+let credits = document.getElementById('credits');
+let levelSuccess = document.getElementById('levelSuccessPopUp');
+let levelContinue = document.getElementById('levelContinue');
+let levelDisplay = document.getElementById('round');
+let level = 1;
 var pollutionLose = 0;
 var energyWin = 0;
+
+round.innerHTML = "Level " + level;
 
 let xCoord = () => {
     return Math.floor(Math.random() * $("#map").height() - 20)
@@ -39,8 +45,10 @@ let randomImg = () => {
     return (Math.floor(Math.random() * images.length) + 0)
 };
 
+let increase = 100;
+
 let checkGame = () => {
-  if((energyWin * 5) + (pollutionLose * 15) >= 265 || (energyWin * 5) >= 265){
+  if((energyWin * increase) + (pollutionLose * 15) >= 265 || (energyWin * 5) >= 265){
     gameActive = 0;
     energyWin = 0;
     pollutionLose = 0;
@@ -48,7 +56,7 @@ let checkGame = () => {
     clearInterval(timer);
     gameStart = 0;
     $("#map").remove();
-    popUp();
+    gameWin();
     console.log('You acquired enough energy!');
   } else if ((pollutionLose * 15) >= 265){
     gameActive = 0;
@@ -58,13 +66,13 @@ let checkGame = () => {
     clearInterval(timer);
     gameStart = 0;
     $("#map").remove();
-    popUp();
+    gameFail();
     console.log('You polluted the world!')
   }
 }
 
 let addBarGood = () => {
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + 5);
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + increase);
     energyWin++;
     // console.log(renewableProgress.style.height, 'goodBar height');
     console.log(energyWin * 5);
@@ -295,7 +303,27 @@ $('.menuClose').click(function() {
 });
 
 restart.addEventListener("click", function() {
+    level = 1;
+    round.innerHTML = "Level " + level;
     timerFail.style.display = "none";
+    background.style.filter = "blur(0px)";
+    startButton.style.display = "block";
+    notMap.style.display = "block";
+
+    let div = document.createElement("DIV");
+    div.id = "map";
+    let newMap = document.getElementById('background').appendChild(div);
+    remaining = document.getElementById('map').children;
+    sec = 5;
+    document.getElementById('timer').innerHTML = sec;
+    $('#startButton').addClass('animated infinite rubberBand');
+});
+
+levelContinue.addEventListener("click", function() {
+    level++
+    console.log(level, "level number");
+    round.innerHTML = "Level " + level;
+    levelSuccess.style.display = "none";
     background.style.filter = "blur(0px)";
     startButton.style.display = "block";
     notMap.style.display = "block";
