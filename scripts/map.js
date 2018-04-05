@@ -34,6 +34,7 @@ let difficultyCorrection = 1100 - (level * 100);
 timerDisplay.innerHTML = sec;
 round.innerHTML = "Level " + level;
 
+
 let xCoord = () => {
     return Math.floor(Math.random() * $("#map").height() - 20)
 }
@@ -263,6 +264,9 @@ let pause = () => {
         background.style.filter = "blur(60px)";
         pauseButton.style.display = "none";
         resumeButton.style.display = "block";
+        var myArray = ['January', 'February', 'March', 'asdasd', 'broaosdko', 'asdaskdjnnzxckjn'];
+        var rand = myArray[Math.floor(Math.random() * myArray.length)];
+        document.getElementById('randomFact').textContent = "FUN FACT: " + rand;
         for (var i = 0; i < remaining.length; i++) {
             remaining[i].style.webkitAnimationPlayState = "paused";
             remaining[i].style.pointerEvents = "none";
