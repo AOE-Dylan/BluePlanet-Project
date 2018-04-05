@@ -54,27 +54,27 @@ let increaseEnergyP = 10;
 let increasePollution = 15;
 
 let checkGame = () => {
-  if((energyWin * increaseEnergy) + (pollutionLose * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265){
-    gameActive = 0;
-    energyWin = 0;
-    pollutionLose = 0;
-    clearInterval(bubbleGenerate);
-    clearInterval(timer);
-    gameStart = 0;
-    $("#map").remove();
-    gameWin();
-    console.log('You acquired enough energy!');
-  } else if ((pollutionLose * increasePollution) >= 265){
-    gameActive = 0;
-    energyWin = 0;
-    pollutionLose = 0;
-    clearInterval(bubbleGenerate);
-    clearInterval(timer);
-    gameStart = 0;
-    $("#map").remove();
-    gameFail();
-    console.log('You polluted the world!')
-  }
+    if ((energyWin * increaseEnergy) + (pollutionLose * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
+        gameActive = 0;
+        energyWin = 0;
+        pollutionLose = 0;
+        clearInterval(bubbleGenerate);
+        clearInterval(timer);
+        gameStart = 0;
+        $("#map").remove();
+        gameWin();
+        console.log('You acquired enough energy!');
+    } else if ((pollutionLose * increasePollution) >= 265) {
+        gameActive = 0;
+        energyWin = 0;
+        pollutionLose = 0;
+        clearInterval(bubbleGenerate);
+        clearInterval(timer);
+        gameStart = 0;
+        $("#map").remove();
+        gameFail();
+        console.log('You polluted the world!')
+    }
 }
 
 let addBarGood = () => {
@@ -136,54 +136,79 @@ var slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+    showSlides(slideIndex += n);
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+    showSlides(slideIndex = n);
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides1");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+    var i;
+    var slides = document.getElementsByClassName("mySlides1");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+
 }
+
+
+document.onkeydown = checkKey;
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '37') {
+        plusSlides(-1);
+        plusInfoSlides(-1);
+    } else if (e.keyCode == '39') {
+        plusSlides(1);
+        plusInfoSlides(1);
+    }
+}
+
 
 var infoIndex = 1;
 showInfoSlides(infoIndex);
 
 function plusInfoSlides(n) {
-  showInfoSlides(infoIndex += n);
+    showInfoSlides(infoIndex += n);
 }
 
 function currentInfoSlide(n) {
-  showInfoSlides(infoIndex = n);
+    showInfoSlides(infoIndex = n);
 }
 
 function showInfoSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides2");
-  var dots = document.getElementsByClassName("dot2");
-  if (n > slides.length) {infoIndex = 1}
-  if (n < 1) {infoIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[infoIndex-1].style.display = "block";
-  dots[infoIndex-1].className += " active";
+    var i;
+    var slides = document.getElementsByClassName("mySlides2");
+    var dots = document.getElementsByClassName("dot2");
+    if (n > slides.length) {
+        infoIndex = 1
+    }
+    if (n < 1) {
+        infoIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[infoIndex - 1].style.display = "block";
+    dots[infoIndex - 1].className += " active";
 }
 
 zoomAnimation.addEventListener("animationend", AnimationListener, false);
@@ -305,10 +330,10 @@ $('.menuClose').click(function() {
         credits.style.display = "none";
         gameActive = 1;
     } else {
-      background.style.filter = "blur(0px)";
-      informationMenu.style.display = "none";
-      settingsMenu.style.display = "none";
-      credits.style.display = "none";
+        background.style.filter = "blur(0px)";
+        informationMenu.style.display = "none";
+        settingsMenu.style.display = "none";
+        credits.style.display = "none";
     }
 });
 
