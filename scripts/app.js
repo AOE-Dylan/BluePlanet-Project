@@ -54,7 +54,7 @@ let countdown = () =>  {
 // locate you.
 var map, infoWindow;
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('backing'), {
     center: {lat: -34.397, lng: 150.644},
     zoom: 10,
     disableDefaultUI: true,
@@ -368,9 +368,6 @@ function initMap() {
         lng: position.coords.longitude
       };
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());

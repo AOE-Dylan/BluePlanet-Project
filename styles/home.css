@@ -18,6 +18,12 @@
   -webkit-box-shadow: 0 1px 5px #333;
 }
 
+#backing {
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+
 .bubble {
   height: 5%;
   width: 5%;
