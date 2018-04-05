@@ -190,11 +190,17 @@ h1:hover {
 
 }
 
-.vl {
-    border-left: 6px solid green;
-    height: 500px;
+#middle {
+  position:fixed;
+  top: 25%;
+  left:50%;
+  bottom:0; margin:0;
+  border:none;
 }
-
+.vl {
+  border-right:solid 3px #97ca3d;
+  height: 500px;
+}
 #startZoom, #restart, #levelContinue {
   position:absolute;
   bottom: 20px;

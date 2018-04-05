@@ -15,7 +15,7 @@
 </head>
 
 <body id="container">
-  <!-- <div id="mapBackground"></div> -->
+    <!-- <div id="mapBackground"></div> -->
     <div id="background">
         <div id="zoomAnimation"></div>
         <div id="map"></div>
@@ -25,7 +25,38 @@
         <button id="restart">RESTART</button>
     </div>
     <div id="levelSuccessPopUp" class="animated bounceInUp">
-      <h1 id="youPassed"></h1>
+        <h1 id="youPassed"></h1>
+        <div class="optionsBlock" style="float: left">
+            <h1>ANSWER FOR UPGRADE</h1>
+            <div id="quizCointainer">
+                <label class="radioContainer">One
+            <input type="radio" checked="checked" name="radio">
+            <span class="checkmark"></span>
+          </label>
+                <label class="radioContainer">Two
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+          </label>
+                <label class="radioContainer">Three
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+          </label>
+                <label class="radioContainer">Four
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+          </label>
+            </div>
+            <button onclick="submitAnswer()">Submit Answer</button></div>
+        <div id="middle">
+            <div class="vl">
+                <div style="text-align: center">
+                    <h1>OR</h1>
+                </div>
+            </div>
+        </div>
+        <div class="optionsBlock" style="float: right">
+            <h1>CONTINUE WITHOUT UPGRADE</h1>
+        </div>
         <button id="levelContinue"></button>
     </div>
     <div id="levelSuccessPopUp"></div>
@@ -165,10 +196,10 @@
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
     </div>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBbf0CnUSilg_mUnigFFDCkRaachYSUkE&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBbf0CnUSilg_mUnigFFDCkRaachYSUkE&callback=initMap">
     </script>
     <script src="scripts/app.js"></script>
     <script src="scripts/map.js"></script>
 </body>
+
 </html>
