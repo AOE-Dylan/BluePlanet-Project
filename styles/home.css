@@ -144,17 +144,18 @@ body {
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 20px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     background-color: white;
     border-radius: 10px;
+    padding: 1px;
 }
 
 .radioContainer p {
-  margin-left: 50px;
+  margin-left: 65px;
 }
 /* Hide the browser's default radio button */
 .radioContainer input {
