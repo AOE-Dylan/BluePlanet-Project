@@ -292,7 +292,7 @@ let pause = () => {
         background.style.filter = "blur(60px)";
         pauseButton.style.display = "none";
         resumeButton.style.display = "block";
-        var myArray = ['January', 'February', 'March', 'asdasd', 'broaosdko', 'asdaskdjnnzxckjn'];
+        var myArray = ['1', '2', '3', '4', '5', '6', '7', '8'];
         var rand = myArray[Math.floor(Math.random() * myArray.length)];
         document.getElementById('randomFact').textContent = "FUN FACT: " + rand;
         for (var i = 0; i < remaining.length; i++) {
