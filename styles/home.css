@@ -32,6 +32,10 @@
   border-radius: 20px;
   opacity: 0.85;
   position: absolute;
+  cursor: pointer;
+  -moz-user-select: -moz-none;
+-khtml-user-select: none;
+-webkit-user-select: none;
 }
 
 #reward {
@@ -58,8 +62,7 @@ body {
 }
 
 #quizCointainer {
-  position: fixed;
-bottom: 0;
+  bottom: 0;
 }
 
 .addZoom {
@@ -109,12 +112,34 @@ bottom: 0;
     }
 }
 
+#submitAnswer {
+  position:absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 20%;
+  height: 10%;
+  color: white;
+  background-color: #97ca3d;
+  border: 4px solid #97ca3d;
+  border-radius: 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  animation: pulse infinite 1s;
+}
+
+#submitAnswer:hover {
+  background-color: transparent;
+  color: #97ca3d;
+  cursor: pointer;
+}
 .optionsBlock {
-  background-color: black;
   width: 40%;
   height: 90%;
 }
 .radioContainer {
+    display: block;
+    color: #0098a4;
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
@@ -124,8 +149,13 @@ bottom: 0;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background-color: white;
+    border-radius: 5px;
 }
 
+.radioContainer p {
+  margin-left: 50px;
+}
 /* Hide the browser's default radio button */
 .radioContainer input {
     position: absolute;
@@ -136,17 +166,20 @@ bottom: 0;
 /* Create a custom radio button */
 .checkmark {
     position: absolute;
-    top: 0;
+    top: 13%;
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #eee;
+    background-color: #0098a4;
+    margin-left: 5px;
     border-radius: 50%;
+    padding: 10px;
+
 }
 
 /* On mouse-over, add a grey background color */
 .radioContainer:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color: #97ca3d;
 }
 
 /* When the radio button is checked, add a blue background */
@@ -157,6 +190,7 @@ bottom: 0;
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
     content: "";
+    padding: 10px;
     position: absolute;
     display: none;
 }
@@ -164,14 +198,4 @@ bottom: 0;
 /* Show the indicator (dot/circle) when checked */
 .radioContainer input:checked ~ .checkmark:after {
     display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.radioContainer .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
 }

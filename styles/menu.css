@@ -20,13 +20,9 @@ h1 {
   font-family: 'Raleway', cursive;
   font-weight: bolder;
   font-size: 30px;
-  display: inline-block;
   text-align: center;
 }
 
-h1:hover {
-  animation: pulse infinite 1s;
-}
 
 #mapBackground {
   height: 100vh;
