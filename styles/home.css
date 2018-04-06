@@ -18,6 +18,10 @@
   -webkit-box-shadow: 0 1px 5px #333;
 }
 
+#levelSuccessPopUp {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 #backing {
   height: 100vh;
   width: 100vw;
@@ -64,7 +68,7 @@ body {
 }
 
 #quizCointainer {
-  bottom: 0;
+  max-width: 400px;
 }
 
 .addZoom {
@@ -115,11 +119,8 @@ body {
 }
 
 #submitAnswer {
-  position:absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 20%;
-  height: 10%;
+  width: 50%;
+  height: 20%;
   color: white;
   background-color: #97ca3d;
   border: 4px solid #97ca3d;
@@ -136,8 +137,7 @@ body {
   cursor: pointer;
 }
 .optionsBlock {
-  width: 40%;
-  height: 90%;
+  max-width: 400px;
 }
 .radioContainer {
     display: block;
@@ -153,7 +153,6 @@ body {
     user-select: none;
     background-color: white;
     border-radius: 10px;
-    padding: 1px;
 }
 
 .radioContainer p {

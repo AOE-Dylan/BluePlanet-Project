@@ -4,7 +4,7 @@ let sec = 15;
 let gameWin = () => {
     renewableProgress.style.height = "0px";
     nonRenewableProgress.style.height = "0px";
-    levelSuccess.style.display = "block";
+    levelSuccess.style.display = "flex";
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
