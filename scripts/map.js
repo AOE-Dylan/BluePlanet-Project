@@ -36,11 +36,11 @@ round.innerHTML = "Level " + level;
 
 
 let xCoord = () => {
-    return Math.floor(Math.random() * $("#map").height() - 20)
+    return Math.floor(Math.random() * $("#map").height())
 }
 
 let yCoord = () => {
-    return Math.floor(Math.random() * $("#map").width() - 120)
+    return Math.floor(Math.random() * $("#map").width())
 }
 
 let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
@@ -119,17 +119,18 @@ let randomButton = () => {
     let randY = yCoord();
     let randNum = randomImg();
     let randTime = timeNum();
+    let absTime = [randTime];
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
     let nonInteractible = () => {
       currBubble.style.pointerEvents = "none";
     }
     if (currBubble.src !== images[0]) {
-        setTimeout(nonInteractible, ((randTime / level) * 1000))
+        setTimeout(nonInteractible, ((absTime[0] / level) * 1000))
         currBubble.style.WebkitAnimation = "fading " + (randTime / level) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     } else {
-        setTimeout(nonInteractible, ((randTime / level) * 1000))
+        setTimeout(nonInteractible, ((absTime[0] / level) * 1000))
         currBubble.style.WebkitAnimation = "fading " + ((randTime / level) * 2) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     }
