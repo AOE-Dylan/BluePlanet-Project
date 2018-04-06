@@ -2,6 +2,10 @@ body {
   overflow: hidden;
 }
 
+#backing {
+  padding-bottom: 50px;
+}
+
 .navbar {
   overflow: hidden;
   background-color: #0098a4;

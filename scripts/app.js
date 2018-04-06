@@ -1,5 +1,5 @@
 
-let sec = 90;
+let sec = 15;
 
 let gameWin = () => {
     renewableProgress.style.height = "0px";
