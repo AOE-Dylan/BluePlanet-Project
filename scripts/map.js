@@ -29,7 +29,7 @@ let timerDisplay = document.getElementById('timer')
 let level = 1;
 var pollutionLose = 0;
 var energyWin = 0;
-let difficultyCorrection = 1100 - (level * 100);
+var difficultyCorrection = 1000;
 
 timerDisplay.innerHTML = sec;
 round.innerHTML = "Level " + level;
@@ -43,7 +43,7 @@ let yCoord = () => {
     return Math.floor(Math.random() * $("#map").width())
 }
 
-let images = ["styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
+let images = ["styles/redbubble.jpg", "styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
 
 let randomImg = () => {
     return (Math.floor(Math.random() * images.length) + 0)
@@ -81,7 +81,7 @@ let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
     energyWin++;
     // console.log(renewableProgress.style.height, 'goodBar height');
-    console.log(energyWin * 5);
+    // console.log(energyWin * 5);
     checkGame();
 };
 
@@ -92,7 +92,7 @@ let addBarBad = () => {
     // console.log(renewableProgress.style.height, "goodBar height");
     // console.log(nonRenewableProgress.style.height, "badBar height");
     // console.log(energyWin);
-    console.log(pollutionLose * 15);
+    // console.log(pollutionLose * 15);
     checkGame();
 };
 
@@ -115,6 +115,8 @@ let timeNum = () => {
 var remaining = document.getElementById('map').children;
 
 let randomButton = () => {
+    console.log(level)
+    console.log(difficultyCorrection)
     let randX = xCoord();
     let randY = yCoord();
     let randNum = randomImg();
@@ -126,12 +128,12 @@ let randomButton = () => {
       currBubble.style.pointerEvents = "none";
     }
     if (currBubble.src !== images[0]) {
-        setTimeout(nonInteractible, ((absTime[0] / level) * 1000))
-        currBubble.style.WebkitAnimation = "fading " + (randTime / level) + "s linear";
+        setTimeout(nonInteractible, ((absTime[0] / (level / 2)) * 1000))
+        currBubble.style.WebkitAnimation = "fading " + (absTime[0] / (level / 2)) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     } else {
-        setTimeout(nonInteractible, ((absTime[0] / level) * 1000))
-        currBubble.style.WebkitAnimation = "fading " + ((randTime / level) * 2) + "s linear";
+        setTimeout(nonInteractible, (((absTime[0] * (level * .1)) * 1000)))
+        currBubble.style.WebkitAnimation = "fading " + (absTime[0] * ((level * .1))) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     }
 };
@@ -345,7 +347,7 @@ restart.addEventListener("click", function() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 5;
+    sec = 60;
     document.getElementById('timer').innerHTML = sec;
     $('#startButton').addClass('animated infinite rubberBand');
 });
@@ -360,7 +362,8 @@ levelContinue.addEventListener("click", function() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 5;
+    sec = 60;
+    difficultyCorrection = 1000 / level;
     document.getElementById('timer').innerHTML = sec;
     $('#startButton').addClass('animated infinite rubberBand');
 });
