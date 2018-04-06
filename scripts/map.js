@@ -112,9 +112,7 @@ let timeNum = () => {
     return (Math.floor(Math.random() * 8) + 4)
 }
 
-var timePassed = [];
 var remaining = document.getElementById('map').children;
-
 
 let randomButton = () => {
     let randX = xCoord();
@@ -123,10 +121,15 @@ let randomButton = () => {
     let randTime = timeNum();
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
+    let nonInteractible = () => {
+      currBubble.style.pointerEvents = "none";
+    }
     if (currBubble.src !== images[0]) {
+        setTimeout(nonInteractible, ((randTime / level) * 1000))
         currBubble.style.WebkitAnimation = "fading " + (randTime / level) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     } else {
+        setTimeout(nonInteractible, ((randTime / level) * 1000))
         currBubble.style.WebkitAnimation = "fading " + ((randTime / level) * 2) + "s linear";
         currBubble.style.animationFillMode = "forwards";
     }
