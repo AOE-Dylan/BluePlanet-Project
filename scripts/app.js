@@ -57,7 +57,13 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('backing'), {
     center: {lat: -34.397, lng: 150.644},
     zoom: 10,
-    disableDefaultUI: true,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+        position: google.maps.ControlPosition.RIGHT_CENTER
+    },
+    zoomControl: false,
+    fullscreenControl: false,
     styles: [
       {
         "elementType": "geometry",
