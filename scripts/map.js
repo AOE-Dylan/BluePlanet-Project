@@ -378,3 +378,25 @@ function checkKey(e) {
         plusInfoSlides(1);
     }
 }
+
+function submitAnswer() {
+  var radios = document.getElementsByName("radio");
+  var i = 0, len = radios.length;
+  var checked = false;
+  var userAnswer;
+
+  for( ; i < len; i++ ) {
+     if(radios[i].checked) {
+       checked = true;
+       userAnswer = radios[i].value;
+     }
+  }
+  // Correct answer
+  if(userAnswer === "d") {
+     alert("Answer is correct!");
+  }
+  else {
+     alert("Answer is wrong!");
+  }
+
+}
