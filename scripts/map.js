@@ -332,6 +332,10 @@ $('.menuClose').click(function() {
         settingsMenu.style.display = "none";
         credits.style.display = "none";
         gameActive = 1;
+        for (var i = 0; i < remaining.length; i++) {
+            remaining[i].style.webkitAnimationPlayState = "running";
+            remaining[i].style.pointerEvents = "auto";
+        }
     } else {
         background.style.filter = "blur(0px)";
         informationMenu.style.display = "none";
