@@ -218,6 +218,7 @@ h1 {
 }
 
  #levelContinue{
+   display: none;
    width: 20%;
    height: 10%;
    color: white;

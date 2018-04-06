@@ -27,7 +27,7 @@ let credits = document.getElementById('credits');
 let levelSuccess = document.getElementById('levelSuccessPopUp');
 let levelContinue = document.getElementById('levelContinue');
 let levelDisplay = document.getElementById('round');
-let timerDisplay = document.getElementById('timer')
+let timerDisplay = document.getElementById('timer');
 let level = 1;
 var pollutionLose = 0;
 var energyWin = 0;
@@ -383,6 +383,31 @@ levelContinue.addEventListener("click", function() {
     document.getElementById('timer').innerHTML = sec;
     $('#startButton').addClass('animated infinite rubberBand');
 });
+
+function submitAnswer() {
+  var radios = document.getElementsByName("radio");
+  var i = 0, len = radios.length;
+  var checked = false;
+  var userAnswer;
+
+  for( ; i < len; i++ ) {
+     if(radios[i].checked) {
+       checked = true;
+       userAnswer = radios[i].value;
+     }
+  }
+  // Correct answer
+  if(userAnswer === "d") {
+    $(".quizCointainer").css("display","none");
+    $('#youPassed').text("CHOOSE AN UPGRADE");
+    levelContinue.style.display = "block";
+  }
+  else {
+     alert("Answer is wrong!");
+  }
+}
+
+
 
 document.onkeydown = checkKey;
 
