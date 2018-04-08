@@ -241,6 +241,7 @@ aside:hover {
   height: 480px;
   width: 350px;
   box-shadow: 0 0 70px 10px #fff;
+  cursor: pointer;
 }
 
 aside:hover header img {
