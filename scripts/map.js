@@ -430,6 +430,7 @@ function submitAnswer() {
         $('#level1Quiz').find('.submitAnswer').remove();
         levelContinue.style.display = "block";
         $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
+        $('.upgradeText').css("color", "#ff6666");
         $('#correctLevel1').find('.checkmark').css("background-color", "#97ca3d");
         $('#correctLevel1').addClass('animated pulse');
     } else if (userAnswer != "e" && level == 3) {
@@ -438,6 +439,7 @@ function submitAnswer() {
         $('#level2Quiz').find('.submitAnswer').remove();
         levelContinue.style.display = "block";
         $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
+        $('.upgradeText').css("color", "#ff6666");
         $('#correctLevel2').find('.checkmark').css("background-color", "#97ca3d");
         $('#correctLevel2').addClass('animated pulse');
     } else if (userAnswer != "k" && level == 4) {
@@ -446,6 +448,7 @@ function submitAnswer() {
         $('#level3Quiz').find('.submitAnswer').remove();
         levelContinue.style.display = "block";
         $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
+        $('.upgradeText').css("color", "#ff6666");
         $('#correctLevel3').find('.checkmark').css("background-color", "#97ca3d");
         $('#correctLevel3').addClass('animated pulse');
     } else if (userAnswer != "o" && level == 5) {
@@ -454,6 +457,7 @@ function submitAnswer() {
         $('#level4Quiz').find('.submitAnswer').remove();
         levelContinue.style.display = "block";
         $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
+        $('.upgradeText').css("color", "#ff6666");
         $('#correctLevel4').find('.checkmark').css("background-color", "#97ca3d");
         $('#correctLevel4').addClass('animated pulse');
     }

@@ -130,6 +130,9 @@ body {
   animation: pulse infinite 1s;
 }
 
+p {
+  font-family: 'Quicksand', sans-serif;
+}
 .submitAnswer:hover {
   background-color: transparent;
   color: #97ca3d;
