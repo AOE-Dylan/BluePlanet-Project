@@ -3,8 +3,7 @@ let sec = 90;
 
 let gameWin = () => {
     renewableProgress.style.height = "0px";
-    nonRenewableProgress.style.height = "0px";
-    levelSuccess.style.display = "flex";
+    levelSuccess.style.display = "block";
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
@@ -15,13 +14,12 @@ let gameWin = () => {
     levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
     if(level == 3){
       document.getElementById('level2Quiz').style.display = "block";
-      console.log("quiz appear", level);
     } else if (level == 4) {
       document.getElementById('level3Quiz').style.display = "block";
-      console.log("quiz appear", level);
     } else if (level == 5) {
       document.getElementById('level4Quiz').style.display = "block";
-      console.log("quiz appear", level);
+    } else if (level == 6) {
+      $('#youPassed').text("CONGRATULATIONS, YOU BEAT THE GAME ");
     }
 };
 
