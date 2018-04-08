@@ -242,7 +242,7 @@ h1 {
   cursor: pointer;
 }
 
-#settingsMenu, #credits{
+#settingsMenu{
     display: none;
     position: fixed; /*it can be fixed too*/
     left:0; right:0;
@@ -251,7 +251,7 @@ h1 {
     width:50%;
     height:50%;
     opacity: 0.8;
-    background-color: #0098a4;
+    background-color: RGBA(0,152,164, 0.5);
     color: white;
     padding:20px;
     border:2px solid #ccc;
@@ -261,6 +261,26 @@ h1 {
     -moz-box-shadow: 0 1px 5px #333;
     -webkit-box-shadow: 0 1px 5px #333;
     text-align: center;
+}
+
+#credits {
+  display: none;
+  position: fixed; /*it can be fixed too*/
+  left:0; right:0;
+  top:0; bottom:0;
+  margin: auto;
+  width:65%;
+  height:75%;
+  opacity: 0.8;
+  background-color: RGBA(0,152,164, 0.5);
+  color: white;
+  padding:20px;
+  border:2px solid #ccc;
+  -moz-border-radius: 20px;
+  -webkit-border-radius:20px;
+  -khtml-border-radius:20px;
+  -moz-box-shadow: 0 1px 5px #333;
+  -webkit-box-shadow: 0 1px 5px #333;
 }
 
 #settingsMenu h1, #informationMenu h1, #gamePaused h1, #credits h1 {

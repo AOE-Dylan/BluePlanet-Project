@@ -132,6 +132,10 @@ body {
 
 p {
   font-family: 'Quicksand', sans-serif;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 .submitAnswer:hover {
   background-color: transparent;
@@ -203,7 +207,7 @@ p {
     display: none;
 }
 
-#cardContainer {
+.cardContainer {
   display: flex;
 }
 
@@ -223,10 +227,10 @@ aside {
   display: block;
   height: 250px;
   width: 250px;
-  background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);
+  background: url("blue.png");
   background-size: cover;
   overflow: hidden;
-  box-shadow: 0 0 100px 10px #fff;
+  box-shadow: 0 0 100px 10px #0098a4;
   transition: all ease 0.3s;
 }
 
@@ -275,6 +279,10 @@ header h2 {
   font-weight: normal;
   line-height: 0px;
   margin: 0;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 .profile-bio {
