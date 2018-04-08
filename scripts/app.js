@@ -1,5 +1,5 @@
 
-let sec = 90;
+let sec = 9;
 
 let gameWin = () => {
     renewableProgress.style.height = "0px";
@@ -29,10 +29,19 @@ let gameWin = () => {
     }
 };
 
-let gameFail = () => {
+let gameTimerFail = () => {
     renewableProgress.style.height = "0px";
     nonRenewableProgress.style.height = "0px";
     timerFail.style.display = "block";
+    pauseButton.style.display = "none";
+    notMap.style.display = "none";
+    background.style.filter = "blur(60px)";
+};
+
+let gamePollutionFail = () => {
+    renewableProgress.style.height = "0px";
+    nonRenewableProgress.style.height = "0px";
+    gameFail.style.display = "block";
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
@@ -45,7 +54,7 @@ let countdown = () =>  {
     clearInterval(timer);
     gameStart = 0;
     $("#map").remove();
-    gameFail();
+    gameTimerFail();
     console.log('Timer Ran out');
   } else if (sec === 0) {
     sec = 59;

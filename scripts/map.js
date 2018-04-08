@@ -28,6 +28,7 @@ let levelSuccess = document.getElementById('levelSuccessPopUp');
 let levelContinue = document.getElementById('levelContinue');
 let levelDisplay = document.getElementById('round');
 let timerDisplay = document.getElementById('timer');
+let gameFail = document.getElementById('gameFail');
 let level = 1;
 var pollutionLose = 0;
 var energyWin = 0;
@@ -53,7 +54,7 @@ let randomImg = () => {
 
 let increaseEnergy = 100;
 let increaseEnergyP = 10;
-let increasePollution = 15;
+let increasePollution = 150;
 
 let checkGame = () => {
     if ((energyWin * increaseEnergy) + (pollutionLose * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
@@ -74,7 +75,7 @@ let checkGame = () => {
         clearInterval(timer);
         gameStart = 0;
         $("#map").remove();
-        gameFail();
+        gamePollutionFail();
         console.log('You polluted the world!')
     }
 }
@@ -352,12 +353,13 @@ function smoothZoom(map, max, cnt) {
     }
 }
 
-restart.addEventListener("click", function() {
+function restart() {
     level = 1;
     energyWin = 0;
     pollutionLose = 0;
     round.innerHTML = "Level " + level;
     timerFail.style.display = "none";
+    gameFail.style.display = "none";
     background.style.filter = "blur(0px)";
     startButton.style.display = "block";
     notMap.style.display = "block";
@@ -369,7 +371,7 @@ restart.addEventListener("click", function() {
     sec = 60;
     document.getElementById('timer').innerHTML = sec;
     $('#startButton').addClass('animated infinite rubberBand');
-});
+};
 
 levelContinue.addEventListener("click", function() {
     levelContinue.style.display = "none";

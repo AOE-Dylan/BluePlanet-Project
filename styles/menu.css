@@ -202,7 +202,7 @@ h1 {
   border-right:solid 3px #97ca3d;
   height: 500px;
 }
-#startZoom, #restart {
+#startZoom, .restart {
   position:absolute;
   bottom: 20px;
   right: 20px;
@@ -236,7 +236,7 @@ h1 {
 
  }
 
-#startZoom:hover, #restart:hover, #levelContinue:hover {
+#startZoom:hover, .restart:hover, #levelContinue:hover {
   background-color: transparent;
   color: #97ca3d;
   cursor: pointer;
