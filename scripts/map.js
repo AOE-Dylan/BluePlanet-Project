@@ -429,7 +429,7 @@ function submitAnswer() {
         $('.wrongLevel1').find('.checkmark').remove();
         $('#level1Quiz').find('.submitAnswer').remove();
         levelContinue.style.display = "block";
-        $('.upgradeText').text("OOPS, YOU GOT CHOSE THE WRONG ANSWER");
+        $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
         $('#correctLevel1').find('.checkmark').css("background-color", "#97ca3d");
         $('#correctLevel1').addClass('animated pulse');
     } else if (userAnswer != "e" && level == 3) {
@@ -437,7 +437,7 @@ function submitAnswer() {
         $('.wrongLevel2').find('.checkmark').remove();
         $('#level2Quiz').find('.submitAnswer').remove();
         levelContinue.style.display = "block";
-        $('.upgradeText').text("OOPS, YOU GOT CHOSE THE WRONG ANSWER");
+        $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
         $('#correctLevel2').find('.checkmark').css("background-color", "#97ca3d");
         $('#correctLevel2').addClass('animated pulse');
     } else if (userAnswer != "k" && level == 4) {
@@ -445,7 +445,7 @@ function submitAnswer() {
         $('.wrongLevel3').find('.checkmark').remove();
         $('#level3Quiz').find('.submitAnswer').remove();
         levelContinue.style.display = "block";
-        $('.upgradeText').text("OOPS, YOU GOT CHOSE THE WRONG ANSWER");
+        $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
         $('#correctLevel3').find('.checkmark').css("background-color", "#97ca3d");
         $('#correctLevel3').addClass('animated pulse');
     } else if (userAnswer != "o" && level == 5) {
@@ -453,7 +453,7 @@ function submitAnswer() {
         $('.wrongLevel4').find('.checkmark').remove();
         $('#level4Quiz').find('.submitAnswer').remove();
         levelContinue.style.display = "block";
-        $('.upgradeText').text("OOPS, YOU GOT CHOSE THE WRONG ANSWER");
+        $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
         $('#correctLevel4').find('.checkmark').css("background-color", "#97ca3d");
         $('#correctLevel4').addClass('animated pulse');
     }
