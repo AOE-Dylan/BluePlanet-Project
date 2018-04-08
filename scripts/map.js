@@ -393,6 +393,7 @@ levelContinue.addEventListener("click", function() {
     $("#level3Quiz").css("display", "none");
     $("#level4Quiz").css("display", "none");
     $('.upgradeText').text("ANSWER CORRECTLY FOR AN UPGRADE");
+    $('.upgradeText').css("color", "white");
 });
 
 function submitAnswer() {
