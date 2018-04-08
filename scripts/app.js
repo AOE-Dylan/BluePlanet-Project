@@ -20,6 +20,9 @@ let gameWin = () => {
       document.getElementById('level4Quiz').style.display = "block";
     } else if (level == 6) {
       $('#youPassed').text("CONGRATULATIONS, YOU BEAT THE GAME ");
+      levelContinue.style.display = "block";
+      levelContinue.innerHTML = "CONTINUE TO INFINITE MODE"
+
     }
 };
 
