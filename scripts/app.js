@@ -10,8 +10,19 @@ let gameWin = () => {
     background.style.filter = "blur(60px)";
     $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
     level++
+    console.log("level ", level)
     round.innerHTML = "Level " + level;
     levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
+    if(level == 3){
+      document.getElementById('level2Quiz').style.display = "block";
+      console.log("quiz appear", level);
+    } else if (level == 4) {
+      document.getElementById('level3Quiz').style.display = "block";
+      console.log("quiz appear", level);
+    } else if (level == 5) {
+      document.getElementById('level4Quiz').style.display = "block";
+      console.log("quiz appear", level);
+    }
 };
 
 let gameFail = () => {

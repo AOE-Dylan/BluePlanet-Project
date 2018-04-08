@@ -67,7 +67,8 @@ body {
    object-fit: cover;
 }
 
-.quizCointainer {
+#level2Quiz, #level3Quiz, #level4Quiz {
+  display: none;
 }
 
 .addZoom {
@@ -117,8 +118,11 @@ body {
 }
 
 #submitAnswer {
-  width: 50%;
-  height: 20%;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 20%;
+  height: 10%;
   color: white;
   background-color: #97ca3d;
   border: 4px solid #97ca3d;
@@ -142,7 +146,7 @@ body {
     color: #0098a4;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-bottom: 25px;
     cursor: pointer;
     font-size: 20px;
     -webkit-user-select: none;
@@ -151,8 +155,12 @@ body {
     user-select: none;
     background-color: white;
     border-radius: 10px;
+    padding: 4px;
 }
 
+.radioContainer:hover{
+  padding: 8px;
+}
 .radioContainer p {
   margin-left: 65px;
 }
@@ -193,9 +201,4 @@ body {
     padding: 10px;
     position: absolute;
     display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.radioContainer input:checked ~ .checkmark:after {
-    display: block;
 }

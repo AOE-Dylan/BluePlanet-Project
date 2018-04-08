@@ -369,6 +369,7 @@ restart.addEventListener("click", function() {
 });
 
 levelContinue.addEventListener("click", function() {
+    levelContinue.style.display = "none";
     levelSuccess.style.display = "none";
     background.style.filter = "blur(0px)";
     startButton.style.display = "block";
@@ -396,14 +397,26 @@ function submitAnswer() {
        userAnswer = radios[i].value;
      }
   }
-  // Correct answer
   if(userAnswer === "d") {
-    $(".quizCointainer").css("display","none");
+    $("#level1Quiz").css("display","none");
+    $('#youPassed').text("CHOOSE AN UPGRADE");
+    levelContinue.style.display = "block";
+  } else if(userAnswer === "h") {
+    $("#level2Quiz").css("display","none");
+    $('#youPassed').text("CHOOSE AN UPGRADE");
+    levelContinue.style.display = "block";
+  } else if(userAnswer === "l") {
+    $("#level3Quiz").css("display","none");
+    $('#youPassed').text("CHOOSE AN UPGRADE");
+    levelContinue.style.display = "block";
+  } else if(userAnswer === "p") {
+    $("#level4Quiz").css("display","none");
     $('#youPassed').text("CHOOSE AN UPGRADE");
     levelContinue.style.display = "block";
   }
-  else {
-     alert("Answer is wrong!");
+  else if(userAnswer != "d" && level == 2){
+    console.log('tteeest')
+    document.getElementById("choiceA").style.display == "none";
   }
 }
 
