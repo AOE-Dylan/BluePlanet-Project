@@ -22,7 +22,10 @@ let gameWin = () => {
       $('#youPassed').text("CONGRATULATIONS, YOU BEAT THE GAME ");
       levelContinue.style.display = "block";
       levelContinue.innerHTML = "CONTINUE TO INFINITE MODE"
-
+    } else if (level > 6){
+      $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
+      levelContinue.style.display = "block";
+      levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
     }
 };
 

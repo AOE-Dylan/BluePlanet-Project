@@ -203,21 +203,23 @@ function showInfoSlides(n) {
     dots[infoIndex - 1].className += " active";
 }
 
-zoomAnimation.addEventListener("animationend", AnimationListener, false);
+/*zoomAnimation.addEventListener("animationend", AnimationListener, false);*/
 
 let startMenuClose = 0;
 $("#startZoom").click(function() {
     startZoom.style.display = "none";
-    $('#beforeStart').addClass('animated zoomOutDown');
+    $('#beforeStart').addClass('animated bounceOutDown');
     $('#zoomAnimation').addClass('addZoom');
     let startMenuClose = 1;
+    notMap.style.display = "block";
+    beforeStart.style.display = "none";
 });
 
-function AnimationListener() {
+/*function AnimationListener() {
     notMap.style.display = "block";
     beforeStart.style.display = "none";
     $('#beforeStart').removeClass('animated zoomOut');
-}
+}*/
 
 startButton.addEventListener("click", function() {
     $('#startButton').removeClass('animated infinite rubberBand');
