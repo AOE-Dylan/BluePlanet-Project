@@ -1,8 +1,10 @@
 
 let sec = 9;
+var usedQuiz = [];
 
 let gameWin = () => {
-    let randomQuiz = quizzes[Math.floor(Math.random() * quizzes.length)]
+    var randQuiz = Math.floor(Math.random() * quizzes.length);
+    let randomQuiz = quizzes[]
     console.log(randomQuiz)
     renewableProgress.style.height = "0px";
     levelSuccess.style.display = "block";
@@ -14,7 +16,7 @@ let gameWin = () => {
     console.log("level ", level)
     round.innerHTML = "Level " + level;
     levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
-    randomQuiz[0].style.display = "block";
+    randomQuiz[0].style.display = "block";                                                                                                        
     // if(level == 3){
     //   document.getElementById('level2Quiz').style.display = "block";
     // } else if (level == 4) {
