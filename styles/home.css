@@ -25,6 +25,7 @@
   z-index: -1;
   padding-bottom: 50px;
   padding-top: 50px;
+  cursor: pointer;
 }
 
 .bubble {

@@ -1,7 +1,6 @@
 let bubbleGenerate;
 let timer;
 var map;
-var infoWindow;
 let gameStart = 0;
 let gameActive = 0;
 let background = document.getElementById('background');
@@ -66,7 +65,16 @@ let checkGame = () => {
         gameStart = 0;
         $("#map").remove();
         gameWin();
+        var next;
+        next = map.zoom;
+        var incr;
+        incr = next + 1;
+        console.log(incr);
         console.log('You acquired enough energy!');
+        document.getElementById('levelContinue').addEventListener('click', function(event) {
+            smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
+        });
+        console.log(map.zoom);
     } else if ((pollutionLose * increasePollution) >= 265) {
         gameActive = 0;
         energyWin = 0;
@@ -343,13 +351,17 @@ function smoothZoom(map, max, cnt) {
     if (cnt >= max) {
         return;
     } else {
-        z = google.maps.event.addListener(map, 'zoom_changed', function(event) {
-            google.maps.event.removeListener(z);
-            smoothZoom(map, max, cnt + 1);
-        });
-        setTimeout(function() {
-            map.setZoom(cnt)
-        }, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
+        if (cnt == 20) {
+          map.zoom = 2;
+        } else {
+          z = google.maps.event.addListener(map, 'zoom_changed', function(event) {
+              google.maps.event.removeListener(z);
+              smoothZoom(map, max, cnt + 1);
+          });
+          setTimeout(function() {
+              map.setZoom(cnt + 1)
+          }, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
+        }
     }
 }
 
@@ -488,14 +500,9 @@ function initMap() {
             lng: 150.644
         },
         zoom: 10,
-        mapTypeControl: true,
-        scaleControl: false,
-        mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            position: google.maps.ControlPosition.RIGHT_CENTER
-        },
-        zoomControl: true,
-        fullscreenControl: false,
+        mapTypeId : "satellite",
+        disableDefaultUI: true,
+        gestureHandling: 'none',
         styles: [{
                 "elementType": "geometry",
                 "stylers": [{
@@ -727,19 +734,6 @@ function initMap() {
             }
         ]
     });
-
-    marker = new google.maps.Marker({
-        map: map,
-        position: new google.maps.LatLng(21.3873078, 157.99408309999998)
-    });
-
-    infoWindow = new google.maps.InfoWindow;
-    var next;
-    levelContinue.addEventListener('click', function(event) {
-        smoothZoom(map, 12, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
-    });
-
-    // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
