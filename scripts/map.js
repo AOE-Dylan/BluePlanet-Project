@@ -408,6 +408,8 @@ levelContinue.addEventListener("click", function() {
     $('.upgradeText').css("color", "white");
 });
 
+let quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")]
+
 function submitAnswer() {
     var radios = document.getElementsByName("radio");
     var i = 0,

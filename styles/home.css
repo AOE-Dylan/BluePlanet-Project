@@ -65,7 +65,7 @@ body {
    object-fit: cover;
 }
 
-#level2Quiz, #level3Quiz, #level4Quiz {
+#level1Quiz, #level2Quiz, #level3Quiz, #level4Quiz {
   display: none;
 }
 
