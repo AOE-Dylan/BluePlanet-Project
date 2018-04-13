@@ -31,7 +31,7 @@ let gameFail = document.getElementById('gameFail');
 let level = 1;
 var pollutionLose = 0;
 var energyWin = 0;
-var difficultyCorrection = 1000;
+var difficultyCorrection = 1000 / level;
 
 timerDisplay.innerHTML = sec;
 round.innerHTML = "Level " + level;
@@ -391,7 +391,6 @@ levelContinue.addEventListener("click", function() {
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
     sec = 60;
-    difficultyCorrection = 1000 / level;
     document.getElementById('timer').innerHTML = sec;
     $('#startButton').addClass('animated infinite rubberBand');
     $("#level1Quiz").css("display", "none");
