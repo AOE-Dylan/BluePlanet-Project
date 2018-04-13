@@ -16,11 +16,17 @@ let gameWin = () => {
     if (level < 6){
       randomQuiz[0][0].style.display = "block";
     }
-    if (level = 6){
+    if (level == 6){
       $('#youPassed').text("CONGRATULATIONS, YOU BEAT THE GAME ");
       levelContinue.style.display = "block";
       levelContinue.innerHTML = "CONTINUE TO INFINITE MODE"
     }
+
+    if (level > 6){
+     $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
+     levelContinue.style.display = "block";
+     levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
+   }
     // if(level == 3){
     //   document.getElementById('level2Quiz').style.display = "block";
     // } else if (level == 4) {
