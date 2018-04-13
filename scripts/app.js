@@ -2,8 +2,7 @@
 let sec = 9;
 
 let gameWin = () => {
-    let randomQuiz = quizzes[Math.floor(Math.random() * quizzes.length)]
-    console.log(randomQuiz)
+    let randomQuiz = quizzes[Math.floor(Math.random() * quizzes.length)];
     renewableProgress.style.height = "0px";
     levelSuccess.style.display = "block";
     pauseButton.style.display = "none";
