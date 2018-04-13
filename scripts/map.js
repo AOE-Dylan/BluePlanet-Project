@@ -45,7 +45,7 @@ let yCoord = () => {
     return Math.floor(Math.random() * $("#map").width())
 }
 
-let images = ["styles/redbubble.jpg", "styles/redbubble.jpg", "styles/greenbubble.jpg", "styles/greenbubble.jpg"];
+let images = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png"];
 
 let randomImg = () => {
     return (Math.floor(Math.random() * images.length) + 0)
@@ -106,13 +106,17 @@ let addBarBad = () => {
 };
 
 dictateBar = () => {
+  var type = event.target.getAttribute("src");
     event.target.style.WebkitAnimation = null;
     event.target.style.display = "none";
-    if (event.target.getAttribute("src") !== images[0]) {
-        addBarGood()
+    if ( type == images[0]) {
+        addBarBad()
+        event.target.onclick = null;
+    } else if (type == images[1]) {
+        addBarBad()
         event.target.onclick = null;
     } else {
-        addBarBad()
+        addBarGood()
         event.target.onclick = null;
     }
 }
