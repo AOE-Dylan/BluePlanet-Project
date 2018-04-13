@@ -381,6 +381,7 @@ function restart() {
     sec = 60;
     document.getElementById('timer').innerHTML = sec;
     $('#startButton').addClass('animated infinite rubberBand');
+    randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
 };
 
 levelContinue.addEventListener("click", function() {
