@@ -2,6 +2,7 @@
 let sec = 9;
 
 let gameWin = () => {
+    let randomQuiz = quizzes[Math.floor(Math.random() * quizzes.length)];
     renewableProgress.style.height = "0px";
     levelSuccess.style.display = "block";
     pauseButton.style.display = "none";
@@ -12,21 +13,22 @@ let gameWin = () => {
     console.log("level ", level)
     round.innerHTML = "Level " + level;
     levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
-    if(level == 3){
-      document.getElementById('level2Quiz').style.display = "block";
-    } else if (level == 4) {
-      document.getElementById('level3Quiz').style.display = "block";
-    } else if (level == 5) {
-      document.getElementById('level4Quiz').style.display = "block";
-    } else if (level == 6) {
-      $('#youPassed').text("CONGRATULATIONS, YOU BEAT THE GAME ");
-      levelContinue.style.display = "block";
-      levelContinue.innerHTML = "CONTINUE TO INFINITE MODE"
-    } else if (level > 6){
-      $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
-      levelContinue.style.display = "block";
-      levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
-    }
+    randomQuiz[0].style.display = "block";
+    // if(level == 3){
+    //   document.getElementById('level2Quiz').style.display = "block";
+    // } else if (level == 4) {
+    //   document.getElementById('level3Quiz').style.display = "block";
+    // } else if (level == 5) {
+    //   document.getElementById('level4Quiz').style.display = "block";
+    // } else if (level == 6) {
+    //   $('#youPassed').text("CONGRATULATIONS, YOU BEAT THE GAME ");
+    //   levelContinue.style.display = "block";
+    //   levelContinue.innerHTML = "CONTINUE TO INFINITE MODE"
+    // } else if (level > 6){
+    //   $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
+    //   levelContinue.style.display = "block";
+    //   levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
+    // }
 };
 
 let gameTimerFail = () => {
