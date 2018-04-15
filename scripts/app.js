@@ -60,6 +60,7 @@ let gamePollutionFail = () => {
 };
 
 let countdown = () =>  {
+  timeElapsed++
   if (sec === 0) {
     gameActive = 0;
     clearInterval(bubbleGenerate);

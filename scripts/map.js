@@ -29,6 +29,10 @@ let levelDisplay = document.getElementById('round');
 let timerDisplay = document.getElementById('timer');
 let gameFail = document.getElementById('gameFail');
 let level = 1;
+let bubbleGoodStat = 0;
+let bubbleBadStat = 0;
+let bubblesClick = 0;
+let timeElapsed = 0;
 var pollutionLose = 0;
 var energyWin = 0;
 var difficultyCorrection = 1000 / level;
@@ -36,6 +40,9 @@ var difficultyCorrection = 1000 / level;
 timerDisplay.innerHTML = sec;
 round.innerHTML = "Level " + level;
 
+$('#bpimg').click(function() {
+  window.open('https://blueplanetfoundation.org/', '_blank' );
+});
 
 let xCoord = () => {
     return Math.floor(Math.random() * $("#map").height())
@@ -89,6 +96,8 @@ let checkGame = () => {
 let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
     energyWin++;
+    bubbleGoodStat++;
+    bubblesClick++;
     // console.log(renewableProgress.style.height, 'goodBar height');
     // console.log(energyWin * 5);
     checkGame();
@@ -98,6 +107,8 @@ let addBarBad = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergyP);
     $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + increasePollution);
     pollutionLose++;
+    bubbleBadStat++;
+    bubblesClick++;
     // console.log(renewableProgress.style.height, "goodBar height");
     // console.log(nonRenewableProgress.style.height, "badBar height");
     // console.log(energyWin);
@@ -137,11 +148,13 @@ let randomButton = () => {
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
     let nonInteractible = () => {
         currBubble.style.pointerEvents = "none";
+        currBubble.style.pointer = "default";
     }
     if (currBubble.src !== images[0]) {
         setTimeout(nonInteractible, ((absTime[0] / (level / 2)) * 1000))
         currBubble.style.WebkitAnimation = "fading " + (absTime[0] / (level / 2)) + "s linear";
         currBubble.style.animationFillMode = "forwards";
+
     } else {
         setTimeout(nonInteractible, (((absTime[0] * (level * .1)) * 1000)))
         currBubble.style.WebkitAnimation = "fading " + (absTime[0] * ((level * .1))) + "s linear";
@@ -217,6 +230,7 @@ function showInfoSlides(n) {
 let startMenuClose = 0;
 $("#startZoom").click(function() {
     startZoom.style.display = "none";
+    background.style.filter = "blur(0px)";
     $('#beforeStart').addClass('animated bounceOutDown');
     $('#zoomAnimation').addClass('addZoom');
     let startMenuClose = 1;
@@ -281,6 +295,12 @@ information.addEventListener("click", function() {
     credits.style.display = "none";
     informationMenu.style.display = "block";
     settingsMenu.style.display = "none";
+
+    $('.totalClicked').text(bubblesClick);
+    $('.goodClicked').text(bubbleGoodStat);
+    $('.badClicked').text(bubbleBadStat);
+    $('.levelsPassed').text(level - 1);
+    $('.timeElapsed').text(timeElapsed + " seconds");
 });
 
 let pause = () => {
@@ -366,6 +386,10 @@ function smoothZoom(map, max, cnt) {
 function restart() {
     level = 1;
     energyWin = 0;
+    bubbleGoodStat = 0;
+    bubbleBadStat = 0;
+    bubblesClick = 0;
+    timeElapsed = 0;
     pollutionLose = 0;
     round.innerHTML = "Level " + level;
     timerFail.style.display = "none";

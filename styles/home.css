@@ -1,3 +1,7 @@
+#background {
+  filter: blur(10px);
+}
+
 #timerFail, #levelSuccessPopUp, #gameFail {
   display: none;
   position: fixed; /*it can be fixed too*/
