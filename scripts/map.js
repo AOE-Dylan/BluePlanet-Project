@@ -46,9 +46,21 @@ let yCoord = () => {
 }
 
 let images = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png"];
+var tempStore = [];
 
 let randomImg = () => {
-    return (Math.floor(Math.random() * images.length) + 0)
+  let genImg = images;
+  if (genImg.length == 0) {
+    tempStore.map(img => {
+      genImg.push(img)
+    })
+    tempStore = [];
+  }
+  console.log(genImg)
+  let ranImg = (Math.floor(Math.random() * genImg.length) + 0);
+  let imgChose = genImg.splice(ranImg, 1);
+  tempStore.push(imgChose[0]);
+  return imgChose[0];
 };
 
 let increaseEnergy = 100;
@@ -105,14 +117,16 @@ let addBarBad = () => {
     checkGame();
 };
 
+let checkImg = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png"];
+
 dictateBar = () => {
   var type = event.target.getAttribute("src");
     event.target.style.WebkitAnimation = null;
     event.target.style.display = "none";
-    if ( type == images[0]) {
+    if ( type == checkImg[0]) {
         addBarBad()
         event.target.onclick = null;
-    } else if (type == images[1]) {
+    } else if (type == checkImg[1]) {
         addBarBad()
         event.target.onclick = null;
     } else {
@@ -130,10 +144,10 @@ var remaining = document.getElementById('map').children;
 let randomButton = () => {
     let randX = xCoord();
     let randY = yCoord();
-    let randNum = randomImg();
+    let randGen = randomImg();
     let randTime = timeNum();
     let absTime = [randTime];
-    $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${images[randNum]}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
+    $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${randGen}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
     let nonInteractible = () => {
         currBubble.style.pointerEvents = "none";
