@@ -71,9 +71,9 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 300;
+let increaseEnergy = 264;
 let increaseEnergyP = 10;
-let increasePollution = 150;
+let increasePollution = 264;
 
 let checkGame = () => {
     if ((energyWin * increaseEnergy) + (pollutionLose * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
@@ -165,15 +165,14 @@ let randomButton = () => {
         currBubble.style.pointerEvents = "none";
         currBubble.style.pointer = "default";
     }
-    if (currBubble.src !== images[0]) {
-        setTimeout(nonInteractible, ((absTime[0] / (level / 2)) * 1000))
-        currBubble.style.WebkitAnimation = "fading " + (absTime[0] / (level / 2)) + "s linear";
-        currBubble.style.animationFillMode = "forwards";
-
+    if (currBubble.src == images[0]) {
+      setTimeout(nonInteractible, (((absTime[0] * (level * .1)) * 1000)))
+      currBubble.style.WebkitAnimation = "fading " + (absTime[0] * ((level * .1))) + "s linear";
+      currBubble.style.animationFillMode = "forwards";
     } else {
-        setTimeout(nonInteractible, (((absTime[0] * (level * .1)) * 1000)))
-        currBubble.style.WebkitAnimation = "fading " + (absTime[0] * ((level * .1))) + "s linear";
-        currBubble.style.animationFillMode = "forwards";
+      setTimeout(nonInteractible, ((absTime[0] / (level / 2)) * 1000))
+      currBubble.style.WebkitAnimation = "fading " + (absTime[0] / (level / 2)) + "s linear";
+      currBubble.style.animationFillMode = "forwards";
     }
 };
 
