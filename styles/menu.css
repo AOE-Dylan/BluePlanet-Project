@@ -171,6 +171,24 @@ h1 {
   text-align: center;
 }
 
+#upgradeCongrats {
+  display: none;
+  position: fixed; /*it can be fixed too*/
+  left:0; right:0;
+  top:0; bottom:0;
+  margin: auto;
+  width:50%;
+  height:20%;
+  opacity: 0.8;
+  background-color: #0098a4;
+  color: white;
+  text-align: center;
+}
+
+#correctLevel1, #correctLevel2, #correctLevel3. #correctLevel4 {
+  transition: 2s;
+}
+
 
 
 #flexContainer {
@@ -219,7 +237,7 @@ h1 {
   animation: pulse infinite 1s;
 }
 
- #levelContinue{
+ #levelContinue, #upgradeContinue, #upgradeAndContinue{
    position: fixed;
    bottom: 10px;
    right: 10px;
@@ -237,7 +255,7 @@ h1 {
 
  }
 
-#startZoom:hover, .restart:hover, #levelContinue:hover {
+#startZoom:hover, .restart:hover, #levelContinue:hover, #upgradeContinue:hover,  #upgradeAndContinue:hover {
   background-color: transparent;
   color: #97ca3d;
   cursor: pointer;
@@ -701,6 +719,11 @@ column-gap: 0px;
 padding-bottom: 66px;
 margin: 0 auto;
 padding-top: 1px;
+}
+
+#upgradeCongrats h2 {
+  font-family: 'Raleway';
+  color: #97ca3d;
 }
 
 .statBox {

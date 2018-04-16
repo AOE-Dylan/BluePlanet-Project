@@ -25,6 +25,8 @@ let nonRenewable = document.getElementById('nonRenewableProgress');
 let credits = document.getElementById('credits');
 let levelSuccess = document.getElementById('levelSuccessPopUp');
 let levelContinue = document.getElementById('levelContinue');
+let upgradeContinue = document.getElementById('upgradeContinue');
+let upgradeAndContinue = document.getElementById('upgradeAndContinue');
 let levelDisplay = document.getElementById('round');
 let timerDisplay = document.getElementById('timer');
 let gameFail = document.getElementById('gameFail');
@@ -63,14 +65,13 @@ let randomImg = () => {
     })
     tempStore = [];
   }
-  console.log(genImg)
   let ranImg = (Math.floor(Math.random() * genImg.length) + 0);
   let imgChose = genImg.splice(ranImg, 1);
   tempStore.push(imgChose[0]);
   return imgChose[0];
 };
 
-let increaseEnergy = 100;
+let increaseEnergy = 300;
 let increaseEnergyP = 10;
 let increasePollution = 150;
 
@@ -434,7 +435,6 @@ levelContinue.addEventListener("click", function() {
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
     sec = 60;
-    document.getElementById('timer').innerHTML = sec;
     $('#startButton').addClass('animated infinite rubberBand');
     $("#level1Quiz").css("display", "none");
     $("#level2Quiz").css("display", "none");
@@ -442,7 +442,37 @@ levelContinue.addEventListener("click", function() {
     $("#level4Quiz").css("display", "none");
     $('.upgradeText').text("ANSWER CORRECTLY FOR AN UPGRADE");
     $('.upgradeText').css("color", "white");
+    $("#upgradeCongrats").css("display", "none");
+
+    if(upgrades.includes("20sec") === true){
+      sec = sec + 20;
+    } else if(upgrades.includes("slowerDecay") === true){
+
+    }
+    document.getElementById('timer').innerHTML = sec;
 });
+
+let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles"];
+let upgrades = [];
+
+function upgradeGenerator() {
+  let upgradeItem = availableUpgrades.splice(Math.floor(Math.random() * availableUpgrades.length), 1);
+  console.log(upgradeItem)
+  if(upgradeItem == "20sec"){
+    $("#upgradeReward").text("+20 SECONDS TO THE TIMER");
+    upgrades.push(upgradeItem[0])
+  } else if(upgradeItem == "slowerDecay"){
+    $("#upgradeReward").text("RENEWABLE BUBBLES DECAY SLOWER");
+    upgrades.push(upgradeItem[0])
+  } else if(upgradeItem == "moreGoodBubbles"){
+    $("#upgradeReward").text("RENEWABLE BUBBLES GENERATE FASTER");
+    upgrades.push(upgradeItem[0])
+  }
+}
+
+
+
+
 
 let quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")]
 
@@ -460,21 +490,41 @@ function submitAnswer() {
         }
     }
     if (userAnswer === "d" && document.getElementById('level1Quiz').style.display == "block" ) {
-        $("#level1Quiz").css("display", "none");
-        $('#youPassed').text("CHOOSE AN UPGRADE");
-        levelContinue.style.display = "block";
+      $(".wrongLevel1").remove();
+      $('.wrongLevel1').find('.checkmark').remove();
+      $('#level1Quiz').find('.submitAnswer').remove();
+      $('#correctLevel1').find('.checkmark').css("background-color", "#97ca3d");
+      $('#correctLevel1').addClass('animated pulse');
+      $("#upgradeCongrats").css("display", "block");
+      levelContinue.style.display = "block";
+      upgradeGenerator();
     } else if (userAnswer === "e" && document.getElementById('level2Quiz').style.display == "block" ) {
-        $("#level2Quiz").css("display", "none");
-        $('#youPassed').text("CHOOSE AN UPGRADE");
-        levelContinue.style.display = "block";
+      $(".wrongLevel2").remove();
+      $('.wrongLevel2').find('.checkmark').remove();
+      $('#level2Quiz').find('.submitAnswer').remove();
+      $('#correctLevel2').find('.checkmark').css("background-color", "#97ca3d");
+      $('#correctLevel2').addClass('animated pulse');
+      $("#upgradeCongrats").css("display", "block");
+      levelContinue.style.display = "block";
+      upgradeGenerator();
     } else if (userAnswer === "k" && document.getElementById('level3Quiz').style.display == "block" ) {
-        $("#level3Quiz").css("display", "none");
-        $('#youPassed').text("CHOOSE AN UPGRADE");
-        levelContinue.style.display = "block";
+      $(".wrongLevel3").remove();
+      $('.wrongLevel3').find('.checkmark').remove();
+      $('#level3Quiz').find('.submitAnswer').remove();
+      $('#correctLevel3').find('.checkmark').css("background-color", "#97ca3d");
+      $('#correctLevel3').addClass('animated pulse');
+      $("#upgradeCongrats").css("display", "block");
+      levelContinue.style.display = "block";
+      upgradeGenerator();
     } else if (userAnswer === "o" && document.getElementById('level4Quiz').style.display == "block" ) {
-        $("#level4Quiz").css("display", "none");
-        $('#youPassed').text("CHOOSE AN UPGRADE");
-        levelContinue.style.display = "block";
+      $(".wrongLevel4").remove();
+      $('.wrongLevel4').find('.checkmark').remove();
+      $('#level4Quiz').find('.submitAnswer').remove();
+      $('#correctLevel4').find('.checkmark').css("background-color", "#97ca3d");
+      $('#correctLevel4').addClass('animated pulse');
+      $("#upgradeCongrats").css("display", "block");
+      levelContinue.style.display = "block";
+      upgradeGenerator();
     } else if (userAnswer != "d" && document.getElementById('level1Quiz').style.display == "block") {
         $(".wrongLevel1").css("opacity", 0.5);
         $('.wrongLevel1').find('.checkmark').remove();

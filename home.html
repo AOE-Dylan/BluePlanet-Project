@@ -143,7 +143,13 @@
             </div>
         </div>
 
-        <button id="levelContinue">CONTINUE</button>
+        <div id="upgradeCongrats">
+          <h1>CONGRATS YOU'VE EARNED AN UPGRADE:</h1>
+          <h2 id="upgradeReward"></h2>
+        </div>
+
+        <button id="levelContinue">CONTINUE TO THE NEXT LEVEL</button>
+        <button id="upgradeAndContinue">CHOOSE UPGRADE AND CONTINUE</button>
     </div>
 
     <div id="notMap">
@@ -263,21 +269,21 @@
         <div id="informationMenu" class="animated bounceIn">
             <a class="boxClose menuClose"></a>
             <div class="mySlides2 fade">
-                <div class="numbertext">1 / 4</div>
+                <div class="numbertext">1 / 5</div>
                 <div class="slideTitle">
                     <h1>HOW TO PLAY</h1>
                 </div>
             </div>
 
             <div class="mySlides2 fade">
-                <div class="numbertext">2 / 4</div>
+                <div class="numbertext">2 / 5</div>
                 <div class="slideTitle">
-                    <h1>RANDOM FACTS</h1>
+                    <h1>CURRENT UPGRADES</h1>
                 </div>
             </div>
 
             <div class="mySlides2 fade">
-                <div class="numbertext">3 / 4</div>
+                <div class="numbertext">3 / 5</div>
                 <div class="slideTitle">
                     <h1>STATISTICS</h1>
                     <div class="statGrid">
@@ -307,9 +313,15 @@
                   </div>
                 </div>
             </div>
+            <div class="mySlides2 fade">
+                <div class="numbertext">4 / 5</div>
+                <div class="slideTitle">
+                    <h1>RANDOM FACTS</h1>
+                </div>
+            </div>
 
             <div class="mySlides2 fade">
-                <div class="numbertext">4 / 4</div>
+                <div class="numbertext">5 / 5</div>
                 <div class="slideTitle">
                     <h1>CREDITS</h1>
                 </div>
@@ -366,6 +378,7 @@
                 <span class="dot2" onclick="currentInfoSlide(2)"></span>
                 <span class="dot2" onclick="currentInfoSlide(3)"></span>
                 <span class="dot2" onclick="currentInfoSlide(4)"></span>
+                <span class="dot2" onclick="currentInfoSlide(5)"></span>
             </div>
         </div>
     </div>
