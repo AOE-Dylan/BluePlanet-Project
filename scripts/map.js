@@ -317,7 +317,7 @@ information.addEventListener("click", function() {
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
     $('.renewableGenerated').text(renewableGoodStat);
-    $('.pollutionGenerated').text(pollutionBadStat);
+    $('.pollutionGenerated').text(pollutionBadStat)
     $('.badClicked').text(bubbleBadStat);
     $('.levelsPassed').text(level - 1);
     $('.timeElapsed').text(timeElapsed + " seconds");
