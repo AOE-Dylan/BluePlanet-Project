@@ -32,7 +32,9 @@ let timerDisplay = document.getElementById('timer');
 let gameFail = document.getElementById('gameFail');
 let level = 1;
 let bubbleGoodStat = 0;
+let renewableGoodStat = 0;
 let bubbleBadStat = 0;
+let pollutionBadStat = 0;
 let bubblesClick = 0;
 let timeElapsed = 0;
 var pollutionLose = 0;
@@ -110,6 +112,7 @@ let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
     energyWin++;
     bubbleGoodStat++;
+    renewableGoodStat+=264;
     bubblesClick++;
     // console.log(renewableProgress.style.height, 'goodBar height');
     // console.log(energyWin * 5);
@@ -120,7 +123,8 @@ let addBarBad = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergyP);
     $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + increasePollution);
     pollutionLose++;
-    bubbleBadStat++;
+    bubbleBadStat++
+    pollutionBadStat+=264;
     bubblesClick++;
     // console.log(renewableProgress.style.height, "goodBar height");
     // console.log(nonRenewableProgress.style.height, "badBar height");
@@ -312,6 +316,8 @@ information.addEventListener("click", function() {
 
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
+    $('.renewableGenerated').text(renewableGoodStat);
+    $('.pollutionGenerated').text(pollutionBadStat);
     $('.badClicked').text(bubbleBadStat);
     $('.levelsPassed').text(level - 1);
     $('.timeElapsed').text(timeElapsed + " seconds");
@@ -446,6 +452,8 @@ levelContinue.addEventListener("click", function() {
     if(upgrades.includes("20sec") === true){
       sec = sec + 20;
     } else if(upgrades.includes("slowerDecay") === true){
+
+    } else if(upgrade.includes("moreGoodBubbles") === true){
 
     }
     document.getElementById('timer').innerHTML = sec;

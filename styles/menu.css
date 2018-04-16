@@ -39,6 +39,7 @@ h1 {
   display: none;
 }
 
+
 #map {
   position: fixed;
   top: 50px;
@@ -699,6 +700,10 @@ a.boxClose:hover {
   width: 900px;
   height: 150px;
   cursor: pointer;
+}
+
+#bpimg:hover {
+  animation: pulse infinite 1s;
 }
 
 .bold { color: #97ca3d;}
