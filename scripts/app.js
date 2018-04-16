@@ -21,6 +21,12 @@ let gameWin = () => {
       levelContinue.style.display = "block";
       levelContinue.innerHTML = "CONTINUE TO INFINITE MODE"
     }
+
+    if (level > 6){
+     $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
+     levelContinue.style.display = "block";
+     levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
+   }
     // if(level == 3){
     //   document.getElementById('level2Quiz').style.display = "block";
     // } else if (level == 4) {
@@ -54,6 +60,7 @@ let gamePollutionFail = () => {
 };
 
 let countdown = () =>  {
+  timeElapsed++
   if (sec === 0) {
     gameActive = 0;
     clearInterval(bubbleGenerate);

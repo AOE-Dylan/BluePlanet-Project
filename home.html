@@ -143,7 +143,13 @@
             </div>
         </div>
 
-        <button id="levelContinue">CONTINUE</button>
+        <div id="upgradeCongrats">
+          <h1>CONGRATS YOU'VE EARNED AN UPGRADE:</h1>
+          <h2 id="upgradeReward"></h2>
+        </div>
+
+        <button id="levelContinue">CONTINUE TO THE NEXT LEVEL</button>
+        <button id="upgradeAndContinue">CHOOSE UPGRADE AND CONTINUE</button>
     </div>
 
     <div id="notMap">
@@ -263,28 +269,59 @@
         <div id="informationMenu" class="animated bounceIn">
             <a class="boxClose menuClose"></a>
             <div class="mySlides2 fade">
-                <div class="numbertext">1 / 4</div>
+                <div class="numbertext">1 / 5</div>
                 <div class="slideTitle">
                     <h1>HOW TO PLAY</h1>
                 </div>
             </div>
 
             <div class="mySlides2 fade">
-                <div class="numbertext">2 / 4</div>
+                <div class="numbertext">2 / 5</div>
+                <div class="slideTitle">
+                    <h1>CURRENT UPGRADES</h1>
+                </div>
+            </div>
+
+            <div class="mySlides2 fade">
+                <div class="numbertext">3 / 5</div>
+                <div class="slideTitle">
+                    <h1>STATISTICS</h1>
+                    <div class="statGrid">
+                    <div class="statContainer">
+                      <div class="statBox">
+                        <h1>TOTAL BUBBLES CLICKED</h1>
+                        <h2 class="totalClicked">0</h2>
+                      </div>
+                      <div class="statBox">
+                        <h1>RENEWABLE BUBBLES CLICKED</h1>
+                        <h2 class="goodClicked">0</h2>
+                      </div>
+                      <div class="statBox">
+                        <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+                        <h2 class="badClicked">0</h2>
+                      </div>
+                      <div class="statBox">
+                        <h1>TOTAL TIME ELAPSED</h1>
+                        <h2 class="timeElapsed">0 seconds</h2>
+                      </div>
+                      <div class="statBox">
+                        <h1>LEVELS PASSED</h1>
+                        <h2 class="levelsPassed">0</h2>
+                      </div>
+                      <div class="statBox"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="mySlides2 fade">
+                <div class="numbertext">4 / 5</div>
                 <div class="slideTitle">
                     <h1>RANDOM FACTS</h1>
                 </div>
             </div>
 
             <div class="mySlides2 fade">
-                <div class="numbertext">3 / 4</div>
-                <div class="slideTitle">
-                    <h1>STATISTICS</h1>
-                </div>
-            </div>
-
-            <div class="mySlides2 fade">
-                <div class="numbertext">4 / 4</div>
+                <div class="numbertext">5 / 5</div>
                 <div class="slideTitle">
                     <h1>CREDITS</h1>
                 </div>
@@ -341,6 +378,7 @@
                 <span class="dot2" onclick="currentInfoSlide(2)"></span>
                 <span class="dot2" onclick="currentInfoSlide(3)"></span>
                 <span class="dot2" onclick="currentInfoSlide(4)"></span>
+                <span class="dot2" onclick="currentInfoSlide(5)"></span>
             </div>
         </div>
     </div>
@@ -350,21 +388,26 @@
         <div class="mySlides1 fade">
             <div class="numbertext">1 / 3</div>
             <div class="slideTitle">
-                <h1>WELCOME TO INFINITE POWER</h1>
+                <h1 class="titleHeader">WELCOME TO INFINITE POWER</h1>
+                <div id="welcomeContainer">
+                  <h2>After being pitched by the <span class="bold">BluePlanet Foundation</span> about the <span class="bold">lack of awareness of clean energy use</span>, 3 high school students have been tasked to create an app</span> of promoting clean energy use</h2>
+                  <h2><span class="bold">INFINITE POWER</span> is an educational <span class="bold">reflex based game</span> that spreads awareness of the <span class="redText">dangers </span> of <span class="bold">fossil fuel use</span> and promotes <span class="bold">clean energy use in Hawaii</span></h2>
+                  <img id="bpimg" src="styles/blueplanetad.png" alt="" >
+                </div>
             </div>
         </div>
 
         <div class="mySlides1 fade">
             <div class="numbertext">2 / 3</div>
             <div class="slideTitle">
-                <h1>HOW TO PLAY</h1>
+                <h1 class="titleHeader">HOW TO PLAY</h1>
             </div>
         </div>
 
         <div class="mySlides1 fade">
             <div class="numbertext">3 / 3</div>
             <div class="slideTitle">
-                <h1>CREDITS</h1>
+                <h1 class="titleHeader">CREDITS</h1>
             </div>
             <div class="cardContainer">
                 <aside class="profile-card">
