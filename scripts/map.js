@@ -37,9 +37,9 @@ let bubbleBadStat = 0;
 let pollutionBadStat = 0;
 let bubblesClick = 0;
 let timeElapsed = 0;
-let totalEnergyGen = renewableGoodStat + pollutionBadStat
+let totalEnergyGen = renewableGoodStat + pollutionBadStat;
 var pollutionLose = 0;
-var pollutionEnergy = 0
+var pollutionEnergy = 0;
 var energyWin = 0;
 var difficultyCorrection = 1000 / level;
 
@@ -123,7 +123,7 @@ let addBarGood = () => {
     bubblesClick++;
     let calculateEnergy = (energyWin * increaseEnergy) * 100;
     let finalEnergyPercent = (calculateEnergy / 265).toFixed(1);
-    energyPercent += finalEnergyPercent;
+    energyPercent = finalEnergyPercent;
     $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
     // console.log(renewableProgress.style.height, 'goodBar height');
     // console.log(energyWin * 5);
@@ -140,11 +140,11 @@ let addBarBad = () => {
     renewableGoodStat += increaseEnergyP;
     bubblesClick++;
     let calculatePollution = (pollutionLose * increasePollution) * 100;
-    let calculateEnergyP = (pollutionEnergy * increaseEnergyP) * 100;
+    let calculateEnergyP = ((pollutionEnergy * increaseEnergyP) + (energyWin * increaseEnergy)) * 100;
     let finalPollutionPercent = (calculatePollution / 265).toFixed(1);
-    let finalEnergyP = (calculateEnergyP / 265).toFixed(1)
-    pollutionPercent += finalPollutionPercent;
-    energyPercent += finalEnergyP;
+    let finalEnergyP = (calculateEnergyP / 265).toFixed(1);
+    pollutionPercent = finalPollutionPercent;
+    energyPercent = finalEnergyP;
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent + "%";
     $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
     // console.log(renewableProgress.style.height, "goodBar height");
@@ -902,3 +902,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
+
