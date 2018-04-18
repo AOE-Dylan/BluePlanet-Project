@@ -39,6 +39,7 @@ h1 {
   display: none;
 }
 
+
 #map {
   position: fixed;
   top: 50px;
@@ -701,6 +702,10 @@ a.boxClose:hover {
   cursor: pointer;
 }
 
+#bpimg:hover {
+  animation: pulse infinite 1s;
+}
+
 .bold { color: #97ca3d;}
 
 .redText {color: #c23b22; font-weight: bolder;}
@@ -729,7 +734,9 @@ padding-top: 1px;
 .statBox {
   width: 95%;
 	display: inline-block;
-
+  color: rgb(0, 152, 164);
+  font-family: 'Raleway';
+  text-align: center;
 	padding-left: 5px;
 	padding-right: 5px;
 	margin: 5px 5px;
@@ -737,6 +744,15 @@ padding-top: 1px;
   background-color: white;
 }
 
-.statBox h1, .statBox h2{
-  color: rgb(0, 152, 164);
+.statBox h1 {
+  font-size: 25px;
+}
+
+.statBox h2{
+  font-size: 30px;
+}
+
+
+#infiniteStatistics {
+  display: none;
 }

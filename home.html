@@ -92,7 +92,7 @@
                 <h1 class="upgradeText">ANSWER CORRECTLY FOR AN UPGRADE</h1>
                 <h1 style="color: #97ca3d">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</h1>
                 <label  class="radioContainer wrongLevel3">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <input type="radio" name="radio" value="i">
                 <span class="checkmark"></span>
               </label>
@@ -143,13 +143,50 @@
             </div>
         </div>
 
-        <div id="upgradeCongrats">
+        <div id="upgradeCongrats" class="animated bounce">
           <h1>CONGRATS YOU'VE EARNED AN UPGRADE:</h1>
           <h2 id="upgradeReward"></h2>
         </div>
 
+
         <button id="levelContinue">CONTINUE TO THE NEXT LEVEL</button>
         <button id="upgradeAndContinue">CHOOSE UPGRADE AND CONTINUE</button>
+
+        <div id="infiniteStatistics">
+          <div class="statGrid">
+          <div class="statContainer">
+            <div class="statBox">
+              <h1 class="totalEnergyGen">TOTAL ENERGY GENERATED</h1>
+              <h2>0</h2>
+            </div>
+            <div class="statBox">
+              <h1>RENEWABLE ENERGY GENERATED</h1>
+              <h2 class="renewableGenerated" style="color: #97ca3d">0</h2>
+            </div>
+            <div class="statBox">
+              <h1>POLLUTION GENERATED</h1>
+              <h2 class="pollutionGenerated" style="color: #c23b22">0</h2>
+            </div>
+            <div class="statBox">
+              <h1>TOTAL TIME ELAPSED</h1>
+              <h2 class="timeElapsed">0 seconds</h2>
+            </div>
+            <div class="statBox">
+              <h1>LEVELS PASSED</h1>
+              <h2 class="levelsPassed">0</h2>
+            </div>
+            <div class="statBox">
+              <h1>RENEWABLE BUBBLES CLICKED</h1>
+              <h2 class="goodClicked" style="color: #97ca3d"></h2>
+            </div>
+            <div class="statBox">
+              <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+              <h2 class="badClicked" style="color: #c23b22"></h2>
+            </div>
+          </div>
+        </div>
+    </div>
+
     </div>
 
     <div id="notMap">
@@ -160,7 +197,7 @@
             </div>
             <div id="renewableProgressBar">
                 <div class="barBackground">
-                    <p class="title">ENERGY</p>
+                    <p class="title">ENERGY : </p>
                     <div id="renewable-bar">
                         <div class="attendance-level">
                             <div class="bar-1"></div>
@@ -179,7 +216,7 @@
             </div>
             <div id="nonRenewableProgressBar">
                 <div class="barBackground">
-                    <p class="title">POLLUTION</p>
+                    <p class="title">POLLUTION : </p>
                     <div id="nonRenewable-bar">
                         <div class="attendance-level">
                             <div class="bar-1"></div>
@@ -279,6 +316,31 @@
                 <div class="numbertext">2 / 5</div>
                 <div class="slideTitle">
                     <h1>CURRENT UPGRADES</h1>
+                    <div class="statGrid">
+                    <div class="statContainer">
+                      <div class="statBox">
+                        <h1>TOTAL ENERGY GENERATED</h1>
+                      </div>
+                      <div class="statBox">
+                        <h1>RENEWABLE ENERGY GENERATED</h1>
+                      </div>
+                      <div class="statBox">
+                        <h1>POLLUTION GENERATED</h1>
+                      </div>
+                      <div class="statBox">
+                        <h1>TOTAL TIME ELAPSED</h1>
+                      </div>
+                      <div class="statBox">
+                        <h1>LEVELS PASSED</h1>
+                      </div>
+                      <div class="statBox">
+                        <h1>RENEWABLE BUBBLES CLICKED</h1>
+                      </div>
+                      <div class="statBox">
+                        <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
 
@@ -289,16 +351,16 @@
                     <div class="statGrid">
                     <div class="statContainer">
                       <div class="statBox">
-                        <h1>TOTAL BUBBLES CLICKED</h1>
-                        <h2 class="totalClicked">0</h2>
+                        <h1>TOTAL ENERGY GENERATED</h1>
+                        <h2>0</h2>
                       </div>
                       <div class="statBox">
-                        <h1>RENEWABLE BUBBLES CLICKED</h1>
-                        <h2 class="goodClicked">0</h2>
+                        <h1>RENEWABLE ENERGY GENERATED</h1>
+                        <h2 class="renewableGenerated" style="color: #97ca3d">0</h2>
                       </div>
                       <div class="statBox">
-                        <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
-                        <h2 class="badClicked">0</h2>
+                        <h1>POLLUTION GENERATED</h1>
+                        <h2 class="pollutionGenerated" style="color: #c23b22">0</h2>
                       </div>
                       <div class="statBox">
                         <h1>TOTAL TIME ELAPSED</h1>
@@ -308,7 +370,14 @@
                         <h1>LEVELS PASSED</h1>
                         <h2 class="levelsPassed">0</h2>
                       </div>
-                      <div class="statBox"></div>
+                      <div class="statBox">
+                        <h1>RENEWABLE BUBBLES CLICKED</h1>
+                        <h2 class="goodClicked" style="color: #97ca3d"></h2>
+                      </div>
+                      <div class="statBox">
+                        <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+                        <h2 class="badClicked" style="color: #c23b22"></h2>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -316,7 +385,53 @@
             <div class="mySlides2 fade">
                 <div class="numbertext">4 / 5</div>
                 <div class="slideTitle">
-                    <h1>RANDOM FACTS</h1>
+                    <h1>FUN FACTS</h1>
+                    <div class="statGrid">
+                      <div class="statContainer">
+                        <div class="statBox">
+                          <h1>TOTm dolor sit amet, in est graNERATED</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>RENEWABm dolor sit amet, in est graATED</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>POLLUm dolor sit amet, in est graTED</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>Lorem ipsum dolor sit amet, in est graeco oportere.</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>LEVELS PASSED</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>Lorem ipsum dolor sit amet, in est graeco oportere. titur.</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>TOTALm dolor sit amet, in est graRATED</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>REm dolor sit amet, in est graD</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>Lorem ipsum dolor sit amet, in est graeco oplutatus eu. Eum id quot complectitur.</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>TOTAL TIME ELAPSED</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>LEVELS PASSED</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>Lorem ipsum dolor sit amet, in est  Eum id quot complectitur.</h1>
+                        </div>
+                        <div class="statBox">
+                          <h1>NON-RENEWABm dolor sit amet, in est graS CLICKED</h1>
+                        </div>
+                      </div>
+                  </div>
                 </div>
             </div>
 

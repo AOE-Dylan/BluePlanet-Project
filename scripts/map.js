@@ -32,12 +32,18 @@ let timerDisplay = document.getElementById('timer');
 let gameFail = document.getElementById('gameFail');
 let level = 1;
 let bubbleGoodStat = 0;
+let renewableGoodStat = 0;
 let bubbleBadStat = 0;
+let pollutionBadStat = 0;
 let bubblesClick = 0;
 let timeElapsed = 0;
+let totalEnergyGen = renewableGoodStat + pollutionBadStat
 var pollutionLose = 0;
+var pollutionEnergy = 0
 var energyWin = 0;
 var difficultyCorrection = 1000 / level;
+
+var bubbleFadeUpgrade = false;
 
 timerDisplay.innerHTML = sec;
 round.innerHTML = "Level " + level;
@@ -76,41 +82,49 @@ let increaseEnergyP = 10;
 let increasePollution = 264;
 
 let checkGame = () => {
-    if ((energyWin * increaseEnergy) + (pollutionLose * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
-        gameActive = 0;
-        energyWin = 0;
-        pollutionLose = 0;
-        clearInterval(bubbleGenerate);
-        clearInterval(timer);
-        gameStart = 0;
-        $("#map").remove();
-        gameWin();
-        var next;
-        next = map.zoom;
-        var incr;
-        incr = next + 1;
-        console.log('You acquired enough energy!');
-        document.getElementById('levelContinue').addEventListener('click', function(event) {
-            smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
-        });
-    } else if ((pollutionLose * increasePollution) >= 265) {
-        gameActive = 0;
-        energyWin = 0;
-        pollutionLose = 0;
-        clearInterval(bubbleGenerate);
-        clearInterval(timer);
-        gameStart = 0;
-        $("#map").remove();
-        gamePollutionFail();
-        console.log('You polluted the world!')
+    if ((pollutionLose * increasePollution) >= 265) {
+      gameActive = 0;
+      energyWin = 0;
+      pollutionLose = 0;
+      clearInterval(bubbleGenerate);
+      clearInterval(timer);
+      gameStart = 0;
+      $("#map").remove();
+      gamePollutionFail();
+      console.log('You polluted the world!')
+    } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
+      gameActive = 0;
+      energyWin = 0;
+      pollutionLose = 0;
+      clearInterval(bubbleGenerate);
+      clearInterval(timer);
+      gameStart = 0;
+      $("#map").remove();
+      gameWin();
+      var next;
+      next = map.zoom;
+      var incr;
+      incr = next + 1;
+      console.log('You acquired enough energy!');
+      document.getElementById('levelContinue').addEventListener('click', function(event) {
+          smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
+      });
     }
 }
+
+var energyPercent = 0;
+var pollutionPercent = 0;
 
 let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
     energyWin++;
     bubbleGoodStat++;
+    renewableGoodStat += increaseEnergy;
     bubblesClick++;
+    let calculateEnergy = (energyWin * increaseEnergy) * 100;
+    let finalEnergyPercent = (calculateEnergy / 265).toFixed(1);
+    energyPercent += finalEnergyPercent;
+    $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
     // console.log(renewableProgress.style.height, 'goodBar height');
     // console.log(energyWin * 5);
     checkGame();
@@ -120,8 +134,19 @@ let addBarBad = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergyP);
     $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + increasePollution);
     pollutionLose++;
-    bubbleBadStat++;
+    pollutionEnergy++;
+    bubbleBadStat++
+    pollutionBadStat += increasePollution;
+    renewableGoodStat += increaseEnergyP;
     bubblesClick++;
+    let calculatePollution = (pollutionLose * increasePollution) * 100;
+    let calculateEnergyP = (pollutionEnergy * increaseEnergyP) * 100;
+    let finalPollutionPercent = (calculatePollution / 265).toFixed(1);
+    let finalEnergyP = (calculateEnergyP / 265).toFixed(1)
+    pollutionPercent += finalPollutionPercent;
+    energyPercent += finalEnergyP;
+    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent + "%";
+    $(".title")[0].innerText = "ENERGY " + energyPercent + "%";
     // console.log(renewableProgress.style.height, "goodBar height");
     // console.log(nonRenewableProgress.style.height, "badBar height");
     // console.log(energyWin);
@@ -159,6 +184,8 @@ let randomButton = () => {
     let randGen = randomImg();
     let randTime = timeNum();
     let absTime = [randTime];
+    let nonRenewableFade = (absTime[0] * ((level * .1)));
+    let renewableFade = (absTime[0] / (level / 2));
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${randGen}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
     let nonInteractible = () => {
@@ -166,13 +193,19 @@ let randomButton = () => {
         currBubble.style.pointer = "default";
     }
     if (currBubble.src == images[0]) {
-      setTimeout(nonInteractible, (((absTime[0] * (level * .1)) * 1000)))
-      currBubble.style.WebkitAnimation = "fading " + (absTime[0] * ((level * .1))) + "s linear";
+      setTimeout(nonInteractible, (nonRenewableFade * 1000));
+      currBubble.style.WebkitAnimation = "fading " + nonRenewableFade + "s linear";
       currBubble.style.animationFillMode = "forwards";
     } else {
-      setTimeout(nonInteractible, ((absTime[0] / (level / 2)) * 1000))
-      currBubble.style.WebkitAnimation = "fading " + (absTime[0] / (level / 2)) + "s linear";
-      currBubble.style.animationFillMode = "forwards";
+      if (bubbleFadeUpgrade == true) {
+        setTimeout(nonInteractible, ((renewableFade + 1.2) * 1000))
+        currBubble.style.WebkitAnimation = "fading " + (renewableFade + 1.2) + "s linear";
+        currBubble.style.animationFillMode = "forwards";
+      } else {
+        setTimeout(nonInteractible, (renewableFade * 1000))
+        currBubble.style.WebkitAnimation = "fading " + renewableFade + "s linear";
+        currBubble.style.animationFillMode = "forwards";
+      }
     }
 };
 
@@ -312,6 +345,8 @@ information.addEventListener("click", function() {
 
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
+    $('.renewableGenerated').text(renewableGoodStat);
+    $('.pollutionGenerated').text(pollutionBadStat)
     $('.badClicked').text(bubbleBadStat);
     $('.levelsPassed').text(level - 1);
     $('.timeElapsed').text(timeElapsed + " seconds");
@@ -420,6 +455,13 @@ function restart() {
     document.getElementById('timer').innerHTML = sec;
     $('#startButton').addClass('animated infinite rubberBand');
     randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
+    energyPercent = 0;
+    let calculatePollution = (pollutionLose * increasePollution) * 100;
+    let finalPollutionPercent = (calculatePollution / 265);
+    pollutionPercent = finalPollutionPercent;
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
+    bubbleFadeUpgrade = false;
 };
 
 levelContinue.addEventListener("click", function() {
@@ -442,10 +484,22 @@ levelContinue.addEventListener("click", function() {
     $('.upgradeText').text("ANSWER CORRECTLY FOR AN UPGRADE");
     $('.upgradeText').css("color", "white");
     $("#upgradeCongrats").css("display", "none");
+    pollutionLose - 1;
+    console.log(pollutionLose)
+    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
+    energyPercent = 0;
+    let calculatePollution = (pollutionLose * increasePollution) * 100;
+    let finalPollutionPercent = (calculatePollution / 265);
+    pollutionPercent = finalPollutionPercent;
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
+
 
     if(upgrades.includes("20sec") === true){
       sec = sec + 20;
     } else if(upgrades.includes("slowerDecay") === true){
+
+    } else if(upgrades.includes("moreGoodBubbles") === true){
 
     }
     document.getElementById('timer').innerHTML = sec;
@@ -456,13 +510,14 @@ let upgrades = [];
 
 function upgradeGenerator() {
   let upgradeItem = availableUpgrades.splice(Math.floor(Math.random() * availableUpgrades.length), 1);
-  console.log(upgradeItem)
   if(upgradeItem == "20sec"){
     $("#upgradeReward").text("+20 SECONDS TO THE TIMER");
     upgrades.push(upgradeItem[0])
   } else if(upgradeItem == "slowerDecay"){
     $("#upgradeReward").text("RENEWABLE BUBBLES DECAY SLOWER");
+    bubbleFadeUpgrade = true;
     upgrades.push(upgradeItem[0])
+
   } else if(upgradeItem == "moreGoodBubbles"){
     $("#upgradeReward").text("RENEWABLE BUBBLES GENERATE FASTER");
     upgrades.push(upgradeItem[0])
