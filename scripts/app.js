@@ -19,13 +19,30 @@ let gameWin = () => {
     if (level == 6){
       $('#youPassed').text("CONGRATULATIONS, YOU BEAT THE GAME ");
       levelContinue.style.display = "block";
-      levelContinue.innerHTML = "CONTINUE TO INFINITE MODE"
+      levelContinue.innerHTML = "CONTINUE TO INFINITE MODE";
+      $('#infiniteStatistics').css("display", "block");
+      $('.totalClicked').text(bubblesClick);
+      $('.goodClicked').text(bubbleGoodStat);
+      $('.renewableGenerated').text(renewableGoodStat);
+      $('.pollutionGenerated').text(pollutionBadStat)
+      $('.badClicked').text(bubbleBadStat);
+      $('.totalEnergyGen').text(totalEnergyGen);
+      $('.levelsPassed').text(level - 1);
+      $('.timeElapsed').text(timeElapsed + " seconds");
     }
 
     if (level > 6){
      $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
      levelContinue.style.display = "block";
      levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
+     $('#infiniteStatistics').css("display", "block");
+     $('.totalClicked').text(bubblesClick);
+     $('.goodClicked').text(bubbleGoodStat);
+     $('.renewableGenerated').text(renewableGoodStat);
+     $('.pollutionGenerated').text(pollutionBadStat)
+     $('.badClicked').text(bubbleBadStat);
+     $('.levelsPassed').text(level - 1);
+     $('.timeElapsed').text(timeElapsed + " seconds");
    }
     // if(level == 3){
     //   document.getElementById('level2Quiz').style.display = "block";

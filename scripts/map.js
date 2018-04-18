@@ -37,6 +37,7 @@ let bubbleBadStat = 0;
 let pollutionBadStat = 0;
 let bubblesClick = 0;
 let timeElapsed = 0;
+let totalEnergyGen = renewableGoodStat + pollutionBadStat
 var pollutionLose = 0;
 var pollutionEnergy = 0
 var energyWin = 0;
@@ -498,7 +499,7 @@ levelContinue.addEventListener("click", function() {
       sec = sec + 20;
     } else if(upgrades.includes("slowerDecay") === true){
 
-    } else if(upgrade.includes("moreGoodBubbles") === true){
+    } else if(upgrades.includes("moreGoodBubbles") === true){
 
     }
     document.getElementById('timer').innerHTML = sec;
@@ -509,7 +510,6 @@ let upgrades = [];
 
 function upgradeGenerator() {
   let upgradeItem = availableUpgrades.splice(Math.floor(Math.random() * availableUpgrades.length), 1);
-  console.log(upgradeItem)
   if(upgradeItem == "20sec"){
     $("#upgradeReward").text("+20 SECONDS TO THE TIMER");
     upgrades.push(upgradeItem[0])
