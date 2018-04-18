@@ -181,7 +181,6 @@ h1 {
   width:50%;
   height:20%;
   opacity: 0.8;
-  background-color: #0098a4;
   color: white;
   text-align: center;
 }
@@ -392,6 +391,7 @@ a.boxClose:hover {
 
 .barBackground{
 	width:90%;
+  height: 350px;
   float:left;
 	background-color: #0098a4;
 	margin:7px 5% 5px 5%;

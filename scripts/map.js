@@ -77,9 +77,9 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 264;
+let increaseEnergy = 20;
 let increaseEnergyP = 10;
-let increasePollution = 264;
+let increasePollution = 20;
 
 let checkGame = () => {
     if ((pollutionLose * increasePollution) >= 265) {
@@ -146,7 +146,7 @@ let addBarBad = () => {
     pollutionPercent += finalPollutionPercent;
     energyPercent += finalEnergyP;
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent + "%";
-    $(".title")[0].innerText = "ENERGY " + energyPercent + "%";
+    $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
     // console.log(renewableProgress.style.height, "goodBar height");
     // console.log(nonRenewableProgress.style.height, "badBar height");
     // console.log(energyWin);
