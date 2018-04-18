@@ -44,6 +44,8 @@ var energyWin = 0;
 var difficultyCorrection = 1000 / level;
 
 var bubbleFadeUpgrade = false;
+var increaseRenewableUpgrade = false;
+var initialEnergy = false;
 
 timerDisplay.innerHTML = sec + " seconds left";
 round.innerHTML = "LEVEL " + level;
@@ -61,10 +63,12 @@ let yCoord = () => {
 }
 
 let images = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png"];
+let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/solar.png"];
 var tempStore = [];
 
 let randomImg = () => {
-  let genImg = images;
+  let genImg = (increaseRenewableUpgrade ? imagesUpgraded : images);
+  console.log(genImg)
   if (genImg.length == 0) {
     tempStore.map(img => {
       genImg.push(img)
@@ -77,14 +81,15 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 60;
-let increaseEnergyP = 10;
-let increasePollution = 60;
+let increaseEnergy = 10;
+let increaseEnergyP = 20;
+let increasePollution = 40;
 
 let checkGame = () => {
     if ((pollutionLose * increasePollution) >= 265) {
       gameActive = 0;
       energyWin = 0;
+      pollutionEnergy = 0;
       pollutionLose = 0;
       clearInterval(bubbleGenerate);
       clearInterval(timer);
@@ -94,7 +99,7 @@ let checkGame = () => {
       console.log('You polluted the world!')
     } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
       gameActive = 0;
-      energyWin = 0;
+      pollutionEnergy = 0;
       pollutionLose = 0;
       clearInterval(bubbleGenerate);
       clearInterval(timer);
@@ -106,7 +111,7 @@ let checkGame = () => {
       var incr;
       incr = next + 1;
       console.log('You acquired enough energy!');
-      document.getElementById('levelContinue').addEventListener('click', function(event) {
+      document.getElementById('tinue').addEventListener('click', function(event) {
           smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
       });
     }
@@ -114,6 +119,15 @@ let checkGame = () => {
 
 var energyPercent = 0;
 var pollutionPercent = 0;
+
+if (initialEnergy == true) {
+  energyWin = 4;
+  $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy * energyWin);
+  let calculateEnergy = (energyWin * increaseEnergy) * 100;
+  let finalEnergyPercent = (calculateEnergy / 265).toFixed(1);
+  energyPercent = finalEnergyPercent;
+  $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
+}
 
 let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
@@ -462,6 +476,7 @@ function restart() {
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
     bubbleFadeUpgrade = false;
+    increaseRenewableUpgrade = false;
 };
 
 levelContinue.addEventListener("click", function() {
@@ -494,14 +509,13 @@ levelContinue.addEventListener("click", function() {
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
 
-
     if(upgrades.includes("20sec") === true){
       sec = sec + 20;
     }
     document.getElementById('timer').innerHTML = sec + " seconds left";
 });
 
-let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles"];
+let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles", "energyHeadstart"];
 let upgrades = [];
 
 function upgradeGenerator() {
@@ -515,7 +529,12 @@ function upgradeGenerator() {
     upgrades.push(upgradeItem[0])
 
   } else if(upgradeItem == "moreGoodBubbles"){
-    $("#upgradeReward").text("RENEWABLE BUBBLES GENERATE FASTER");
+    $("#upgradeReward").text("MORE RENEWABLE BUBBLES GENERATE");
+    increaseRenewableUpgrade = true;
+    upgrades.push(upgradeItem[0])
+  } else if(upgradeItem == "energyHeadstart"){
+    $("#upgradeReward").text("START WITH MORE ENERGY");
+    initialEnergy = true;
     upgrades.push(upgradeItem[0])
   }
 }
@@ -898,3 +917,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
+
