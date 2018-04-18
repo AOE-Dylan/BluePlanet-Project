@@ -45,8 +45,8 @@ var difficultyCorrection = 1000 / level;
 
 var bubbleFadeUpgrade = false;
 
-timerDisplay.innerHTML = sec;
-round.innerHTML = "Level " + level;
+timerDisplay.innerHTML = sec + " seconds left";
+round.innerHTML = "LEVEL " + level;
 
 $('#bpimg').click(function() {
   window.open('https://blueplanetfoundation.org/', '_blank' );
@@ -77,9 +77,9 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 20;
+let increaseEnergy = 60;
 let increaseEnergyP = 10;
-let increasePollution = 20;
+let increasePollution = 60;
 
 let checkGame = () => {
     if ((pollutionLose * increasePollution) >= 265) {
@@ -124,7 +124,7 @@ let addBarGood = () => {
     let calculateEnergy = (energyWin * increaseEnergy) * 100;
     let finalEnergyPercent = (calculateEnergy / 265).toFixed(1);
     energyPercent = finalEnergyPercent;
-    $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
+    $(".title")[0].innerText = "ENERGY:   " + energyPercent + "%";
     // console.log(renewableProgress.style.height, 'goodBar height');
     // console.log(energyWin * 5);
     checkGame();
@@ -145,8 +145,8 @@ let addBarBad = () => {
     let finalEnergyP = (calculateEnergyP / 265).toFixed(1);
     pollutionPercent = finalPollutionPercent;
     energyPercent = finalEnergyP;
-    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent + "%";
-    $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
+    $(".title")[1].innerText = "POLLUTION:   " + pollutionPercent + "%";
+    $(".title")[0].innerText = "ENERGY:   " + energyPercent + "%";
     // console.log(renewableProgress.style.height, "goodBar height");
     // console.log(nonRenewableProgress.style.height, "badBar height");
     // console.log(energyWin);
@@ -451,8 +451,8 @@ function restart() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 60;
-    document.getElementById('timer').innerHTML = sec;
+    sec = 15;
+    document.getElementById('timer').innerHTML = sec + " seconds left";
     $('#startButton').addClass('animated infinite rubberBand');
     randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
     energyPercent = 0;
@@ -475,7 +475,7 @@ levelContinue.addEventListener("click", function() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 60;
+    sec = 15;
     $('#startButton').addClass('animated infinite rubberBand');
     $("#level1Quiz").css("display", "none");
     $("#level2Quiz").css("display", "none");
@@ -497,12 +497,8 @@ levelContinue.addEventListener("click", function() {
 
     if(upgrades.includes("20sec") === true){
       sec = sec + 20;
-    } else if(upgrades.includes("slowerDecay") === true){
-
-    } else if(upgrades.includes("moreGoodBubbles") === true){
-
     }
-    document.getElementById('timer').innerHTML = sec;
+    document.getElementById('timer').innerHTML = sec + " seconds left";
 });
 
 let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles"];
@@ -902,4 +898,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
-
