@@ -345,7 +345,7 @@ a.boxClose:hover {
   top: 5px;
   right: 5px;
   margin: auto;
-  width: 18%;
+  width: 225px;
   white-space: nowrap;
   opacity: 0.8;
   background-color: #0098a4;
@@ -449,7 +449,7 @@ a.boxClose:hover {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  transition: 1s;
+  transition: all ease 0.3s;
 }
 
 #renewableProgress {
@@ -737,7 +737,7 @@ padding-top: 1px;
 }
 
 .statBox {
-  width: 95%;
+  width: 215px;
 	display: inline-block;
   color: rgb(0, 152, 164);
   font-family: 'Raleway';

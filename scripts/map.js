@@ -37,7 +37,7 @@ let bubbleBadStat = 0;
 let pollutionBadStat = 0;
 let bubblesClick = 0;
 let timeElapsed = 0;
-let totalEnergyGen = renewableGoodStat + pollutionBadStat;
+let totalEnergyGen = 0;
 var pollutionLose = 0;
 var pollutionEnergy = 0;
 var energyWin = 0;
@@ -68,7 +68,6 @@ var tempStore = [];
 
 let randomImg = () => {
   let genImg = (increaseRenewableUpgrade ? imagesUpgraded : images);
-  console.log(genImg)
   if (genImg.length == 0) {
     tempStore.map(img => {
       genImg.push(img)
@@ -81,7 +80,7 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 10;
+let increaseEnergy = 60;
 let increaseEnergyP = 20;
 let increasePollution = 40;
 
@@ -111,7 +110,7 @@ let checkGame = () => {
       var incr;
       incr = next + 1;
       console.log('You acquired enough energy!');
-      document.getElementById('tinue').addEventListener('click', function(event) {
+      document.getElementById('levelContinue').addEventListener('click', function(event) {
           smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
       });
     }
@@ -321,7 +320,6 @@ startButton.addEventListener("click", function() {
     credits.style.display = "none";
 
     console.log('Game Started');
-    console.log('gameActive is', gameActive);
 });
 
 pauseButton.addEventListener("click", function() {
@@ -357,6 +355,8 @@ information.addEventListener("click", function() {
     informationMenu.style.display = "block";
     settingsMenu.style.display = "none";
 
+    totalEnergyGen = renewableGoodStat + pollutionBadStat;
+    $('.totalEnergyGen').text(totalEnergyGen);
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
     $('.renewableGenerated').text(renewableGoodStat);
@@ -500,7 +500,6 @@ levelContinue.addEventListener("click", function() {
     $('.upgradeText').css("color", "white");
     $("#upgradeCongrats").css("display", "none");
     pollutionLose - 1;
-    console.log(pollutionLose)
     $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
     energyPercent = 0;
     let calculatePollution = (pollutionLose * increasePollution) * 100;
@@ -917,4 +916,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
-
