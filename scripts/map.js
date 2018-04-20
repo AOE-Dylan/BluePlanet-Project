@@ -361,6 +361,8 @@ information.addEventListener("click", function() {
     informationMenu.style.display = "block";
     settingsMenu.style.display = "none";
 
+    totalEnergyGen = renewableGoodStat + pollutionBadStat;
+    $('.totalEnergyGen').text(totalEnergyGen);
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
     $('.renewableGenerated').text(renewableGoodStat);

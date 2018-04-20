@@ -529,8 +529,8 @@ a.boxClose:hover {
   display: block;
   top:0; bottom:0;
   margin: auto;
-  width: 75%;
-  height: 75%;
+  width: 85%;
+  height: 85%;
   opacity: 0.95;
   background-color: RGBA(0,152,164, 0.8);
   color: white;
@@ -701,9 +701,13 @@ a.boxClose:hover {
 }
 
  #bpimg {
-  margin-top: 100px;
   width: 900px;
   height: 150px;
+  position: fixed; /*it can be fixed too*/
+  left:0; right:0;
+  top:300px; bottom:0;
+  margin: auto;
+  margin: auto;
   cursor: pointer;
 }
 
