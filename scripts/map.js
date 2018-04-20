@@ -63,12 +63,12 @@ let yCoord = () => {
 }
 
 let images = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png"];
-let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/solar.png"];
+let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
+let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", images[randUpgrade]];
 var tempStore = [];
 
 let randomImg = () => {
   let genImg = (increaseRenewableUpgrade ? imagesUpgraded : images);
-  console.log(genImg)
   if (genImg.length == 0) {
     tempStore.map(img => {
       genImg.push(img)
@@ -81,7 +81,7 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 10;
+let increaseEnergy = 60;
 let increaseEnergyP = 20;
 let increasePollution = 40;
 
@@ -119,14 +119,16 @@ let checkGame = () => {
 
 var energyPercent = 0;
 var pollutionPercent = 0;
+$(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+$(".title")[1].innerText = "ENERGY: " + pollutionPercent.toFixed(1) + "%";
 
 if (initialEnergy == true) {
   energyWin = 4;
   $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy * energyWin);
-  let calculateEnergy = (energyWin * increaseEnergy) * 100;
-  let finalEnergyPercent = (calculateEnergy / 265).toFixed(1);
-  energyPercent = finalEnergyPercent;
-  $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
+  let calculateEnergy = (increaseEnergy * energyWin) * 100;
+  let finalEnergyPercent = (calculateEnergy / 265);
+  energyPercent += finalEnergyPercent;
+  $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
 }
 
 let addBarGood = () => {
@@ -135,12 +137,10 @@ let addBarGood = () => {
     bubbleGoodStat++;
     renewableGoodStat += increaseEnergy;
     bubblesClick++;
-    let calculateEnergy = (energyWin * increaseEnergy) * 100;
-    let finalEnergyPercent = (calculateEnergy / 265).toFixed(1);
-    energyPercent = finalEnergyPercent;
-    $(".title")[0].innerText = "ENERGY:   " + energyPercent + "%";
-    // console.log(renewableProgress.style.height, 'goodBar height');
-    // console.log(energyWin * 5);
+    let calculateEnergy = increaseEnergy * 100;
+    let finalEnergyPercent = (calculateEnergy / 265);
+    energyPercent += finalEnergyPercent;
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     checkGame();
 };
 
@@ -153,18 +153,14 @@ let addBarBad = () => {
     pollutionBadStat += increasePollution;
     renewableGoodStat += increaseEnergyP;
     bubblesClick++;
-    let calculatePollution = (pollutionLose * increasePollution) * 100;
-    let calculateEnergyP = ((pollutionEnergy * increaseEnergyP) + (energyWin * increaseEnergy)) * 100;
-    let finalPollutionPercent = (calculatePollution / 265).toFixed(1);
-    let finalEnergyP = (calculateEnergyP / 265).toFixed(1);
-    pollutionPercent = finalPollutionPercent;
-    energyPercent = finalEnergyP;
-    $(".title")[1].innerText = "POLLUTION:   " + pollutionPercent + "%";
-    $(".title")[0].innerText = "ENERGY:   " + energyPercent + "%";
-    // console.log(renewableProgress.style.height, "goodBar height");
-    // console.log(nonRenewableProgress.style.height, "badBar height");
-    // console.log(energyWin);
-    // console.log(pollutionLose * 15);
+    let calculatePollution = increasePollution * 100;
+    let calculateEnergyP = increaseEnergyP * 100;
+    let finalPollutionPercent = (calculatePollution / 265);
+    let finalEnergyP = (calculateEnergyP / 265);
+    pollutionPercent += finalPollutionPercent;
+    energyPercent += finalEnergyP;
+    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     checkGame();
 };
 
@@ -499,13 +495,14 @@ levelContinue.addEventListener("click", function() {
     $('.upgradeText').text("ANSWER CORRECTLY FOR AN UPGRADE");
     $('.upgradeText').css("color", "white");
     $("#upgradeCongrats").css("display", "none");
+    energyWin = 0;
+    pollutionEnergy = 0;
     pollutionLose - 1;
-    console.log(pollutionLose)
     $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
     energyPercent = 0;
-    let calculatePollution = (pollutionLose * increasePollution) * 100;
+    let calculatePollution = increasePollution * 100;
     let finalPollutionPercent = (calculatePollution / 265);
-    pollutionPercent = finalPollutionPercent;
+    pollutionPercent -= finalPollutionPercent;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
 
@@ -917,4 +914,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
-
