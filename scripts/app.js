@@ -1,5 +1,5 @@
 
-let sec = 15;
+let sec = 25;
 
 let gameWin = () => {
     let randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
@@ -20,6 +20,8 @@ let gameWin = () => {
       levelContinue.style.display = "block";
       levelContinue.innerHTML = "CONTINUE TO INFINITE MODE";
       $('#infiniteStatistics').css("display", "block");
+      totalEnergyGen = renewableGoodStat + pollutionBadStat;
+      $('.totalEnergyGen').text(totalEnergyGen);
       $('.totalClicked').text(bubblesClick);
       $('.goodClicked').text(bubbleGoodStat);
       $('.renewableGenerated').text(renewableGoodStat);
@@ -35,6 +37,8 @@ let gameWin = () => {
      levelContinue.style.display = "block";
      levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
      $('#infiniteStatistics').css("display", "block");
+     totalEnergyGen = renewableGoodStat + pollutionBadStat;
+     $('.totalEnergyGen').text(totalEnergyGen);
      $('.totalClicked').text(bubblesClick);
      $('.goodClicked').text(bubbleGoodStat);
      $('.renewableGenerated').text(renewableGoodStat);

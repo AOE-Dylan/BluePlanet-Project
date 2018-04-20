@@ -83,7 +83,7 @@ let randomImg = () => {
 
 let increaseEnergy = 60;
 let increaseEnergyP = 20;
-let increasePollution = 40;
+let increasePollution = 80;
 
 let checkGame = () => {
     if ((pollutionLose * increasePollution) >= 265) {

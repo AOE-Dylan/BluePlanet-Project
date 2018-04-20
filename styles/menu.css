@@ -449,7 +449,7 @@ a.boxClose:hover {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  transition: all ease 0.3s;
+  transition: 0.1s;
 }
 
 #renewableProgress {
@@ -737,7 +737,7 @@ padding-top: 1px;
 }
 
 .statBox {
-  width: 215px;
+  width: 195px;
 	display: inline-block;
   color: rgb(0, 152, 164);
   font-family: 'Raleway';
