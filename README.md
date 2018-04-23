@@ -57,8 +57,11 @@ Create Design Wireframes and Mockups.
 # Build Instructions
 
 Fork
+
 Git Clone
+
 Run live-server on port 8000
+
 ^ live-server --port=8000
 
 # How to set up live server
