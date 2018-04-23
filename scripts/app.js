@@ -1,5 +1,5 @@
 
-let sec = 9;
+let sec = 25;
 
 let gameWin = () => {
     let randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
@@ -10,8 +10,7 @@ let gameWin = () => {
     background.style.filter = "blur(60px)";
     $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
     level++
-    console.log("level ", level)
-    round.innerHTML = "Level " + level;
+    round.innerHTML = "LEVEL " + level;
     levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
     if (level < 6){
       randomQuiz[0][0].style.display = "block";
@@ -21,6 +20,8 @@ let gameWin = () => {
       levelContinue.style.display = "block";
       levelContinue.innerHTML = "CONTINUE TO INFINITE MODE";
       $('#infiniteStatistics').css("display", "block");
+      totalEnergyGen = renewableGoodStat + pollutionBadStat;
+      $('.totalEnergyGen').text(totalEnergyGen);
       $('.totalClicked').text(bubblesClick);
       $('.goodClicked').text(bubbleGoodStat);
       $('.renewableGenerated').text(renewableGoodStat);
@@ -36,6 +37,8 @@ let gameWin = () => {
      levelContinue.style.display = "block";
      levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
      $('#infiniteStatistics').css("display", "block");
+     totalEnergyGen = renewableGoodStat + pollutionBadStat;
+     $('.totalEnergyGen').text(totalEnergyGen);
      $('.totalClicked').text(bubblesClick);
      $('.goodClicked').text(bubbleGoodStat);
      $('.renewableGenerated').text(renewableGoodStat);
@@ -87,17 +90,17 @@ let countdown = () =>  {
     gameTimerFail();
     console.log('Timer Ran out');
   } else if (sec === 0) {
-    sec = 59;
-    document.getElementById('timer').innerHTML = sec;
+    sec = 15;
+    document.getElementById('timer').innerHTML = sec + " seconds left";
   } else if (sec < 10) {
       sec = sec - 1;
-      document.getElementById('timer').innerHTML = sec;
+      document.getElementById('timer').innerHTML = sec + " seconds left";
   } else if (sec < 10) {
       sec = sec - 1;
-      document.getElementById('timer').innerHTML = sec;
+      document.getElementById('timer').innerHTML = sec + " seconds left";
   } else {
     sec = sec - 1;
-    document.getElementById('timer').innerHTML = sec;
+    document.getElementById('timer').innerHTML = sec + " seconds left";
   }
   checkGame();
 };

@@ -37,16 +37,18 @@ let bubbleBadStat = 0;
 let pollutionBadStat = 0;
 let bubblesClick = 0;
 let timeElapsed = 0;
-let totalEnergyGen = renewableGoodStat + pollutionBadStat
+let totalEnergyGen = renewableGoodStat + pollutionBadStat;
 var pollutionLose = 0;
-var pollutionEnergy = 0
+var pollutionEnergy = 0;
 var energyWin = 0;
 var difficultyCorrection = 1000 / level;
 
 var bubbleFadeUpgrade = false;
+var increaseRenewableUpgrade = false;
+var initialEnergy = false;
 
-timerDisplay.innerHTML = sec;
-round.innerHTML = "Level " + level;
+timerDisplay.innerHTML = sec + " seconds left";
+round.innerHTML = "LEVEL " + level;
 
 $('#bpimg').click(function() {
   window.open('https://blueplanetfoundation.org/', '_blank' );
@@ -61,10 +63,12 @@ let yCoord = () => {
 }
 
 let images = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png"];
+let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
+let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", images[randUpgrade]];
 var tempStore = [];
 
 let randomImg = () => {
-  let genImg = images;
+  let genImg = (increaseRenewableUpgrade ? imagesUpgraded : images);
   if (genImg.length == 0) {
     tempStore.map(img => {
       genImg.push(img)
@@ -77,14 +81,15 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 264;
-let increaseEnergyP = 10;
-let increasePollution = 264;
+let increaseEnergy = 60;
+let increaseEnergyP = 20;
+let increasePollution = 80;
 
 let checkGame = () => {
     if ((pollutionLose * increasePollution) >= 265) {
       gameActive = 0;
       energyWin = 0;
+      pollutionEnergy = 0;
       pollutionLose = 0;
       clearInterval(bubbleGenerate);
       clearInterval(timer);
@@ -94,7 +99,7 @@ let checkGame = () => {
       console.log('You polluted the world!')
     } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
       gameActive = 0;
-      energyWin = 0;
+      pollutionEnergy = 0;
       pollutionLose = 0;
       clearInterval(bubbleGenerate);
       clearInterval(timer);
@@ -106,7 +111,7 @@ let checkGame = () => {
       var incr;
       incr = next + 1;
       console.log('You acquired enough energy!');
-      document.getElementById('levelContinue').addEventListener('click', function(event) {
+      document.getElementById('tinue').addEventListener('click', function(event) {
           smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
       });
     }
@@ -114,6 +119,25 @@ let checkGame = () => {
 
 var energyPercent = 0;
 var pollutionPercent = 0;
+$(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+$(".title")[1].innerText = "ENERGY: " + pollutionPercent.toFixed(1) + "%";
+
+let checkInitialUpgrade = () => {
+  if (initialEnergy == true) {
+    energyWin = 4;
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy * energyWin);
+    let calculateEnergy = (increaseEnergy * energyWin) * 100;
+    let finalEnergyPercent = (calculateEnergy / 265);
+    energyPercent += finalEnergyPercent;
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+  } else {
+    energyWin = 0;
+    energyPercent = 0;
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+  }
+}
+
+checkInitialUpgrade();
 
 let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
@@ -121,12 +145,10 @@ let addBarGood = () => {
     bubbleGoodStat++;
     renewableGoodStat += increaseEnergy;
     bubblesClick++;
-    let calculateEnergy = (energyWin * increaseEnergy) * 100;
-    let finalEnergyPercent = (calculateEnergy / 265).toFixed(1);
+    let calculateEnergy = increaseEnergy * 100;
+    let finalEnergyPercent = (calculateEnergy / 265);
     energyPercent += finalEnergyPercent;
-    $(".title")[0].innerText = "ENERGY: " + energyPercent + "%";
-    // console.log(renewableProgress.style.height, 'goodBar height');
-    // console.log(energyWin * 5);
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     checkGame();
 };
 
@@ -139,18 +161,14 @@ let addBarBad = () => {
     pollutionBadStat += increasePollution;
     renewableGoodStat += increaseEnergyP;
     bubblesClick++;
-    let calculatePollution = (pollutionLose * increasePollution) * 100;
-    let calculateEnergyP = (pollutionEnergy * increaseEnergyP) * 100;
-    let finalPollutionPercent = (calculatePollution / 265).toFixed(1);
-    let finalEnergyP = (calculateEnergyP / 265).toFixed(1)
+    let calculatePollution = increasePollution * 100;
+    let calculateEnergyP = increaseEnergyP * 100;
+    let finalPollutionPercent = (calculatePollution / 265);
+    let finalEnergyP = (calculateEnergyP / 265);
     pollutionPercent += finalPollutionPercent;
     energyPercent += finalEnergyP;
-    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent + "%";
-    $(".title")[0].innerText = "ENERGY " + energyPercent + "%";
-    // console.log(renewableProgress.style.height, "goodBar height");
-    // console.log(nonRenewableProgress.style.height, "badBar height");
-    // console.log(energyWin);
-    // console.log(pollutionLose * 15);
+    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     checkGame();
 };
 
@@ -343,6 +361,8 @@ information.addEventListener("click", function() {
     informationMenu.style.display = "block";
     settingsMenu.style.display = "none";
 
+    totalEnergyGen = renewableGoodStat + pollutionBadStat;
+    $('.totalEnergyGen').text(totalEnergyGen);
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
     $('.renewableGenerated').text(renewableGoodStat);
@@ -451,8 +471,8 @@ function restart() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 60;
-    document.getElementById('timer').innerHTML = sec;
+    sec = 15;
+    document.getElementById('timer').innerHTML = sec + " seconds left";
     $('#startButton').addClass('animated infinite rubberBand');
     randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
     energyPercent = 0;
@@ -462,6 +482,8 @@ function restart() {
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
     bubbleFadeUpgrade = false;
+    increaseRenewableUpgrade = false;
+    initialEnergy = false;
 };
 
 levelContinue.addEventListener("click", function() {
@@ -475,7 +497,7 @@ levelContinue.addEventListener("click", function() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 60;
+    sec = 15;
     $('#startButton').addClass('animated infinite rubberBand');
     $("#level1Quiz").css("display", "none");
     $("#level2Quiz").css("display", "none");
@@ -484,28 +506,25 @@ levelContinue.addEventListener("click", function() {
     $('.upgradeText').text("ANSWER CORRECTLY FOR AN UPGRADE");
     $('.upgradeText').css("color", "white");
     $("#upgradeCongrats").css("display", "none");
-    pollutionLose - 1;
-    console.log(pollutionLose)
-    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
-    energyPercent = 0;
-    let calculatePollution = (pollutionLose * increasePollution) * 100;
+    pollutionEnergy = 0;
+    energyWin = 0;
+    checkInitialUpgrade();
+    let calculatePollution = increasePollution * 100;
     let finalPollutionPercent = (calculatePollution / 265);
-    pollutionPercent = finalPollutionPercent;
+    if (pollutionLose > 0) {
+      pollutionLose - 1;
+      $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
+      pollutionPercent -= finalPollutionPercent;
+    }
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
-
-
     if(upgrades.includes("20sec") === true){
       sec = sec + 20;
-    } else if(upgrades.includes("slowerDecay") === true){
-
-    } else if(upgrades.includes("moreGoodBubbles") === true){
-
     }
-    document.getElementById('timer').innerHTML = sec;
+    document.getElementById('timer').innerHTML = sec + " seconds left";
 });
 
-let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles"];
+let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles", "energyHeadstart"];
 let upgrades = [];
 
 function upgradeGenerator() {
@@ -519,7 +538,12 @@ function upgradeGenerator() {
     upgrades.push(upgradeItem[0])
 
   } else if(upgradeItem == "moreGoodBubbles"){
-    $("#upgradeReward").text("RENEWABLE BUBBLES GENERATE FASTER");
+    $("#upgradeReward").text("MORE RENEWABLE BUBBLES GENERATE");
+    increaseRenewableUpgrade = true;
+    upgrades.push(upgradeItem[0])
+  } else if(upgradeItem == "energyHeadstart"){
+    $("#upgradeReward").text("START WITH MORE ENERGY");
+    initialEnergy = true;
     upgrades.push(upgradeItem[0])
   }
 }
