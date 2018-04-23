@@ -483,6 +483,7 @@ function restart() {
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
     bubbleFadeUpgrade = false;
     increaseRenewableUpgrade = false;
+    initialEnergy = false;
 };
 
 levelContinue.addEventListener("click", function() {
@@ -506,17 +507,17 @@ levelContinue.addEventListener("click", function() {
     $('.upgradeText').css("color", "white");
     $("#upgradeCongrats").css("display", "none");
     pollutionEnergy = 0;
-    if (pollutionLose > 0) {
-      pollutionLose - 1;
-    }
-    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
+    energyWin = 0;
     checkInitialUpgrade();
     let calculatePollution = increasePollution * 100;
     let finalPollutionPercent = (calculatePollution / 265);
-    pollutionPercent -= finalPollutionPercent;
+    if (pollutionLose > 0) {
+      pollutionLose - 1;
+      $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
+      pollutionPercent -= finalPollutionPercent;
+    }
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
-
     if(upgrades.includes("20sec") === true){
       sec = sec + 20;
     }
