@@ -18,7 +18,7 @@ body {
   text-align: center;
 }
 
-h1 {
+h1, h2, h3 {
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
@@ -289,7 +289,7 @@ h1 {
   top:0; bottom:0;
   margin: auto;
   width:65%;
-  height:75%;
+  height:55%;
   opacity: 0.8;
   background-color: RGBA(0,152,164, 0.8);
   color: white;
@@ -759,6 +759,10 @@ padding-top: 1px;
 
 .statBox h2{
   font-size: 30px;
+}
+
+.statBox h3{
+  font-size: 15px;
 }
 
 

@@ -372,6 +372,7 @@ information.addEventListener("click", function() {
     $('.timeElapsed').text(timeElapsed + " seconds");
 });
 
+
 let pause = () => {
     if (gameActive == 1 & gameStart == 1) {
         clearInterval(bubbleGenerate);
