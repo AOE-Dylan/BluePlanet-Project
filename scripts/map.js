@@ -382,7 +382,14 @@ let pause = () => {
         background.style.filter = "blur(60px)";
         pauseButton.style.display = "none";
         resumeButton.style.display = "block";
-        var myArray = ['1', '2', '3', '4', '5', '6', '7', '8'];
+        var myArray = [
+          'Renewable energy sources come from natural sources and can be replenished.',
+          'More than 150 years ago, wood supplied up to 90 percent of the nation’s energy needs.',
+         'More than half of renewable energy sources are devoted to producing electricity.',
+         'Natural Gas is a form of methane',
+         'Burning unlocks the energy locked in fossil fuels',
+         'Renewable Energy creates 5 times more jobs than fossil fuels',
+         'Just 1 wind turbine can generate enough electricity to power 1,400 homes.'];
         var rand = myArray[Math.floor(Math.random() * myArray.length)];
         document.getElementById('randomFact').textContent = "FUN FACT: " + rand;
         for (var i = 0; i < remaining.length; i++) {
