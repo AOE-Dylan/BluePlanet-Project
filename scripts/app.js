@@ -1,5 +1,5 @@
 
-let sec = 25;
+let sec = 15;
 
 let gameWin = () => {
     let randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);

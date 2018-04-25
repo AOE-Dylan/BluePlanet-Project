@@ -62,7 +62,7 @@ let yCoord = () => {
     return Math.floor(Math.random() * $("#map").width())
 }
 
-let images = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png"];
+let images = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/waste.png", "styles/wind.png", ];
 let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
 let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", images[randUpgrade]];
 var tempStore = [];
@@ -82,8 +82,8 @@ let randomImg = () => {
 };
 
 let increaseEnergy = 60;
-let increaseEnergyP = 20;
-let increasePollution = 80;
+let increaseEnergyP = 30;
+let increasePollution = 50;
 
 let checkGame = () => {
     if ((pollutionLose * increasePollution) >= 265) {
@@ -122,7 +122,7 @@ $(".title")[1].innerText = "ENERGY: " + pollutionPercent.toFixed(1) + "%";
 
 let checkInitialUpgrade = () => {
   if (initialEnergy == true) {
-    energyWin = 1;
+    energyWin = 1.5;
     $('#renewableProgress')[0].style.height = increaseEnergy * energyWin + "px";
     let calculateEnergy = (increaseEnergy * energyWin) * 100;
     let finalEnergyPercent = (calculateEnergy / 265);
@@ -171,7 +171,7 @@ let addBarBad = () => {
     checkGame();
 };
 
-let checkImg = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png"];
+let checkImg = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png"];
 
 dictateBar = () => {
   var type = event.target.getAttribute("src");
@@ -183,7 +183,10 @@ dictateBar = () => {
     } else if (type == checkImg[1]) {
         addBarBad()
         event.target.onclick = null;
-    } else {
+    } else if (type == checkImg[2]) {
+        addBarBad()
+        event.target.onclick = null;
+    }else {
         addBarGood()
         event.target.onclick = null;
     }
@@ -492,6 +495,7 @@ function restart() {
     bubbleFadeUpgrade = false;
     increaseRenewableUpgrade = false;
     initialEnergy = false;
+    difficultyCorrection = 1000 / level;
 };
 
 levelContinue.addEventListener("click", function() {
@@ -530,6 +534,8 @@ levelContinue.addEventListener("click", function() {
       sec = sec + 20;
     }
     document.getElementById('timer').innerHTML = sec + " seconds left";
+    difficultyCorrection = 1000 / level;
+    console.log(difficultyCorrection)
 });
 
 let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles", "energyHeadstart"];
