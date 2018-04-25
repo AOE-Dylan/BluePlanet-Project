@@ -53,3 +53,21 @@ Create Design Wireframes and Mockups.
     - Create css file for map
   - Create video demo
   - Create presentation 
+
+# Build Instructions
+
+Fork
+
+Git Clone
+
+Run live-server on port 8000
+
+^ live-server --port=8000
+
+# How to set up live server
+
+In git bash or whatever cli you are using run the following commands:
+
+npm install -g live-server
+
+*if you dont have npm or node, then install node globally and then run the above command

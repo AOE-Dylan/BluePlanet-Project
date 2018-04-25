@@ -18,7 +18,11 @@ body {
   text-align: center;
 }
 
-h1 {
+.infoBox h1 {
+  font-size: 20px;
+}
+
+h1, h2, h3 {
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
@@ -289,7 +293,7 @@ h1 {
   top:0; bottom:0;
   margin: auto;
   width:65%;
-  height:75%;
+  height:55%;
   opacity: 0.8;
   background-color: RGBA(0,152,164, 0.8);
   color: white;
@@ -546,10 +550,10 @@ a.boxClose:hover {
 #informationMenu {
   position: absolute; /*it can be fixed too*/
   left:0; right:100px;
-  top:0; bottom:0;
+  top:-20px; bottom:0;
   margin: auto;
   width: 65%;
-  height: 75%;
+  height: 80%;
   opacity: 0.95;
   display: none;
   background-color: RGBA(0,152,164, 0.8);
@@ -727,7 +731,7 @@ a.boxClose:hover {
 }
 
 .statGrid {
-  width: 80%;
+  width: 89%;
 column-count: 3;
 column-gap: 0px;
 padding-bottom: 66px;
@@ -735,13 +739,51 @@ margin: 0 auto;
 padding-top: 1px;
 }
 
+
+.infoOverflow {
+  margin: auto;
+  max-width: 1000px;
+  max-height: 575px;
+  overflow-y: scroll;
+}
+.infoGrid {
+  width: 89%;
+  column-count: 3;
+  column-gap: 0px;
+  padding-bottom: 66px;
+  margin: 0 auto;
+  padding-top: 1px;
+}
+
+.infoContainer {
+  width: 100%;
+	height: 100%;
+}
+
+.infoBox {
+  width: 92%;
+	display: inline-block;
+  color: rgb(0, 152, 164);
+  font-family: 'Raleway';
+  text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 5px 5px;
+	border-radius: 10px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.infoBox:hover {
+  padding: 10px;
+}
 #upgradeCongrats h2 {
   font-family: 'Raleway';
   color: #97ca3d;
 }
 
 .statBox {
-  width: 195px;
+  width: 96%;
 	display: inline-block;
   color: rgb(0, 152, 164);
   font-family: 'Raleway';
@@ -753,12 +795,41 @@ padding-top: 1px;
   background-color: white;
 }
 
+.howToGrid {
+  margin: auto;
+  width: 80%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.howToBox {
+  color: rgb(0, 152, 164);
+  font-family: 'Raleway';
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 5px 5px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: 0.3s;
+}
+
+.howToBox:hover {
+  padding: 5px;
+}
+
 .statBox h1 {
   font-size: 25px;
 }
 
 .statBox h2{
   font-size: 30px;
+}
+
+.statBox h3{
+  font-size: 15px;
 }
 
 

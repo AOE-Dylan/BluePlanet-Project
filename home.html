@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/menu.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -45,12 +47,12 @@
                 <input type="radio" name="radio" value="b">
                 <span class="checkmark"></span>
               </label>
-                <label  class="radioContainer wrongLevel1">
+                <label class="radioContainer wrongLevel1">
                 <p>Fossil Fuels</p>
                 <input type="radio" name="radio" value="c">
                 <span class="checkmark"></span>
               </label>
-                <label  id="correctLevel1" class="radioContainer">
+                <label id="correctLevel1" class="radioContainer">
                 <p>Solar Power</p>
                 <input type="radio" name="radio" value="d">
                 <span class="checkmark"></span>
@@ -68,12 +70,12 @@
                 <input type="radio" name="radio" value="e">
                 <span class="checkmark"></span>
               </label>
-                <label  class="radioContainer wrongLevel2">
+                <label class="radioContainer wrongLevel2">
                 <p>Sulfur Dioxide</p>
                 <input type="radio" name="radio" value="f">
                 <span class="checkmark"></span>
               </label>
-                <label  class="radioContainer wrongLevel2">
+                <label class="radioContainer wrongLevel2">
                 <p>Nitrous Oxide</p>
                 <input type="radio" name="radio" value="g">
                 <span class="checkmark"></span>
@@ -91,12 +93,12 @@
             <div class="quizContainer">
                 <h1 class="upgradeText">ANSWER CORRECTLY FOR AN UPGRADE</h1>
                 <h1 style="color: #97ca3d">Where does Hawaii's renewable energy mostly come from?</h1>
-                <label  class="radioContainer wrongLevel3">
+                <label class="radioContainer wrongLevel3">
                 <p>Hydro</p>
                 <input type="radio" name="radio" value="i">
                 <span class="checkmark"></span>
               </label>
-                <label  class="radioContainer wrongLevel3">
+                <label class="radioContainer wrongLevel3">
                 <p>Geothermal</p>
                 <input type="radio" name="radio" value="j">
                 <span class="checkmark"></span>
@@ -106,7 +108,7 @@
                 <input type="radio" name="radio" value="k">
                 <span class="checkmark"></span>
               </label>
-                <label  class="radioContainer wrongLevel3">
+                <label class="radioContainer wrongLevel3">
                 <p>Biofuel</p>
                 <input type="radio" name="radio" value="l">
                 <span class="checkmark"></span>
@@ -124,17 +126,17 @@
                 <input type="radio" name="radio" value="m">
                 <span class="checkmark"></span>
               </label>
-                <label  class="radioContainer wrongLevel4">
+                <label class="radioContainer wrongLevel4">
                 <p>Residential.</p>
                 <input type="radio" name="radio" value="n">
                 <span class="checkmark"></span>
               </label>
-                <label  id="correctLevel4" class="radioContainer">
+                <label id="correctLevel4" class="radioContainer">
                 <p>Transportation</p>
                 <input type="radio" name="radio" value="o">
                 <span class="checkmark"></span>
               </label>
-                <label  class="radioContainer wrongLevel4">
+                <label class="radioContainer wrongLevel4">
                 <p>Industrial</p>
                 <input type="radio" name="radio" value="p">
                 <span class="checkmark"></span>
@@ -144,8 +146,8 @@
         </div>
 
         <div id="upgradeCongrats" class="animated bounce">
-          <h1>CONGRATS YOU'VE EARNED AN UPGRADE:</h1>
-          <h2 id="upgradeReward"></h2>
+            <h1>CONGRATS YOU'VE EARNED AN UPGRADE:</h1>
+            <h2 id="upgradeReward"></h2>
         </div>
 
 
@@ -153,89 +155,89 @@
         <button id="upgradeAndContinue">CHOOSE UPGRADE AND CONTINUE</button>
 
         <div id="infiniteStatistics">
-          <div class="statGrid">
-          <div class="statContainer">
-            <div class="statBox" style="width: 95%">
-              <h1>ENERGY AND POLLUTION GENERATED</h1>
-              <h2 class="totalEnergyGen">0</h2>
+            <div class="statGrid">
+                <div class="statContainer">
+                    <div class="statBox" style="width: 95%">
+                        <h1>ENERGY AND POLLUTION GENERATED</h1>
+                        <h2 class="totalEnergyGen">0</h2>
+                    </div>
+                    <div class="statBox" style="width: 95%">
+                        <h1>RENEWABLE ENERGY GENERATED</h1>
+                        <h2 class="renewableGenerated" style="color: #97ca3d">0</h2>
+                    </div>
+                    <div class="statBox" style="width: 95%">
+                        <h1>POLLUTION GENERATED</h1>
+                        <h2 class="pollutionGenerated" style="color: #c23b22">0</h2>
+                    </div>
+                    <div class="statBox" style="width: 95%">
+                        <h1>TOTAL TIME ELAPSED</h1>
+                        <h2 class="timeElapsed">0 seconds</h2>
+                    </div>
+                    <div class="statBox" style="width: 95%">
+                        <h1>LEVELS PASSED</h1>
+                        <h2 class="levelsPassed">0</h2>
+                    </div>
+                    <div class="statBox" style="width: 95%">
+                        <h1>RENEWABLE BUBBLES CLICKED</h1>
+                        <h2 class="goodClicked" style="color: #97ca3d"></h2>
+                    </div>
+                    <div class="statBox" style="width: 95%">
+                        <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+                        <h2 class="badClicked" style="color: #c23b22"></h2>
+                    </div>
+                </div>
             </div>
-            <div class="statBox" style="width: 95%">
-              <h1>RENEWABLE ENERGY GENERATED</h1>
-              <h2 class="renewableGenerated" style="color: #97ca3d">0</h2>
-            </div>
-            <div class="statBox" style="width: 95%">
-              <h1>POLLUTION GENERATED</h1>
-              <h2 class="pollutionGenerated" style="color: #c23b22">0</h2>
-            </div>
-            <div class="statBox" style="width: 95%">
-              <h1>TOTAL TIME ELAPSED</h1>
-              <h2 class="timeElapsed">0 seconds</h2>
-            </div>
-            <div class="statBox" style="width: 95%">
-              <h1>LEVELS PASSED</h1>
-              <h2 class="levelsPassed">0</h2>
-            </div>
-            <div class="statBox" style="width: 95%">
-              <h1>RENEWABLE BUBBLES CLICKED</h1>
-              <h2 class="goodClicked" style="color: #97ca3d"></h2>
-            </div>
-            <div class="statBox" style="width: 95%">
-              <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
-              <h2 class="badClicked" style="color: #c23b22"></h2>
-            </div>
-          </div>
         </div>
-    </div>
 
     </div>
 
     <div id="notMap">
-      <div id="rightContainer">
-        <div id="roundBarsContainer">
-            <div id="roundsBox">
-                <div id="timer"></div>
-                <div id="round"></div>
-            </div>
-            <div id="renewableProgressBar">
-                <div class="barBackground">
-                    <p class="title">ENERGY:</p>
-                    <div id="renewable-bar">
-                        <div class="attendance-level">
-                            <div class="bar-1"></div>
-                            <div class="bar-2"></div>
-                            <div class="bar-3"></div>
-                            <div class="bar-4"></div>
-                            <div class="bar-5"></div>
-                            <div class="bar-6"></div>
-                            <div class="bar-7"></div>
-                            <div class="bar-8"></div>
-                            <div class="bar-9"></div>
+        <div id="rightContainer">
+            <div id="roundBarsContainer">
+                <div id="roundsBox">
+                    <div id="timer"></div>
+                    <div id="round"></div>
+                </div>
+                <div id="renewableProgressBar">
+                    <div class="barBackground">
+                        <p class="title">ENERGY:</p>
+                        <div id="renewable-bar">
+                            <div class="attendance-level">
+                                <div class="bar-1"></div>
+                                <div class="bar-2"></div>
+                                <div class="bar-3"></div>
+                                <div class="bar-4"></div>
+                                <div class="bar-5"></div>
+                                <div class="bar-6"></div>
+                                <div class="bar-7"></div>
+                                <div class="bar-8"></div>
+                                <div class="bar-9"></div>
+                            </div>
+                            <div id="renewableProgress"></div>
                         </div>
-                        <div id="renewableProgress"></div>
                     </div>
                 </div>
-            </div>
-            <div id="nonRenewableProgressBar">
-                <div class="barBackground">
-                    <p class="title">POLLUTION:</p>
-                    <div id="nonRenewable-bar">
-                        <div class="attendance-level">
-                            <div class="bar-1"></div>
-                            <div class="bar-2"></div>
-                            <div class="bar-3"></div>
-                            <div class="bar-4"></div>
-                            <div class="bar-5"></div>
-                            <div class="bar-6"></div>
-                            <div class="bar-7"></div>
-                            <div class="bar-8"></div>
-                            <div class="bar-9"></div>
+                <div id="nonRenewableProgressBar">
+                    <div class="barBackground">
+                        <p class="title">POLLUTION:</p>
+                        <div id="nonRenewable-bar">
+                            <div class="attendance-level">
+                                <div class="bar-1"></div>
+                                <div class="bar-2"></div>
+                                <div class="bar-3"></div>
+                                <div class="bar-4"></div>
+                                <div class="bar-5"></div>
+                                <div class="bar-6"></div>
+                                <div class="bar-7"></div>
+                                <div class="bar-8"></div>
+                                <div class="bar-9"></div>
+                            </div>
+                            <div id="nonRenewableProgress"></div>
                         </div>
-                        <div id="nonRenewableProgress"></div>
                     </div>
                 </div>
             </div>
         </div>
-      </div>
 
         <div class="navbar">
             <div id="settingsButton">SETTINGS</div>
@@ -251,51 +253,36 @@
             <h1>SETTINGS</h1>
         </div>
 
-        <div id="credits" class="animated bounceIn">
+        <div id="credits" class="animated slideInDown">
             <a class="boxClose menuClose"></a>
             <h1>CREDITS</h1>
             <div class="cardContainer">
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-      <img src="Mark.jpg">
-    </a>
+                        <img src="Mark.jpg">
+                        </a>
                         <h1>MARK DEMESILLO</h1>
                         <h2>Tall Guy</h2>
                     </header>
-                    <div class="profile-bio">
-                        <p>Hello there!</p>
-                        <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                            <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                    </div>
                 </aside>
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-<img src="Kyle.jpg">
-</a>
+                        <img src="Kyle.jpg">
+                        </a>
                         <h1>KYLE LINGAT</h1>
                         <h2>JavaScript Deficient</h2>
                     </header>
-                    <div class="profile-bio">
-                        <p>Hello there!</p>
-                        <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                            <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                    </div>
                 </aside>
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-<img src="Dylan.jpg">
-</a>
+                        <img src="Dylan.jpg">
+                        </a>
                         <h1>DYLAN TUCKER</h1>
                         <h2>At Track Meet</h2>
                     </header>
-                    <div class="profile-bio">
-                        <p>Hello there!</p>
-                        <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                            <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                    </div>
                 </aside>
             </div>
         </div>
@@ -308,107 +295,109 @@
         <div id="informationMenu" class="animated bounceIn">
             <a class="boxClose menuClose"></a>
             <div class="mySlides2 fade">
-                <div class="numbertext">1 / 5</div>
+                <div class="numbertext">1 / 4</div>
                 <div class="slideTitle">
                     <h1>HOW TO PLAY</h1>
-                </div>
-            </div>
-
-            <div class="mySlides2 fade">
-                <div class="numbertext">2 / 5</div>
-                <div class="slideTitle">
-                    <h1>CURRENT UPGRADES</h1>
-                    <div class="statGrid">
-                    <div class="statContainer">
-                      <div class="statBox">
-                        <h1>20 SECONDS ADDED TO THE TIMER</h1>
-                      </div>
-                      <div class="statBox">
-                        <h1>RENEWABLE BUBBLES DECAY SLOWER</h1>
-                      </div>
-                      <div class="statBox">
-                        <h1>MORE RENEWABLE BUBBLES GENERATE</h1>
-                      </div>
-                      <div class="statBox">
-                        <h1>START WITH MORE ENERGY</h1>
-                      </div>
+                    <div class="howToGrid">
+                        <div class="howToBox">
+                            <h1>YOUR GOAL IS TO FILL UP <span class="bold">ENERGY BAR</span> TO REACH THE NEXT LEVEL</h1>
+                            <h1>YOUR <span class="bold">ENERGY BAR</span> RESETS EVERY LEVEL AND YOU HAVE TO FILL IT UP AGAIN</h1>
+                            <h1>DON'T FILL UP YOUR <span class="redText">POLLUTION BAR</span> OR YOU'LL AUTOMATICALLY LOSE</h1>
+                            <h1>YOUR <span class="redText">POLLUTION BAR</span> DECREASES A LITTLE AFTER EVERY LEVEL</h1>
+                        </div>
+                        <div class="howToBox">
+                            <h2>CLICK <span class="bold">RENEWABLE ENERGY BUBBLES</span> TO FILL UP YOUR <span class="bold">ENERGY BAR</span></h2>
+                            <h2>DON'T CLICK <span class="redText">POLLUTION BUBBLES</span> OR YOU'LL FILL UP YOUR <span class="redText">POLLUTION BAR</span></h2>
+                            <h2>CLICKING ON <span class="redText">POLLUTION BUBBLES</span> FILLS UP YOUR <span class="bold">ENERGY BAR</span> BY A SMALL AMOUNT</h2>
+                        </div>
+                        <div class="howToBox">
+                            <h2>ANSWER QUIZZES CORRECTLY AFTER EVERY LEVEL FOR A BENEFICIAL UPGRADE</h2>
+                        </div>
                     </div>
-                  </div>
                 </div>
             </div>
 
             <div class="mySlides2 fade">
-                <div class="numbertext">3 / 5</div>
+                <div class="numbertext">2 / 4</div>
                 <div class="slideTitle">
                     <h1>STATISTICS</h1>
                     <div class="statGrid">
-                    <div class="statContainer">
-                      <div class="statBox">
-                        <h1>ENERGY AND POLLUTION GENERATED</h1>
-                        <h2 class="totalEnergyGen">0</h2>
-                      </div>
-                      <div class="statBox">
-                        <h1>RENEWABLE ENERGY GENERATED</h1>
-                        <h2 class="renewableGenerated" style="color: #97ca3d">0</h2>
-                      </div>
-                      <div class="statBox">
-                        <h1>POLLUTION GENERATED</h1>
-                        <h2 class="pollutionGenerated" style="color: #c23b22">0</h2>
-                      </div>
-                      <div class="statBox">
-                        <h1>TOTAL TIME ELAPSED</h1>
-                        <h2 class="timeElapsed">0 seconds</h2>
-                      </div>
-                      <div class="statBox">
-                        <h1>LEVELS PASSED</h1>
-                        <h2 class="levelsPassed">0</h2>
-                      </div>
-                      <div class="statBox">
-                        <h1>RENEWABLE BUBBLES CLICKED</h1>
-                        <h2 class="goodClicked" style="color: #97ca3d"></h2>
-                      </div>
-                      <div class="statBox">
-                        <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
-                        <h2 class="badClicked" style="color: #c23b22"></h2>
-                      </div>
+                        <div class="statContainer">
+                            <div class="statBox">
+                                <h1>ENERGY AND POLLUTION GENERATED</h1>
+                                <h2 class="totalEnergyGen">0</h2>
+                            </div>
+                            <div class="statBox">
+                                <h1>RENEWABLE ENERGY GENERATED</h1>
+                                <h2 class="renewableGenerated" style="color: #97ca3d">0</h2>
+                            </div>
+                            <div class="statBox">
+                                <h1>POLLUTION GENERATED</h1>
+                                <h2 class="pollutionGenerated" style="color: #c23b22">0</h2>
+                            </div>
+                            <div class="statBox">
+                                <h1>TOTAL TIME ELAPSED</h1>
+                                <h2 class="timeElapsed">0 seconds</h2>
+                            </div>
+                            <div class="statBox">
+                                <h1>LEVELS PASSED</h1>
+                                <h2 class="levelsPassed">0</h2>
+                            </div>
+                            <div class="statBox">
+                                <h1>RENEWABLE BUBBLES CLICKED</h1>
+                                <h2 class="goodClicked" style="color: #97ca3d"></h2>
+                            </div>
+                            <div class="statBox">
+                                <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+                                <h2 class="badClicked" style="color: #c23b22"></h2>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
             </div>
             <div class="mySlides2 fade">
-                <div class="numbertext">4 / 5</div>
+                <div class="numbertext">3 / 4</div>
                 <div class="slideTitle">
                     <h1>FUN FACTS</h1>
-                    <div class="statGrid">
-                      <div class="statContainer">
-                        <div class="statBox">
-                          <h1>TOTm dolor sit amet, in est graNERATED</h1>
+                </div>
+                <div class="infoOverflow">
+                    <div class="infoGrid">
+                        <div class="infoContainer">
+                            <div class="infoBox">
+                                <h1>A gigawatt-hour is a unit of electrical energy equal to one thousand megawatt hours, one million kilowatt-hours, or one billion watt-hours</h1>
+                            </div>
+                            <div class="infoBox">
+                                <h1>In 2015, Hawaii imported 91% of the energy it consumed, mostly as petroleum.</h1>
+                            </div>
+                            <div class="infoBox">
+                                <h1>In 2016, Hawaii had the highest electricity prices in the nation; it is the first state to set a legal deadline for producing 100% of its electricity from renewable energy sources, a target it plans to achieve by 2045.</h1>
+                            </div>
+                            <div class="infoBox">
+                                <h1>Hawaii is one of seven states with utility-scale generation from geothermal energy. In 2016, 19% of Hawaii's renewable net electricity generation came from geothermal energy.</h1>
+                            </div>
+                            <div class="infoBox">
+                                <h1>In 2016, Hawaii generated more solar electricity per capita from distributed facilities than any other state, and solar energy from both utility-scale and distributed resources generated 38% of Hawaii's net generation from
+                                    renewable resources</h1>
+                            </div>
+                            <div class="infoBox">
+                                <h1>With its mild tropical climate, Hawaii had the fourth-lowest per capita energy use in the nation in 2015. The transportation sector accounted for more than half (51%) of Hawaii's total energy demand in 2015, led by jet
+                                    fuel use.</h1>
+                            </div>
+                            <div class="infoBox">
+                                <h1>Electricity must be used, transmitted, or stored at the instant it is produced. If renewable energy is not used when it’s produced, it is usually curtailed.
+                                </h1>
+                            </div>
+                            <div class="infoBox">
+                                <h1>Hawaii has historically depended on imported oil for most of its energy needs for many reasons. Unlike mainland states, Hawaii does not have access to fuel sources such large rivers to produce hydropower. The islands do not have indigenous oil, natural gas or coal resources. Such fuels need to be imported. Petroleum is relatively easy to transport and store; it can be easily refined to create fuel for a full spectrum of air, water and ground transportation, electricity and other uses.
+                                </h1>
+                            </div>
                         </div>
-                        <div class="statBox">
-                          <h1>RENEWABm dolor sit amet, in est graATED</h1>
-                        </div>
-                        <div class="statBox">
-                          <h1>POLLUm dolor sit amet, in est graTED</h1>
-                        </div>
-                        <div class="statBox">
-                          <h1>Lorem ipsum dolor sit amet, in est graeco oportere.</h1>
-                        </div>
-                        <div class="statBox">
-                          <h1>LEVELS PASSED</h1>
-                        </div>
-                        <div class="statBox">
-                          <h1>Lorem ipsum dolor sit amet, in est graeco oportere. titur.</h1>
-                        </div>
-                        <div class="statBox">
-                          <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
-                        </div>
-                      </div>
-                  </div>
+                    </div>
                 </div>
             </div>
 
             <div class="mySlides2 fade">
-                <div class="numbertext">5 / 5</div>
+                <div class="numbertext">4 / 4</div>
                 <div class="slideTitle">
                     <h1>CREDITS</h1>
                 </div>
@@ -416,44 +405,29 @@
                     <aside class="profile-card">
                         <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                         <header>
-          <img src="Mark.jpg">
-        </a>
+                            <img src="Mark.jpg">
+                            </a>
                             <h1>MARK DEMESILLO</h1>
                             <h2>Tall Guy</h2>
                         </header>
-                        <div class="profile-bio">
-                            <p>Hello there!</p>
-                            <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                                <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                        </div>
                     </aside>
                     <aside class="profile-card">
                         <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                         <header>
-    <img src="Kyle.jpg">
-    </a>
+                            <img src="Kyle.jpg">
+                            </a>
                             <h1>KYLE LINGAT</h1>
                             <h2>JavaScript Deficient</h2>
                         </header>
-                        <div class="profile-bio">
-                            <p>Hello there!</p>
-                            <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                                <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                        </div>
                     </aside>
                     <aside class="profile-card">
                         <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                         <header>
-    <img src="Dylan.jpg">
-    </a>
+                            <img src="Dylan.jpg">
+                            </a>
                             <h1>DYLAN TUCKER</h1>
                             <h2>At Track Meet</h2>
                         </header>
-                        <div class="profile-bio">
-                            <p>Hello there!</p>
-                            <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                                <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                        </div>
                     </aside>
                 </div>
             </div>
@@ -465,7 +439,6 @@
                 <span class="dot2" onclick="currentInfoSlide(2)"></span>
                 <span class="dot2" onclick="currentInfoSlide(3)"></span>
                 <span class="dot2" onclick="currentInfoSlide(4)"></span>
-                <span class="dot2" onclick="currentInfoSlide(5)"></span>
             </div>
         </div>
     </div>
@@ -477,9 +450,13 @@
             <div class="slideTitle">
                 <h1 class="titleHeader">WELCOME TO INFINITE POWER</h1>
                 <div id="welcomeContainer">
-                  <h2>After being pitched by the <span class="bold">BluePlanet Foundation</span> about the <span class="bold">lack of awareness of clean energy use</span>, 3 high school students have been tasked to create an app</span> of promoting clean energy use</h2>
-                  <h2><span class="bold">INFINITE POWER</span> is an educational <span class="bold">reflex based game</span> that spreads awareness of the <span class="redText">dangers </span> of <span class="bold">fossil fuel use</span> and promotes <span class="bold">clean energy use in Hawaii</span></h2>
-                  <img id="bpimg" src="styles/blueplanetad.png" alt="" >
+                    <h2>After being pitched by the <span class="bold">BluePlanet Foundation</span> about the <span class="bold">lack of awareness of clean energy use</span>, 3 high school students have been tasked to create an app</span> of promoting clean
+                        energy use</h2>
+                    <h2><span class="bold">INFINITE POWER</span> is an educational <span class="bold">reflex based game</span> that spreads awareness of the <span class="redText">dangers </span> of <span class="bold">fossil fuel use</span> and promotes
+                        <span
+                            class="bold">clean energy use in Hawaii</span>
+                    </h2>
+                    <img id="bpimg" src="styles/blueplanetad.png" alt="">
                 </div>
             </div>
         </div>
@@ -488,6 +465,22 @@
             <div class="numbertext">2 / 3</div>
             <div class="slideTitle">
                 <h1 class="titleHeader">HOW TO PLAY</h1>
+                <div class="howToGrid">
+                    <div class="howToBox">
+                        <h1>YOUR GOAL IS TO FILL UP <span class="bold">ENERGY BAR</span> TO REACH THE NEXT LEVEL</h1>
+                        <h1>YOUR <span class="bold">ENERGY BAR</span> RESETS EVERY LEVEL AND YOU HAVE TO FILL IT UP AGAIN</h1>
+                        <h1>DON'T FILL UP YOUR <span class="redText">POLLUTION BAR</span> OR YOU'LL AUTOMATICALLY LOSE</h1>
+                        <h1>YOUR <span class="redText">POLLUTION BAR</span> DECREASES A LITTLE AFTER EVERY LEVEL</h1>
+                    </div>
+                    <div class="howToBox">
+                        <h2>CLICK <span class="bold">RENEWABLE ENERGY BUBBLES</span> TO FILL UP YOUR <span class="bold">ENERGY BAR</span></h2>
+                        <h2>DON'T CLICK <span class="redText">POLLUTION BUBBLES</span> OR YOU'LL FILL UP YOUR <span class="redText">POLLUTION BAR</span></h2>
+                        <h2>CLICKING ON <span class="redText">POLLUTION BUBBLES</span> FILLS UP YOUR <span class="bold">ENERGY BAR</span> BY A SMALL AMOUNT</h2>
+                    </div>
+                    <div class="howToBox">
+                        <h2>ANSWER QUIZZES CORRECTLY AFTER EVERY LEVEL FOR A BENEFICIAL UPGRADE</h2>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -500,44 +493,29 @@
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-      <img src="Mark.jpg">
-    </a>
+                        <img src="Mark.jpg">
+                        </a>
                         <h1>MARK DEMESILLO</h1>
                         <h2>Tall Guy</h2>
                     </header>
-                    <div class="profile-bio">
-                        <p>Hello there!</p>
-                        <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                            <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                    </div>
                 </aside>
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-<img src="Kyle.jpg">
-</a>
+                        <img src="Kyle.jpg">
+                        </a>
                         <h1>KYLE LINGAT</h1>
                         <h2>JavaScript Deficient</h2>
                     </header>
-                    <div class="profile-bio">
-                        <p>Hello there!</p>
-                        <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                            <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                    </div>
                 </aside>
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-<img src="Dylan.jpg">
-</a>
+                        <img src="Dylan.jpg">
+                        </a>
                         <h1>DYLAN TUCKER</h1>
                         <h2>At Track Meet</h2>
                     </header>
-                    <div class="profile-bio">
-                        <p>Hello there!</p>
-                        <p>I am a full stack web developer. I mainly work with PHP, HTML, CSS, JS and WordPress.
-                            <br />I also play well with Photoshop, Corel Draw, After Effects and other cool stuff.</p>
-                    </div>
                 </aside>
             </div>
             <button id="startZoom">CONTINUE</button>
