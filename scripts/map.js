@@ -118,7 +118,7 @@ let checkGame = () => {
 var energyPercent = 0;
 var pollutionPercent = 0;
 $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-$(".title")[1].innerText = "ENERGY: " + pollutionPercent.toFixed(1) + "%";
+$(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
 
 let checkInitialUpgrade = () => {
   if (initialEnergy == true) {
