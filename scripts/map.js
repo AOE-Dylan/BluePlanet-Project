@@ -496,6 +496,7 @@ function restart() {
     increaseRenewableUpgrade = false;
     initialEnergy = false;
     difficultyCorrection = 1000 / level;
+    quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")];
 };
 
 levelContinue.addEventListener("click", function() {
