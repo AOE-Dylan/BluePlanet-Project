@@ -3,6 +3,12 @@ body {
   user-select: none;
 }
 
+.howToBox h2 {
+  font-size: 20px;
+}
+
+
+
 #backing {
   padding-bottom: 50px;
 }
@@ -19,7 +25,9 @@ body {
 }
 
 .infoBox h1 {
-  font-size: 20px;
+  font-size: 15px;
+  text-align: left;
+  padding: 5px;
 }
 
 h1, h2, h3 {
@@ -307,7 +315,6 @@ h1, h2, h3 {
 }
 
 #settingsMenu h1, #informationMenu h1, #gamePaused h1, #credits h1 {
-  text-align: center;
   user-select: none;
   letter-spacing: 5px;
 }
@@ -453,7 +460,7 @@ a.boxClose:hover {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  transition: 0.1s;
+  transition: 0.5s;
 }
 
 #renewableProgress {
@@ -775,7 +782,7 @@ padding-top: 1px;
 }
 
 .infoBox:hover {
-  padding: 10px;
+  padding: 3px;
 }
 #upgradeCongrats h2 {
   font-family: 'Raleway';
