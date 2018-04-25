@@ -185,6 +185,7 @@ p {
     background-color: white;
     border-radius: 10px;
     padding: 2px;
+    transition: 0.3s;
 }
 
 .radioContainer:hover{

@@ -795,7 +795,6 @@ padding-top: 1px;
   background-color: white;
 }
 
-
 .howToGrid {
   margin: auto;
   width: 80%;
@@ -813,7 +812,12 @@ padding-top: 1px;
   padding-right: 5px;
   margin: 5px 5px;
   border-radius: 10px;
-  background-color: #EEE;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: 0.3s;
+}
+
+.howToBox:hover {
+  padding: 5px;
 }
 
 .statBox h1 {
