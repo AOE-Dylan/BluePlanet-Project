@@ -109,7 +109,7 @@ let checkGame = () => {
       var incr;
       incr = next + 1;
       console.log('You acquired enough energy!');
-      document.getElementById('tinue').addEventListener('click', function(event) {
+      document.getElementById('levelContinue').addEventListener('click', function(event) {
           smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
       });
     }
