@@ -90,7 +90,6 @@ let checkGame = () => {
       gameActive = 0;
       energyWin = 0;
       pollutionEnergy = 0;
-      pollutionLose = 0;
       clearInterval(bubbleGenerate);
       clearInterval(timer);
       gameStart = 0;
@@ -100,7 +99,6 @@ let checkGame = () => {
     } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
       gameActive = 0;
       pollutionEnergy = 0;
-      pollutionLose = 0;
       clearInterval(bubbleGenerate);
       clearInterval(timer);
       gameStart = 0;
@@ -124,20 +122,21 @@ $(".title")[1].innerText = "ENERGY: " + pollutionPercent.toFixed(1) + "%";
 
 let checkInitialUpgrade = () => {
   if (initialEnergy == true) {
-    energyWin = 4;
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy * energyWin);
+    energyWin = 1;
+    $('#renewableProgress')[0].style.height = increaseEnergy * energyWin + "px";
     let calculateEnergy = (increaseEnergy * energyWin) * 100;
     let finalEnergyPercent = (calculateEnergy / 265);
-    energyPercent += finalEnergyPercent;
+    energyPercent = finalEnergyPercent;
+    console.log(initialEnergy);
+    console.log(energyPercent);
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
   } else {
     energyWin = 0;
     energyPercent = 0;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    $('#renewableProgress')[0].style.height = "0px";
   }
 }
-
-checkInitialUpgrade();
 
 let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
@@ -462,12 +461,15 @@ function smoothZoom(map, max, cnt) {
 
 function restart() {
     level = 1;
-    energyWin = 0;
     bubbleGoodStat = 0;
     bubbleBadStat = 0;
     bubblesClick = 0;
     timeElapsed = 0;
+
+    energyWin = 0;
+    pollutionEnergy = 0;
     pollutionLose = 0;
+
     round.innerHTML = "Level " + level;
     timerFail.style.display = "none";
     gameFail.style.display = "none";
@@ -484,9 +486,7 @@ function restart() {
     $('#startButton').addClass('animated infinite rubberBand');
     randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
     energyPercent = 0;
-    let calculatePollution = (pollutionLose * increasePollution) * 100;
-    let finalPollutionPercent = (calculatePollution / 265);
-    pollutionPercent = finalPollutionPercent;
+    pollutionPercent = 0;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
     bubbleFadeUpgrade = false;
@@ -515,7 +515,7 @@ levelContinue.addEventListener("click", function() {
     $('.upgradeText').css("color", "white");
     $("#upgradeCongrats").css("display", "none");
     pollutionEnergy = 0;
-    energyWin = 0;
+
     checkInitialUpgrade();
     let calculatePollution = increasePollution * 100;
     let finalPollutionPercent = (calculatePollution / 265);
