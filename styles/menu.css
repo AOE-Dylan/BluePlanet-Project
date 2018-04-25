@@ -749,12 +749,13 @@ padding-top: 1px;
 
 .infoOverflow {
   margin: auto;
+  width: 90%;
   max-width: 1000px;
   max-height: 575px;
   overflow-y: scroll;
 }
 .infoGrid {
-  width: 89%;
+  width: 96%;
   column-count: 3;
   column-gap: 0px;
   padding-bottom: 66px;
