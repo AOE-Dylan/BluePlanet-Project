@@ -62,7 +62,7 @@ let yCoord = () => {
     return Math.floor(Math.random() * $("#map").width())
 }
 
-let images = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/wind.png", ];
+let images = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/wind.png"];
 let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
 let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", images[randUpgrade]];
 var tempStore = [];
@@ -205,7 +205,7 @@ dictateBar = () => {
 }
 
 let timeNum = () => {
-    return (Math.floor(Math.random() * 3) + 1)
+    return (Math.floor(Math.random() * 5) + 2)
 }
 
 var remaining = document.getElementById('map').children;
@@ -216,7 +216,7 @@ let randomButton = () => {
     let randGen = randomImg();
     let randTime = timeNum();
     let absTime = [randTime];
-    let nonRenewableFade = (absTime[0] * ((level * .1)));
+    let nonRenewableFade = (absTime[0] * (level + (level * .1)));
     let renewableFade = (absTime[0] / (level / 2));
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${randGen}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
@@ -492,6 +492,9 @@ function restart() {
     startButton.style.display = "block";
     notMap.style.display = "block";
 
+    $(".checkmark").map(check => {
+      $(".checkmark")[check].style.backgroundColor = "#0098a4";
+    })
     let div = document.createElement("DIV");
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
@@ -509,6 +512,7 @@ function restart() {
     initialEnergy = false;
     difficultyCorrection = 1000 / level;
     quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")];
+    images = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/wind.png"];
 };
 
 levelContinue.addEventListener("click", function() {
@@ -574,10 +578,6 @@ function upgradeGenerator() {
     upgrades.push(upgradeItem[0])
   }
 }
-
-
-
-
 
 let quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")]
 
