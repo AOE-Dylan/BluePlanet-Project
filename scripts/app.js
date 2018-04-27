@@ -77,6 +77,7 @@ let gamePollutionFail = () => {
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
+    loseGame.play();
 };
 
 let countdown = () =>  {

@@ -47,6 +47,14 @@ var bubbleFadeUpgrade = false;
 var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
+var loseGame = $("#gameLose")[0];
+loseGame.loop = true;
+var duringGame = $("#duringGame")[0];
+duringGame.loop = true;
+var beforeGame = $("#menuSound")[0];
+beforeGame.loop = true;
+beforeGame.play();
+
 timerDisplay.innerHTML = sec + " seconds left";
 round.innerHTML = "LEVEL " + level;
 
@@ -140,12 +148,14 @@ let checkInitialUpgrade = () => {
 
 let goodAudio = () => {
   let energyAudio = $("#goodClick")[0];
-  energyAudio.play();
+  var energyClone = energyAudio.cloneNode();
+  energyClone.play();
 }
 
 let badAudio = () => {
   let pollutionAudio = $("#badClick")[0];
-  pollutionAudio.play();
+  var pollutionClone = pollutionAudio.cloneNode();
+  pollutionClone.play();
 }
 
 let addBarGood = () => {
@@ -338,6 +348,9 @@ startButton.addEventListener("click", function() {
     informationMenu.style.display = "none";
     credits.style.display = "none";
 
+    beforeGame.pause();
+    duringGame.play();
+
     console.log('Game Started');
     console.log('gameActive is', gameActive);
 });
@@ -410,6 +423,8 @@ let pause = () => {
             remaining[i].style.webkitAnimationPlayState = "paused";
             remaining[i].style.pointerEvents = "none";
         }
+        duringGame.pause();
+        beforeGame.play();
     }
 };
 
@@ -428,6 +443,8 @@ let resume = () => {
             remaining[i].style.webkitAnimationPlayState = "running";
             remaining[i].style.pointerEvents = "auto";
         }
+        beforeGame.pause();
+        duringGame.play();
     }
 };
 
@@ -447,6 +464,8 @@ $('.menuClose').click(function() {
             remaining[i].style.webkitAnimationPlayState = "running";
             remaining[i].style.pointerEvents = "auto";
         }
+        beforeGame.pause();
+        duringGame.play();
     } else {
         background.style.filter = "blur(0px)";
         informationMenu.style.display = "none";
@@ -638,6 +657,10 @@ function restart() {
     difficultyCorrection = 1000 / level;
     quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")];
     images = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/wind.png"];
+    loseGame.stop();
+    beforeGame.stop();
+    beforeGame.play();
+    duringGame.stop();
 };
 
 levelContinue.addEventListener("click", function() {
