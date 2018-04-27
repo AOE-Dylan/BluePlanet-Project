@@ -48,7 +48,8 @@ h1, h2, h3 {
 }
 
 #notMap {
-  display: none;
+  opacity: 0;
+  transition: 3s;
 }
 
 
@@ -552,6 +553,7 @@ a.boxClose:hover {
   -khtml-border-radius:20px;
   -moz-box-shadow: 0 1px 5px #333;
   -webkit-box-shadow: 0 1px 5px #333;
+  animation-duration: 0.7s;
 }
 
 #informationMenu {
