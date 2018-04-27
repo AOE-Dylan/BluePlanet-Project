@@ -310,11 +310,10 @@ let startMenuClose = 0;
 $("#startZoom").click(function() {
     startZoom.style.display = "none";
     background.style.filter = "blur(0px)";
-    $('#beforeStart').addClass('animated bounceOutDown');
+    beforeStart.style.display = "none";
     $('#zoomAnimation').addClass('addZoom');
     let startMenuClose = 1;
-    notMap.style.display = "block";
-    beforeStart.style.display = "none";
+    $('#notMap').css("opacity", 1.0);
 });
 
 /*function AnimationListener() {
@@ -619,6 +618,10 @@ function restart() {
     $(".wrongLevel2").css("opacity", 1.0);
     $(".wrongLevel3").css("opacity", 1.0);
     $(".wrongLevel4").css("opacity", 1.0);
+    $('#correctLevel1').removeClass('animated pulse');
+    $('#correctLevel2').removeClass('animated pulse');
+    $('#correctLevel3').removeClass('animated pulse');
+    $('#correctLevel4').removeClass('animated pulse');
 
     let div = document.createElement("DIV");
     div.id = "map";
