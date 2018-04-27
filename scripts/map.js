@@ -62,9 +62,9 @@ let yCoord = () => {
     return Math.floor(Math.random() * $("#map").width())
 }
 
-let images = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/waste.png", "styles/wind.png", ];
+let images = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/wind.png", ];
 let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
-let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", images[randUpgrade]];
+let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", images[randUpgrade]];
 var tempStore = [];
 
 let randomImg = () => {
@@ -138,6 +138,16 @@ let checkInitialUpgrade = () => {
   }
 }
 
+let goodAudio = () => {
+  let energyAudio = $("#goodClick")[0];
+  energyAudio.play();
+}
+
+let badAudio = () => {
+  let pollutionAudio = $("#badClick")[0];
+  pollutionAudio.play();
+}
+
 let addBarGood = () => {
     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
     energyWin++;
@@ -148,6 +158,7 @@ let addBarGood = () => {
     let finalEnergyPercent = (calculateEnergy / 265);
     energyPercent += finalEnergyPercent;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    goodAudio();
     checkGame();
 };
 
@@ -168,6 +179,7 @@ let addBarBad = () => {
     energyPercent += finalEnergyP;
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    badAudio();
     checkGame();
 };
 
@@ -186,14 +198,14 @@ dictateBar = () => {
     } else if (type == checkImg[2]) {
         addBarBad()
         event.target.onclick = null;
-    }else {
+    }else{
         addBarGood()
         event.target.onclick = null;
     }
 }
 
 let timeNum = () => {
-    return (Math.floor(Math.random() * 8) + 4)
+    return (Math.floor(Math.random() * 3) + 1)
 }
 
 var remaining = document.getElementById('map').children;
