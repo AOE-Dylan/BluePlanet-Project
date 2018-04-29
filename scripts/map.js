@@ -70,9 +70,24 @@ let yCoord = () => {
     return Math.floor(Math.random() * $("#map").width())
 }
 
-let images = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/wind.png"];
+let energyValue = {
+  "bad" : 50,
+  "oilrig" : 30,
+  "waste" : 20,
+  "leafpluslightning" : 30,
+  "solar" : 40,
+  "wind" : 30
+}
+
+let pollutionValue = {
+  "bad" : 50,
+  "oilrig" : 50,
+  "waste" : 50
+}
+
+let images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
 let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
-let imagesUpgraded = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", images[randUpgrade]];
+let imagesUpgraded = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", images[randUpgrade]];
 var tempStore = [];
 
 let randomImg = () => {
@@ -168,6 +183,12 @@ let addBarGood = () => {
     let finalEnergyPercent = (calculateEnergy / 265);
     energyPercent += finalEnergyPercent;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    // Starter code for Griff info values
+    // let clickedString = event.target.src;
+    // let startString = clickedString.replace('styles/', '');
+    // let midString = clickedString.replace('.png', '');
+    // let endString = midString.replace(/^.*[\\\/]/, '');
+    // $('#renewableProgress').css('height', $('#renewableProgress').height() + energyValue[endString]);
     goodAudio();
     checkGame();
 };
@@ -189,11 +210,18 @@ let addBarBad = () => {
     energyPercent += finalEnergyP;
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    // Starter code for Griff info values
+    // let clickedString = event.target.src;
+    // let startString = clickedString.replace('styles/', '');
+    // let midString = clickedString.replace('.png', '');
+    // let endString = midString.replace(/^.*[\\\/]/, '');
+    // $('#renewableProgress').css('height', $('#renewableProgress').height() + energyValue[endString]);
+    // $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + pollutionValue[endString]);
     badAudio();
     checkGame();
 };
 
-let checkImg = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png"];
+let checkImg = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png"];
 
 dictateBar = () => {
   var type = event.target.getAttribute("src");
@@ -659,7 +687,7 @@ function restart() {
     initialEnergy = false;
     difficultyCorrection = 1000 / level;
     quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")];
-    images = ["styles/bad.png", "styles/oil-rig.png", "styles/waste.png", "styles/leaf-plus-lightning.jpg", "styles/solar.png", "styles/wind.png"];
+    images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
     loseGame.stop();
     beforeGame.stop();
     beforeGame.play();

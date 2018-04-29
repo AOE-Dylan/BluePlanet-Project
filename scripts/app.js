@@ -1,5 +1,5 @@
 
-let sec = 15;
+let sec = 25;
 
 let gameWin = () => {
     let randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
@@ -77,7 +77,6 @@ let gamePollutionFail = () => {
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
-    loseGame.play();
 };
 
 let countdown = () =>  {
