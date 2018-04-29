@@ -54,8 +54,8 @@
 }
 
 .bubble {
-  height: 7%;
-  width: 7%;
+  height: 8%;
+  width: 6%;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   border-radius: 20px;
@@ -65,6 +65,9 @@
   -moz-user-select: -moz-none;
 -khtml-user-select: none;
 -webkit-user-select: none;
+  user-drag: none;
+-ms-user-select: none;
+-webkit-user-drag: none
 }
 
 #reward {

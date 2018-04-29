@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/menu.css">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://i2.wp.com/blueplanetfoundation.org/wp-content/uploads/2016/10/favicon-152.png?fit=32%2C32&amp;ssl=1" sizes="32x32">
+    <link rel="icon" href="https://i2.wp.com/blueplanetfoundation.org/wp-content/uploads/2016/10/favicon-152.png?fit=152%2C152&amp;ssl=1" sizes="192x192">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -26,6 +26,7 @@
         <audio id="gameLose" src="sounds/gameLose.mp3"></audio>
         <audio id="quizMusic" src="sounds/quizMusic.mp3"></audio>
         <audio id="quizCorrect" src="sounds/quizCorrect.mp3"></audio>
+        <audio id="quizWrong" src="sounds/quizWrong.mp3"></audio>
         <audio id="menuClick" src="sounds/menuClick.wav"></audio>
         <div id="backing"></div>
         <div id="zoomAnimation"></div>
@@ -34,10 +35,74 @@
     <div id="timerFail" class="animated bounceInUp">
         <h1 id="youFailed">YOU RAN OUT OF TIME</h1>
         <button class="restart" onclick="restart()">RESTART</button>
+        <div class="statGrid">
+            <div class="statContainer">
+                <div class="statBox" style="width: 95%">
+                    <h1>ENERGY AND POLLUTION GENERATED</h1>
+                    <h2 class="totalEnergyGen">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>RENEWABLE ENERGY GENERATED</h1>
+                    <h2 class="renewableGenerated" style="color: #97ca3d">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>POLLUTION GENERATED</h1>
+                    <h2 class="pollutionGenerated" style="color: #c23b22">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>TOTAL TIME ELAPSED</h1>
+                    <h2 class="timeElapsed">0 seconds</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>LEVELS PASSED</h1>
+                    <h2 class="levelsPassed">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>RENEWABLE BUBBLES CLICKED</h1>
+                    <h2 class="goodClicked" style="color: #97ca3d">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+                    <h2 class="badClicked" style="color: #c23b22">0</h2>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="gameFail" class="animated bounceInUp">
         <h1 id="youFailed">YOU HAVE POLLUTED THE WORLD</h1>
         <button class="restart" onclick="restart()">RESTART</button>
+        <div class="statGrid">
+            <div class="statContainer">
+                <div class="statBox" style="width: 95%">
+                    <h1>ENERGY AND POLLUTION GENERATED</h1>
+                    <h2 class="totalEnergyGen">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>RENEWABLE ENERGY GENERATED</h1>
+                    <h2 class="renewableGenerated" style="color: #97ca3d">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>POLLUTION GENERATED</h1>
+                    <h2 class="pollutionGenerated" style="color: #c23b22">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>TOTAL TIME ELAPSED</h1>
+                    <h2 class="timeElapsed">0 seconds</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>LEVELS PASSED</h1>
+                    <h2 class="levelsPassed">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>RENEWABLE BUBBLES CLICKED</h1>
+                    <h2 class="goodClicked" style="color: #97ca3d">0</h2>
+                </div>
+                <div class="statBox" style="width: 95%">
+                    <h1>NON-RENEWABLE BUBBLES CLICKED</h1>
+                    <h2 class="badClicked" style="color: #c23b22">0</h2>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="levelSuccessPopUp" class="animated bounceInUp">
         <h1 id="youPassed"></h1>
@@ -268,7 +333,7 @@
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-                        <img src="Mark.jpg">
+                        <img class="mark" src="Mark.jpg">
                         </a>
                         <h1>MARK DEMESILLO</h1>
                         <h2>Tall Guy</h2>
@@ -277,7 +342,7 @@
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-                        <img src="Kyle.jpg">
+                        <img class="kyle" src="Kyle.jpg">
                         </a>
                         <h1>KYLE LINGAT</h1>
                         <h2>JavaScript Deficient</h2>
@@ -286,7 +351,7 @@
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-                        <img src="Dylan.jpg">
+                        <img class="dylan" src="Dylan.jpg">
                         </a>
                         <h1>DYLAN TUCKER</h1>
                         <h2>At Track Meet</h2>
@@ -429,7 +494,7 @@
                     <aside class="profile-card">
                         <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                         <header>
-                            <img src="Mark.jpg">
+                            <img class="mark" src="Mark.jpg">
                             </a>
                             <h1>MARK DEMESILLO</h1>
                             <h2>Tall Guy</h2>
@@ -438,7 +503,7 @@
                     <aside class="profile-card">
                         <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                         <header>
-                            <img src="Kyle.jpg">
+                            <img class="kyle" src="Kyle.jpg">
                             </a>
                             <h1>KYLE LINGAT</h1>
                             <h2>JavaScript Deficient</h2>
@@ -447,7 +512,7 @@
                     <aside class="profile-card">
                         <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                         <header>
-                            <img src="Dylan.jpg">
+                            <img class="dylan" src="Dylan.jpg">
                             </a>
                             <h1>DYLAN TUCKER</h1>
                             <h2>At Track Meet</h2>
@@ -517,7 +582,7 @@
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-                        <img src="Mark.jpg">
+                        <img class="mark" src="Mark.jpg">
                         </a>
                         <h1>MARK DEMESILLO</h1>
                         <h2>Tall Guy</h2>
@@ -526,7 +591,7 @@
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-                        <img src="Kyle.jpg">
+                        <img class="kyle" src="Kyle.jpg">
                         </a>
                         <h1>KYLE LINGAT</h1>
                         <h2>JavaScript Deficient</h2>
@@ -535,7 +600,7 @@
                 <aside class="profile-card">
                     <!--https://codepen.io/darkosxrc/pen/ZGRQbv-->
                     <header>
-                        <img src="Dylan.jpg">
+                        <img class="dylan" src="Dylan.jpg">
                         </a>
                         <h1>DYLAN TUCKER</h1>
                         <h2>At Track Meet</h2>

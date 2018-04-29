@@ -49,7 +49,7 @@ h1, h2, h3 {
 
 #notMap {
   opacity: 0;
-  transition: 3s;
+  transition: 1.5s;
 }
 
 
@@ -84,6 +84,16 @@ h1, h2, h3 {
   color: #97ca3d;
   animation: pulse infinite 1s;
   cursor: pointer;
+}
+
+#randomFact {
+  font-family: 'Raleway', serif;
+  font-weight: bolder;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+#randomFact:hover {
+  color: #97ca3d;
 }
 
 #startButton {

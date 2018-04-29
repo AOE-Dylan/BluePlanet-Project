@@ -72,6 +72,15 @@ let gameTimerFail = () => {
     background.style.filter = "blur(60px)";
     duringGame.pause();
     loseGame.play();
+    $('.totalEnergyGen').text(totalEnergyGen);
+    $('.totalClicked').text(bubblesClick);
+    $('.goodClicked').text(bubbleGoodStat);
+    $('.renewableGenerated').text(renewableGoodStat);
+    $('.pollutionGenerated').text(pollutionBadStat)
+    $('.badClicked').text(bubbleBadStat);
+    $('.totalEnergyGen').text(totalEnergyGen);
+    $('.levelsPassed').text(level - 1);
+    $('.timeElapsed').text(timeElapsed + " seconds");
 };
 
 let gamePollutionFail = () => {
@@ -83,6 +92,15 @@ let gamePollutionFail = () => {
     background.style.filter = "blur(60px)";
     duringGame.pause();
     loseGame.play();
+    $('.totalEnergyGen').text(totalEnergyGen);
+    $('.totalClicked').text(bubblesClick);
+    $('.goodClicked').text(bubbleGoodStat);
+    $('.renewableGenerated').text(renewableGoodStat);
+    $('.pollutionGenerated').text(pollutionBadStat)
+    $('.badClicked').text(bubbleBadStat);
+    $('.totalEnergyGen').text(totalEnergyGen);
+    $('.levelsPassed').text(level - 1);
+    $('.timeElapsed').text(timeElapsed + " seconds");
 };
 
 let countdown = () =>  {

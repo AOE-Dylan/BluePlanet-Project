@@ -55,13 +55,45 @@ beforeGame.loop = true;
 var quizMusic = $("#quizMusic")[0];
 quizMusic.loop = true;
 var quizCorrect = $("#quizCorrect")[0];
+var quizWrong = $("#quizWrong")[0];
 beforeGame.play();
 
 timerDisplay.innerHTML = sec + " seconds left";
 round.innerHTML = "LEVEL " + level;
 
+$('.radioContainer').click(function() {
+  let menuClickAudio = $("#menuClick")[0];
+  var menuClone = menuClickAudio.cloneNode();
+  menuClone.play();
+});
+
+
 $('#bpimg').click(function() {
   window.open('https://blueplanetfoundation.org/', '_blank' );
+  let menuClickAudio = $("#menuClick")[0];
+  var menuClone = menuClickAudio.cloneNode();
+  menuClone.play();
+});
+
+$('.mark').click(function() {
+  window.open('https://github.com/MarkIsNotTaken', '_blank' );
+  let menuClickAudio = $("#menuClick")[0];
+  var menuClone = menuClickAudio.cloneNode();
+  menuClone.play();
+});
+
+$('.kyle').click(function() {
+  window.open('https://github.com/kylelingat', '_blank' );
+  let menuClickAudio = $("#menuClick")[0];
+  var menuClone = menuClickAudio.cloneNode();
+  menuClone.play();
+});
+
+$('.dylan').click(function() {
+  window.open('https://github.com/AOE-Dylan', '_blank' );
+  let menuClickAudio = $("#menuClick")[0];
+  var menuClone = menuClickAudio.cloneNode();
+  menuClone.play();
 });
 
 let xCoord = () => {
@@ -106,9 +138,9 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 100;
+let increaseEnergy = 30;
 let increaseEnergyP = 30;
-let increasePollution = 200;
+let increasePollution = 50;
 
 let checkGame = () => {
     if ((pollutionLose * increasePollution) >= 265) {
@@ -286,6 +318,9 @@ showSlides(slideIndex);
 
 function plusSlides(n) {
     showSlides(slideIndex += n);
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 }
 
 function currentSlide(n) {
@@ -416,11 +451,11 @@ settings.addEventListener("click", function() {
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
     menuOpen = 1;
-    if (settingsMenu.style.display === "none") {
-        settingsMenu.style.display = "block";
-    } else {
+    if (settingsMenu.style.display === "block") {
         settingsMenu.style.display = "none";
         resume();
+    } else {
+        settingsMenu.style.display = "block";
     }
 });
 
@@ -428,18 +463,22 @@ gameTitle.addEventListener("click", function() {
     pause();
     gamePaused.style.display = "none";
     settingsMenu.style.display = "none";
-    credits.style.display = "block";
     informationMenu.style.display = "none";
     let menuClickAudio = $("#menuClick")[0];
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
+    if (credits.style.display === "block") {
+        credits.style.display = "none";
+        resume();
+    } else {
+        credits.style.display = "block";
+    }
 });
 
 information.addEventListener("click", function() {
     pause();
     gamePaused.style.display = "none";
     credits.style.display = "none";
-    informationMenu.style.display = "block";
     settingsMenu.style.display = "none";
 
     totalEnergyGen = renewableGoodStat + pollutionBadStat;
@@ -454,6 +493,13 @@ information.addEventListener("click", function() {
     let menuClickAudio = $("#menuClick")[0];
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
+
+    if (informationMenu.style.display === "block") {
+        informationMenu.style.display = "none";
+        resume();
+    } else {
+        informationMenu.style.display = "block";
+    }
 });
 
 
@@ -638,6 +684,7 @@ function submitAnswer() {
         $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
         $('.upgradeText').css("color", "#ff6666");
         $('#correctLevel1').addClass('animated pulse');
+        quizWrong.play();
     } else if (userAnswer != "e" && document.getElementById('level2Quiz').style.display == "block") {
         $(".wrongLevel2").css("opacity", 0.5);
         $('.wrongLevel2').find('.checkmark').css("display", "none");
@@ -646,6 +693,7 @@ function submitAnswer() {
         $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
         $('.upgradeText').css("color", "#ff6666");
         $('#correctLevel2').addClass('animated pulse');
+        quizWrong.play();
     } else if (userAnswer != "k" && document.getElementById('level3Quiz').style.display == "block") {
         $(".wrongLevel3").css("opacity", 0.5);
         $('.wrongLevel3').find('.checkmark').css("display", "none");
@@ -654,6 +702,7 @@ function submitAnswer() {
         $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
         $('.upgradeText').css("color", "#ff6666");
         $('#correctLevel3').addClass('animated pulse');
+        quizWrong.play();
     } else if (userAnswer != "o" && document.getElementById('level4Quiz').style.display == "block") {
         $(".wrongLevel4").css("opacity", 0.5);
         $('.wrongLevel4').find('.checkmark').css("display", "none");
@@ -662,6 +711,7 @@ function submitAnswer() {
         $('.upgradeText').text("OOPS, YOU CHOSE THE WRONG ANSWER");
         $('.upgradeText').css("color", "#ff6666");
         $('#correctLevel4').addClass('animated pulse');
+        quizWrong.play();
     }
 }
 
@@ -730,6 +780,9 @@ function restart() {
     beforeGame.pause();
     beforeGame.play();
     duringGame.pause();
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 };
 
 levelContinue.addEventListener("click", function() {
@@ -769,7 +822,9 @@ levelContinue.addEventListener("click", function() {
     }
     document.getElementById('timer').innerHTML = sec + " seconds left";
     difficultyCorrection = 1000 / level;
-    console.log(difficultyCorrection)
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 });
 
 document.onkeydown = checkKey;
