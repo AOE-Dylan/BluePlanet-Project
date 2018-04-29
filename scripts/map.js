@@ -48,11 +48,13 @@ var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
 var loseGame = $("#gameLose")[0];
-loseGame.loop = true;
 var duringGame = $("#duringGame")[0];
 duringGame.loop = true;
 var beforeGame = $("#menuSound")[0];
 beforeGame.loop = true;
+var quizMusic = $("#quizMusic")[0];
+quizMusic.loop = true;
+var quizCorrect = $("#quizCorrect")[0];
 beforeGame.play();
 
 timerDisplay.innerHTML = sec + " seconds left";
@@ -316,6 +318,9 @@ showInfoSlides(infoIndex);
 
 function plusInfoSlides(n) {
     showInfoSlides(infoIndex += n);
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 }
 
 function currentInfoSlide(n) {
@@ -352,6 +357,7 @@ $("#startZoom").click(function() {
     $('#zoomAnimation').addClass('addZoom');
     let startMenuClose = 1;
     $('#notMap').css("opacity", 1.0);
+    menuClick.play();
 });
 
 /*function AnimationListener() {
@@ -380,24 +386,42 @@ startButton.addEventListener("click", function() {
 
     console.log('Game Started');
     console.log('gameActive is', gameActive);
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 });
 
 pauseButton.addEventListener("click", function() {
     pause();
     gamePaused.style.display = "block";
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 });
 
 resumeButton.addEventListener("click", function() {
     resume();
     gamePaused.style.display = "none";
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 });
-
+  var menuOpen = 0;
 settings.addEventListener("click", function() {
     pause();
     gamePaused.style.display = "none";
     credits.style.display = "none";
-    settingsMenu.style.display = "block";
     informationMenu.style.display = "none";
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
+    menuOpen = 1;
+    if (settingsMenu.style.display === "none") {
+        settingsMenu.style.display = "block";
+    } else {
+        settingsMenu.style.display = "none";
+        resume();
+    }
 });
 
 gameTitle.addEventListener("click", function() {
@@ -406,6 +430,9 @@ gameTitle.addEventListener("click", function() {
     settingsMenu.style.display = "none";
     credits.style.display = "block";
     informationMenu.style.display = "none";
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 });
 
 information.addEventListener("click", function() {
@@ -424,6 +451,9 @@ information.addEventListener("click", function() {
     $('.badClicked').text(bubbleBadStat);
     $('.levelsPassed').text(level - 1);
     $('.timeElapsed').text(timeElapsed + " seconds");
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 });
 
 
@@ -451,7 +481,6 @@ let pause = () => {
             remaining[i].style.pointerEvents = "none";
         }
         duringGame.pause();
-        beforeGame.play();
     }
 };
 
@@ -472,6 +501,7 @@ let resume = () => {
         }
         beforeGame.pause();
         duringGame.play();
+        menuClick.play();
     }
 };
 
@@ -499,6 +529,9 @@ $('.menuClose').click(function() {
         settingsMenu.style.display = "none";
         credits.style.display = "none";
     }
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 });
 
 // the smooth zoom function
@@ -548,6 +581,7 @@ let quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Q
 
 
 function submitAnswer() {
+    quizMusic.pause();
     var radios = document.getElementsByName("radio");
     var i = 0,
         len = radios.length;
@@ -568,6 +602,7 @@ function submitAnswer() {
       $("#upgradeCongrats").css("display", "block");
       levelContinue.style.display = "block";
       upgradeGenerator();
+      quizCorrect.play();
     } else if (userAnswer === "e" && document.getElementById('level2Quiz').style.display == "block" ) {
       $(".wrongLevel2").css("display", "none");
       $('.wrongLevel2').find('.checkmark').css("display", "none");
@@ -576,6 +611,7 @@ function submitAnswer() {
       $("#upgradeCongrats").css("display", "block");
       levelContinue.style.display = "block";
       upgradeGenerator();
+      quizCorrect.play();
     } else if (userAnswer === "k" && document.getElementById('level3Quiz').style.display == "block" ) {
       $(".wrongLevel3").css("display", "none");
       $('.wrongLevel3').find('.checkmark').css("display", "none");
@@ -584,6 +620,7 @@ function submitAnswer() {
       $("#upgradeCongrats").css("display", "block");
       levelContinue.style.display = "block";
       upgradeGenerator();
+      quizCorrect.play();
     } else if (userAnswer === "o" && document.getElementById('level4Quiz').style.display == "block" ) {
       $(".wrongLevel4").css("display", "none");
       $('.wrongLevel4').find('.checkmark').css("display", "none");
@@ -592,6 +629,7 @@ function submitAnswer() {
       $("#upgradeCongrats").css("display", "block");
       levelContinue.style.display = "block";
       upgradeGenerator();
+      quizCorrect.play();
     } else if (userAnswer != "d" && document.getElementById('level1Quiz').style.display == "block") {
         $(".wrongLevel1").css("opacity", 0.5);
         $('.wrongLevel1').find('.checkmark').css("display", "none");
@@ -688,10 +726,10 @@ function restart() {
     difficultyCorrection = 1000 / level;
     quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")];
     images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
-    loseGame.stop();
-    beforeGame.stop();
+    loseGame.pause();
+    beforeGame.pause();
     beforeGame.play();
-    duringGame.stop();
+    duringGame.pause();
 };
 
 levelContinue.addEventListener("click", function() {

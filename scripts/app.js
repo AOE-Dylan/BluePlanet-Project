@@ -2,6 +2,8 @@
 let sec = 25;
 
 let gameWin = () => {
+    duringGame.pause();
+    quizMusic.play();
     let randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
     renewableProgress.style.height = "0px";
     levelSuccess.style.display = "block";
@@ -68,6 +70,8 @@ let gameTimerFail = () => {
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
+    duringGame.pause();
+    loseGame.play();
 };
 
 let gamePollutionFail = () => {
@@ -77,6 +81,8 @@ let gamePollutionFail = () => {
     pauseButton.style.display = "none";
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
+    duringGame.pause();
+    loseGame.play();
 };
 
 let countdown = () =>  {
