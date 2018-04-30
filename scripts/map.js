@@ -256,7 +256,8 @@ let randomButton = () => {
     let randGen = randomImg();
     let randTime = timeNum();
     let absTime = [randTime];
-    let nonRenewableFade = (absTime[0] * (level + (level * .1)));
+    let nonRenewableFade = (absTime[0] * (level + (level * .3)));
+    console.log(nonRenewableFade)
     let renewableFade = (absTime[0] / (level / 2));
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${randGen}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
@@ -270,7 +271,7 @@ let randomButton = () => {
       currBubble.style.animationFillMode = "forwards";
     } else {
       if (bubbleFadeUpgrade == true) {
-        setTimeout(nonInteractible, ((renewableFade + 1.2) * 1000))
+        setTimeout(nonInteractible, ((renewableFade * 1.5) * 1000))
         currBubble.style.WebkitAnimation = "fading " + (renewableFade + 1.2) + "s linear";
         currBubble.style.animationFillMode = "forwards";
       } else {
