@@ -786,8 +786,8 @@ function checkKey(e) {
 function initMap() {
     map = new google.maps.Map(document.getElementById('backing'), {
         center: {
-            lat: -34.397,
-            lng: 150.644
+            lat: 21.3882887,
+            lng: -157.9885406
         },
         zoom: 10,
         mapTypeId : "satellite",
