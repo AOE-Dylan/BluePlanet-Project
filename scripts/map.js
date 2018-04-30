@@ -754,7 +754,8 @@ levelContinue.addEventListener("click", function() {
     let calculatePollution = increasePollution * 100;
     let finalPollutionPercent = (calculatePollution / 265);
     if (pollutionLose > 0) {
-      pollutionLose - 1;
+      pollutionLose--;
+      console.log(pollutionLose)
       $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
       pollutionPercent -= finalPollutionPercent;
     }
