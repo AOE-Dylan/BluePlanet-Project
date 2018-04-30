@@ -3,7 +3,6 @@ let sec = 25;
 
 let gameWin = () => {
     duringGame.pause();
-    quizMusic.play();
     let randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
     renewableProgress.style.height = "0px";
     levelSuccess.style.display = "block";
@@ -16,6 +15,7 @@ let gameWin = () => {
     levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
     if (level < 6){
       randomQuiz[0][0].style.display = "block";
+      quizMusic.play();
     }
     if (level == 6){
       $('#youPassed').text("CONGRATULATIONS, YOU BEAT THE GAME ");
@@ -32,6 +32,7 @@ let gameWin = () => {
       $('.totalEnergyGen').text(totalEnergyGen);
       $('.levelsPassed').text(level - 1);
       $('.timeElapsed').text(timeElapsed + " seconds");
+      gameWinSound.play();
     }
 
     if (level > 6){
@@ -48,6 +49,7 @@ let gameWin = () => {
      $('.badClicked').text(bubbleBadStat);
      $('.levelsPassed').text(level - 1);
      $('.timeElapsed').text(timeElapsed + " seconds");
+     infiniteWin.play();
    }
     // if(level == 3){
     //   document.getElementById('level2Quiz').style.display = "block";

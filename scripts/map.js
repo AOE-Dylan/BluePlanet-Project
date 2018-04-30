@@ -48,6 +48,8 @@ var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
 var loseGame = $("#gameLose")[0];
+var gameWinSound = $("#gameWin")[0];
+var infiniteWin = $("#infiniteWin")[0];
 var duringGame = $("#duringGame")[0];
 duringGame.loop = true;
 var beforeGame = $("#menuSound")[0];
@@ -138,7 +140,7 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 30;
+let increaseEnergy = 300;
 let increaseEnergyP = 30;
 let increasePollution = 50;
 
@@ -831,6 +833,9 @@ levelContinue.addEventListener("click", function() {
     let menuClickAudio = $("#menuClick")[0];
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
+
+    if(level == 6){gameWinSound.pause();}
+    if(level > 6){infiniteWin.pause();}
 });
 
 document.onkeydown = checkKey;
