@@ -539,18 +539,14 @@ function smoothZoom(map, max, cnt) {
     if (cnt >= max) {
         return;
     } else {
-        if (cnt == 20) {
-          map.zoom = 2;
-        } else {
-          z = google.maps.event.addListener(map, 'zoom_changed', function(event) {
-              google.maps.event.removeListener(z);
-              smoothZoom(map, max, cnt + 1);
-          });
-          setTimeout(function() {
-              map.setZoom(cnt + 1)
-          }, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
-        }
-    }
+        z = google.maps.event.addListener(map, 'zoom_changed', function(event) {
+        google.maps.event.removeListener(z);
+        smoothZoom(map, max, cnt + 1);
+    });
+    setTimeout(function() {
+        map.setZoom(cnt + 1)
+    }, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
+  }
 }
 
 let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles", "energyHeadstart"];
