@@ -325,6 +325,9 @@ function plusSlides(n) {
 
 function currentSlide(n) {
     showSlides(slideIndex = n);
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 }
 
 function showSlides(n) {
@@ -360,6 +363,9 @@ function plusInfoSlides(n) {
 
 function currentInfoSlide(n) {
     showInfoSlides(infoIndex = n);
+    let menuClickAudio = $("#menuClick")[0];
+    var menuClone = menuClickAudio.cloneNode();
+    menuClone.play();
 }
 
 function showInfoSlides(n) {
