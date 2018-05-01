@@ -140,7 +140,7 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 300;
+let increaseEnergy = 50;
 let increaseEnergyP = 30;
 let increasePollution = 50;
 
