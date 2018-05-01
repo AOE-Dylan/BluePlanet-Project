@@ -290,7 +290,8 @@ let randomButton = () => {
     let randGen = randomImg();
     let randTime = timeNum();
     let absTime = [randTime];
-    let nonRenewableFade = (absTime[0] * (level + (level * .1)));
+    let nonRenewableFade = (absTime[0] * (level + (level * .3)));
+    console.log(nonRenewableFade)
     let renewableFade = (absTime[0] / (level / 2));
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${randGen}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
@@ -304,7 +305,7 @@ let randomButton = () => {
       currBubble.style.animationFillMode = "forwards";
     } else {
       if (bubbleFadeUpgrade == true) {
-        setTimeout(nonInteractible, ((renewableFade + 1.2) * 1000))
+        setTimeout(nonInteractible, ((renewableFade * 1.5) * 1000))
         currBubble.style.WebkitAnimation = "fading " + (renewableFade + 1.2) + "s linear";
         currBubble.style.animationFillMode = "forwards";
       } else {
@@ -593,18 +594,14 @@ function smoothZoom(map, max, cnt) {
     if (cnt >= max) {
         return;
     } else {
-        if (cnt == 20) {
-          map.zoom = 2;
-        } else {
-          z = google.maps.event.addListener(map, 'zoom_changed', function(event) {
-              google.maps.event.removeListener(z);
-              smoothZoom(map, max, cnt + 1);
-          });
-          setTimeout(function() {
-              map.setZoom(cnt + 1)
-          }, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
-        }
-    }
+        z = google.maps.event.addListener(map, 'zoom_changed', function(event) {
+        google.maps.event.removeListener(z);
+        smoothZoom(map, max, cnt + 1);
+    });
+    setTimeout(function() {
+        map.setZoom(cnt + 1)
+    }, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
+  }
 }
 
 let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles", "energyHeadstart"];
@@ -819,7 +816,8 @@ levelContinue.addEventListener("click", function() {
     let calculatePollution = increasePollution * 100;
     let finalPollutionPercent = (calculatePollution / 265);
     if (pollutionLose > 0) {
-      pollutionLose - 1;
+      pollutionLose--;
+      console.log(pollutionLose)
       $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
       pollutionPercent -= finalPollutionPercent;
     }
@@ -856,8 +854,8 @@ function checkKey(e) {
 function initMap() {
     map = new google.maps.Map(document.getElementById('backing'), {
         center: {
-            lat: -34.397,
-            lng: 150.644
+            lat: 21.3882887,
+            lng: -157.9885406
         },
         zoom: 10,
         mapTypeId : "satellite",
