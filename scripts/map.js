@@ -788,6 +788,7 @@ function restart() {
     let menuClickAudio = $("#menuClick")[0];
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
+    $('#infiniteStatistics').css("display", "none");
 };
 
 levelContinue.addEventListener("click", function() {
