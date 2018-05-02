@@ -28,6 +28,7 @@ body {
   font-size: 15px;
   text-align: left;
   padding: 5px;
+  font-weight: bolder;
 }
 
 h1, h2, h3 {
@@ -64,10 +65,9 @@ h1, h2, h3 {
 #gameTitle {
   color: white;
   display: inline-block;
-  position: absolute;
-  text-align: center;
-  position: fixed;
   padding: 14px;
+  float: left;
+  text-align: center;
   text-decoration: none;
   font-size: 30px;
   -moz-user-select: -moz-none;
@@ -148,8 +148,11 @@ h1, h2, h3 {
   font-weight: bolder;
 }
 
+#settingsInfoButton {
+  float: left;
+}
 #settingsButton, #informationButton {
-  float: right;
+  float: left;
   display: block;
   color: white;
   text-align: center;
@@ -167,6 +170,8 @@ h1, h2, h3 {
   letter-spacing: 4px;
   border-left: 3px solid #97ca3d;
 }
+
+
 
 #settingsButton:hover, #informationButton:hover {
   border-left: #97ca3d;
@@ -794,9 +799,6 @@ padding-top: 1px;
   transition: 0.3s;
 }
 
-.infoBox:hover {
-  padding: 3px;
-}
 #upgradeCongrats h2 {
   font-family: 'Raleway';
   color: #97ca3d;
