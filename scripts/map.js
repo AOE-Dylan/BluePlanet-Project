@@ -200,12 +200,16 @@ let checkInitialUpgrade = () => {
 let goodAudio = () => {
   let energyAudio = $("#goodClick")[0];
   var energyClone = energyAudio.cloneNode();
+  let effectVolume = $("#effectSlider")[0].value;
+  energyClone.volume = (parseInt(effectVolume) / 100);
   energyClone.play();
 }
 
 let badAudio = () => {
   let pollutionAudio = $("#badClick")[0];
   var pollutionClone = pollutionAudio.cloneNode();
+  let effectVolume = $("#effectSlider")[0].value;
+  pollutionClone.volume = (parseInt(effectVolume) / 100);
   pollutionClone.play();
 }
 
