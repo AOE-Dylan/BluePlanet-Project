@@ -294,28 +294,31 @@ let randomButton = () => {
     let randGen = randomImg();
     let randTime = timeNum();
     let absTime = [randTime];
-    let nonRenewableFade = (absTime[0] * (level + (level * .3)));
-    console.log(nonRenewableFade)
+    let nonRenewableFade = (absTime[0] + (level + (level / 10)));
     let renewableFade = (absTime[0] / (level / 2));
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${randGen}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
+    let bubbleSrc = currBubble.src;
+    let actualSrc = "styles/" + bubbleSrc.replace(/^.*[\\\/]/, '');
     let nonInteractible = () => {
         currBubble.style.pointerEvents = "none";
         currBubble.style.pointer = "default";
     }
-    if (currBubble.src == images[0]) {
-      setTimeout(nonInteractible, (nonRenewableFade * 1000));
-      currBubble.style.WebkitAnimation = "fading " + nonRenewableFade + "s linear";
-      currBubble.style.animationFillMode = "forwards";
-    } else {
-      if (bubbleFadeUpgrade == true) {
-        setTimeout(nonInteractible, ((renewableFade * 1.5) * 1000))
-        currBubble.style.WebkitAnimation = "fading " + (renewableFade + 1.2) + "s linear";
+    for (var i = 0; i < checkImg.length; i++){
+      if (actualSrc !== checkImg[i]) {
+        setTimeout(nonInteractible, (nonRenewableFade * 1000));
+        currBubble.style.WebkitAnimation = "fading " + nonRenewableFade + "s linear";
         currBubble.style.animationFillMode = "forwards";
-      } else {
-        setTimeout(nonInteractible, (renewableFade * 1000))
-        currBubble.style.WebkitAnimation = "fading " + renewableFade + "s linear";
-        currBubble.style.animationFillMode = "forwards";
+      } else if (currBubble.src !== checkImg[i]){
+       if (bubbleFadeUpgrade == true) {
+         setTimeout(nonInteractible, ((renewableFade * 1.5) * 1000))
+         currBubble.style.WebkitAnimation = "fading " + (renewableFade + 1.2) + "s linear";
+         currBubble.style.animationFillMode = "forwards";
+       } else {
+         setTimeout(nonInteractible, (renewableFade * 1000))
+         currBubble.style.WebkitAnimation = "fading " + renewableFade + "s linear";
+         currBubble.style.animationFillMode = "forwards";
+        }
       }
     }
 };
