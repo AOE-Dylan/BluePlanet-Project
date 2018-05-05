@@ -9,7 +9,7 @@ let gameWin = () => {
     levelSuccess.style.display = "block";
     pauseButton.style.display = "none";
     notMap.style.display = "none";
-    background.style.filter = "blur(60px)";
+    background.style.filter = "blur(15px)";
     $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
     level++
     round.innerHTML = "LEVEL " + level;
@@ -72,7 +72,7 @@ let gameTimerFail = () => {
     timerFail.style.display = "block";
     pauseButton.style.display = "none";
     notMap.style.display = "none";
-    background.style.filter = "blur(60px)";
+    background.style.filter = "blur(15px)";
     duringGame.pause();
     duringGame.currentTime = 0;
     loseGame.play();
@@ -94,7 +94,7 @@ let gamePollutionFail = () => {
     gameFail.style.display = "block";
     pauseButton.style.display = "none";
     notMap.style.display = "none";
-    background.style.filter = "blur(60px)";
+    background.style.filter = "blur(15px)";
     duringGame.pause();
     duringGame.currentTime = 0;
     loseGame.play();
