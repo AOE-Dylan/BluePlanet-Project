@@ -63,6 +63,7 @@ beforeGame.play();
 timerDisplay.innerHTML = sec + " seconds left";
 round.innerHTML = "LEVEL " + level;
 
+
 $('.radioContainer').click(function() {
   let menuClickAudio = $("#menuClick")[0];
   var menuClone = menuClickAudio.cloneNode();
@@ -430,6 +431,7 @@ startButton.addEventListener("click", function() {
     background.style.filter = "blur(0px)";
 
     beforeGame.pause();
+    beforeGame.currentTime = 0;
     duringGame.play();
 
     let menuClickAudio = $("#menuClick")[0];
@@ -543,6 +545,7 @@ let pause = () => {
             remaining[i].style.pointerEvents = "none";
         }
         duringGame.pause();
+        duringGame.currentTime = 0;
     }
 };
 
@@ -562,6 +565,7 @@ let resume = () => {
             remaining[i].style.pointerEvents = "auto";
         }
         beforeGame.pause();
+        beforeGame.currentTime = 0;
         duringGame.play();
         menuClick.play();
     }
@@ -583,6 +587,7 @@ $('.menuClose').click(function() {
             remaining[i].style.pointerEvents = "auto";
         }
         beforeGame.pause();
+        beforeGame.currentTime = 0;
         duringGame.play();
     } else {
         background.style.filter = "blur(0px)";
@@ -639,6 +644,7 @@ let quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Q
 
 function submitAnswer() {
     quizMusic.pause();
+    quizMusic.currentTime = 0;
     var radios = document.getElementsByName("radio");
     var i = 0,
         len = radios.length;
@@ -784,9 +790,12 @@ function restart() {
     quizzes = [$("#level4Quiz"), $("#level3Quiz"), $("#level2Quiz"), $("#level1Quiz")];
     images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
     loseGame.pause();
+    loseGame.currentTime = 0;
     beforeGame.pause();
+    beforeGame.currentTime = 0;
     beforeGame.play();
     duringGame.pause();
+    beforeGame.currentTime = 0;
     let menuClickAudio = $("#menuClick")[0];
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
@@ -835,8 +844,8 @@ levelContinue.addEventListener("click", function() {
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
 
-    if(level == 6){gameWinSound.pause();}
-    if(level > 6){infiniteWin.pause();}
+    if(level == 6){gameWinSound.pause(); gameWinSound.currentTime = 0;}
+    if(level > 6){infiniteWin.pause(); infiniteWin.currentTime = 0;}
       $("#timer").css("color", "white");
 });
 
@@ -846,6 +855,7 @@ function checkKey(e) {
 
     e = e || window.event;
 
+if(document.getElementById('beforeStart').style.display === "block" || informationMenu.style.display === "block"){
     if (e.keyCode == '37') {
         plusSlides(-1);
         plusInfoSlides(-1);
@@ -853,6 +863,7 @@ function checkKey(e) {
         plusSlides(1);
         plusInfoSlides(1);
     }
+}
 }
 
 function initMap() {

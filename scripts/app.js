@@ -3,6 +3,7 @@ let sec = 15;
 
 let gameWin = () => {
     duringGame.pause();
+    duringGame.currentTime = 0;
     let randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
     renewableProgress.style.height = "0px";
     levelSuccess.style.display = "block";
@@ -73,6 +74,7 @@ let gameTimerFail = () => {
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
     duringGame.pause();
+    duringGame.currentTime = 0;
     loseGame.play();
     totalEnergyGen = renewableGoodStat + pollutionBadStat;
     $('.totalEnergyGen').text(totalEnergyGen);
@@ -94,6 +96,7 @@ let gamePollutionFail = () => {
     notMap.style.display = "none";
     background.style.filter = "blur(60px)";
     duringGame.pause();
+    duringGame.currentTime = 0;
     loseGame.play();
     totalEnergyGen = renewableGoodStat + pollutionBadStat;
     $('.totalEnergyGen').text(totalEnergyGen);
