@@ -9,6 +9,7 @@ body {
 
 
 
+
 #backing {
   padding-bottom: 50px;
 }
@@ -50,8 +51,7 @@ h1, h2, h3 {
 }
 
 #notMap {
-  opacity: 0;
-  transition: 1.5s;
+  display: none;
 }
 
 
@@ -256,13 +256,33 @@ h1, h2, h3 {
   width: 20%;
   height: 10%;
   color: white;
-  background-color: #97ca3d;
-  border: 4px solid #97ca3d;
+  background: linear-gradient(208deg, #97ca3d, #0098a4);
+  background-size: 400% 400%;
+  outline: none;
   border-radius: 20px;
   font-family: 'Quicksand', sans-serif;
   font-weight: bolder;
   font-size: 20px;
-  animation: pulse infinite 1s;
+  -webkit-animation: startZoomAnim 3s ease infinite;
+-moz-animation: startZoomAnim 3s ease infinite;
+animation: startZoomAnim 3s ease infinite;
+transition: 0.6s;
+}
+
+@-webkit-keyframes startZoomAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes startZoomAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes startZoomAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
  #levelContinue, #upgradeContinue, #upgradeAndContinue{
@@ -280,12 +300,13 @@ h1, h2, h3 {
    font-weight: bolder;
    font-size: 20px;
    animation: pulse infinite 1s;
+   outline: none;
 
  }
 
 #startZoom:hover, .restart:hover, #levelContinue:hover, #upgradeContinue:hover,  #upgradeAndContinue:hover {
-  background-color: transparent;
-  color: #97ca3d;
+  width: 21%;
+  height: 11%;
   cursor: pointer;
 }
 
@@ -298,15 +319,8 @@ h1, h2, h3 {
     width:50%;
     height:50%;
     opacity: 0.8;
-    background-color: RGBA(0,152,164, 0.8);
     color: white;
     padding:20px;
-    border:2px solid #ccc;
-    -moz-border-radius: 20px;
-    -webkit-border-radius:20px;
-    -khtml-border-radius:20px;
-    -moz-box-shadow: 0 1px 5px #333;
-    -webkit-box-shadow: 0 1px 5px #333;
     text-align: center;
 }
 
@@ -319,15 +333,7 @@ h1, h2, h3 {
   width:65%;
   height:55%;
   opacity: 0.8;
-  background-color: RGBA(0,152,164, 0.8);
   color: white;
-  padding:20px;
-  border:2px solid #ccc;
-  -moz-border-radius: 20px;
-  -webkit-border-radius:20px;
-  -khtml-border-radius:20px;
-  -moz-box-shadow: 0 1px 5px #333;
-  -webkit-box-shadow: 0 1px 5px #333;
 }
 
 #settingsMenu h1, #informationMenu h1, #gamePaused h1, #credits h1 {
@@ -480,11 +486,51 @@ a.boxClose:hover {
 }
 
 #renewableProgress {
-  background-color:#97ca3d;
+  background: linear-gradient(208deg, #97ca3d, #44ca3d, #1e833c);
+  background-size: 600% 600%;
+  -webkit-animation: greenBarAnimation 2s ease infinite;
+-moz-animation: greenBarAnimation 2s ease infinite;
+animation: greenBarAnimation 2s ease infinite;
+}
+
+@-webkit-keyframes greenBarAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes greenBarAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes greenBarAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 #nonRenewableProgress {
-  background-color: #c23b22
+  background: linear-gradient(212deg, #c23b22, #962b17, #f7a1a1);
+  background-size: 600% 600%;
+  -webkit-animation: redBarAnimation 3s ease infinite;
+  -moz-animation: redBarAnimation 3s ease infinite;
+  animation: redBarAnimation 3s ease infinite;
+}
+
+@-webkit-keyframes redBarAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes redBarAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes redBarAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 .bar-2, .bar-3, .bar-4, .bar-5, .bar-6, .bar-7, .bar-8, .bar-9{
@@ -559,15 +605,8 @@ a.boxClose:hover {
   width: 85%;
   height: 85%;
   opacity: 0.95;
-  background-color: RGBA(0,152,164, 0.8);
   color: white;
   padding:20px;
-  border:2px solid #ccc;
-  -moz-border-radius: 20px;
-  -webkit-border-radius:20px;
-  -khtml-border-radius:20px;
-  -moz-box-shadow: 0 1px 5px #333;
-  -webkit-box-shadow: 0 1px 5px #333;
   animation-duration: 0.7s;
 }
 
@@ -580,15 +619,8 @@ a.boxClose:hover {
   height: 80%;
   opacity: 0.95;
   display: none;
-  background-color: RGBA(0,152,164, 0.8);
   color: white;
   padding:20px;
-  border:2px solid #ccc;
-  -moz-border-radius: 20px;
-  -webkit-border-radius:20px;
-  -khtml-border-radius:20px;
-  -moz-box-shadow: 0 1px 5px #333;
-  -webkit-box-shadow: 0 1px 5px #333;
 }
 
 .slideTitle {
@@ -639,7 +671,7 @@ a.boxClose:hover {
 
 .dotContainer {
   position: absolute;
-  bottom: 0;
+  bottom: 25px;
   left: 50%;
   right: 50%;
   transform: rotate(270deg);
@@ -708,6 +740,11 @@ a.boxClose:hover {
 #youPassed, #youFailed {
   vertical-align: middle;
   display: block;
+  letter-spacing: 15px;
+}
+
+.upgradeText {
+  letter-spacing: 10px;
 }
 
 #welcomeContainer {
@@ -769,7 +806,7 @@ padding-top: 1px;
   width: 90%;
   max-width: 1000px;
   max-height: 575px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .infoGrid {
   width: 96%;
@@ -823,7 +860,7 @@ padding-top: 1px;
   height: 600px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .howToBox {

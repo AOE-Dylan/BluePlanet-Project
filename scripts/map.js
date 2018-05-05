@@ -154,7 +154,6 @@ let checkGame = () => {
       gameStart = 0;
       $("#map").remove();
       gamePollutionFail();
-      console.log('You polluted the world!')
     } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
       gameActive = 0;
       pollutionEnergy = 0;
@@ -167,7 +166,6 @@ let checkGame = () => {
       next = map.zoom;
       var incr;
       incr = next + 1;
-      console.log('You acquired enough energy!');
       document.getElementById('levelContinue').addEventListener('click', function(event) {
           smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
       });
@@ -186,8 +184,6 @@ let checkInitialUpgrade = () => {
     let calculateEnergy = (increaseEnergy * energyWin) * 100;
     let finalEnergyPercent = (calculateEnergy / 265);
     energyPercent = finalEnergyPercent;
-    console.log(initialEnergy);
-    console.log(energyPercent);
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
   } else {
     energyWin = 0;
@@ -407,7 +403,7 @@ $("#startZoom").click(function() {
     beforeStart.style.display = "none";
     $('#zoomAnimation').addClass('addZoom');
     let startMenuClose = 1;
-    $('#notMap').css("opacity", 1.0);
+    $('#notMap').css("display", "block");
     menuClick.play();
 });
 
@@ -431,12 +427,11 @@ startButton.addEventListener("click", function() {
     settingsMenu.style.display = "none";
     informationMenu.style.display = "none";
     credits.style.display = "none";
+    background.style.filter = "blur(0px)";
 
     beforeGame.pause();
     duringGame.play();
 
-    console.log('Game Started');
-    console.log('gameActive is', gameActive);
     let menuClickAudio = $("#menuClick")[0];
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
@@ -469,9 +464,11 @@ settings.addEventListener("click", function() {
     menuOpen = 1;
     if (settingsMenu.style.display === "block") {
         settingsMenu.style.display = "none";
+        background.style.filter = "blur(0px)";
         resume();
     } else {
         settingsMenu.style.display = "block";
+        background.style.filter = "blur(10px)";
     }
 });
 
@@ -485,9 +482,11 @@ gameTitle.addEventListener("click", function() {
     menuClone.play();
     if (credits.style.display === "block") {
         credits.style.display = "none";
+        background.style.filter = "blur(0px)";
         resume();
     } else {
         credits.style.display = "block";
+        background.style.filter = "blur(10px)";
     }
 });
 
@@ -512,9 +511,11 @@ information.addEventListener("click", function() {
 
     if (informationMenu.style.display === "block") {
         informationMenu.style.display = "none";
+        background.style.filter = "blur(0px)";
         resume();
     } else {
         informationMenu.style.display = "block";
+        background.style.filter = "blur(10px)";
     }
 });
 
@@ -523,9 +524,8 @@ let pause = () => {
     if (gameActive == 1 & gameStart == 1) {
         clearInterval(bubbleGenerate);
         clearInterval(timer);
-        console.log('game paused')
         gameActive = 0;
-        background.style.filter = "blur(60px)";
+        background.style.filter = "blur(30px)";
         pauseButton.style.display = "none";
         resumeButton.style.display = "block";
         var myArray = [
@@ -550,10 +550,10 @@ let resume = () => {
     if (gameStart == 1 & gameActive == 0) {
         bubbleGenerate = setInterval(randomButton, difficultyCorrection);
         gameActive = 1;
-        console.log('game resumed')
         background.style.filter = "blur(0px)";
         settingsMenu.style.display = "none";
         informationMenu.style.display = "none";
+        credits.style.display = "none";
         resumeButton.style.display = "none";
         pauseButton.style.display = "block";
         timer = setInterval(countdown, 1000);
@@ -571,7 +571,6 @@ $('.menuClose').click(function() {
     if (gameStart == 1 & gameActive == 0) {
         bubbleGenerate = setInterval(randomButton, difficultyCorrection);
         timer = setInterval(countdown, 1000);
-        console.log('Menu Closed, Starting Generating');
         pauseButton.style.display = "block";
         resumeButton.style.display = "none";
         background.style.filter = "blur(0px)";
@@ -749,13 +748,9 @@ function restart() {
     $(".wrongLevel2").css("display", "block");
     $(".wrongLevel3").css("display", "block");
     $(".wrongLevel4").css("display", "block");
-    $('.wrongLevel1').find('.checkmark').css("display", "block");
     $('#level1Quiz').find('.submitAnswer').css("display", "block");
-    $('.wrongLevel2').find('.checkmark').css("display", "block");
     $('#level2Quiz').find('.submitAnswer').css("display", "block");
-    $('.wrongLevel3').find('.checkmark').css("display", "block");
     $('#level3Quiz').find('.submitAnswer').css("display", "block");
-    $('.wrongLevel4').find('.checkmark').css("display", "block");
     $('#level4Quiz').find('.submitAnswer').css("display", "block");
     // $('#correctLevel1').find('.checkmark').css("background-color", "#0098a4");
     // $('#correctLevel2').find('.checkmark').css("background-color", "#0098a4");
@@ -796,6 +791,7 @@ function restart() {
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
     $('#infiniteStatistics').css("display", "none");
+    $("#timer").css("color", "white");
 };
 
 levelContinue.addEventListener("click", function() {
@@ -825,7 +821,6 @@ levelContinue.addEventListener("click", function() {
     let finalPollutionPercent = (calculatePollution / 265);
     if (pollutionLose > 0) {
       pollutionLose--;
-      console.log(pollutionLose)
       $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
       pollutionPercent -= finalPollutionPercent;
     }
@@ -842,6 +837,7 @@ levelContinue.addEventListener("click", function() {
 
     if(level == 6){gameWinSound.pause();}
     if(level > 6){infiniteWin.pause();}
+      $("#timer").css("color", "white");
 });
 
 document.onkeydown = checkKey;
@@ -1106,7 +1102,6 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            console.log(pos);
             map.setCenter(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());

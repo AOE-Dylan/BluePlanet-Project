@@ -1,5 +1,5 @@
 
-let sec = 25;
+let sec = 15;
 
 let gameWin = () => {
     duringGame.pause();
@@ -74,6 +74,7 @@ let gameTimerFail = () => {
     background.style.filter = "blur(60px)";
     duringGame.pause();
     loseGame.play();
+    totalEnergyGen = renewableGoodStat + pollutionBadStat;
     $('.totalEnergyGen').text(totalEnergyGen);
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
@@ -94,6 +95,7 @@ let gamePollutionFail = () => {
     background.style.filter = "blur(60px)";
     duringGame.pause();
     loseGame.play();
+    totalEnergyGen = renewableGoodStat + pollutionBadStat;
     $('.totalEnergyGen').text(totalEnergyGen);
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
@@ -118,6 +120,10 @@ let countdown = () =>  {
   } else if (sec === 0) {
     sec = 15;
     document.getElementById('timer').innerHTML = sec + " seconds left";
+  }  else if (sec < 7) {
+    $("#timer").css("color", "#c23b22");
+      sec = sec - 1;
+      document.getElementById('timer').innerHTML = sec + " seconds left";
   } else if (sec < 10) {
       sec = sec - 1;
       document.getElementById('timer').innerHTML = sec + " seconds left";
@@ -146,6 +152,8 @@ $("#musicSlider")[0].addEventListener("change", () => {
     musicList[i].volume = (parseInt(musicVolume) / 100);
   }
 })
+
+
 
 
 // Note: This example requires that you consent to location sharing when
