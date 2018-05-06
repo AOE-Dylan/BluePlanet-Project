@@ -37,7 +37,7 @@ let gameWin = () => {
     }
 
     if (level > 6){
-     $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + level);
+     $('#youPassed').text("CONGRATULATIONS, YOU BEAT LEVEL " + (level-1) );
      levelContinue.style.display = "block";
      levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
      $('#infiniteStatistics').css("display", "block");
@@ -125,6 +125,7 @@ let countdown = () =>  {
     document.getElementById('timer').innerHTML = sec + " seconds left";
   }  else if (sec < 7) {
     $("#timer").css("color", "#c23b22");
+    $('#timer').addClass('animated pulse 1s infinite');
       sec = sec - 1;
       document.getElementById('timer').innerHTML = sec + " seconds left";
   } else if (sec < 10) {

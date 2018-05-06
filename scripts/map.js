@@ -63,7 +63,6 @@ beforeGame.play();
 timerDisplay.innerHTML = sec + " seconds left";
 round.innerHTML = "LEVEL " + level;
 
-
 $('.radioContainer').click(function() {
   let menuClickAudio = $("#menuClick")[0];
   var menuClone = menuClickAudio.cloneNode();
@@ -447,6 +446,16 @@ pauseButton.addEventListener("click", function() {
     menuClone.play();
 });
 
+$('.pauseOrResume').click(function() {
+  resume();
+  gamePaused.style.display = "none";
+  let menuClickAudio = $("#menuClick")[0];
+  var menuClone = menuClickAudio.cloneNode();
+  menuClone.play();
+});
+
+
+
 resumeButton.addEventListener("click", function() {
     resume();
     gamePaused.style.display = "none";
@@ -527,7 +536,7 @@ let pause = () => {
         clearInterval(bubbleGenerate);
         clearInterval(timer);
         gameActive = 0;
-        background.style.filter = "blur(30px)";
+        background.style.filter = "blur(15px)";
         pauseButton.style.display = "none";
         resumeButton.style.display = "block";
         var myArray = [
@@ -801,6 +810,7 @@ function restart() {
     menuClone.play();
     $('#infiniteStatistics').css("display", "none");
     $("#timer").css("color", "white");
+    $('#timer').removeClass('animated pulse 0.3s infinite');
 };
 
 levelContinue.addEventListener("click", function() {
@@ -847,6 +857,7 @@ levelContinue.addEventListener("click", function() {
     if(level == 6){gameWinSound.pause(); gameWinSound.currentTime = 0;}
     if(level > 6){infiniteWin.pause(); infiniteWin.currentTime = 0;}
       $("#timer").css("color", "white");
+      $('#timer').removeClass('animated pulse 0.3s infinite');
 });
 
 document.onkeydown = checkKey;
