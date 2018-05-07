@@ -250,7 +250,7 @@ let addBarGood = () => {
     let finalEnergyPercent = (calculateEnergy / 600);
     energyPercent += finalEnergyPercent;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    Starter code for Griff info values
+    //Starter code for Griff info values
     goodAudio();
     checkGame();
 };
