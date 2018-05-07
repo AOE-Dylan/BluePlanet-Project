@@ -198,6 +198,7 @@ p {
 .radioContainer:hover{
   background: linear-gradient(18deg, #97ca3d, #26d061, #08abb4, #0832b4);
   background-size: 800% 800%;
+  padding: 10px;
   color: white;
   -webkit-animation: quizColors 2s ease infinite;
   -moz-animation: quizColors 2s ease infinite;
