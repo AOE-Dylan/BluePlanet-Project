@@ -47,6 +47,8 @@ var bubbleFadeUpgrade = false;
 var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
+var oahuEnergyReq = 750;
+
 var loseGame = $("#gameLose")[0];
 var gameWinSound = $("#gameWin")[0];
 var infiniteWin = $("#infiniteWin")[0];
@@ -144,6 +146,9 @@ let increaseEnergy = 100;
 let increaseEnergyP = 60;
 let increasePollution = 160;
 
+var energyPercent = 0;
+var pollutionPercent = 0;
+
 let checkGame = () => {
     if ((pollutionLose * increasePollution) >= 600) {
       gameActive = 0;
@@ -170,10 +175,32 @@ let checkGame = () => {
           smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
       });
     }
+    // if (pollutionPercent >= 100) {
+    //   gameActive = 0;
+    //   pollutionPercent = 0;
+    //   energyPercent = 0;
+    //   clearInterval(bubbleGenerate);
+    //   clearInterval(timer);
+    //   gameStart = 0;
+    //   $("#map").remove();
+    //   gamePollutionFail();
+    // } else if (energyPercent >= 100) {
+    //   gameActive = 0;
+    //   clearInterval(bubbleGenerate);
+    //   clearInterval(timer);
+    //   gameStart = 0;
+    //   $("#map").remove();
+    //   gameWin();
+    //   var next;
+    //   next = map.zoom;
+    //   var incr;
+    //   incr = next + 1;
+    //   document.getElementById('levelContinue').addEventListener('click', function(event) {
+    //       smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
+    //   });
+    // }
 }
 
-var energyPercent = 0;
-var pollutionPercent = 0;
 $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
 $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
 
@@ -184,12 +211,16 @@ let checkInitialUpgrade = () => {
     let calculateEnergy = (increaseEnergy * energyWin) * 100;
     let finalEnergyPercent = (calculateEnergy / 600);
     energyPercent = finalEnergyPercent;
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    // energyPercent = 20;
+    // $('#renewableProgress')[0].style.height = 600/20 + "px";
+    // $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
   } else {
     energyWin = 0;
     energyPercent = 0;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    $('#renewableProgress')[0].style.height = "0px";
+    // energyPercent = 0
+    // $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    // $('#renewableProgress')[0].style.height = "0px";
   }
 }
 
@@ -219,12 +250,7 @@ let addBarGood = () => {
     let finalEnergyPercent = (calculateEnergy / 600);
     energyPercent += finalEnergyPercent;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    // Starter code for Griff info values
-    // let clickedString = event.target.src;
-    // let startString = clickedString.replace('styles/', '');
-    // let midString = clickedString.replace('.png', '');
-    // let endString = midString.replace(/^.*[\\\/]/, '');
-    // $('#renewableProgress').css('height', $('#renewableProgress').height() + energyValue[endString]);
+    Starter code for Griff info values
     goodAudio();
     checkGame();
 };
@@ -246,21 +272,14 @@ let addBarBad = () => {
     energyPercent += finalEnergyP;
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    // Starter code for Griff info values
-    // let clickedString = event.target.src;
-    // let startString = clickedString.replace('styles/', '');
-    // let midString = clickedString.replace('.png', '');
-    // let endString = midString.replace(/^.*[\\\/]/, '');
-    // $('#renewableProgress').css('height', $('#renewableProgress').height() + energyValue[endString]);
-    // $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + pollutionValue[endString]);
     badAudio();
     checkGame();
 };
 
-let checkImg = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png"];
+let checkImg = ["styles/bad.png", "styles/oilrig.png"];
 
 dictateBar = () => {
-  var type = event.target.getAttribute("src");
+    var type = event.target.getAttribute("src");
     event.target.style.WebkitAnimation = null;
     event.target.style.display = "none";
     if ( type == checkImg[0]) {
@@ -269,13 +288,18 @@ dictateBar = () => {
     } else if (type == checkImg[1]) {
         addBarBad()
         event.target.onclick = null;
-    } else if (type == checkImg[2]) {
-        addBarBad()
-        event.target.onclick = null;
-    }else{
+    } else {
         addBarGood()
         event.target.onclick = null;
     }
+    // let clickedString = event.target.src;
+    // let startString = clickedString.replace('styles/', '');
+    // let midString = clickedString.replace('.png', '');
+    // let endString = midString.replace(/^.*[\\\/]/, '');
+    // $('#renewableProgress').css('height', $('#renewableProgress').height() + energyValue[endString]);
+    // let addEnergy = (600/(energyValue[endString]);
+    // let addPollution = (600/(pollutionValue[endString]));
+    // energyPercent += addVal;
 }
 
 let timeNum = () => {
@@ -290,7 +314,7 @@ let randomButton = () => {
     let randGen = randomImg();
     let randTime = timeNum();
     let absTime = [randTime];
-    let nonRenewableFade = (absTime[0] + (level + (level / 10)));
+    let nonRenewableFade = (absTime[0] + (level * (level / 10)));
     let renewableFade = (absTime[0] / (level / 2));
     $('#map').append($(`<img class="bubble" id="${remaining.length}" onclick="dictateBar()" src="${randGen}" style="top:` + randX + `px; left:` + randY + `px; opacity: 1;" >`));
     let currBubble = $(`#` + `${remaining.length - 1}`)[0];
