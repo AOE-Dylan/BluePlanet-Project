@@ -140,12 +140,12 @@ let randomImg = () => {
   return imgChose[0];
 };
 
-let increaseEnergy = 50;
-let increaseEnergyP = 30;
-let increasePollution = 50;
+let increaseEnergy = 100;
+let increaseEnergyP = 60;
+let increasePollution = 160;
 
 let checkGame = () => {
-    if ((pollutionLose * increasePollution) >= 265) {
+    if ((pollutionLose * increasePollution) >= 600) {
       gameActive = 0;
       energyWin = 0;
       pollutionEnergy = 0;
@@ -154,7 +154,7 @@ let checkGame = () => {
       gameStart = 0;
       $("#map").remove();
       gamePollutionFail();
-    } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 265 || (energyWin * increaseEnergy) >= 265) {
+    } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 600 || (energyWin * increaseEnergy) >= 600) {
       gameActive = 0;
       pollutionEnergy = 0;
       clearInterval(bubbleGenerate);
@@ -182,7 +182,7 @@ let checkInitialUpgrade = () => {
     energyWin = 1.5;
     $('#renewableProgress')[0].style.height = increaseEnergy * energyWin + "px";
     let calculateEnergy = (increaseEnergy * energyWin) * 100;
-    let finalEnergyPercent = (calculateEnergy / 265);
+    let finalEnergyPercent = (calculateEnergy / 600);
     energyPercent = finalEnergyPercent;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
   } else {
@@ -216,7 +216,7 @@ let addBarGood = () => {
     renewableGoodStat += increaseEnergy;
     bubblesClick++;
     let calculateEnergy = increaseEnergy * 100;
-    let finalEnergyPercent = (calculateEnergy / 265);
+    let finalEnergyPercent = (calculateEnergy / 600);
     energyPercent += finalEnergyPercent;
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     // Starter code for Griff info values
@@ -240,8 +240,8 @@ let addBarBad = () => {
     bubblesClick++;
     let calculatePollution = increasePollution * 100;
     let calculateEnergyP = increaseEnergyP * 100;
-    let finalPollutionPercent = (calculatePollution / 265);
-    let finalEnergyP = (calculateEnergyP / 265);
+    let finalPollutionPercent = (calculatePollution / 600);
+    let finalEnergyP = (calculateEnergyP / 600);
     pollutionPercent += finalPollutionPercent;
     energyPercent += finalEnergyP;
     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
@@ -837,7 +837,7 @@ levelContinue.addEventListener("click", function() {
 
     checkInitialUpgrade();
     let calculatePollution = increasePollution * 100;
-    let finalPollutionPercent = (calculatePollution / 265);
+    let finalPollutionPercent = (calculatePollution / 600);
     if (pollutionLose > 0) {
       pollutionLose--;
       $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);

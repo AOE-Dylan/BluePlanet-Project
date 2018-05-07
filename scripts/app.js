@@ -123,7 +123,7 @@ let countdown = () =>  {
   } else if (sec === 0) {
     sec = 15;
     document.getElementById('timer').innerHTML = sec + " seconds left";
-  }  else if (sec < 7) {
+  }  else if (sec < 5) {
     $("#timer").css("color", "#c23b22");
     $('#timer').addClass('animated pulse 1s infinite');
       sec = sec - 1;

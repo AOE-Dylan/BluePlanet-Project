@@ -251,7 +251,7 @@ h1, h2, h3 {
 }
 #startZoom, .restart {
   position:absolute;
-  bottom: 20px;
+  bottom: -30px;
   right: 20px;
   width: 20%;
   height: 10%;
@@ -431,15 +431,15 @@ a.boxClose:hover {
 }
 
 .barBackground{
-	width:90%;
-	height: 350px;
+	width: 90%;
+	height: 680px;
 	/* float:left; */
 	background-color: #0098a4;
 	/* margin:7px 5% 5px 5%; */
 	border:2px solid #ccc;
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
-	border-radius: 12px;
+	border-radius: 57px;
 	-moz-user-select: -moz-none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
@@ -465,32 +465,35 @@ a.boxClose:hover {
 }
 
 #renewable-bar, #nonRenewable-bar{
-  float:left;
-	width:90%;
-	margin:0px 5% 0px 5%;
-	height:253px;
-	background-color: white;
+  /* float:left; */
+  width: 75%;
+  /* margin: 0px 5% 0px 13%; */
+  margin-right:  auto;
+  margin-left:  auto;
+  height: 600px;
+  background-color: white;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 35px;
 }
 
 #renewableProgress, #nonRenewableProgress {
-  width: 101px;
+  width: 84px;
   float:left;
-  /* height: 0px; */
-  max-height: 260px;
+  height: 0px;
+  /* max-height: 260px; */
   position: absolute;
-  bottom: 35px;
+  bottom: -312px;
   z-index: 1;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  border-radius: 35px;
   transition: 0.5s;
 }
 
 #renewableProgress {
-  background: linear-gradient(208deg, #97ca3d, #44ca3d, #1e833c);
+  background: linear-gradient(35deg, #0098a4, #0f9460, #1baa4d, #649b8b, #00d0ad, #0098a4);
   background-size: 600% 600%;
   -webkit-animation: greenBarAnimation 2s ease infinite;
 -moz-animation: greenBarAnimation 2s ease infinite;
@@ -514,7 +517,7 @@ animation: greenBarAnimation 2s ease infinite;
 }
 
 #nonRenewableProgress {
-  background: linear-gradient(212deg, #c23b22, #962b17, #f7a1a1);
+  background: linear-gradient(35deg, #c23b22, #b05f50, #bd8c83, #c15b48, #bd8c83, #b05f50, #c23b22);
   background-size: 600% 600%;
   -webkit-animation: redBarAnimation 3s ease infinite;
   -moz-animation: redBarAnimation 3s ease infinite;
@@ -846,7 +849,7 @@ padding-top: 1px;
 }
 
 .statBox {
-  width: 96%;
+  width: 92%;
 	display: inline-block;
   color: rgb(0, 152, 164);
   font-family: 'Raleway';
