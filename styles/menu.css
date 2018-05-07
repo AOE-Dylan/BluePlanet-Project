@@ -7,7 +7,11 @@ body {
   font-size: 20px;
 }
 
-
+@media screen and (max-width: 1080) {
+  .navbar {
+    display: none;
+  }
+}
 
 
 #backing {
@@ -199,8 +203,9 @@ h1, h2, h3 {
   display: none;
   position: fixed; /*it can be fixed too*/
   left:0; right:0;
-  top:0; bottom:0;
+  top:100px; bottom:0;
   margin: auto;
+  letter-spacing: 5px;
   width:50%;
   height:20%;
   opacity: 0.8;
@@ -670,7 +675,7 @@ animation: greenBarAnimation 2s ease infinite;
 
 .dotContainer {
   position: absolute;
-  bottom: 25px;
+  bottom: -50px;
   left: 50%;
   right: 50%;
   transform: rotate(270deg);
