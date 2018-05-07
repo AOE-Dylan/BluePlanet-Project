@@ -455,7 +455,7 @@ a.boxClose:hover {
 	/* float:left; */
 	/* margin:7px 5% 5px 5%; */
 	border:2px solid #ccc;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.1);
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
 	border-radius: 57px;
