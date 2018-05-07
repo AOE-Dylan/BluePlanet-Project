@@ -83,6 +83,25 @@ h1, h2, h3 {
   font-family: 'Raleway', serif;
   letter-spacing: 5px;
   font-weight: bolder;
+  text-align: center;
+
+ background: linear-gradient(to right, #FFF 20%, #FF0 40%, #FF0 60%, #FFF 80%);
+ background-size: 200% auto;
+
+ color: #000;
+ background-clip: text;
+ text-fill-color: transparent;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+
+ animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
 }
 
 #gameTitle:hover {
@@ -422,7 +441,7 @@ a.boxClose:hover {
     height:350px;
     position: fixed;
     top: 0;
-    right: 120px;
+    right: 125px;
     margin-top: 135px;
 }
 
@@ -434,9 +453,9 @@ a.boxClose:hover {
 	width: 90%;
 	height: 680px;
 	/* float:left; */
-	background-color: #0098a4;
 	/* margin:7px 5% 5px 5%; */
 	border:2px solid #ccc;
+  background-color: rgba(255,255,255,0.3);
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
 	border-radius: 57px;
@@ -454,6 +473,14 @@ a.boxClose:hover {
 	text-align:center;
 	padding:15px 0px 5px 0px;
   white-space: nowrap;
+}
+
+.goodBarBackground {
+  border-color: #0098a4 #0f9460 #1baa4d #0098a4;
+}
+
+.badBarBackground {
+  border-color: #c23b22 #b05f50 #b05f50 #c23b22;
 }
 
 .title:hover {
@@ -912,4 +939,19 @@ padding-top: 1px;
 .pauseOrResume:hover:after {
   content: 'RESUME GAME';
   cursor: pointer;
+}
+
+.gradient-border {
+}
+
+.energyPercent {
+  background: linear-gradient(35deg, #0098a4, #0f9460, #1baa4d, #649b8b, #00d0ad, #0098a4);
+  background-size: 200% auto;
+
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 1s linear infinite;
 }

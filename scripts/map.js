@@ -666,7 +666,7 @@ function upgradeGenerator() {
     increaseRenewableUpgrade = true;
     upgrades.push(upgradeItem[0])
   } else if(upgradeItem == "energyHeadstart"){
-    $("#upgradeReward").text("START WITH MORE ENERGY");
+    $("#upgradeReward").text("ENERGY HEADSTART ON EVERY ROUND");
     initialEnergy = true;
     upgrades.push(upgradeItem[0])
   }
