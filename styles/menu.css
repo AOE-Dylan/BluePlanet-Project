@@ -674,7 +674,7 @@ animation: greenBarAnimation 2s ease infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  animation: shine 4s linear infinite;
+  animation: shine 2s linear infinite;
 }
 
 
