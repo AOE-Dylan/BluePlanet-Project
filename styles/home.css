@@ -679,12 +679,14 @@ aside:hover ul li:nth-child(3) {
   background: transparent;
   width: 300px;
   color: white;
+  margin-top: 50px;
 }
 
 #gm2 {
   background: transparent;
   width: 300px;
   color: white;
+  margin-top: 50px;
 }
 
 .buttonStyles {
@@ -699,16 +701,19 @@ aside:hover ul li:nth-child(3) {
   font-weight: bolder;
   font-size: 20px;
   -webkit-animation: startZoomAnim 3s ease infinite;
--moz-animation: startZoomAnim 3s ease infinite;
-animation: startZoomAnim 3s ease infinite;
-transition: 0.6s;
-cursor: pointer;
-border: 2px solid white;
-border-radius: 5px;
+  -moz-animation: startZoomAnim 3s ease infinite;
+  animation: startZoomAnim 3s ease infinite;
+  transition: 0.6s;
+  cursor: pointer;
+  border: 5px solid white;
+  border-radius: 5px;
 }
 
 .bottomHalf {
   display: none;
+  text-align: center;
+  width: 300px;
+  overflow-wrap: break-word;
 }
 
 .buttonStyles:hover~.bottomHalf{
@@ -719,4 +724,15 @@ border-radius: 5px;
 .buttonStyles:hover {
   background: transparent;
   cursor: pointer;
+}
+
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  color: white;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
 }
