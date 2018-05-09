@@ -47,7 +47,7 @@ var bubbleFadeUpgrade = false;
 var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
-var oahuEnergyReq = 750;
+var oahuMWH = 750;
 
 var loseGame = $("#gameLose")[0];
 var gameWinSound = $("#gameWin")[0];
@@ -117,10 +117,11 @@ let energyValue = {
   "wind" : 30
 }
 
-let pollutionValue = {
-  "bad" : 50,
-  "oilrig" : 50,
-  "waste" : 50
+let pollutionLbs = {
+  "bad" : 3,
+  "oilrig" : 2.5,
+  "solar" : 0.1,
+  "wind" : .05
 }
 
 let images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
