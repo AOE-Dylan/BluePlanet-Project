@@ -810,11 +810,11 @@ animation: greenBarAnimation 2s ease infinite;
 }
 
  #bpimg {
-  width: 900px;
-  height: 150px;
+  width: 60%;
+  height: 15%;
   position: fixed; /*it can be fixed too*/
   left:0; right:0;
-  top:300px; bottom:0;
+  top:400px; bottom:0;
   margin: auto;
   margin: auto;
   cursor: pointer;
