@@ -667,3 +667,56 @@ aside:hover ul li:nth-child(3) {
     background: #97ca3d;
     cursor: pointer;
 }
+
+#buttonContainer {
+  display: flex;
+   flex-wrap: wrap;
+   text-align: center;
+   justify-content: space-evenly;
+}
+
+#gm1 {
+  background: transparent;
+  width: 300px;
+  color: white;
+}
+
+#gm2 {
+  background: transparent;
+  width: 300px;
+  color: white;
+}
+
+.buttonStyles {
+  margin-top: -20px;
+  width: 300px;
+  height: 100px;
+  color: white;
+  background: linear-gradient(208deg, #97ca3d, #0098a4);
+  background-size: 400% 400%;
+  outline: none;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  -webkit-animation: startZoomAnim 3s ease infinite;
+-moz-animation: startZoomAnim 3s ease infinite;
+animation: startZoomAnim 3s ease infinite;
+transition: 0.6s;
+cursor: pointer;
+border: 2px solid white;
+border-radius: 5px;
+}
+
+.bottomHalf {
+  display: none;
+}
+
+.buttonStyles:hover~.bottomHalf{
+    display: block;
+}
+
+
+.buttonStyles:hover {
+  background: transparent;
+  cursor: pointer;
+}

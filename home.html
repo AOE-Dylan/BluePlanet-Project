@@ -587,7 +587,7 @@
     <div id="beforeStart" style="display:block">
         <!--https://www.w3schools.com/howto/howto_js_slideshow.asp -->
         <div class="mySlides1 fade">
-            <div class="numbertext">1 / 3</div>
+            <div class="numbertext">1 / 4</div>
             <div class="slideTitle">
                 <h1 class="titleHeader">WELCOME TO INFINITE POWER</h1>
                 <div id="welcomeContainer">
@@ -602,7 +602,7 @@
         </div>
 
         <div class="mySlides1 fade">
-            <div class="numbertext">2 / 3</div>
+            <div class="numbertext">2 / 4</div>
             <div class="slideTitle">
                 <h1 class="titleHeader">HOW TO PLAY</h1>
                 <div class="howToGrid">
@@ -625,7 +625,7 @@
         </div>
 
         <div class="mySlides1 fade">
-            <div class="numbertext">3 / 3</div>
+            <div class="numbertext">3 / 4</div>
             <div class="slideTitle">
                 <h1 class="titleHeader">CREDITS</h1>
             </div>
@@ -658,17 +658,41 @@
                     </header>
                 </aside>
             </div>
-            <button id="startZoom">CONTINUE</button>
         </div>
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="mySlides1 fade">
+            <div class="numbertext">4 / 4</div>
+            <div class="slideTitle">
+                <h1 class="titleHeader">CHOOSE YOUR GAME MODE</h1>
+            </div>
+            <div id="buttonContainer">
+              <div id="gm1">
+                <div class="buttonStyles">
+                  <h1>GAME MODE 1</h1>
+                </div>
+                <div class="bottomHalf">
+                <h1>GAME MODE SCERITPION</h1>
+              </div>
+              </div>
 
-        <div class="dotContainer">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+              <div id="gm2">
+                <div class="buttonStyles"><h1>GAME MODE 1</h1></div>
+                <div class="bottomHalf">
+                <h1>GAME MODE SCERITPION</h1>
+              </div>
+              </div>
+            </div>
         </div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="dotContainer">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
     </div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBbf0CnUSilg_mUnigFFDCkRaachYSUkE&callback=initMap">
     </script>
