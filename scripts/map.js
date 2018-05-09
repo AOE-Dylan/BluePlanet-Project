@@ -48,6 +48,7 @@ var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
 var oahuMWH = 750;
+var oahuMP = ;
 
 var loseGame = $("#gameLose")[0];
 var gameWinSound = $("#gameWin")[0];
@@ -121,7 +122,9 @@ let pollutionLbs = {
   "bad" : 3,
   "oilrig" : 2.5,
   "solar" : 0.1,
-  "wind" : .05
+  "wind" : .05,
+  "waste" : 0,
+  "leafpluslightning" : 0
 }
 
 let images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
@@ -151,42 +154,18 @@ var energyPercent = 0;
 var pollutionPercent = 0;
 
 let checkGame = () => {
-    if ((pollutionLose * increasePollution) >= 600) {
-      gameActive = 0;
-      energyWin = 0;
-      pollutionEnergy = 0;
-      clearInterval(bubbleGenerate);
-      clearInterval(timer);
-      gameStart = 0;
-      $("#map").remove();
-      gamePollutionFail();
-    } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 600 || (energyWin * increaseEnergy) >= 600) {
-      gameActive = 0;
-      pollutionEnergy = 0;
-      clearInterval(bubbleGenerate);
-      clearInterval(timer);
-      gameStart = 0;
-      $("#map").remove();
-      gameWin();
-      var next;
-      next = map.zoom;
-      var incr;
-      incr = next + 1;
-      document.getElementById('levelContinue').addEventListener('click', function(event) {
-          smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
-      });
-    }
-    // if (pollutionPercent >= 100) {
+    // if ((pollutionLose * increasePollution) >= 600) {
     //   gameActive = 0;
-    //   pollutionPercent = 0;
-    //   energyPercent = 0;
+    //   energyWin = 0;
+    //   pollutionEnergy = 0;
     //   clearInterval(bubbleGenerate);
     //   clearInterval(timer);
     //   gameStart = 0;
     //   $("#map").remove();
     //   gamePollutionFail();
-    // } else if (energyPercent >= 100) {
+    // } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 600 || (energyWin * increaseEnergy) >= 600) {
     //   gameActive = 0;
+    //   pollutionEnergy = 0;
     //   clearInterval(bubbleGenerate);
     //   clearInterval(timer);
     //   gameStart = 0;
@@ -200,6 +179,30 @@ let checkGame = () => {
     //       smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
     //   });
     // }
+    if (pollutionPercent >= 100) {
+      gameActive = 0;
+      pollutionPercent = 0;
+      energyPercent = 0;
+      clearInterval(bubbleGenerate);
+      clearInterval(timer);
+      gameStart = 0;
+      $("#map").remove();
+      gamePollutionFail();
+    } else if (energyPercent >= 100) {
+      gameActive = 0;
+      clearInterval(bubbleGenerate);
+      clearInterval(timer);
+      gameStart = 0;
+      $("#map").remove();
+      gameWin();
+      var next;
+      next = map.zoom;
+      var incr;
+      incr = next + 1;
+      document.getElementById('levelContinue').addEventListener('click', function(event) {
+          smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
+      });
+    }
 }
 
 $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
@@ -207,21 +210,21 @@ $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
 
 let checkInitialUpgrade = () => {
   if (initialEnergy == true) {
-    energyWin = 1.5;
-    $('#renewableProgress')[0].style.height = increaseEnergy * energyWin + "px";
-    let calculateEnergy = (increaseEnergy * energyWin) * 100;
-    let finalEnergyPercent = (calculateEnergy / 600);
-    energyPercent = finalEnergyPercent;
-    // energyPercent = 20;
-    // $('#renewableProgress')[0].style.height = 600/20 + "px";
-    // $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-  } else {
-    energyWin = 0;
-    energyPercent = 0;
+    // energyWin = 1.5;
+    // $('#renewableProgress')[0].style.height = increaseEnergy * energyWin + "px";
+    // let calculateEnergy = (increaseEnergy * energyWin) * 100;
+    // let finalEnergyPercent = (calculateEnergy / 600);
+    // energyPercent = finalEnergyPercent;
+    energyPercent = 20;
+    $('#renewableProgress')[0].style.height = 600/20 + "px";
     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    // energyPercent = 0
+  } else {
+    // energyWin = 0;
+    // energyPercent = 0;
     // $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    // $('#renewableProgress')[0].style.height = "0px";
+    energyPercent = 0
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    $('#renewableProgress')[0].style.height = "0px";
   }
 }
 
@@ -280,27 +283,30 @@ let addBarBad = () => {
 let checkImg = ["styles/bad.png", "styles/oilrig.png"];
 
 dictateBar = () => {
-    var type = event.target.getAttribute("src");
-    event.target.style.WebkitAnimation = null;
-    event.target.style.display = "none";
-    if ( type == checkImg[0]) {
-        addBarBad()
-        event.target.onclick = null;
-    } else if (type == checkImg[1]) {
-        addBarBad()
-        event.target.onclick = null;
-    } else {
-        addBarGood()
-        event.target.onclick = null;
-    }
-    // let clickedString = event.target.src;
-    // let startString = clickedString.replace('styles/', '');
-    // let midString = clickedString.replace('.png', '');
-    // let endString = midString.replace(/^.*[\\\/]/, '');
-    // $('#renewableProgress').css('height', $('#renewableProgress').height() + energyValue[endString]);
-    // let addEnergy = (600/(energyValue[endString]);
-    // let addPollution = (600/(pollutionValue[endString]));
-    // energyPercent += addVal;
+    // var type = event.target.getAttribute("src");
+    // event.target.style.WebkitAnimation = null;
+    // event.target.style.display = "none";
+    // if ( type == checkImg[0]) {
+    //     addBarBad()
+    //     event.target.onclick = null;
+    // } else if (type == checkImg[1]) {
+    //     addBarBad()
+    //     event.target.onclick = null;
+    // } else {
+    //     addBarGood()
+    //     event.target.onclick = null;
+    // }
+    let clickedString = event.target.src;
+    let startString = clickedString.replace('styles/', '');
+    let midString = clickedString.replace('.png', '');
+    let endString = midString.replace(/^.*[\\\/]/, '');
+    let addEnergy = (energyValue[endString]);
+    let addPollution = (pollutionLbs[endString]);
+    let heightP = (addPollution < 1 ? (600 * addPollution) : (600 / addPollution))
+    energyPercent += (oahuMWH / addEnergy);
+    pollutionPercent += (oahuMP);
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + );
+    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + );
 }
 
 let timeNum = () => {
