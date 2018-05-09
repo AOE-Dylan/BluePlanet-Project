@@ -310,8 +310,6 @@ aside {
 }
 
 aside:hover {
-  border-top: 4px solid #26A69A;
-  border-bottom: 4px solid #00695C;
   border-radius: 50px;
   height: 350px;
   width: 300px;
