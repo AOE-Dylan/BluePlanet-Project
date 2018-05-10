@@ -48,7 +48,9 @@ var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
 var oahuMWH = 750;
-var oahuMP = ;
+var oahuMP = 750;
+var currMWH = 0;
+var currMP = 0;
 
 var loseGame = $("#gameLose")[0];
 var gameWinSound = $("#gameWin")[0];
@@ -205,8 +207,8 @@ let checkGame = () => {
     }
 }
 
-$(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-$(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
+$(".title")[0].innerText = "ENERGY: " + 0 + " MWh";
+$(".title")[1].innerText = "POLLUTION: " + 0 + " Lbs.";
 
 let checkInitialUpgrade = () => {
   if (initialEnergy == true) {
@@ -302,11 +304,20 @@ dictateBar = () => {
     let endString = midString.replace(/^.*[\\\/]/, '');
     let addEnergy = (energyValue[endString]);
     let addPollution = (pollutionLbs[endString]);
-    let heightP = (addPollution < 1 ? (600 * addPollution) : (600 / addPollution))
-    energyPercent += (oahuMWH / addEnergy);
-    pollutionPercent += (oahuMP);
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + );
-    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + );
+    let addPercentE = ((addEnergy / oahuMWH) * 100);
+    let addPercentP = (((addEnergy * addPollution) / oahuMP) * 100);
+    energyPercent += addPercentE;
+    pollutionPercent += addPercentP;
+    currMWH += addEnergy;
+    currMP += addPollution;
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + ((addPercentE * 600) / 100));
+    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + ((addPercentP * 600) / 100));
+    event.target.style.WebkitAnimation = null;
+    event.target.style.display = "none";
+    event.target.onclick = null;
+    $(".title")[0].innerText = "ENERGY: " + currMWH + " MWh";
+    $(".title")[1].innerText = "POLLUTION: " + currMP + "K Lbs.";
+    addPercentP > addPercentE ? badAudio() : goodAudio();
 }
 
 let timeNum = () => {
