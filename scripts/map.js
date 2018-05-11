@@ -130,19 +130,19 @@ let pollutionLbs = {
 }
 
 
-let gameMode2018 = () => {
-  images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
-  imagesUpgraded = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", images[randUpgrade]];
-}
+// let gameMode2018 = () => {
+//   images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
+//   imagesUpgraded = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", images[randUpgrade]];
+// }
+//
+// let gameMode2045 = () => {
+//   images = ["styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
+//   imagesUpgraded = ["styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png", images[randUpgrade]];
+// }
 
-let gameMode2045 = () => {
-  images = ["styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
-  imagesUpgraded = ["styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png", images[randUpgrade]];
-}
-
-let images = [];
-let imagesUpgraded = [];
+let images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
 let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
+let imagesUpgraded = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", images[randUpgrade]];
 var tempStore = [];
 
 let randomImg = () => {
@@ -451,7 +451,7 @@ function showInfoSlides(n) {
 
 let startMenuClose = 0;
 $("#gm1").click(function() {
-    startZoom.style.display = "none";
+    event.target.style.display = "none";
     background.style.filter = "blur(0px)";
     beforeStart.style.display = "none";
     $('#zoomAnimation').addClass('addZoom');
@@ -461,7 +461,7 @@ $("#gm1").click(function() {
 });
 
 $("#gm2").click(function() {
-    startZoom.style.display = "none";
+    event.target.style.display = "none";
     background.style.filter = "blur(0px)";
     beforeStart.style.display = "none";
     $('#zoomAnimation').addClass('addZoom');
