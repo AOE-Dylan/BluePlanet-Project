@@ -450,8 +450,8 @@ function showInfoSlides(n) {
 /*zoomAnimation.addEventListener("animationend", AnimationListener, false);*/
 
 let startMenuClose = 0;
-$("#gm1").click(function() {
-    event.target.style.display = "none";
+$("#startZoom").click(function() {
+    startZoom.style.display = "none";
     background.style.filter = "blur(0px)";
     beforeStart.style.display = "none";
     $('#zoomAnimation').addClass('addZoom');
@@ -460,15 +460,25 @@ $("#gm1").click(function() {
     menuClick.play();
 });
 
-$("#gm2").click(function() {
-    event.target.style.display = "none";
-    background.style.filter = "blur(0px)";
-    beforeStart.style.display = "none";
-    $('#zoomAnimation').addClass('addZoom');
-    let startMenuClose = 1;
-    $('#notMap').css("display", "block");
-    menuClick.play();
-});
+// $("#gm1").click(function() {
+//     event.target.style.display = "none";
+//     background.style.filter = "blur(0px)";
+//     beforeStart.style.display = "none";
+//     $('#zoomAnimation').addClass('addZoom');
+//     let startMenuClose = 1;
+//     $('#notMap').css("display", "block");
+//     menuClick.play();
+// });
+//
+// $("#gm2").click(function() {
+//     event.target.style.display = "none";
+//     background.style.filter = "blur(0px)";
+//     beforeStart.style.display = "none";
+//     $('#zoomAnimation').addClass('addZoom');
+//     let startMenuClose = 1;
+//     $('#notMap').css("display", "block");
+//     menuClick.play();
+// });
 
 /*function AnimationListener() {
     notMap.style.display = "block";
