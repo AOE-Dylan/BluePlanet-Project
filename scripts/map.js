@@ -48,7 +48,7 @@ var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
 var oahuMWH = 750;
-var oahuMP = 750;
+var oahuMP = 1500;
 var currMWH = 0;
 var currMP = 0;
 
@@ -112,12 +112,12 @@ let yCoord = () => {
 }
 
 let energyValue = {
-  "bad" : 50,
-  "oilrig" : 30,
-  "waste" : 20,
-  "leafpluslightning" : 30,
-  "solar" : 40,
-  "wind" : 30
+  "bad" : 150,
+  "oilrig" : 325,
+  "waste" : 37.5,
+  "leafpluslightning" : 37.5,
+  "solar" : 90,
+  "wind" : 60
 }
 
 let pollutionLbs = {
@@ -125,7 +125,7 @@ let pollutionLbs = {
   "oilrig" : 2.5,
   "solar" : 0.1,
   "wind" : .05,
-  "waste" : 0,
+  "waste" : 0.1,
   "leafpluslightning" : 0
 }
 
@@ -318,6 +318,7 @@ dictateBar = () => {
     $(".title")[0].innerText = "ENERGY: " + currMWH + " MWh";
     $(".title")[1].innerText = "POLLUTION: " + currMP + "K Lbs.";
     addPercentP > addPercentE ? badAudio() : goodAudio();
+    checkGame();
 }
 
 let timeNum = () => {
@@ -344,16 +345,16 @@ let randomButton = () => {
     }
     for (var i = 0; i < checkImg.length; i++){
       if (actualSrc !== checkImg[i]) {
-        setTimeout(nonInteractible, (nonRenewableFade * 1000));
+        setTimeout(nonInteractible, (nonRenewableFade * 1050));
         currBubble.style.WebkitAnimation = "fading " + nonRenewableFade + "s linear";
         currBubble.style.animationFillMode = "forwards";
       } else if (currBubble.src !== checkImg[i]){
        if (bubbleFadeUpgrade == true) {
-         setTimeout(nonInteractible, ((renewableFade * 1.5) * 1000))
+         setTimeout(nonInteractible, ((renewableFade * 1.5) * 1050))
          currBubble.style.WebkitAnimation = "fading " + (renewableFade + 1.2) + "s linear";
          currBubble.style.animationFillMode = "forwards";
        } else {
-         setTimeout(nonInteractible, (renewableFade * 1000))
+         setTimeout(nonInteractible, (renewableFade * 1050))
          currBubble.style.WebkitAnimation = "fading " + renewableFade + "s linear";
          currBubble.style.animationFillMode = "forwards";
         }
