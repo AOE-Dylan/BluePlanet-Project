@@ -41,13 +41,16 @@ let totalEnergyGen = renewableGoodStat + pollutionBadStat;
 var pollutionLose = 0;
 var pollutionEnergy = 0;
 var energyWin = 0;
-var difficultyCorrection = 1000 / level;
+var difficultyCorrection = 800 / level;
 
 var bubbleFadeUpgrade = false;
 var increaseRenewableUpgrade = false;
 var initialEnergy = false;
 
 var oahuMWH = 750;
+var oahuMP = 1500;
+var currMWH = 0;
+var currMP = 0;
 
 var loseGame = $("#gameLose")[0];
 var gameWinSound = $("#gameWin")[0];
@@ -109,20 +112,24 @@ let yCoord = () => {
 }
 
 let energyValue = {
-  "bad" : 50,
-  "oilrig" : 30,
-  "waste" : 20,
-  "leafpluslightning" : 30,
-  "solar" : 40,
-  "wind" : 30
+  "bad" : 150,
+  "oilrig" : 325,
+  "waste" : 37.5,
+  "leafpluslightning" : 37.5,
+  "solar" : 90,
+  "wind" : 60
 }
 
 let pollutionLbs = {
   "bad" : 3,
   "oilrig" : 2.5,
   "solar" : 0.1,
-  "wind" : .05
+  "wind" : .05,
+  "waste" : 0.1,
+  "leafpluslightning" : 0
 }
+
+
 
 let images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
 let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
@@ -151,42 +158,18 @@ var energyPercent = 0;
 var pollutionPercent = 0;
 
 let checkGame = () => {
-    if ((pollutionLose * increasePollution) >= 600) {
-      gameActive = 0;
-      energyWin = 0;
-      pollutionEnergy = 0;
-      clearInterval(bubbleGenerate);
-      clearInterval(timer);
-      gameStart = 0;
-      $("#map").remove();
-      gamePollutionFail();
-    } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 600 || (energyWin * increaseEnergy) >= 600) {
-      gameActive = 0;
-      pollutionEnergy = 0;
-      clearInterval(bubbleGenerate);
-      clearInterval(timer);
-      gameStart = 0;
-      $("#map").remove();
-      gameWin();
-      var next;
-      next = map.zoom;
-      var incr;
-      incr = next + 1;
-      document.getElementById('levelContinue').addEventListener('click', function(event) {
-          smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
-      });
-    }
-    // if (pollutionPercent >= 100) {
+    // if ((pollutionLose * increasePollution) >= 600) {
     //   gameActive = 0;
-    //   pollutionPercent = 0;
-    //   energyPercent = 0;
+    //   energyWin = 0;
+    //   pollutionEnergy = 0;
     //   clearInterval(bubbleGenerate);
     //   clearInterval(timer);
     //   gameStart = 0;
     //   $("#map").remove();
     //   gamePollutionFail();
-    // } else if (energyPercent >= 100) {
+    // } else if ((energyWin * increaseEnergy) + (pollutionEnergy * increaseEnergyP) >= 600 || (energyWin * increaseEnergy) >= 600) {
     //   gameActive = 0;
+    //   pollutionEnergy = 0;
     //   clearInterval(bubbleGenerate);
     //   clearInterval(timer);
     //   gameStart = 0;
@@ -200,28 +183,52 @@ let checkGame = () => {
     //       smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
     //   });
     // }
+    if (pollutionPercent >= 100) {
+      gameActive = 0;
+      pollutionPercent = 0;
+      energyPercent = 0;
+      clearInterval(bubbleGenerate);
+      clearInterval(timer);
+      gameStart = 0;
+      $("#map").remove();
+      gamePollutionFail();
+    } else if (energyPercent >= 100) {
+      gameActive = 0;
+      clearInterval(bubbleGenerate);
+      clearInterval(timer);
+      gameStart = 0;
+      $("#map").remove();
+      gameWin();
+      var next;
+      next = map.zoom;
+      var incr;
+      incr = next + 1;
+      document.getElementById('levelContinue').addEventListener('click', function(event) {
+          smoothZoom(map, incr, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
+      });
+    }
 }
 
-$(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-$(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
+$(".title")[0].innerText = "ENERGY: " + 0 + " MWh";
+$(".title")[1].innerText = "POLLUTION: " + 0 + " Lbs.";
 
 let checkInitialUpgrade = () => {
   if (initialEnergy == true) {
-    energyWin = 1.5;
-    $('#renewableProgress')[0].style.height = increaseEnergy * energyWin + "px";
-    let calculateEnergy = (increaseEnergy * energyWin) * 100;
-    let finalEnergyPercent = (calculateEnergy / 600);
-    energyPercent = finalEnergyPercent;
-    // energyPercent = 20;
-    // $('#renewableProgress')[0].style.height = 600/20 + "px";
-    // $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    // energyWin = 1.5;
+    // $('#renewableProgress')[0].style.height = increaseEnergy * energyWin + "px";
+    // let calculateEnergy = (increaseEnergy * energyWin) * 100;
+    // let finalEnergyPercent = (calculateEnergy / 600);
+    // energyPercent = finalEnergyPercent;
+    energyPercent = 20;
+    $('#renewableProgress')[0].style.height = 600/20 + "px";
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + " MWh";
   } else {
-    energyWin = 0;
-    energyPercent = 0;
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    // energyPercent = 0
+    // energyWin = 0;
+    // energyPercent = 0;
     // $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    // $('#renewableProgress')[0].style.height = "0px";
+    energyPercent = 0
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    $('#renewableProgress')[0].style.height = "0px";
   }
 }
 
@@ -241,66 +248,78 @@ let badAudio = () => {
   pollutionClone.play();
 }
 
-let addBarGood = () => {
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
-    energyWin++;
-    bubbleGoodStat++;
-    renewableGoodStat += increaseEnergy;
-    bubblesClick++;
-    let calculateEnergy = increaseEnergy * 100;
-    let finalEnergyPercent = (calculateEnergy / 600);
-    energyPercent += finalEnergyPercent;
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    //Starter code for Griff info values
-    goodAudio();
-    checkGame();
-};
-
-let addBarBad = () => {
-    $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergyP);
-    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + increasePollution);
-    pollutionLose++;
-    pollutionEnergy++;
-    bubbleBadStat++
-    pollutionBadStat += increasePollution;
-    renewableGoodStat += increaseEnergyP;
-    bubblesClick++;
-    let calculatePollution = increasePollution * 100;
-    let calculateEnergyP = increaseEnergyP * 100;
-    let finalPollutionPercent = (calculatePollution / 600);
-    let finalEnergyP = (calculateEnergyP / 600);
-    pollutionPercent += finalPollutionPercent;
-    energyPercent += finalEnergyP;
-    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    badAudio();
-    checkGame();
-};
+// let addBarGood = () => {
+//     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergy);
+//     energyWin++;
+//     bubbleGoodStat++;
+//     renewableGoodStat += increaseEnergy;
+//     bubblesClick++;
+//     let calculateEnergy = increaseEnergy * 100;
+//     let finalEnergyPercent = (calculateEnergy / 600);
+//     energyPercent += finalEnergyPercent;
+//     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+//     goodAudio();
+//     checkGame();
+// };
+//
+// let addBarBad = () => {
+//     $('#renewableProgress').css('height', $('#renewableProgress').height() + increaseEnergyP);
+//     $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + increasePollution);
+//     pollutionLose++;
+//     pollutionEnergy++;
+//     bubbleBadStat++
+//     pollutionBadStat += increasePollution;
+//     renewableGoodStat += increaseEnergyP;
+//     bubblesClick++;
+//     let calculatePollution = increasePollution * 100;
+//     let calculateEnergyP = increaseEnergyP * 100;
+//     let finalPollutionPercent = (calculatePollution / 600);
+//     let finalEnergyP = (calculateEnergyP / 600);
+//     pollutionPercent += finalPollutionPercent;
+//     energyPercent += finalEnergyP;
+//     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
+//     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+//     badAudio();
+//     checkGame();
+// };
 
 let checkImg = ["styles/bad.png", "styles/oilrig.png"];
 
 dictateBar = () => {
-    var type = event.target.getAttribute("src");
+    // var type = event.target.getAttribute("src");
+    // event.target.style.WebkitAnimation = null;
+    // event.target.style.display = "none";
+    // if ( type == checkImg[0]) {
+    //     addBarBad()
+    //     event.target.onclick = null;
+    // } else if (type == checkImg[1]) {
+    //     addBarBad()
+    //     event.target.onclick = null;
+    // } else {
+    //     addBarGood()
+    //     event.target.onclick = null;
+    // }
+    let clickedString = event.target.src;
+    let startString = clickedString.replace('styles/', '');
+    let midString = clickedString.replace('.png', '');
+    let endString = midString.replace(/^.*[\\\/]/, '');
+    let addEnergy = (energyValue[endString]);
+    let addPollution = (pollutionLbs[endString]);
+    let addPercentE = ((addEnergy / oahuMWH) * 100);
+    let addPercentP = (((addEnergy * addPollution) / oahuMP) * 100);
+    energyPercent += addPercentE;
+    pollutionPercent += addPercentP;
+    currMP += addPollution;
+    currMWH += addEnergy;
+    $('#renewableProgress').css('height', $('#renewableProgress').height() + ((addPercentE * 600) / 100));
+    $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() + ((addPercentP * 600) / 100));
     event.target.style.WebkitAnimation = null;
     event.target.style.display = "none";
-    if ( type == checkImg[0]) {
-        addBarBad()
-        event.target.onclick = null;
-    } else if (type == checkImg[1]) {
-        addBarBad()
-        event.target.onclick = null;
-    } else {
-        addBarGood()
-        event.target.onclick = null;
-    }
-    // let clickedString = event.target.src;
-    // let startString = clickedString.replace('styles/', '');
-    // let midString = clickedString.replace('.png', '');
-    // let endString = midString.replace(/^.*[\\\/]/, '');
-    // $('#renewableProgress').css('height', $('#renewableProgress').height() + energyValue[endString]);
-    // let addEnergy = (600/(energyValue[endString]);
-    // let addPollution = (600/(pollutionValue[endString]));
-    // energyPercent += addVal;
+    event.target.onclick = null;
+    $(".title")[0].innerText = "ENERGY: " + currMWH + " MWh";
+    $(".title")[1].innerText = "POLLUTION: " + currMP + "K Lbs.";
+    addPercentP > addPercentE ? badAudio() : goodAudio();
+    checkGame();
 }
 
 let timeNum = () => {
@@ -327,16 +346,16 @@ let randomButton = () => {
     }
     for (var i = 0; i < checkImg.length; i++){
       if (actualSrc !== checkImg[i]) {
-        setTimeout(nonInteractible, (nonRenewableFade * 1000));
+        setTimeout(nonInteractible, (nonRenewableFade * 1050));
         currBubble.style.WebkitAnimation = "fading " + nonRenewableFade + "s linear";
         currBubble.style.animationFillMode = "forwards";
       } else if (currBubble.src !== checkImg[i]){
        if (bubbleFadeUpgrade == true) {
-         setTimeout(nonInteractible, ((renewableFade * 1.5) * 1000))
+         setTimeout(nonInteractible, ((renewableFade * 1.5) * 1050))
          currBubble.style.WebkitAnimation = "fading " + (renewableFade + 1.2) + "s linear";
          currBubble.style.animationFillMode = "forwards";
        } else {
-         setTimeout(nonInteractible, (renewableFade * 1000))
+         setTimeout(nonInteractible, (renewableFade * 1050))
          currBubble.style.WebkitAnimation = "fading " + renewableFade + "s linear";
          currBubble.style.animationFillMode = "forwards";
         }
@@ -649,13 +668,13 @@ function smoothZoom(map, max, cnt) {
   }
 }
 
-let availableUpgrades = ["20sec", "slowerDecay", "moreGoodBubbles", "energyHeadstart"];
+let availableUpgrades = ["5sec", "slowerDecay", "moreGoodBubbles", "energyHeadstart"];
 let upgrades = [];
 
 function upgradeGenerator() {
   let upgradeItem = availableUpgrades.splice(Math.floor(Math.random() * availableUpgrades.length), 1);
-  if(upgradeItem == "20sec"){
-    $("#upgradeReward").text("+20 SECONDS TO THE TIMER");
+  if(upgradeItem == "5sec"){
+    $("#upgradeReward").text("+5 SECONDS TO THE TIMER");
     upgrades.push(upgradeItem[0])
   } else if(upgradeItem == "slowerDecay"){
     $("#upgradeReward").text("RENEWABLE BUBBLES DECAY SLOWER");
@@ -858,23 +877,29 @@ levelContinue.addEventListener("click", function() {
     $('.upgradeText').text("ANSWER CORRECTLY FOR AN UPGRADE");
     $('.upgradeText').css("color", "white");
     $("#upgradeCongrats").css("display", "none");
-    pollutionEnergy = 0;
+    // pollutionEnergy = 0;
+    // let calculatePollution = increasePollution * 100;
+    // let finalPollutionPercent = (calculatePollution / 600);
+    // if (pollutionPercent > 0) {
+      // pollutionLose--;
+      // $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
+      // pollutionPercent -= finalPollutionPercent;
+    // }
+    if (pollutionPercent < 10) {
+      pollutionPercent = 0;
+    } else {
+      pollutionPercent - 10;
+    }
+
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + " KWh";
+    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "K Lbs.";
 
     checkInitialUpgrade();
-    let calculatePollution = increasePollution * 100;
-    let finalPollutionPercent = (calculatePollution / 600);
-    if (pollutionLose > 0) {
-      pollutionLose--;
-      $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - increasePollution);
-      pollutionPercent -= finalPollutionPercent;
-    }
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
-    if(upgrades.includes("20sec") === true){
-      sec = sec + 20;
+    if(upgrades.includes("5sec") === true){
+      sec = sec + 5;
     }
     document.getElementById('timer').innerHTML = sec + " seconds left";
-    difficultyCorrection = 1000 / level;
+    difficultyCorrection = 800 / level;
     let menuClickAudio = $("#menuClick")[0];
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
