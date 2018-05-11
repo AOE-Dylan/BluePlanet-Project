@@ -130,10 +130,19 @@ let pollutionLbs = {
 }
 
 
+let gameMode2018 = () => {
+  images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
+  imagesUpgraded = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", images[randUpgrade]];
+}
 
-let images = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
+let gameMode2045 = () => {
+  images = ["styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png"];
+  imagesUpgraded = ["styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", "styles/wind.png", images[randUpgrade]];
+}
+
+let images = [];
+let imagesUpgraded = [];
 let randUpgrade = (Math.floor(Math.random() * images.length) + 0);
-let imagesUpgraded = ["styles/bad.png", "styles/oilrig.png", "styles/waste.png", "styles/leafpluslightning.png", "styles/solar.png", images[randUpgrade]];
 var tempStore = [];
 
 let randomImg = () => {
@@ -441,7 +450,17 @@ function showInfoSlides(n) {
 /*zoomAnimation.addEventListener("animationend", AnimationListener, false);*/
 
 let startMenuClose = 0;
-$("#startZoom").click(function() {
+$("#gm1").click(function() {
+    startZoom.style.display = "none";
+    background.style.filter = "blur(0px)";
+    beforeStart.style.display = "none";
+    $('#zoomAnimation').addClass('addZoom');
+    let startMenuClose = 1;
+    $('#notMap').css("display", "block");
+    menuClick.play();
+});
+
+$("#gm2").click(function() {
     startZoom.style.display = "none";
     background.style.filter = "blur(0px)";
     beforeStart.style.display = "none";
