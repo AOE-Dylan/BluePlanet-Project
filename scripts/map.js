@@ -236,7 +236,7 @@ let checkInitialUpgrade = () => {
     // energyPercent = 0;
     // $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
     energyPercent = 0
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + " MWh";
     $('#renewableProgress')[0].style.height = "0px";
   }
 }
