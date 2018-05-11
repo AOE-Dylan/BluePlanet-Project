@@ -451,7 +451,7 @@ function showInfoSlides(n) {
 
 let startMenuClose = 0;
 $("#gm1").click(function() {
-    startZoom.style.display = "none";
+    document.getElementById('gm1').style.display = "none";
     background.style.filter = "blur(0px)";
     beforeStart.style.display = "none";
     $('#zoomAnimation').addClass('addZoom');
@@ -461,7 +461,7 @@ $("#gm1").click(function() {
 });
 
 $("#gm2").click(function() {
-    startZoom.style.display = "none";
+    document.getElementById('gm2').style.display = "none";
     background.style.filter = "blur(0px)";
     beforeStart.style.display = "none";
     $('#zoomAnimation').addClass('addZoom');
