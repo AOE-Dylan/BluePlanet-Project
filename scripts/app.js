@@ -23,12 +23,12 @@ let gameWin = () => {
       levelContinue.style.display = "block";
       levelContinue.innerHTML = "CONTINUE TO INFINITE MODE";
       $('#infiniteStatistics').css("display", "block");
-      totalEnergyGen = renewableGoodStat + pollutionBadStat;
+      totalEnergyGen = bubbleGoodStat + bubbleBadStat;
       $('.totalEnergyGen').text(totalEnergyGen);
       $('.totalClicked').text(bubblesClick);
       $('.goodClicked').text(bubbleGoodStat);
       $('.renewableGenerated').text(renewableGoodStat);
-      $('.pollutionGenerated').text(pollutionBadStat)
+      $('.pollutionGenerated').text(pollutionBadStat.toFixed(1) + " K")
       $('.badClicked').text(bubbleBadStat);
       $('.totalEnergyGen').text(totalEnergyGen);
       $('.levelsPassed').text(level - 1);
@@ -41,12 +41,12 @@ let gameWin = () => {
      levelContinue.style.display = "block";
      levelContinue.innerHTML = "CONTINUE TO LEVEL " + level;
      $('#infiniteStatistics').css("display", "block");
-     totalEnergyGen = renewableGoodStat + pollutionBadStat;
+     totalEnergyGen = bubbleGoodStat + bubbleBadStat;
      $('.totalEnergyGen').text(totalEnergyGen);
      $('.totalClicked').text(bubblesClick);
      $('.goodClicked').text(bubbleGoodStat);
      $('.renewableGenerated').text(renewableGoodStat);
-     $('.pollutionGenerated').text(pollutionBadStat)
+     $('.pollutionGenerated').text(pollutionBadStat.toFixed(1) + " K")
      $('.badClicked').text(bubbleBadStat);
      $('.levelsPassed').text(level - 1);
      $('.timeElapsed').text(timeElapsed + " seconds");
@@ -76,12 +76,12 @@ let gameTimerFail = () => {
     duringGame.pause();
     duringGame.currentTime = 0;
     loseGame.play();
-    totalEnergyGen = renewableGoodStat + pollutionBadStat;
+    totalEnergyGen = bubbleGoodStat + bubbleBadStat;
     $('.totalEnergyGen').text(totalEnergyGen);
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
     $('.renewableGenerated').text(renewableGoodStat);
-    $('.pollutionGenerated').text(pollutionBadStat)
+    $('.pollutionGenerated').text(pollutionBadStat.toFixed(1) + " K")
     $('.badClicked').text(bubbleBadStat);
     $('.totalEnergyGen').text(totalEnergyGen);
     $('.levelsPassed').text(level - 1);
@@ -98,12 +98,12 @@ let gamePollutionFail = () => {
     duringGame.pause();
     duringGame.currentTime = 0;
     loseGame.play();
-    totalEnergyGen = renewableGoodStat + pollutionBadStat;
+    totalEnergyGen = bubbleGoodStat + bubbleBadStat;
     $('.totalEnergyGen').text(totalEnergyGen);
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
     $('.renewableGenerated').text(renewableGoodStat);
-    $('.pollutionGenerated').text(pollutionBadStat)
+    $('.pollutionGenerated').text(pollutionBadStat.toFixed(1) + " K")
     $('.badClicked').text(bubbleBadStat);
     $('.totalEnergyGen').text(totalEnergyGen);
     $('.levelsPassed').text(level - 1);

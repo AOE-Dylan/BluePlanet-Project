@@ -218,8 +218,8 @@ let checkGame = () => {
     }
 }
 
-$(".title")[0].innerText = "ENERGY: " + 0 + " MWh";
-$(".title")[1].innerText = "POLLUTION: " + 0 + " Lbs.";
+$(".title")[0].innerText = "MWh: " + 0 ;
+$(".title")[1].innerText = "CO2: " + 0 + " Lbs.";
 
 let checkInitialUpgrade = () => {
   if (initialEnergy == true) {
@@ -229,14 +229,16 @@ let checkInitialUpgrade = () => {
     // let finalEnergyPercent = (calculateEnergy / 600);
     // energyPercent = finalEnergyPercent;
     energyPercent = 20;
+    currMWH = (750 * .2);
     $('#renewableProgress')[0].style.height = 600/20 + "px";
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + " MWh";
+    $(".title")[0].innerText = "MWh: " + (energyPercent * .2).toFixed(1) ;
   } else {
     // energyWin = 0;
     // energyPercent = 0;
-    // $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
-    energyPercent = 0
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + " MWh";
+    // $(".title")[0].innerText = "MWh: " + energyPercent.toFixed(1) + "%";
+    energyPercent = 0;
+    currMWH = 0;
+    $(".title")[0].innerText = "MWh: " + energyPercent.toFixed(1) ;
     $('#renewableProgress')[0].style.height = "0px";
   }
 }
@@ -247,6 +249,7 @@ let goodAudio = () => {
   let effectVolume = $("#effectSlider")[0].value;
   energyClone.volume = (parseInt(effectVolume) / 100);
   energyClone.play();
+  bubbleGoodStat++;
 }
 
 let badAudio = () => {
@@ -255,6 +258,7 @@ let badAudio = () => {
   let effectVolume = $("#effectSlider")[0].value;
   pollutionClone.volume = (parseInt(effectVolume) / 100);
   pollutionClone.play();
+  bubbleBadStat++;
 }
 
 // let addBarGood = () => {
@@ -266,7 +270,7 @@ let badAudio = () => {
 //     let calculateEnergy = increaseEnergy * 100;
 //     let finalEnergyPercent = (calculateEnergy / 600);
 //     energyPercent += finalEnergyPercent;
-//     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+//     $(".title")[0].innerText = "MWh: " + energyPercent.toFixed(1) + "%";
 //     goodAudio();
 //     checkGame();
 // };
@@ -286,8 +290,8 @@ let badAudio = () => {
 //     let finalEnergyP = (calculateEnergyP / 600);
 //     pollutionPercent += finalPollutionPercent;
 //     energyPercent += finalEnergyP;
-//     $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "%";
-//     $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + "%";
+//     $(".title")[1].innerText = "CO2: " + pollutionPercent.toFixed(1) + "%";
+//     $(".title")[0].innerText = "MWh: " + energyPercent.toFixed(1) + "%";
 //     badAudio();
 //     checkGame();
 // };
@@ -325,10 +329,15 @@ dictateBar = () => {
     event.target.style.WebkitAnimation = null;
     event.target.style.display = "none";
     event.target.onclick = null;
-    $(".title")[0].innerText = "ENERGY: " + currMWH + " MWh";
-    $(".title")[1].innerText = "POLLUTION: " + currMP + "K Lbs.";
-    addPercentP > addPercentE ? badAudio() : goodAudio();
+    $(".title")[0].innerText = "MWh: " + currMWH.toFixed(1) ;
+    $(".title")[1].innerText = "CO2: " + currMP.toFixed(1) + "K Lbs.";
+    addPercentP > addPercentE ? (badAudio()) : (goodAudio());
+    renewableGoodStat += addEnergy;
+    pollutionBadStat += addPollution;
     checkGame();
+    console.log(pollutionBadStat);
+    console.log(addPollution);
+    console.log(currMP)
 }
 
 let timeNum = () => {
@@ -580,12 +589,12 @@ information.addEventListener("click", function() {
     credits.style.display = "none";
     settingsMenu.style.display = "none";
 
-    totalEnergyGen = renewableGoodStat + pollutionBadStat;
+    totalEnergyGen = bubbleGoodStat + bubbleBadStat;
     $('.totalEnergyGen').text(totalEnergyGen);
     $('.totalClicked').text(bubblesClick);
     $('.goodClicked').text(bubbleGoodStat);
-    $('.renewableGenerated').text(renewableGoodStat);
-    $('.pollutionGenerated').text(pollutionBadStat)
+    $('.renewableGenerated').text(renewableGoodStat.toFixed(1));
+    $('.pollutionGenerated').text(pollutionBadStat.toFixed(1) + " K")
     $('.badClicked').text(bubbleBadStat);
     $('.levelsPassed').text(level - 1);
     $('.timeElapsed').text(timeElapsed + " seconds");
@@ -821,10 +830,6 @@ function restart() {
     bubblesClick = 0;
     timeElapsed = 0;
 
-    energyWin = 0;
-    pollutionEnergy = 0;
-    pollutionLose = 0;
-
     round.innerHTML = "Level " + level;
     timerFail.style.display = "none";
     gameFail.style.display = "none";
@@ -857,14 +862,14 @@ function restart() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 15;
+    sec = 20;
     document.getElementById('timer').innerHTML = sec + " seconds left";
     $('#startButton').addClass('animated infinite rubberBand');
     randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
     currMWH = 0;
     currMP = 0;
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + " MWh";
-    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "K Lbs.";
+    $(".title")[0].innerText = "MWh: " + energyPercent.toFixed(1);
+    $(".title")[1].innerText = "CO2: " + pollutionPercent.toFixed(1) + "K Lbs.";
     bubbleFadeUpgrade = false;
     increaseRenewableUpgrade = false;
     initialEnergy = false;
@@ -897,7 +902,7 @@ levelContinue.addEventListener("click", function() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 15;
+    sec = 20;
     $('#startButton').addClass('animated infinite rubberBand');
     $("#level1Quiz").css("display", "none");
     $("#level2Quiz").css("display", "none");
@@ -916,12 +921,16 @@ levelContinue.addEventListener("click", function() {
     // }
     if (pollutionPercent < 10) {
       pollutionPercent = 0;
+      currMP = 0;
+      $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - ($('#nonRenewableProgress').height()/60));
     } else {
       pollutionPercent - 10;
+      currMP - (oahuMP * .1)
+      $('#nonRenewableProgress').css('height', $('#nonRenewableProgress').height() - ($('#nonRenewableProgress').height()/60));
     }
 
-    $(".title")[0].innerText = "ENERGY: " + energyPercent.toFixed(1) + " KWh";
-    $(".title")[1].innerText = "POLLUTION: " + pollutionPercent.toFixed(1) + "K Lbs.";
+    $(".title")[0].innerText = "MWh: " + energyPercent.toFixed(1);
+    $(".title")[1].innerText = "CO2: " + currMP.toFixed(1) + "K Lbs.";
 
     checkInitialUpgrade();
     if(upgrades.includes("5sec") === true){
