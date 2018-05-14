@@ -405,7 +405,11 @@ a.boxClose:hover {
   width: 225px;
   white-space: nowrap;
   opacity: 0.8;
-  background-color: #0098a4;
+  background: linear-gradient(35deg, #0098a4, #0f9460, #1baa4d, #649b8b, #00d0ad, #0098a4);
+  background-size: 600% 600%;
+  -webkit-animation: greenBarAnimation 2s ease infinite;
+-moz-animation: greenBarAnimation 2s ease infinite;
+animation: greenBarAnimation 2s ease infinite;
   color: white;
   padding:5px;
   border:2px solid #ccc;
@@ -456,7 +460,7 @@ a.boxClose:hover {
 	/* float:left; */
 	/* margin:7px 5% 5px 5%; */
 	border:2px solid #ccc;
-  background-color: rgba(255,255,255,0.1);
+	background-color: rgba(255,255,255,0.2);
 	-moz-border-radius: 12px;
 	-webkit-border-radius: 12px;
 	border-radius: 57px;
@@ -469,7 +473,7 @@ a.boxClose:hover {
   font-family:"Quicksand", cursive;
   font-weight: bolder;
 	color:white;
-	font-size: 12px;
+	font-size: 16px;
   font-weight:bold;
 	text-align:center;
 	padding:15px 0px 5px 0px;
@@ -956,13 +960,5 @@ padding-top: 1px;
 }
 
 .energyPercent {
-  background: linear-gradient(35deg, #0098a4, #0f9460, #1baa4d, #649b8b, #00d0ad, #0098a4);
-  background-size: 200% auto;
-
   color: #000;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 1s linear infinite;
 }

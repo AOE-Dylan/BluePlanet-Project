@@ -862,7 +862,7 @@ function restart() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 20;
+    sec = 25;
     document.getElementById('timer').innerHTML = sec + " seconds left";
     $('#startButton').addClass('animated infinite rubberBand');
     randomQuiz = quizzes.splice(Math.floor(Math.random() * quizzes.length), 1);
@@ -887,8 +887,7 @@ function restart() {
     var menuClone = menuClickAudio.cloneNode();
     menuClone.play();
     $('#infiniteStatistics').css("display", "none");
-    $("#timer").css("color", "white");
-    $('#timer').removeClass('animated pulse 0.3s infinite');
+    $("#roundsBox").attr("style", "background");
 };
 
 levelContinue.addEventListener("click", function() {
@@ -902,7 +901,7 @@ levelContinue.addEventListener("click", function() {
     div.id = "map";
     let newMap = document.getElementById('background').appendChild(div);
     remaining = document.getElementById('map').children;
-    sec = 20;
+    sec = 25;
     $('#startButton').addClass('animated infinite rubberBand');
     $("#level1Quiz").css("display", "none");
     $("#level2Quiz").css("display", "none");
@@ -944,8 +943,7 @@ levelContinue.addEventListener("click", function() {
 
     if(level == 6){gameWinSound.pause(); gameWinSound.currentTime = 0;}
     if(level > 6){infiniteWin.pause(); infiniteWin.currentTime = 0;}
-      $("#timer").css("color", "white");
-      $('#timer').removeClass('animated pulse 0.3s infinite');
+$("#roundsBox").attr("style", "background");
 });
 
 document.onkeydown = checkKey;

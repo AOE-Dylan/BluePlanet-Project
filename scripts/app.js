@@ -1,5 +1,5 @@
 
-let sec = 15;
+let sec = 25;
 
 let gameWin = () => {
     duringGame.pause();
@@ -123,9 +123,9 @@ let countdown = () =>  {
   } else if (sec === 0) {
     sec = 15;
     document.getElementById('timer').innerHTML = sec + " seconds left";
-  }  else if (sec < 5) {
-    $("#timer").css("color", "#c23b22");
-    $('#timer').addClass('animated pulse 1s infinite');
+  }  else if (sec < 7) {
+    $("#roundsBox").css("background", "linear-gradient(35deg, #c23b22, #b05f50, #bd8c83, #c15b48, #bd8c83, #b05f50, #c23b22)");
+    $("#roundsBox").css("background-size", "600% 600%");
       sec = sec - 1;
       document.getElementById('timer').innerHTML = sec + " seconds left";
   } else if (sec < 10) {
